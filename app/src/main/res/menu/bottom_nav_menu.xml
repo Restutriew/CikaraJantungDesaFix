@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="Beranda" />
+
+    <item
+        android:id="@+id/navigation_laporan"
+        android:icon="@drawable/ic_baseline_forum_24"
+        android:title="Laporan" />
+
+
+    <item
+        android:id="@+id/navigation_forum"
+        android:icon="@drawable/ic_baseline_people_24"
+        android:title="Forum" />
+
+    <item
+        android:id="@+id/navigation_lapak"
+        android:icon="@drawable/ic_baseline_shopping_cart_24"
+        android:title="Lapak" />
+
+    <item
+        android:id="@+id/navigation_surat"
+        android:icon="@drawable/ic_baseline_content_copy_24"
+        android:title="Surat" />
+
+
+</menu>

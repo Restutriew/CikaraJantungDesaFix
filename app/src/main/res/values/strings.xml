@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Jantung Desa</string>
+    <string name="next">Selanjutnya</string>
+    <string name="start">Saya Mengerti</string>
+
+    <string-array name="jenis_laporan">
+        <item>Kebersihan</item>
+        <item>Keamanan</item>
+        <item>Pertanian</item>
+        <item>Kesehatan</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="biru_cikara">#283444</color>
+    <color name="biru_cikara_secondary">#536B8C</color>
+
+    <color name="abu">#9F9F9F</color>
+
+    <color name="warna_utama">#14BDEE</color>
+    <color name="warna_bg">#EBFBFF</color>
+    <color name="warna_bg2">#EAECED</color>
+    <color name="warna_tulisan">#384158</color>
+    <color name="dongker">#21363f</color>
+    <color name="hijau">#51FF2E</color>
+    <color name="silver">#C0C0C0</color>
+
+    <color name="dot_inactive_screen1">@color/biru_cikara_secondary</color>
+    <color name="dot_inactive_screen2">@color/biru_cikara_secondary</color>
+    <color name="dot_inactive_screen3">@color/biru_cikara_secondary</color>
+    <color name="dot_inactive_screen4">@color/biru_cikara_secondary</color>
+    <!-- dots active colors -->
+    <color name="dot_active_screen1">@color/biru_cikara</color>
+    <color name="dot_active_screen2">@color/biru_cikara</color>
+    <color name="dot_active_screen3">@color/biru_cikara</color>
+    <color name="dot_active_screen4">@color/biru_cikara</color>
+
+    <array name="array_dot_active">
+        <item>@color/dot_active_screen1</item>
+        <item>@color/dot_active_screen2</item>
+        <item>@color/dot_active_screen3</item>
+        <item>@color/dot_active_screen4</item>
+    </array>
+    <array name="array_dot_inactive">
+        <item>@color/dot_inactive_screen1</item>
+        <item>@color/dot_inactive_screen2</item>
+        <item>@color/dot_inactive_screen3</item>
+        <item>@color/dot_inactive_screen4</item>
+    </array>
+
+</resources>
