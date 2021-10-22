@@ -3,7 +3,9 @@ package com.cikarastudio.cikarajantungdesafix.ui.lapak;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -17,6 +19,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.cikarastudio.cikarajantungdesafix.R;
 import com.cikarastudio.cikarajantungdesafix.ssl.HttpsTrustManager;
+import com.cikarastudio.cikarajantungdesafix.ui.loadingdialog.LoadingDialog;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,9 +32,11 @@ import java.util.Map;
 
 public class TambahProdukActivity extends AppCompatActivity {
 
+    LoadingDialog loadingDialog;
     CardView cr_tambahProduk;
-    EditText et_namaProduk,et_hargaProduk,et_keteranganProduk;
-    private static String URL_TAMBAHBUMIL = "https://jantungdesa.bunefit.com/api/produk";
+    EditText et_namaProduk, et_hargaProduk, et_keteranganProduk;
+    private static String URL_TAMBAHPRODUK = "https://jantungdesa.bunefit.com/api/produk";
+    String id_lapak, token;
 
 
     @Override
@@ -44,10 +49,20 @@ public class TambahProdukActivity extends AppCompatActivity {
         et_hargaProduk = findViewById(R.id.et_hargaProduk);
         et_keteranganProduk = findViewById(R.id.et_keteranganProduk);
 
+        //allow ssl
+        HttpsTrustManager.allowAllSSL();
+
+        loadingDialog = new LoadingDialog(TambahProdukActivity.this);
+
+        Intent intent = getIntent();
+        id_lapak = intent.getStringExtra("id_lapak");
+
+        token = getString(R.string.token);
 
         cr_tambahProduk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                loadingDialog.startLoading();
                 addProduk();
             }
         });
@@ -56,12 +71,21 @@ public class TambahProdukActivity extends AppCompatActivity {
     }
 
     private void addProduk() {
-        HttpsTrustManager.allowAllSSL();
         final String namaProduk = et_namaProduk.getText().toString().trim();
         final String hargaProduk = et_hargaProduk.getText().toString().trim();
         final String keteranganProduk = et_keteranganProduk.getText().toString().trim();
-        final String lapak_id = "2";
-        final String gambar = "testing.jpg";
+        final String lapak_id = id_lapak;
+        final String gambar = "blablabla.jpg";
+        final String dilihat = "0";
+
+        Log.d("calpalnx", String.valueOf(namaProduk));
+        Log.d("calpalnx", String.valueOf(hargaProduk));
+        Log.d("calpalnx", String.valueOf(keteranganProduk));
+        Log.d("calpalnx", String.valueOf(lapak_id));
+        Log.d("calpalnx", String.valueOf(gambar));
+        Log.d("calpalnx", String.valueOf(token));
+        Log.d("calpalnx", String.valueOf(dilihat));
+
 
 //        String tglLahir = et_tambahBumilTglLahir.getText().toString().trim();
 //        String tanggal = tglLahir.substring(0, 2);
@@ -77,7 +101,7 @@ public class TambahProdukActivity extends AppCompatActivity {
 //        Calendar cal = Calendar.getInstance();
 //        final String tanggalSekarang = dateFormat.format(cal.getTime());
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_TAMBAHBUMIL,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_TAMBAHPRODUK,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -86,39 +110,39 @@ public class TambahProdukActivity extends AppCompatActivity {
                             String success = jsonObject.getString("success");
 
                             if (success.equals("1")) {
-                                Toast.makeText(TambahProdukActivity.this, "Tambah Sukses", Toast.LENGTH_LONG).show();
-//                                loadingDialog.dissmissDialog();
-//                                finish();
+                                Toast.makeText(TambahProdukActivity.this, "Tambah Produk Sukses", Toast.LENGTH_LONG).show();
+                                loadingDialog.dissmissDialog();
+                                finish();
+                            }
+                            else{
+                                Toast.makeText(TambahProdukActivity.this, "Tambah Produk Gagal!" , Toast.LENGTH_LONG).show();
+                                loadingDialog.dissmissDialog();
                             }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Toast.makeText(TambahProdukActivity.this, "Tambah Gagal Hamil Gagal!", Toast.LENGTH_LONG).show();
-//                            loadingDialog.dissmissDialog();
+                            Toast.makeText(TambahProdukActivity.this, "Tambah Produk Gagal!" + e.toString(), Toast.LENGTH_LONG).show();
+                            loadingDialog.dissmissDialog();
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(TambahProdukActivity.this, "Tambah Data Bumil Gagal! : Cek Koneksi Anda" + error, Toast.LENGTH_LONG).show();
-//                        loadingDialog.dissmissDialog();
+                        Toast.makeText(TambahProdukActivity.this, "Tambah Produk Gagal! : Cek Koneksi Anda" + error, Toast.LENGTH_LONG).show();
+                        loadingDialog.dissmissDialog();
                     }
                 }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-
                 params.put("lapak_id", lapak_id);
                 params.put("nama", namaProduk);
                 params.put("keterangan", keteranganProduk);
                 params.put("gambar", gambar);
                 params.put("harga", hargaProduk);
-//                params.put("goldar", goldarBumil);
-//                params.put("agama", agamaBumil);
-//                params.put("pekerjaan", pekerjaanBumil);
-//                params.put("pendidikan", pendidikanBumil);
-//                params.put("created_at", tanggalSekarang);
+                params.put("token", token);
+                params.put("dilihat", dilihat);
                 return params;
             }
         };

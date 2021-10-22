@@ -2,10 +2,19 @@ package com.cikarastudio.cikarajantungdesafix.template;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.ColorSpace;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.cikarastudio.cikarajantungdesafix.model.ProdukModel;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class TextFuntion {
 
@@ -32,7 +41,7 @@ public class TextFuntion {
         edit.requestFocus();
     }
 
-    public void settextdannulldata(TextView textView, String string) {
+    public void setTextDanNullData(TextView textView, String string) {
         if (convertUpperCase(string).equals("Null")) {
             textView.setText("Tidak Ada Data");
         } else {
@@ -55,4 +64,40 @@ public class TextFuntion {
         }
         return sb.toString();
     }
+
+    public void setRupiah(TextView textView, Integer integer) {
+        String string = String.valueOf(integer);
+        if (convertUpperCase(string).equals("Null")) {
+            textView.setText("Tidak Ada Data");
+        } else {
+            textView.setText("Rp. "+convertharga(string));
+        }
+    }
+
+    public void setAngka(TextView textView, Integer integer) {
+        String string = String.valueOf(integer);
+        if (convertUpperCase(string).equals("Null")) {
+            textView.setText("Tidak Ada Data");
+        } else {
+            textView.setText(convertharga(string));
+        }
+    }
+
+    private String convertharga(String string) {
+        StringBuilder stringBuilder = new StringBuilder(string);
+        for (int i = stringBuilder.length() - 3; i > 0; i -= 3) {
+            stringBuilder.insert(i, ".");
+        }
+        return stringBuilder.toString();
+    }
+
+//    public void sortAlfabet(ArrayList array, RecyclerView.Adapter adapter) {
+//        Collections.sort(array, new Comparator<ProdukModel>() {
+//            @Override
+//            public int compare(ProdukModel t1, ProdukModel t2) {
+//                return t1.getNama().compareToIgnoreCase(t2.getNama());
+//            }
+//        });
+//        adapter.notifyDataSetChanged();
+//    }
 }

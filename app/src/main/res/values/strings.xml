@@ -3,6 +3,8 @@
     <string name="next">Selanjutnya</string>
     <string name="start">Saya Mengerti</string>
 
+    <string name="token">$2y$10$kIAxk2KCirEdUXMv8iuX6OkLHP6ha.XIbSkIrN1HcLga9zEi4/sLa</string>
+
     <string-array name="jenis_laporan">
         <item>Kebersihan</item>
         <item>Keamanan</item>

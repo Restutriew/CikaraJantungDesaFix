@@ -277,7 +277,6 @@ public class ProfilActivity extends AppCompatActivity {
     }
 
     private void loadDataDiri() {
-//        HttpsTrustManager.allowAllSSL();
         String URL_READ = "https://jantungdesa.bunefit.com/api/penduduk/" + id_user;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
                 new Response.Listener<String>() {
@@ -348,64 +347,64 @@ public class ProfilActivity extends AppCompatActivity {
 
                             TextFuntion textFuntion = new TextFuntion();
                             //data diri
-                            textFuntion.settextdannulldata(et_nama1, res_nama);
-                            textFuntion.settextdannulldata(et_nik, res_nik);
-                            textFuntion.settextdannulldata(et_nama, res_nama);
-                            textFuntion.settextdannulldata(et_ktpEl, res_ktpEl);
-                            textFuntion.settextdannulldata(et_statusRekam, res_statusRekam);
-                            textFuntion.settextdannulldata(et_idCard, res_idCard);
-                            textFuntion.settextdannulldata(et_noKK, res_noKK);
-                            textFuntion.settextdannulldata(et_ktpEl, res_ktpEl);
-                            textFuntion.settextdannulldata(et_hubunganKeluarga, res_hubunganKeluarga);
-                            textFuntion.settextdannulldata(et_jenisKelamin, res_jenisKelamin);
-                            textFuntion.settextdannulldata(et_agama, res_agama);
-                            textFuntion.settextdannulldata(et_statusPenduduk, res_statusPenduduk);
-                            textFuntion.settextdannulldata(et_noTelepon, res_noTelepon);
-                            textFuntion.settextdannulldata(et_alamatEmail, res_alamatEmail);
-                            textFuntion.settextdannulldata(et_alamatSebelum, res_alamatSebelum);
-                            textFuntion.settextdannulldata(et_alamatSekarang, res_alamatSekarang);
-                            textFuntion.settextdannulldata(et_rt, res_rt);
+                            textFuntion.setTextDanNullData(et_nama1, res_nama);
+                            textFuntion.setTextDanNullData(et_nik, res_nik);
+                            textFuntion.setTextDanNullData(et_nama, res_nama);
+                            textFuntion.setTextDanNullData(et_ktpEl, res_ktpEl);
+                            textFuntion.setTextDanNullData(et_statusRekam, res_statusRekam);
+                            textFuntion.setTextDanNullData(et_idCard, res_idCard);
+                            textFuntion.setTextDanNullData(et_noKK, res_noKK);
+                            textFuntion.setTextDanNullData(et_ktpEl, res_ktpEl);
+                            textFuntion.setTextDanNullData(et_hubunganKeluarga, res_hubunganKeluarga);
+                            textFuntion.setTextDanNullData(et_jenisKelamin, res_jenisKelamin);
+                            textFuntion.setTextDanNullData(et_agama, res_agama);
+                            textFuntion.setTextDanNullData(et_statusPenduduk, res_statusPenduduk);
+                            textFuntion.setTextDanNullData(et_noTelepon, res_noTelepon);
+                            textFuntion.setTextDanNullData(et_alamatEmail, res_alamatEmail);
+                            textFuntion.setTextDanNullData(et_alamatSebelum, res_alamatSebelum);
+                            textFuntion.setTextDanNullData(et_alamatSekarang, res_alamatSekarang);
+                            textFuntion.setTextDanNullData(et_rt, res_rt);
 
                             //data kelahiran
-                            textFuntion.settextdannulldata(et_nomorAktakelahiran, res_nomorAktakelahiran);
-                            textFuntion.settextdannulldata(et_tempatLahir, res_tempatLahir);
-                            textFuntion.settextdannulldata(et_waktuKelahiran, res_waktuKelahiran);
-                            textFuntion.settextdannulldata(et_tempatDilahirkan, res_tempatDilahirkan);
-                            textFuntion.settextdannulldata(et_jenisKelahiran, res_jenisKelahiran);
-                            textFuntion.settextdannulldata(et_anakKe, res_anakKe);
-                            textFuntion.settextdannulldata(et_penolongKelahiran, res_penolongKelahiran);
-                            textFuntion.settextdannulldata(et_beratLahir, res_beratLahir);
-                            textFuntion.settextdannulldata(et_panjangLahir, res_panjangLahir);
+                            textFuntion.setTextDanNullData(et_nomorAktakelahiran, res_nomorAktakelahiran);
+                            textFuntion.setTextDanNullData(et_tempatLahir, res_tempatLahir);
+                            textFuntion.setTextDanNullData(et_waktuKelahiran, res_waktuKelahiran);
+                            textFuntion.setTextDanNullData(et_tempatDilahirkan, res_tempatDilahirkan);
+                            textFuntion.setTextDanNullData(et_jenisKelahiran, res_jenisKelahiran);
+                            textFuntion.setTextDanNullData(et_anakKe, res_anakKe);
+                            textFuntion.setTextDanNullData(et_penolongKelahiran, res_penolongKelahiran);
+                            textFuntion.setTextDanNullData(et_beratLahir, res_beratLahir);
+                            textFuntion.setTextDanNullData(et_panjangLahir, res_panjangLahir);
 
                             //data pendidikan
-                            textFuntion.settextdannulldata(et_pendidikanKK, res_pendidikanKK);
-                            textFuntion.settextdannulldata(et_pendidikanTempuh, res_pendidikanTempuh);
-                            textFuntion.settextdannulldata(et_pekerjaan, res_pekerjaan);
+                            textFuntion.setTextDanNullData(et_pendidikanKK, res_pendidikanKK);
+                            textFuntion.setTextDanNullData(et_pendidikanTempuh, res_pendidikanTempuh);
+                            textFuntion.setTextDanNullData(et_pekerjaan, res_pekerjaan);
 
                             //data kewarganegaraan
-                            textFuntion.settextdannulldata(et_statusKewarganegaraan, res_statusKewarganegaraan);
-                            textFuntion.settextdannulldata(et_noPaspor, res_noPaspor);
-                            textFuntion.settextdannulldata(et_tglAkhirPaspor, res_tglAkhirPaspor);
+                            textFuntion.setTextDanNullData(et_statusKewarganegaraan, res_statusKewarganegaraan);
+                            textFuntion.setTextDanNullData(et_noPaspor, res_noPaspor);
+                            textFuntion.setTextDanNullData(et_tglAkhirPaspor, res_tglAkhirPaspor);
 
                             //data keluarga
-                            textFuntion.settextdannulldata(et_nikAyah, res_nikAyah);
-                            textFuntion.settextdannulldata(et_namaAyah, res_namaAyah);
-                            textFuntion.settextdannulldata(et_nikIbu, res_nikIbu);
-                            textFuntion.settextdannulldata(et_namaIbu, res_namaIbu);
+                            textFuntion.setTextDanNullData(et_nikAyah, res_nikAyah);
+                            textFuntion.setTextDanNullData(et_namaAyah, res_namaAyah);
+                            textFuntion.setTextDanNullData(et_nikIbu, res_nikIbu);
+                            textFuntion.setTextDanNullData(et_namaIbu, res_namaIbu);
 
                             //data perkawinan
-                            textFuntion.settextdannulldata(et_statusPerkawinan, res_statusPerkawinan);
-                            textFuntion.settextdannulldata(et_noBukuNikah, res_noBukuNikah);
-                            textFuntion.settextdannulldata(et_tglPerkawinan, res_tglPerkawinan);
-                            textFuntion.settextdannulldata(et_aktaPerceraian, res_aktaPerceraian);
-                            textFuntion.settextdannulldata(et_tglPerceraian, res_tglPerceraian);
+                            textFuntion.setTextDanNullData(et_statusPerkawinan, res_statusPerkawinan);
+                            textFuntion.setTextDanNullData(et_noBukuNikah, res_noBukuNikah);
+                            textFuntion.setTextDanNullData(et_tglPerkawinan, res_tglPerkawinan);
+                            textFuntion.setTextDanNullData(et_aktaPerceraian, res_aktaPerceraian);
+                            textFuntion.setTextDanNullData(et_tglPerceraian, res_tglPerceraian);
 
                             //data kesehatan
-                            textFuntion.settextdannulldata(et_golonganDarah, res_golonganDarah);
-                            textFuntion.settextdannulldata(et_cacat, res_cacat);
-                            textFuntion.settextdannulldata(et_sakitMenahun, res_sakitMenahun);
-                            textFuntion.settextdannulldata(et_akseptorKB, res_akseptorKB);
-                            textFuntion.settextdannulldata(et_asuransi, res_asuransi);
+                            textFuntion.setTextDanNullData(et_golonganDarah, res_golonganDarah);
+                            textFuntion.setTextDanNullData(et_cacat, res_cacat);
+                            textFuntion.setTextDanNullData(et_sakitMenahun, res_sakitMenahun);
+                            textFuntion.setTextDanNullData(et_akseptorKB, res_akseptorKB);
+                            textFuntion.setTextDanNullData(et_asuransi, res_asuransi);
 
                             String imageUrl = "https://jantungdesa.bunefit.com/public/img/user/" + profile_photo_path;
                             Picasso.with(ProfilActivity.this).load(imageUrl).fit().centerCrop().into(img_photoprofile);

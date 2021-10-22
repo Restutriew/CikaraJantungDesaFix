@@ -1,16 +1,235 @@
 package com.cikarastudio.cikarajantungdesafix.ui.lapak;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.cikarastudio.cikarajantungdesafix.R;
+import com.cikarastudio.cikarajantungdesafix.model.ProdukModel;
+import com.cikarastudio.cikarajantungdesafix.ssl.HttpsTrustManager;
+import com.cikarastudio.cikarajantungdesafix.ui.loadingdialog.LoadingDialog;
+import com.cikarastudio.cikarajantungdesafix.ui.profil.ProfilActivity;
+import com.squareup.picasso.Picasso;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class EditProdukActivity extends AppCompatActivity {
+
+    LoadingDialog loadingDialog;
+    public static final String DATA_PRODUK = "extra_data";
+    String id, id_lapak, nama, keterangan, gambar,
+            token;
+    Integer harga, dilihat;
+    EditText et_namaProduk, et_hargaProduk, et_keteranganProduk;
+    ImageView img_editProduk;
+    CardView cr_simpanProduk, cr_hapusProduk;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_produk);
+
+        //allow ssl
+        HttpsTrustManager.allowAllSSL();
+
+        //inisiasi loadingDialog
+        loadingDialog = new LoadingDialog(EditProdukActivity.this);
+
+        //string token
+        token = getString(R.string.token);
+
+        //get data produk dari list
+        ProdukModel dataProduk = getIntent().getParcelableExtra(DATA_PRODUK);
+        id = dataProduk.getId();
+        id_lapak = dataProduk.getLapak_id();
+        nama = dataProduk.getNama();
+        keterangan = dataProduk.getKeterangan();
+        gambar = dataProduk.getGambar();
+        harga = dataProduk.getHarga();
+        dilihat = dataProduk.getDilihat();
+
+        et_namaProduk = findViewById(R.id.et_namaProduk);
+        et_hargaProduk = findViewById(R.id.et_hargaProduk);
+        et_keteranganProduk = findViewById(R.id.et_keteranganProduk);
+        img_editProduk = findViewById(R.id.img_editProduk);
+
+        et_namaProduk.setText(nama);
+        et_hargaProduk.setText(String.valueOf(harga));
+        et_keteranganProduk.setText(keterangan);
+
+        String imageUrl = "https://jantungdesa.bunefit.com/public/img/penduduk/produk/" + gambar;
+        Picasso.with(EditProdukActivity.this).load(imageUrl).fit().centerCrop().into(img_editProduk);
+
+        cr_simpanProduk = findViewById(R.id.cr_simpanProduk);
+        cr_simpanProduk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadingDialog.startLoading();
+                simpanEditProduk();
+            }
+        });
+
+        cr_hapusProduk = findViewById(R.id.cr_hapusProduk);
+        cr_hapusProduk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialogDelete();
+            }
+        });
     }
+
+    private void dialogDelete() {
+        AlertDialog.Builder alertdialogBuilder = new AlertDialog.Builder(EditProdukActivity.this);
+        alertdialogBuilder.setTitle("Konfismasi Delete");
+        alertdialogBuilder.setMessage("Apakah Anda Yakin Menghapus Data Ini?");
+        alertdialogBuilder.setCancelable(false);
+        alertdialogBuilder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                hapusData();
+            }
+        });
+        alertdialogBuilder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
+        });
+        AlertDialog alertDialog = alertdialogBuilder.create();
+        alertDialog.show();
+    }
+
+    private void hapusData() {
+        loadingDialog.startLoading();
+        Log.d("calpalnx", String.valueOf(id));
+        String URL_DELETEPRODUK = "https://jantungdesa.bunefit.com/api/produk/" + id;
+        StringRequest stringRequest = new StringRequest(Request.Method.DELETE, URL_DELETEPRODUK,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String success = jsonObject.getString("success");
+
+                            if (success.equals("1")) {
+                                Toast.makeText(EditProdukActivity.this, "Hapus Produk Sukses", Toast.LENGTH_LONG).show();
+                                loadingDialog.dissmissDialog();
+                                finish();
+                            } else {
+                                Toast.makeText(EditProdukActivity.this, "Hapus Produk Gagal!", Toast.LENGTH_LONG).show();
+                                loadingDialog.dissmissDialog();
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(EditProdukActivity.this, "Hapus Produk Gagal! : " + e.toString(), Toast.LENGTH_LONG).show();
+                            loadingDialog.dissmissDialog();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(EditProdukActivity.this, "Hapus Produk Gagal! : Cek Koneksi Anda, " + error, Toast.LENGTH_LONG).show();
+                        loadingDialog.dissmissDialog();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("token", token);
+                return params;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+
+    }
+
+    private void simpanEditProduk() {
+        final String inp_lapak_id = id_lapak;
+        final String inp_namaProduk = et_namaProduk.getText().toString().trim();
+        final String inp_keteranganProduk = et_keteranganProduk.getText().toString().trim();
+        final String inp_gambarProduk = gambar;
+        final String inp_hargaProduk = et_hargaProduk.getText().toString().trim();
+        final String inp_dilihatProduk = String.valueOf(dilihat);
+
+        Log.d("calpalnx", String.valueOf(id));
+        Log.d("calpalnx", String.valueOf(inp_lapak_id));
+        Log.d("calpalnx", String.valueOf(inp_namaProduk));
+        Log.d("calpalnx", String.valueOf(inp_keteranganProduk));
+        Log.d("calpalnx", String.valueOf(inp_gambarProduk));
+        Log.d("calpalnx", String.valueOf(inp_hargaProduk));
+        Log.d("calpalnx", String.valueOf(inp_dilihatProduk));
+
+        String URL_EDITPRODUK = "https://jantungdesa.bunefit.com/api/produk/" + id;
+        StringRequest stringRequest = new StringRequest(Request.Method.PATCH, URL_EDITPRODUK,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String success = jsonObject.getString("success");
+
+                            if (success.equals("1")) {
+                                Toast.makeText(EditProdukActivity.this, "Edit Produk Sukses", Toast.LENGTH_LONG).show();
+                                loadingDialog.dissmissDialog();
+                                finish();
+                            } else {
+                                Toast.makeText(EditProdukActivity.this, "Edit Produk Gagal!", Toast.LENGTH_LONG).show();
+                                loadingDialog.dissmissDialog();
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(EditProdukActivity.this, "Edit Produk Gagal! : " + e.toString(), Toast.LENGTH_LONG).show();
+                            loadingDialog.dissmissDialog();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(EditProdukActivity.this, "Tambah Produk Gagal! : Cek Koneksi Anda, " + error, Toast.LENGTH_LONG).show();
+                        loadingDialog.dissmissDialog();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("lapak_id", inp_lapak_id);
+                params.put("nama", inp_namaProduk);
+                params.put("keterangan", inp_keteranganProduk);
+                params.put("gambar", inp_gambarProduk);
+                params.put("harga", inp_hargaProduk);
+                params.put("token", token);
+//                params.put("dilihat", dilihat);
+                return params;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+
+    }
+
 }

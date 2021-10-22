@@ -75,7 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotoslab_regular"
-            android:text="Harga Produk"
+            android:text="Harga Produk (Rp.)"
             android:textColor="@color/biru_cikara" />
 
         <EditText

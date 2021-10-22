@@ -60,8 +60,7 @@
                     android:id="@+id/img_photoprofile"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/kimimaroboy" />
+                    android:scaleType="centerCrop"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -71,7 +70,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/robotoslab_medium"
-                android:text="Kimimaro Kaguya"
                 android:textColor="@color/white"
                 android:textSize="25sp" />
 
@@ -80,7 +78,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/robotoslab_medium"
-                android:text="Desa Sukaasih"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
 
