@@ -50,4 +50,13 @@ public class mentahan {
 //            "sakit_menahun": "tidak ada/tidak sakit",
 //            "akseptor_kb": "LAINNYA",
 //            "asuransi": "asuransi lainnya",
+
+//    user_id=7&
+//    nama_lapak=nama%20lapak&
+//    tentang=tentang%20lapak&
+//    alamat=alamat%20lapak&
+//    status_lapak=menunggu&
+//    telp=0823536256352&
+//    logo=logo.png&
+//    token=%242y%2410%24kIAxk2KCirEdUXMv8iuX6OkLHP6ha.XIbSkIrN1HcLga9zEi4%2FsLa'
 }

@@ -3,7 +3,6 @@ package com.cikarastudio.cikarajantungdesafix.ui.lapak;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,13 +27,11 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.cikarastudio.cikarajantungdesafix.R;
 import com.cikarastudio.cikarajantungdesafix.adapter.ProdukAdapter;
-import com.cikarastudio.cikarajantungdesafix.databinding.FragmentLapakBinding;
 import com.cikarastudio.cikarajantungdesafix.model.ProdukModel;
 import com.cikarastudio.cikarajantungdesafix.session.SessionManager;
 import com.cikarastudio.cikarajantungdesafix.ssl.HttpsTrustManager;
-import com.cikarastudio.cikarajantungdesafix.template.TextFuntion;
+import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
 import com.cikarastudio.cikarajantungdesafix.ui.loadingdialog.LoadingDialog;
-import com.cikarastudio.cikarajantungdesafix.ui.profil.ProfilActivity;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -46,7 +39,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -95,8 +87,9 @@ public class LapakFragment extends Fragment {
         produkList = new ArrayList<>();
         recyclerView = root.findViewById(R.id.rv_listProduk);
         recyclerView.setHasFixedSize(true);
-        loadProduct();
         loadLapak();
+        loadProduct();
+
 
         //search data produk
         et_produkSearch = root.findViewById(R.id.et_produkSearch);
@@ -182,7 +175,6 @@ public class LapakFragment extends Fragment {
                 tv_sortProdukPopuler.setTextColor(getResources().getColor(R.color.white));
                 tv_sortProdukHarga.setTextColor(getResources().getColor(R.color.biru_cikara));
                 tv_sortProdukAlfabet.setTextColor(getResources().getColor(R.color.biru_cikara));
-
                 sortAngka();
             }
         });
@@ -230,7 +222,9 @@ public class LapakFragment extends Fragment {
                         } catch (JSONException e) {
                             e.printStackTrace();
                             loadingDialog.dissmissDialog();
-                            Toast.makeText(getActivity(), "Data Lapak Tidak Ada!" + e.toString(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(getActivity(), "Data Lapak Tidak Ada! Silahkan Daftarkan Lapak Anda!" , Toast.LENGTH_LONG).show();
+                            Intent keTambahLapak = new Intent(getActivity(),TambahLapakActivity.class);
+                            startActivity(keTambahLapak);
                         }
 
                     }
@@ -287,7 +281,6 @@ public class LapakFragment extends Fragment {
                                             Intent transferDataProduk = new Intent(getActivity(), EditProdukActivity.class);
                                             transferDataProduk.putExtra(EditProdukActivity.DATA_PRODUK, data);
                                             startActivity(transferDataProduk);
-//                                            Toast.makeText(getActivity(), "id : " + data.getId(), Toast.LENGTH_LONG).show();
                                         }
                                     });
                                     //hilangkan loading
@@ -300,7 +293,7 @@ public class LapakFragment extends Fragment {
                         } catch (JSONException e) {
                             e.printStackTrace();
                             loadingDialog.dissmissDialog();
-                            Toast.makeText(getActivity(), "Data Akun Tidak Ada!" + e.toString(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(getActivity(), "Data Produk Tidak Ada! Silahkan Tambahkan Produk Anda!", Toast.LENGTH_LONG).show();
                         }
 
                     }

@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -32,6 +34,7 @@ import java.util.Map;
 
 public class TambahProdukActivity extends AppCompatActivity {
 
+    ImageView img_back;
     LoadingDialog loadingDialog;
     CardView cr_tambahProduk;
     EditText et_namaProduk, et_hargaProduk, et_keteranganProduk;
@@ -64,6 +67,14 @@ public class TambahProdukActivity extends AppCompatActivity {
             public void onClick(View view) {
                 loadingDialog.startLoading();
                 addProduk();
+            }
+        });
+
+        img_back = findViewById(R.id.img_back);
+        img_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
 
@@ -113,9 +124,8 @@ public class TambahProdukActivity extends AppCompatActivity {
                                 Toast.makeText(TambahProdukActivity.this, "Tambah Produk Sukses", Toast.LENGTH_LONG).show();
                                 loadingDialog.dissmissDialog();
                                 finish();
-                            }
-                            else{
-                                Toast.makeText(TambahProdukActivity.this, "Tambah Produk Gagal!" , Toast.LENGTH_LONG).show();
+                            } else {
+                                Toast.makeText(TambahProdukActivity.this, "Tambah Produk Gagal!", Toast.LENGTH_LONG).show();
                                 loadingDialog.dissmissDialog();
                             }
 

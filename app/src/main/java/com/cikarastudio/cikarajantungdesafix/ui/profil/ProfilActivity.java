@@ -5,7 +5,6 @@ import androidx.cardview.widget.CardView;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -22,11 +21,9 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.cikarastudio.cikarajantungdesafix.session.SessionManager;
 import com.cikarastudio.cikarajantungdesafix.ssl.HttpsTrustManager;
-import com.cikarastudio.cikarajantungdesafix.template.TextFuntion;
+import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
 import com.cikarastudio.cikarajantungdesafix.ui.loadingdialog.LoadingDialog;
-import com.cikarastudio.cikarajantungdesafix.ui.login.LoginActivity;
 import com.cikarastudio.cikarajantungdesafix.R;
-import com.github.florent37.fiftyshadesof.FiftyShadesOf;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;

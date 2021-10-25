@@ -12,8 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cikarastudio.cikarajantungdesafix.R;
 import com.cikarastudio.cikarajantungdesafix.model.ProdukModel;
-import com.cikarastudio.cikarajantungdesafix.template.TextFuntion;
-import com.cikarastudio.cikarajantungdesafix.ui.profil.ProfilActivity;
+import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

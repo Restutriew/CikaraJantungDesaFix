@@ -5,6 +5,8 @@ import androidx.cardview.widget.CardView;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.net.http.AndroidHttpClient;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,11 +19,14 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HttpClientStack;
+import com.android.volley.toolbox.HttpStack;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.cikarastudio.cikarajantungdesafix.R;
 import com.cikarastudio.cikarajantungdesafix.model.ProdukModel;
 import com.cikarastudio.cikarajantungdesafix.ssl.HttpsTrustManager;
+import com.cikarastudio.cikarajantungdesafix.template.kima.deletereq.CustomHurlStack;
 import com.cikarastudio.cikarajantungdesafix.ui.loadingdialog.LoadingDialog;
 import com.cikarastudio.cikarajantungdesafix.ui.profil.ProfilActivity;
 import com.squareup.picasso.Picasso;
@@ -128,7 +133,6 @@ public class EditProdukActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String success = jsonObject.getString("success");
-
                             if (success.equals("1")) {
                                 Toast.makeText(EditProdukActivity.this, "Hapus Produk Sukses", Toast.LENGTH_LONG).show();
                                 loadingDialog.dissmissDialog();
@@ -160,7 +164,17 @@ public class EditProdukActivity extends AppCompatActivity {
             }
         };
 
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        HttpStack httpStack;
+        if (Build.VERSION.SDK_INT > 19){
+            httpStack = new CustomHurlStack();
+            //disable okhttphurlstack
+//        } else if (Build.VERSION.SDK_INT >= 9 && Build.VERSION.SDK_INT <= 19)
+//        {
+//            httpStack = new OkHttpHurlStack();
+        } else {
+            httpStack = new HttpClientStack(AndroidHttpClient.newInstance("Android"));
+        }
+        RequestQueue requestQueue = Volley.newRequestQueue(this, httpStack);
         requestQueue.add(stringRequest);
 
     }

@@ -1,4 +1,4 @@
-package com.cikarastudio.cikarajantungdesafix.template;
+package com.cikarastudio.cikarajantungdesafix.template.kima.text;
 
 import android.app.Activity;
 import android.content.Context;
