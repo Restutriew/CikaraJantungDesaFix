@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/warna_bg"
+    android:background="@color/biru2"
     tools:context=".ui.surat.TambahSuratActivity">
 
     <ImageView
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Ajukan Surat"
-        android:textColor="@color/biru_cikara"
+        android:textColor="@color/white"
         android:textSize="30sp"
         android:fontFamily="@font/robotoslab_extrabold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,7 +47,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/robotoslab_regular"
             android:text="Nama"
-            android:textColor="@color/biru_cikara" />
+            android:textColor="@color/white" />
 
         <EditText
             android:id="@+id/et_namaPengaju"
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:text="Pesan"
             android:fontFamily="@font/robotoslab_regular"
-            android:textColor="@color/biru_cikara" />
+            android:textColor="@color/white" />
 
 
         <EditText
@@ -87,7 +87,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/biru_cikara"
+                android:background="@color/biru3"
                 android:gravity="center">
 
                 <TextView

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/warna_bg"
+    android:background="@color/biru2"
     tools:context=".ui.lapak.TambahProdukActivity">
 
     <ImageView
@@ -24,7 +24,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/robotoslab_extrabold"
         android:text="Tambah Produk"
-        android:textColor="@color/biru_cikara"
+        android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +60,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/robotoslab_regular"
             android:text="Nama Produk"
-            android:textColor="@color/biru_cikara" />
+            android:textColor="@color/white" />
 
         <EditText
             android:id="@+id/et_namaProduk"
@@ -76,7 +76,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotoslab_regular"
             android:text="Harga Produk (Rp.)"
-            android:textColor="@color/biru_cikara" />
+            android:textColor="@color/white" />
 
         <EditText
             android:id="@+id/et_hargaProduk"
@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:text="Keterangan Produk"
             android:fontFamily="@font/robotoslab_regular"
-            android:textColor="@color/biru_cikara" />
+            android:textColor="@color/white" />
 
 
         <EditText
@@ -115,7 +115,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/biru_cikara"
+                android:background="@color/biru3"
                 android:gravity="center">
 
                 <TextView

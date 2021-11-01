@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     LoadingDialog loadingDialog;
     CardView cr_login;
     EditText et_loginEmail, et_loginPassword;
-    private static String URL_LOGIN = "https://jantungdesa.bunefit.com/JantungDesaAndroid/login_user.php";
+
     SessionManager sessionManager;
 
     @Override
@@ -75,6 +75,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void login() {
+        String URL_LOGIN = "https://jantungdesa.cikarastudio.com/jantungdesaandroid/login_user.php";
         loadingDialog.startLoading();
         HttpsTrustManager.allowAllSSL();
         final String email = this.et_loginEmail.getText().toString().trim();

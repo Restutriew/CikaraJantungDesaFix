@@ -3,6 +3,7 @@ package com.cikarastudio.cikarajantungdesafix.ui.lapak;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,8 +49,11 @@ public class LapakFragment extends Fragment {
     SessionManager sessionManager;
     LoadingDialog loadingDialog;
     RecyclerView recyclerView;
-    String id_user, id_lapak;
-    LinearLayout line_tokojaya;
+    String id_user, link, linkGambar,
+    //data lapak
+    id_lapak, nama_lapak, alamat_lapak, tentang_lapak, telp_lapak, logo_lapak, status_lapak;
+
+    LinearLayout line_editLapak;
     TextView tv_tambahProduk, tv_sortProdukAlfabet, tv_sortProdukHarga, tv_sortProdukPopuler,
     //lapak
     tv_namaLapak, tv_alamatLapak, tv_telpLapak, tv_tentangLapak, tv_statusLapak;
@@ -69,10 +73,14 @@ public class LapakFragment extends Fragment {
 
         HttpsTrustManager.allowAllSSL();
 
+        //inisiasi link
+        link = getString(R.string.link);
+        linkGambar = getString(R.string.linkGambar);
+
         loadingDialog = new LoadingDialog(getActivity());
         loadingDialog.startLoading();
 
-        line_tokojaya = root.findViewById(R.id.line_tokojaya);
+        line_editLapak = root.findViewById(R.id.line_editLapak);
         tv_tambahProduk = root.findViewById(R.id.tv_tambahProduk);
 
         //initiate lapak
@@ -116,10 +124,17 @@ public class LapakFragment extends Fragment {
             }
         });
 
-        line_tokojaya.setOnClickListener(new View.OnClickListener() {
+        line_editLapak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent keEditLapak = new Intent(getActivity(), TambahLapakActivity.class);
+                Intent keEditLapak = new Intent(getActivity(), EditLapakActivity.class);
+                keEditLapak.putExtra("id_lapak",id_lapak);
+                keEditLapak.putExtra("nama_lapak",nama_lapak);
+                keEditLapak.putExtra("alamat_lapak",alamat_lapak);
+                keEditLapak.putExtra("tentang_lapak",tentang_lapak);
+                keEditLapak.putExtra("telp_lapak",telp_lapak);
+                keEditLapak.putExtra("logo_lapak",logo_lapak);
+                keEditLapak.putExtra("status_lapak",status_lapak);
                 startActivity(keEditLapak);
             }
         });
@@ -142,7 +157,7 @@ public class LapakFragment extends Fragment {
         tv_sortProdukAlfabet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tv_sortProdukAlfabet.setBackgroundResource(R.drawable.border_biru_putih);
+                tv_sortProdukAlfabet.setBackgroundResource(R.drawable.border_biru_muda);
                 tv_sortProdukHarga.setBackgroundResource(R.drawable.border_putih_biru);
                 tv_sortProdukPopuler.setBackgroundResource(R.drawable.border_putih_biru);
                 tv_sortProdukAlfabet.setTextColor(getResources().getColor(R.color.white));
@@ -155,7 +170,7 @@ public class LapakFragment extends Fragment {
         tv_sortProdukHarga.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tv_sortProdukHarga.setBackgroundResource(R.drawable.border_biru_putih);
+                tv_sortProdukHarga.setBackgroundResource(R.drawable.border_biru_muda);
                 tv_sortProdukAlfabet.setBackgroundResource(R.drawable.border_putih_biru);
                 tv_sortProdukPopuler.setBackgroundResource(R.drawable.border_putih_biru);
                 tv_sortProdukHarga.setTextColor(getResources().getColor(R.color.white));
@@ -169,7 +184,7 @@ public class LapakFragment extends Fragment {
         tv_sortProdukPopuler.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tv_sortProdukPopuler.setBackgroundResource(R.drawable.border_biru_putih);
+                tv_sortProdukPopuler.setBackgroundResource(R.drawable.border_biru_muda);
                 tv_sortProdukHarga.setBackgroundResource(R.drawable.border_putih_biru);
                 tv_sortProdukAlfabet.setBackgroundResource(R.drawable.border_putih_biru);
                 tv_sortProdukPopuler.setTextColor(getResources().getColor(R.color.white));
@@ -183,7 +198,7 @@ public class LapakFragment extends Fragment {
     }
 
     private void loadLapak() {
-        String URL_READ = "https://jantungdesa.bunefit.com/api/lapakuser/" + id_user;
+        String URL_READ = link + "lapakuser/" + id_user;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
                 new Response.Listener<String>() {
                     @Override
@@ -204,8 +219,6 @@ public class LapakFragment extends Fragment {
                             String res_createdAt = jsonObject.getString("created_at").trim();
                             String res_updatedAt = jsonObject.getString("updated_at").trim();
 
-                            id_lapak = res_id;
-
                             TextFuntion textFuntion = new TextFuntion();
                             //data diri
                             textFuntion.setTextDanNullData(tv_namaLapak, res_namaLapak);
@@ -214,7 +227,17 @@ public class LapakFragment extends Fragment {
                             textFuntion.setTextDanNullData(tv_tentangLapak, res_tentang);
                             textFuntion.setTextDanNullData(tv_statusLapak, res_statusLapak);
 
-                            String imageUrl = "https://jantungdesa.bunefit.com/public/img/penduduk/lapak/" + res_logo;
+                            String resi_gambar = res_logo.replace(" ", "%20");
+
+                            id_lapak = res_id;
+                            nama_lapak = res_namaLapak;
+                            alamat_lapak = res_alamat;
+                            tentang_lapak = res_tentang;
+                            telp_lapak = res_telp;
+                            logo_lapak = resi_gambar;
+                            status_lapak = res_statusLapak;
+
+                            String imageUrl = linkGambar + "penduduk/lapak/" + resi_gambar;
                             Picasso.with(getActivity()).load(imageUrl).fit().centerCrop().into(img_lapak);
                             //hilangkan loading
                             loadingDialog.dissmissDialog();
@@ -222,8 +245,8 @@ public class LapakFragment extends Fragment {
                         } catch (JSONException e) {
                             e.printStackTrace();
                             loadingDialog.dissmissDialog();
-                            Toast.makeText(getActivity(), "Data Lapak Tidak Ada! Silahkan Daftarkan Lapak Anda!" , Toast.LENGTH_LONG).show();
-                            Intent keTambahLapak = new Intent(getActivity(),TambahLapakActivity.class);
+                            Toast.makeText(getActivity(), "Data Lapak Tidak Ada! Silahkan Daftarkan Lapak Anda!", Toast.LENGTH_LONG).show();
+                            Intent keTambahLapak = new Intent(getActivity(), TambahLapakActivity.class);
                             startActivity(keTambahLapak);
                         }
 
@@ -246,7 +269,7 @@ public class LapakFragment extends Fragment {
     }
 
     private void loadProduct() {
-        String URL_READ = "https://jantungdesa.bunefit.com/api/produklapak/" + id_user;
+        String URL_READ = link + "produklapak/" + id_user;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
                 new Response.Listener<String>() {
                     @Override
@@ -269,7 +292,10 @@ public class LapakFragment extends Fragment {
                                     //String res_createdAt = jsonObject.getString("created_at").trim();
                                     //String res_updatedAt = jsonObject.getString("updated_at").trim();
 
-                                    produkList.add(new ProdukModel(res_id, res_lapakID, res_nama, res_keterangan, res_gambar, res_harga, res_dilihat));
+                                    String resi_gambar = res_gambar.replace(" ", "%20");
+                                    Log.d("calpalnx", resi_gambar);
+
+                                    produkList.add(new ProdukModel(res_id, res_lapakID, res_nama, res_keterangan, resi_gambar, res_harga, res_dilihat));
                                     recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                                     produkAdapter = new ProdukAdapter(getContext(), produkList);
                                     recyclerView.setAdapter(produkAdapter);

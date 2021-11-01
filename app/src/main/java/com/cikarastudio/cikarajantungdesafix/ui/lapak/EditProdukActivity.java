@@ -1,8 +1,5 @@
 package com.cikarastudio.cikarajantungdesafix.ui.lapak;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.net.http.AndroidHttpClient;
@@ -13,6 +10,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -28,7 +28,6 @@ import com.cikarastudio.cikarajantungdesafix.model.ProdukModel;
 import com.cikarastudio.cikarajantungdesafix.ssl.HttpsTrustManager;
 import com.cikarastudio.cikarajantungdesafix.template.kima.deletereq.CustomHurlStack;
 import com.cikarastudio.cikarajantungdesafix.ui.loadingdialog.LoadingDialog;
-import com.cikarastudio.cikarajantungdesafix.ui.profil.ProfilActivity;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
@@ -42,7 +41,7 @@ public class EditProdukActivity extends AppCompatActivity {
     LoadingDialog loadingDialog;
     public static final String DATA_PRODUK = "extra_data";
     String id, id_lapak, nama, keterangan, gambar,
-            token;
+            token, link, linkGambar;
     Integer harga, dilihat;
     EditText et_namaProduk, et_hargaProduk, et_keteranganProduk;
     ImageView img_editProduk;
@@ -55,6 +54,10 @@ public class EditProdukActivity extends AppCompatActivity {
 
         //allow ssl
         HttpsTrustManager.allowAllSSL();
+
+        //inisiasi link
+        link = getString(R.string.link);
+        linkGambar = getString(R.string.linkGambar);
 
         //inisiasi loadingDialog
         loadingDialog = new LoadingDialog(EditProdukActivity.this);
@@ -81,7 +84,7 @@ public class EditProdukActivity extends AppCompatActivity {
         et_hargaProduk.setText(String.valueOf(harga));
         et_keteranganProduk.setText(keterangan);
 
-        String imageUrl = "https://jantungdesa.bunefit.com/public/img/penduduk/produk/" + gambar;
+        String imageUrl = linkGambar + "penduduk/produk/" + gambar;
         Picasso.with(EditProdukActivity.this).load(imageUrl).fit().centerCrop().into(img_editProduk);
 
         cr_simpanProduk = findViewById(R.id.cr_simpanProduk);
@@ -125,7 +128,7 @@ public class EditProdukActivity extends AppCompatActivity {
     private void hapusData() {
         loadingDialog.startLoading();
         Log.d("calpalnx", String.valueOf(id));
-        String URL_DELETEPRODUK = "https://jantungdesa.bunefit.com/api/produk/" + id;
+        String URL_DELETEPRODUK = link + "produk/" + id;
         StringRequest stringRequest = new StringRequest(Request.Method.DELETE, URL_DELETEPRODUK,
                 new Response.Listener<String>() {
                     @Override
@@ -195,7 +198,7 @@ public class EditProdukActivity extends AppCompatActivity {
         Log.d("calpalnx", String.valueOf(inp_hargaProduk));
         Log.d("calpalnx", String.valueOf(inp_dilihatProduk));
 
-        String URL_EDITPRODUK = "https://jantungdesa.bunefit.com/api/produk/" + id;
+        String URL_EDITPRODUK = link + "produk/" + id;
         StringRequest stringRequest = new StringRequest(Request.Method.PATCH, URL_EDITPRODUK,
                 new Response.Listener<String>() {
                     @Override

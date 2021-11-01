@@ -38,8 +38,7 @@ public class TambahProdukActivity extends AppCompatActivity {
     LoadingDialog loadingDialog;
     CardView cr_tambahProduk;
     EditText et_namaProduk, et_hargaProduk, et_keteranganProduk;
-    private static String URL_TAMBAHPRODUK = "https://jantungdesa.bunefit.com/api/produk";
-    String id_lapak, token;
+    String id_lapak, token,  link;
 
 
     @Override
@@ -54,6 +53,9 @@ public class TambahProdukActivity extends AppCompatActivity {
 
         //allow ssl
         HttpsTrustManager.allowAllSSL();
+
+        //inisiasi link
+        link = getString(R.string.link);
 
         loadingDialog = new LoadingDialog(TambahProdukActivity.this);
 
@@ -82,6 +84,7 @@ public class TambahProdukActivity extends AppCompatActivity {
     }
 
     private void addProduk() {
+        String URL_TAMBAHPRODUK = link +  "produk";
         final String namaProduk = et_namaProduk.getText().toString().trim();
         final String hargaProduk = et_hargaProduk.getText().toString().trim();
         final String keteranganProduk = et_keteranganProduk.getText().toString().trim();

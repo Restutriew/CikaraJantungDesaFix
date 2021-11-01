@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/warna_bg"
+    android:background="@color/biru2"
     tools:context=".ui.lapak.EditProdukActivity">
 
     <LinearLayout
@@ -33,7 +33,7 @@
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/robotoslab_extrabold"
                 android:text="Edit Produk"
-                android:textColor="@color/biru_cikara"
+                android:textColor="@color/white"
                 android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -70,7 +70,7 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/robotoslab_regular"
                     android:text="Nama Produk"
-                    android:textColor="@color/biru_cikara" />
+                    android:textColor="@color/white" />
 
                 <EditText
                     android:id="@+id/et_namaProduk"
@@ -86,7 +86,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/robotoslab_regular"
                     android:text="Harga Produk (Rp.)"
-                    android:textColor="@color/biru_cikara" />
+                    android:textColor="@color/white" />
 
                 <EditText
                     android:id="@+id/et_hargaProduk"
@@ -102,7 +102,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/robotoslab_regular"
                     android:text="Keterangan Produk"
-                    android:textColor="@color/biru_cikara" />
+                    android:textColor="@color/white" />
 
 
                 <EditText
@@ -125,7 +125,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/biru_cikara"
+                        android:background="@color/biru3"
                         android:gravity="center">
 
                         <TextView
@@ -147,7 +147,7 @@
                     android:fontFamily="@font/robotoslab_regular"
                     android:gravity="center"
                     android:text="atau"
-                    android:textColor="@color/biru_cikara" />
+                    android:textColor="@color/white" />
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cr_hapusProduk"
@@ -185,7 +185,6 @@
             android:layout_marginBottom="40dp"
             android:fontFamily="@font/robotoslab_extrabold"
             android:gravity="center"
-            android:text="Tidak Ada Laporan Lain Tersedia"
             android:textColor="@color/warna_bg"
             android:textSize="20sp" />
 

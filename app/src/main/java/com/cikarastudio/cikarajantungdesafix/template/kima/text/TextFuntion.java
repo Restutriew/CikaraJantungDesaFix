@@ -5,11 +5,13 @@ import android.content.Context;
 import android.graphics.ColorSpace;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.cikarastudio.cikarajantungdesafix.R;
 import com.cikarastudio.cikarajantungdesafix.model.ProdukModel;
 
 import java.util.ArrayList;
@@ -50,7 +52,7 @@ public class TextFuntion {
 
     }
 
-    private String convertUpperCase(String text) {
+    public String convertUpperCase(String text) {
         String[] splits = text.toLowerCase().split(" ");
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < splits.length; i++) {
@@ -91,13 +93,10 @@ public class TextFuntion {
         return stringBuilder.toString();
     }
 
-//    public void sortAlfabet(ArrayList array, RecyclerView.Adapter adapter) {
-//        Collections.sort(array, new Comparator<ProdukModel>() {
-//            @Override
-//            public int compare(ProdukModel t1, ProdukModel t2) {
-//                return t1.getNama().compareToIgnoreCase(t2.getNama());
-//            }
-//        });
-//        adapter.notifyDataSetChanged();
-//    }
+//    public void setSpinner()
+//
+//    ArrayAdapter<String> jenisLaporanAdapter = new ArrayAdapter<String>(this,
+//            android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.jenis_laporan));
+//        sp_jenisLaporan.setAdapter(jenisLaporanAdapter);
+
 }

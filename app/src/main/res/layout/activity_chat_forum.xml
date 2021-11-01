@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/warna_bg"
+    android:background="@color/biru2"
     tools:context=".ui.forum.ChatForumActivity">
 
     <ImageView
@@ -24,7 +24,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/robotoslab_extrabold"
         android:text="Diskusi Sampah Desa"
-        android:textColor="@color/biru_cikara"
+        android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -173,8 +173,8 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/warna_bg"
             android:gravity="center_vertical"
+            android:background="@color/biru2"
             android:orientation="horizontal"
             android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"

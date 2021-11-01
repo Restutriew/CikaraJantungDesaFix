@@ -36,7 +36,7 @@ public class ProfilActivity extends AppCompatActivity {
     SessionManager sessionManager;
     LoadingDialog loadingDialog;
 
-    String id_user, profile_photo_path;
+    String id_user, profile_photo_path, link, linkGambar;
 
     ImageView img_back, img_dataDiri, img_dataKelahiran,
             img_dataPendidikan, img_dataKewarganegaraan,
@@ -91,6 +91,10 @@ public class ProfilActivity extends AppCompatActivity {
         profile_photo_path = user.get(sessionManager.PROFILE_PHOTO_PATH);
 
         HttpsTrustManager.allowAllSSL();
+
+        //inisiasi link
+        link = getString(R.string.link);
+        linkGambar = getString(R.string.linkGambar);
 
         loadingDialog = new LoadingDialog(ProfilActivity.this);
         loadingDialog.startLoading();
@@ -274,7 +278,7 @@ public class ProfilActivity extends AppCompatActivity {
     }
 
     private void loadDataDiri() {
-        String URL_READ = "https://jantungdesa.bunefit.com/api/penduduk/" + id_user;
+        String URL_READ = link + "penduduk/" + id_user;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
                 new Response.Listener<String>() {
                     @Override
@@ -403,7 +407,9 @@ public class ProfilActivity extends AppCompatActivity {
                             textFuntion.setTextDanNullData(et_akseptorKB, res_akseptorKB);
                             textFuntion.setTextDanNullData(et_asuransi, res_asuransi);
 
-                            String imageUrl = "https://jantungdesa.bunefit.com/public/img/user/" + profile_photo_path;
+                            String resi_gambar = profile_photo_path.replace(" ", "%20");
+
+                            String imageUrl = linkGambar + "user/" + resi_gambar;
                             Picasso.with(ProfilActivity.this).load(imageUrl).fit().centerCrop().into(img_photoprofile);
                             //hilangkan loading
                                 loadingDialog.dissmissDialog();

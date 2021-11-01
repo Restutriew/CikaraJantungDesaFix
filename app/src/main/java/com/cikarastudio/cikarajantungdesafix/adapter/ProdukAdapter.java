@@ -1,6 +1,7 @@
 package com.cikarastudio.cikarajantungdesafix.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.cikarastudio.cikarajantungdesafix.R;
 import com.cikarastudio.cikarajantungdesafix.model.ProdukModel;
 import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -69,8 +71,20 @@ public class ProdukAdapter extends RecyclerView.Adapter<ProdukAdapter.ProdukView
         textFuntion.setTextDanNullData(holder.keterangan, keteranganProduk);
         textFuntion.setAngka(holder.kaliDilihat, dilihatProduk);
 
-        String imageUrl = "https://jantungdesa.bunefit.com/public/img/penduduk/produk/" + gambarProduk;
-        Picasso.with(mContext.getApplicationContext()).load(imageUrl).fit().centerCrop().into(holder.gambar);
+        Log.d("calpalnx", gambarProduk);
+
+        String imageUrl = "https://jantungdesa.cikarastudio.com/public/img/penduduk/produk/" + gambarProduk;
+        Picasso.with(mContext.getApplicationContext()).load(imageUrl).fit().centerCrop().into(holder.gambar, new Callback() {
+            @Override
+            public void onSuccess() {
+
+            }
+
+            @Override
+            public void onError() {
+
+            }
+        });
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

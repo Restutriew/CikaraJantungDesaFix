@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/warna_utama"
+    android:background="@color/biru2"
     tools:context=".ui.profil.ProfilActivity">
 
     <LinearLayout
@@ -46,7 +46,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -68,7 +68,7 @@
                 android:id="@+id/et_nama1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginVertical="10dp"
                 android:fontFamily="@font/robotoslab_medium"
                 android:textColor="@color/white"
                 android:textSize="25sp" />
@@ -86,7 +86,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/warna_bg"
+            android:background="@color/white"
             android:orientation="vertical"
             android:paddingBottom="20dp">
 
@@ -102,6 +102,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
+                    android:background="@color/biru2"
                     android:orientation="horizontal"
                     android:padding="10dp">
 
@@ -119,7 +120,7 @@
                         android:fontFamily="@font/robotoslab_semibold"
                         android:gravity="center_vertical"
                         android:text="Data Diri"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <ImageView
@@ -145,6 +146,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:background="@color/biru3"
                     android:padding="10dp">
 
                     <TextView
@@ -154,7 +156,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="NIK"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -165,7 +167,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="3278012991600001"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -176,7 +178,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Nama Lengkap"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -187,7 +189,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="Kimimaro Kaguya"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -198,7 +200,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="KTP Elektronik"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -209,7 +211,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="KTP-EL"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -220,7 +222,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Status Rekam"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -231,7 +233,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="BELUM REKAM"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -242,7 +244,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Tag ID Card"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -253,7 +255,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="Tidak Ada Data"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -264,7 +266,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Nomor KK Sebelumnya"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -275,7 +277,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="3278012991600005"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -286,7 +288,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Hubungan Dalam Keluarga"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -297,7 +299,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="Anak"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -308,7 +310,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Jenis Kelamin"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -319,7 +321,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="LAKI-LAKI"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -330,7 +332,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Agama"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -341,7 +343,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="KHONGHUCU"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -352,7 +354,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Status Penduduk"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -363,7 +365,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="PENDATANG"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -374,7 +376,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Nomor Telepon/HP"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -385,7 +387,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="085222838181"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -396,7 +398,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Alamat Email"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -407,7 +409,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="Kimimarokaguya@gmail.com"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -418,7 +420,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Alamat Sebelumnya"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -429,7 +431,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="Tidak Ada Data"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -440,7 +442,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Alamat Sekarang"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -451,7 +453,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="Jl. K.H. Tubagus Abdullah No.90"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -462,7 +464,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="RT"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -473,7 +475,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="010000"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -493,6 +495,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
+                    android:background="@color/biru2"
                     android:padding="10dp">
 
                     <ImageView
@@ -509,7 +512,7 @@
                         android:fontFamily="@font/robotoslab_semibold"
                         android:gravity="center_vertical"
                         android:text="Data Kelahiran"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <ImageView
@@ -535,6 +538,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:background="@color/biru3"
                     android:padding="10dp">
 
                     <TextView
@@ -544,7 +548,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Nomor Akta Kelahiran"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -555,7 +559,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="3278012991600005"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -566,7 +570,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Tempat Lahir"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -577,7 +581,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="Tasikmalaya"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -588,7 +592,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Waktu Kelahiran"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -599,7 +603,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="Tidak Ada Data"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -610,7 +614,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Tempat Dilahirkan"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -621,7 +625,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="Rumah"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -632,7 +636,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Jenis Kelahiran"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -643,7 +647,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="Tunggal"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -654,7 +658,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Anak Ke"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -665,7 +669,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="3"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -676,7 +680,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Penolong Kelahiran"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -687,7 +691,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="DUKUN"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -698,7 +702,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Berat Lahir (gram)"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -709,7 +713,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="500"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -720,7 +724,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Panjang Lahir (cm)"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -731,7 +735,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="400"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -751,6 +755,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
+                    android:background="@color/biru2"
                     android:padding="10dp">
 
                     <ImageView
@@ -767,7 +772,7 @@
                         android:fontFamily="@font/robotoslab_semibold"
                         android:gravity="center_vertical"
                         android:text="Pendidikan &amp; Pekerjaan"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <ImageView
@@ -793,6 +798,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:background="@color/biru3"
                     android:padding="10dp">
 
                     <TextView
@@ -802,7 +808,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Pendidikan Dalam KK"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -813,7 +819,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="Mahasiswa"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -824,7 +830,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Pendidikan Sedang Ditempuh"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -835,7 +841,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="Mahasiswa"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -846,7 +852,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Pekerjaan"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -857,7 +863,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="Awak Kapal Tongkang"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -877,6 +883,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
+                    android:background="@color/biru2"
                     android:padding="10dp">
 
                     <ImageView
@@ -893,7 +900,7 @@
                         android:fontFamily="@font/robotoslab_semibold"
                         android:gravity="center_vertical"
                         android:text="Data Kewarganegaraan"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <ImageView
@@ -919,6 +926,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:background="@color/biru3"
                     android:padding="10dp">
 
                     <TextView
@@ -928,7 +936,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Status Warga Negara"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -939,7 +947,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="WNI"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -950,7 +958,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Nomor Paspor"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -961,7 +969,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="00129102931381238"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -972,7 +980,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Tgl Berakhir Paspor"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -983,7 +991,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="20-01-2030"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -1003,6 +1011,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
+                    android:background="@color/biru2"
                     android:padding="10dp">
 
                     <ImageView
@@ -1019,7 +1028,7 @@
                         android:fontFamily="@font/robotoslab_semibold"
                         android:gravity="center_vertical"
                         android:text="Data Keluarga"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <ImageView
@@ -1045,6 +1054,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:background="@color/biru3"
                     android:padding="10dp">
 
                     <TextView
@@ -1054,7 +1064,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="NIK Ayah"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -1065,7 +1075,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="3218293010000001"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -1076,7 +1086,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Nama Ayah"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -1087,7 +1097,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="Ahmad Slardar"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -1098,7 +1108,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="NIK Ibu"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -1109,7 +1119,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="23126371832300001"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -1120,7 +1130,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Nama Ibu"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -1131,7 +1141,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="Juminten Ranger"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -1151,6 +1161,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
+                    android:background="@color/biru2"
                     android:padding="10dp">
 
                     <ImageView
@@ -1167,7 +1178,7 @@
                         android:fontFamily="@font/robotoslab_semibold"
                         android:gravity="center_vertical"
                         android:text="Status Perkawinan"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <ImageView
@@ -1193,6 +1204,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:background="@color/biru3"
                     android:padding="10dp">
 
                     <TextView
@@ -1202,7 +1214,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Status Perkawinan"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -1213,7 +1225,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="KAWIN"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -1224,7 +1236,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="No. Akta Nikah (Buku Nikah)/ Perkawinan"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -1235,7 +1247,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="123013941701511409409180891"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -1246,7 +1258,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Tanggal Perkawinan"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -1257,7 +1269,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="10-10-2022"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -1268,7 +1280,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Akta Perceraian"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -1279,7 +1291,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="Tidak Ada Data"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -1290,7 +1302,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Tanggal Perceraian"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -1301,7 +1313,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="00-00-0000"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -1321,6 +1333,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
+                    android:background="@color/biru2"
                     android:padding="10dp">
 
                     <ImageView
@@ -1337,7 +1350,7 @@
                         android:fontFamily="@font/robotoslab_semibold"
                         android:gravity="center_vertical"
                         android:text="Data Kesehatan"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <ImageView
@@ -1363,6 +1376,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:background="@color/biru3"
                     android:padding="10dp">
 
                     <TextView
@@ -1372,7 +1386,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Golongan Darah"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -1383,7 +1397,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="O"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -1394,7 +1408,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Cacat"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -1405,7 +1419,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="TIDAK CACAT"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -1416,7 +1430,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Sakit Menahun"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -1427,7 +1441,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="TIDAK ADA / TIDAK SAKIT"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -1438,7 +1452,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Akseptor KB"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -1449,7 +1463,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="LAINNYA"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -1460,7 +1474,7 @@
                         android:fontFamily="@font/robotoslab_extrabold"
                         android:gravity="center_vertical"
                         android:text="Asuransi"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -1471,7 +1485,7 @@
                         android:fontFamily="@font/robotoslab_regular"
                         android:gravity="center_vertical"
                         android:text="TIDAK/BELUM PUNYA"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -1485,7 +1499,7 @@
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/robotoslab_extrabold"
                 android:text="Pengaturan"
-                android:textColor="@color/black"
+                android:textColor="@color/biru2"
                 android:textSize="20sp" />
 
 
@@ -1501,6 +1515,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
+                    android:background="@color/biru3"
                     android:padding="10dp">
 
                     <ImageView
@@ -1517,7 +1532,7 @@
                         android:fontFamily="@font/robotoslab_semibold"
                         android:gravity="center_vertical"
                         android:text="Pengaturan"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <ImageView
@@ -1543,6 +1558,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
+                    android:background="@android:color/holo_red_dark"
                     android:padding="10dp">
 
                     <ImageView
@@ -1559,13 +1575,13 @@
                         android:fontFamily="@font/robotoslab_semibold"
                         android:gravity="center_vertical"
                         android:text="Logout"
-                        android:textColor="@android:color/holo_red_dark"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
 
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_baseline_arrow_forward_ios_red_24" />
+                        android:src="@drawable/ic_baseline_arrow_forward_ios_24" />
 
                 </LinearLayout>
 

@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginBottom="60dp"
-    android:background="@color/warna_bg"
     android:scrollbars="none"
     tools:context=".ui.lapak.LapakFragment">
 
@@ -20,7 +19,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotoslab_extrabold"
             android:text="Pengajuan Surat"
-            android:textColor="@color/biru_cikara"
+            android:textColor="@color/biru2"
             android:textSize="30sp"
             android:textStyle="bold" />
 
@@ -29,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:background="@drawable/border_putih_biru"
+            android:background="@drawable/border_biru_muda"
             android:orientation="vertical"
             android:padding="20dp">
 
@@ -39,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/robotoslab_bold"
                 android:text="Surat Keterangan Pengantar"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -48,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/border_putih_biru"
+            android:background="@drawable/border_biru_muda"
             android:orientation="vertical"
             android:padding="20dp">
 
@@ -58,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/robotoslab_bold"
                 android:text="Surat Keterangan Penduduk"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -67,7 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/border_putih_biru"
+            android:background="@drawable/border_biru_muda"
             android:orientation="vertical"
             android:padding="20dp">
 
@@ -77,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/robotoslab_bold"
                 android:text="Surat Keterangan Pindah Penduduk"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -86,7 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/border_putih_biru"
+            android:background="@drawable/border_biru_muda"
             android:orientation="vertical"
             android:padding="20dp">
 
@@ -94,11 +93,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
                 android:fontFamily="@font/robotoslab_bold"
-                android:maxLines="1"
                 android:text="Surat Keterangan Jual Beli"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -107,7 +104,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/border_putih_biru"
+            android:background="@drawable/border_biru_muda"
             android:orientation="vertical"
             android:padding="20dp">
 
@@ -115,11 +112,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
                 android:fontFamily="@font/robotoslab_bold"
-                android:maxLines="1"
                 android:text="Surat Keterangan Catatan Kriminal"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -128,7 +123,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/border_putih_biru"
+            android:background="@drawable/border_biru_muda"
             android:orientation="vertical"
             android:padding="20dp">
 
@@ -136,11 +131,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
                 android:fontFamily="@font/robotoslab_bold"
-                android:maxLines="1"
                 android:text="Surat Keterangan KTP Dalam Proses"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -149,7 +142,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/border_putih_biru"
+            android:background="@drawable/border_biru_muda"
             android:orientation="vertical"
             android:padding="20dp">
 
@@ -157,11 +150,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
                 android:fontFamily="@font/robotoslab_bold"
-                android:maxLines="1"
                 android:text="Surat Keterangan Beda Nama"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -170,18 +161,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/border_putih_biru"
+            android:background="@drawable/border_biru_muda"
             android:orientation="vertical"
             android:padding="20dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
                 android:fontFamily="@font/robotoslab_bold"
-                android:maxLines="1"
                 android:text="Surat Jalan"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -190,18 +179,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/border_putih_biru"
+            android:background="@drawable/border_biru_muda"
             android:orientation="vertical"
             android:padding="20dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
                 android:fontFamily="@font/robotoslab_bold"
-                android:maxLines="1"
                 android:text="Surat Keterangan Kurang Mampu"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -210,18 +197,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/border_putih_biru"
+            android:background="@drawable/border_biru_muda"
             android:orientation="vertical"
             android:padding="20dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
                 android:fontFamily="@font/robotoslab_bold"
-                android:maxLines="1"
                 android:text="Surat Izin Keramaian"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -230,18 +215,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/border_putih_biru"
+            android:background="@drawable/border_biru_muda"
             android:orientation="vertical"
             android:padding="20dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
                 android:fontFamily="@font/robotoslab_bold"
-                android:maxLines="1"
                 android:text="Surat Keterangan Kehilangan"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -250,18 +233,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/border_putih_biru"
+            android:background="@drawable/border_biru_muda"
             android:orientation="vertical"
             android:padding="20dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
                 android:fontFamily="@font/robotoslab_bold"
-                android:maxLines="1"
                 android:text="Surat Keterangan Usaha"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -270,18 +251,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/border_putih_biru"
+            android:background="@drawable/border_biru_muda"
             android:orientation="vertical"
             android:padding="20dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
                 android:fontFamily="@font/robotoslab_bold"
-                android:maxLines="1"
                 android:text="Surat Keterangan Domisili Usaha"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -290,18 +269,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/border_putih_biru"
+            android:background="@drawable/border_biru_muda"
             android:orientation="vertical"
             android:padding="20dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
                 android:fontFamily="@font/robotoslab_bold"
-                android:maxLines="1"
                 android:text="Surat Keterangan Kelahiran"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
 
         </LinearLayout>

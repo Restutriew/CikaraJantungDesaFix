@@ -15,11 +15,20 @@
 
     <color name="warna_utama">#14BDEE</color>
     <color name="warna_bg">#EBFBFF</color>
-    <color name="warna_bg2">#EAECED</color>
+    <color name="warna_bg1">#F4F6F9</color>
+    <color name="warna_bg2">#EBFBFF</color>
+    <color name="warna_bg3">#EAECED</color>
     <color name="warna_tulisan">#384158</color>
     <color name="dongker">#21363f</color>
     <color name="hijau">#51FF2E</color>
     <color name="silver">#C0C0C0</color>
+
+
+    <color name="biru1">#69DADB</color>
+    <color name="biru2">#1597E5</color>
+    <color name="biru3">#113CFC</color>
+    <color name="biru4">#193498</color>
+
 
     <color name="dot_inactive_screen1">@color/biru_cikara_secondary</color>
     <color name="dot_inactive_screen2">@color/biru_cikara_secondary</color>
