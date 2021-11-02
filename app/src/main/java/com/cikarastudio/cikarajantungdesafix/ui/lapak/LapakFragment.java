@@ -2,28 +2,37 @@ package com.cikarastudio.cikarajantungdesafix.ui.lapak;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Rect;
+import android.net.http.AndroidHttpClient;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HttpClientStack;
+import com.android.volley.toolbox.HttpStack;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.cikarastudio.cikarajantungdesafix.R;
@@ -31,6 +40,7 @@ import com.cikarastudio.cikarajantungdesafix.adapter.ProdukAdapter;
 import com.cikarastudio.cikarajantungdesafix.model.ProdukModel;
 import com.cikarastudio.cikarajantungdesafix.session.SessionManager;
 import com.cikarastudio.cikarajantungdesafix.ssl.HttpsTrustManager;
+import com.cikarastudio.cikarajantungdesafix.template.kima.deletereq.CustomHurlStack;
 import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
 import com.cikarastudio.cikarajantungdesafix.ui.loadingdialog.LoadingDialog;
 import com.squareup.picasso.Picasso;
@@ -43,6 +53,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Map;
 
 public class LapakFragment extends Fragment {
 
@@ -51,16 +62,23 @@ public class LapakFragment extends Fragment {
     RecyclerView recyclerView;
     String id_user, link, linkGambar,
     //data lapak
-    id_lapak, nama_lapak, alamat_lapak, tentang_lapak, telp_lapak, logo_lapak, status_lapak;
+    id_lapak, nama_lapak, alamat_lapak, tentang_lapak, telp_lapak, logo_lapak, status_lapak,
+            token;
 
     LinearLayout line_editLapak;
     TextView tv_tambahProduk, tv_sortProdukAlfabet, tv_sortProdukHarga, tv_sortProdukPopuler,
     //lapak
-    tv_namaLapak, tv_alamatLapak, tv_telpLapak, tv_tentangLapak, tv_statusLapak;
-    ImageView img_lapak;
+    tv_namaLapak, tv_alamatLapak, tv_telpLapak, tv_tentangLapak, tv_statusLapak,
+    //atas
+    tv_namaLapakAtas;
+    ImageView img_lapak, img_lapakAtas;
     private ArrayList<ProdukModel> produkList;
     private ProdukAdapter produkAdapter;
     SearchView et_produkSearch;
+
+    ScrollView scroll_lapak;
+    LinearLayout line_borderLapak;
+    CardView cr_judulLapak;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -77,6 +95,9 @@ public class LapakFragment extends Fragment {
         link = getString(R.string.link);
         linkGambar = getString(R.string.linkGambar);
 
+//        inisiasi token
+        token = getString(R.string.token);
+
         loadingDialog = new LoadingDialog(getActivity());
         loadingDialog.startLoading();
 
@@ -91,6 +112,10 @@ public class LapakFragment extends Fragment {
         tv_statusLapak = root.findViewById(R.id.tv_statusLapak);
         img_lapak = root.findViewById(R.id.img_lapak);
 
+        //initiate atas
+        tv_namaLapakAtas = root.findViewById(R.id.tv_namaLapakAtas);
+        img_lapakAtas = root.findViewById(R.id.img_lapakAtas);
+
         //list produk inisiasi
         produkList = new ArrayList<>();
         recyclerView = root.findViewById(R.id.rv_listProduk);
@@ -98,6 +123,35 @@ public class LapakFragment extends Fragment {
         loadLapak();
         loadProduct();
 
+        //hide show judul
+        scroll_lapak = root.findViewById(R.id.scroll_lapak);
+        line_borderLapak = root.findViewById(R.id.line_borderLapak);
+        cr_judulLapak = root.findViewById(R.id.cr_judulLapak);
+
+//        scroll_lapak.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
+//            @Override
+//            public void onScrollChanged() {
+//                Rect scrollBounds = new Rect();
+//                scroll_lapak.getHitRect(scrollBounds);
+//                if (line_borderLapak.getLocalVisibleRect(scrollBounds)) {
+//                    cr_judulLapak.setVisibility(View.GONE);
+//                    // The ImageView is Visible on the screen while scrolling
+//                } else {
+//                    cr_judulLapak.setVisibility(View.VISIBLE);
+//                    // The ImageView is not Visible on the screen while scrolling
+//                }
+//            }
+//        });
+
+//        Rect scrollBounds = new Rect();
+//        scroll_lapak.getHitRect(scrollBounds);
+//        if (line_borderLapak.getLocalVisibleRect(scrollBounds)) {
+//            cr_judulLapak.setVisibility(View.VISIBLE);
+//            // Any portion of the imageView, even a single pixel, is within the visible window
+//        } else {
+//            cr_judulLapak.setVisibility(View.GONE);
+//            // NONE of the imageView is within the visible window
+//        }
 
         //search data produk
         et_produkSearch = root.findViewById(R.id.et_produkSearch);
@@ -128,13 +182,13 @@ public class LapakFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent keEditLapak = new Intent(getActivity(), EditLapakActivity.class);
-                keEditLapak.putExtra("id_lapak",id_lapak);
-                keEditLapak.putExtra("nama_lapak",nama_lapak);
-                keEditLapak.putExtra("alamat_lapak",alamat_lapak);
-                keEditLapak.putExtra("tentang_lapak",tentang_lapak);
-                keEditLapak.putExtra("telp_lapak",telp_lapak);
-                keEditLapak.putExtra("logo_lapak",logo_lapak);
-                keEditLapak.putExtra("status_lapak",status_lapak);
+                keEditLapak.putExtra("id_lapak", id_lapak);
+                keEditLapak.putExtra("nama_lapak", nama_lapak);
+                keEditLapak.putExtra("alamat_lapak", alamat_lapak);
+                keEditLapak.putExtra("tentang_lapak", tentang_lapak);
+                keEditLapak.putExtra("telp_lapak", telp_lapak);
+                keEditLapak.putExtra("logo_lapak", logo_lapak);
+                keEditLapak.putExtra("status_lapak", status_lapak);
                 startActivity(keEditLapak);
             }
         });
@@ -227,6 +281,8 @@ public class LapakFragment extends Fragment {
                             textFuntion.setTextDanNullData(tv_tentangLapak, res_tentang);
                             textFuntion.setTextDanNullData(tv_statusLapak, res_statusLapak);
 
+                            textFuntion.setTextDanNullData(tv_namaLapakAtas, res_namaLapak);
+
                             String resi_gambar = res_logo.replace(" ", "%20");
 
                             id_lapak = res_id;
@@ -239,6 +295,8 @@ public class LapakFragment extends Fragment {
 
                             String imageUrl = linkGambar + "penduduk/lapak/" + resi_gambar;
                             Picasso.with(getActivity()).load(imageUrl).fit().centerCrop().into(img_lapak);
+                            Picasso.with(getActivity()).load(imageUrl).fit().centerCrop().into(img_lapakAtas);
+
                             //hilangkan loading
                             loadingDialog.dissmissDialog();
 
@@ -338,7 +396,6 @@ public class LapakFragment extends Fragment {
         RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
         requestQueue.add(stringRequest);
     }
-
 
     //sort alfabet
     private void sortAlfabet() {

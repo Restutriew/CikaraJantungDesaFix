@@ -13,13 +13,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.cikarastudio.cikarajantungdesafix.R;
 
 public class SuratFragment extends Fragment {
 
-    LinearLayout line_ketPengantar;
+//    LinearLayout line_ketPengantar;
+    ImageView img_tambahSurat;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -27,15 +29,24 @@ public class SuratFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_surat, container, false);
 
 
-        line_ketPengantar = root.findViewById(R.id.line_ketPengantar);
-
-        line_ketPengantar.setOnClickListener(new View.OnClickListener() {
+        img_tambahSurat = root.findViewById(R.id.img_tambahSurat);
+        img_tambahSurat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent keSuratKK = new Intent(getActivity(), TambahSuratActivity.class);
-                startActivity(keSuratKK);
+                Intent keTambahSurat = new Intent(getActivity(), ListTambahSuratActivity.class);
+                startActivity(keTambahSurat);
             }
         });
+
+//        line_ketPengantar = root.findViewById(R.id.line_ketPengantar);
+//
+//        line_ketPengantar.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent keSuratKK = new Intent(getActivity(), TambahSuratActivity.class);
+//                startActivity(keSuratKK);
+//            }
+//        });
 
         return root;
     }

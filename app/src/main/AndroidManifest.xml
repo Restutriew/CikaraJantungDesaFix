@@ -13,6 +13,9 @@
         android:theme="@style/Theme.CikaraJantungDesaFix"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.surat.ListTambahSuratActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.laporan.LaporanUserActivity"
             android:exported="true" />
         <activity

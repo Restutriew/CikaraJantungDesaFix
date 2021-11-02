@@ -35,7 +35,7 @@
                 android:layout_marginEnd="10dp">
 
                 <ImageView
-                    android:id="@+id/img_tambahLaporan"
+                    android:id="@+id/img_laporanSaya"
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
@@ -45,14 +45,13 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/img_laporanSaya"
+                    android:id="@+id/img_tambahLaporan"
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
-
                     android:layout_margin="10dp"
                     android:src="@drawable/ic_baseline_add_box_24"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/img_tambahLaporan"
+                    app:layout_constraintEnd_toStartOf="@id/img_laporanSaya"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -70,12 +69,45 @@
             android:background="@color/white"
             android:orientation="vertical">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_kategori"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:orientation="horizontal" />
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/line_filterKategori"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/border_putih_biru_inputan"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:layout_width="20sp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_baseline_filter_alt_24" />
+
+                    <TextView
+                        android:id="@+id/tv_namaKategori"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/robotoslab_bold"
+                        android:text="Filter"
+                        android:textColor="@color/biru_cikara" />
+
+                </LinearLayout>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_kategori"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+            </LinearLayout>
+
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -155,9 +187,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
                         android:layout_marginTop="15dp"
+                        app:autoPlay="false"
                         app:fillColor="#FFFFFFFF"
                         app:pageColor="#00000000"
-                        app:autoPlay="false"
                         app:radius="6dp"
                         app:strokeColor="#FF777777"
                         app:strokeWidth="1dp" />
@@ -227,17 +259,17 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!--            <RelativeLayout-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content">-->
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_laporanAll"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:overScrollMode="never" />
+                android:layout_height="wrap_content">
 
-            <!--            </RelativeLayout>-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_laporanAll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:overScrollMode="never" />
+
+            </RelativeLayout>
 
         </LinearLayout>
     </ScrollView>

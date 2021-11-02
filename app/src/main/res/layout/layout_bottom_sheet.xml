@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottomSheetContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_bottomsheetdialog"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/robotoslab_bold"
+            android:text="Filter Data"
+            android:textColor="@color/biru_cikara"
+            android:textSize="20sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/biru_cikara" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/robotoslab_bold"
+        android:text="Urutkan Berdasarkan"
+        android:textColor="@color/biru_cikara"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/border_putih_biru_inputan"
+            android:fontFamily="@font/robotoslab_bold"
+            android:padding="5dp"
+            android:text="Like"
+            android:textColor="@color/biru_cikara" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/border_putih_biru_inputan"
+            android:fontFamily="@font/robotoslab_bold"
+            android:padding="5dp"
+            android:text="Waktu"
+            android:textColor="@color/biru_cikara" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/biru_cikara" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/robotoslab_bold"
+        android:text="Filter Berdasarkan"
+        android:textColor="@color/biru_cikara"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/border_putih_biru_inputan"
+            android:fontFamily="@font/robotoslab_bold"
+            android:padding="5dp"
+            android:text="Keamanan"
+            android:textColor="@color/biru_cikara" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/border_putih_biru_inputan"
+            android:fontFamily="@font/robotoslab_bold"
+            android:padding="5dp"
+            android:text="Kesehatan"
+            android:textColor="@color/biru_cikara" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/border_putih_biru_inputan"
+            android:fontFamily="@font/robotoslab_bold"
+            android:padding="5dp"
+            android:text="Ekonomi"
+            android:textColor="@color/biru_cikara" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/border_putih_biru_inputan"
+            android:fontFamily="@font/robotoslab_bold"
+            android:padding="5dp"
+            android:text="Kebijakan"
+            android:textColor="@color/biru_cikara" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/border_putih_biru_inputan"
+            android:fontFamily="@font/robotoslab_bold"
+            android:padding="5dp"
+            android:text="Sosial"
+            android:textColor="@color/biru_cikara" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/border_putih_biru_inputan"
+            android:fontFamily="@font/robotoslab_bold"
+            android:padding="5dp"
+            android:text="Bantuan"
+            android:textColor="@color/biru_cikara" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/biru_cikara" />
+
+</LinearLayout>

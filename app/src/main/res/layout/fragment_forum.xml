@@ -1,12 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginBottom="60dp"
+    android:orientation="vertical"
     android:scrollbars="none"
     tools:context=".ui.forum.ForumFragment">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/biru2"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/robotoslab_extrabold"
+                android:text="Forum"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="50dp"-->
+            <!--                android:layout_marginEnd="10dp">-->
+
+            <!--                <ImageView-->
+            <!--                    android:id="@+id/img_laporanSaya"-->
+            <!--                    android:layout_width="50dp"-->
+            <!--                    android:layout_height="match_parent"-->
+            <!--                    android:layout_margin="10dp"-->
+            <!--                    android:src="@drawable/ic_baseline_forum_24"-->
+            <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--                <ImageView-->
+            <!--                    android:id="@+id/img_tambahLaporan"-->
+            <!--                    android:layout_width="50dp"-->
+            <!--                    android:layout_height="match_parent"-->
+            <!--                    android:layout_margin="10dp"-->
+            <!--                    android:src="@drawable/ic_baseline_add_box_24"-->
+            <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                    app:layout_constraintEnd_toStartOf="@id/img_laporanSaya"-->
+            <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+            <!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,337 +66,326 @@
         android:layout_margin="20dp"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/robotoslab_extrabold"
-            android:text="Forum"
-            android:textColor="@color/biru2"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-
+        <SearchView
+            android:id="@+id/et_produkSearch"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/border_putih_biru_inputan"
+            android:iconifiedByDefault="false"
+            android:queryHint="Cari Forum"
+            android:searchIcon="@drawable/ic_baseline_search_24" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:cardElevation="5dp"
-            app:cardCornerRadius="20dp">
-
-        <LinearLayout
-            android:id="@+id/line_sampah"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/biru2"
-            android:orientation="vertical"
-            android:padding="20dp">
+            app:cardCornerRadius="20dp"
+            app:cardElevation="5dp">
 
             <LinearLayout
+                android:id="@+id/line_sampah"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    app:cardCornerRadius="15dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/img_sampah" />
-                </androidx.cardview.widget.CardView>
+                android:layout_height="wrap_content"
+                android:background="@color/biru2"
+                android:orientation="vertical"
+                android:padding="20dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content">
 
-                    <TextView
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        app:cardCornerRadius="15dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/img_sampah" />
+                    </androidx.cardview.widget.CardView>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/robotoslab_bold"
-                        android:text="Diskusi Sampah Desa"
-                        android:textColor="@color/white"
-                        android:textSize="20sp" />
+                        android:layout_marginLeft="10dp"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:text="30 Anggota"
-                        android:textColor="@color/white" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/robotoslab_bold"
+                            android:text="Diskusi Sampah Desa"
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/robotoslab_regular"
+                            android:text="30 Anggota"
+                            android:textColor="@color/white" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/robotoslab_regular"
+                    android:text="Berdiskusi Untuk Penanggulangan Sampah Di Desa"
+                    android:textColor="@color/white" />
+
             </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/robotoslab_regular"
-                android:text="Berdiskusi Untuk Penanggulangan Sampah Di Desa"
-                android:textColor="@color/white" />
-
-        </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:background="@drawable/border_putih_biru"-->
-<!--            android:orientation="vertical"-->
-<!--            android:padding="20dp">-->
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="10dp"-->
+        <!--            android:background="@drawable/border_putih_biru"-->
+        <!--            android:orientation="vertical"-->
+        <!--            android:padding="20dp">-->
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content">-->
+        <!--            <LinearLayout-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content">-->
 
-<!--                <androidx.cardview.widget.CardView-->
-<!--                    android:layout_width="50dp"-->
-<!--                    android:layout_height="50dp"-->
-<!--                    app:cardCornerRadius="15dp">-->
+        <!--                <androidx.cardview.widget.CardView-->
+        <!--                    android:layout_width="50dp"-->
+        <!--                    android:layout_height="50dp"-->
+        <!--                    app:cardCornerRadius="15dp">-->
 
-<!--                    <ImageView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:scaleType="centerCrop"-->
-<!--                        android:src="@drawable/img_psbb" />-->
-<!--                </androidx.cardview.widget.CardView>-->
+        <!--                    <ImageView-->
+        <!--                        android:layout_width="match_parent"-->
+        <!--                        android:layout_height="match_parent"-->
+        <!--                        android:scaleType="centerCrop"-->
+        <!--                        android:src="@drawable/img_psbb" />-->
+        <!--                </androidx.cardview.widget.CardView>-->
 
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginLeft="10dp"-->
-<!--                    android:orientation="vertical">-->
+        <!--                <LinearLayout-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_marginLeft="10dp"-->
+        <!--                    android:orientation="vertical">-->
 
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:fontFamily="@font/robotoslab_bold"-->
-<!--                        android:text="PSBB Diperpanjang"-->
-<!--                        android:textColor="@color/biru_cikara"-->
-<!--                        android:textSize="25sp" />-->
+        <!--                    <TextView-->
+        <!--                        android:layout_width="match_parent"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:fontFamily="@font/robotoslab_bold"-->
+        <!--                        android:text="PSBB Diperpanjang"-->
+        <!--                        android:textColor="@color/biru_cikara"-->
+        <!--                        android:textSize="25sp" />-->
 
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:fontFamily="@font/robotoslab_regular"-->
-<!--                        android:text="50 Anggota"-->
-<!--                        android:textColor="@color/biru_cikara" />-->
+        <!--                    <TextView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:fontFamily="@font/robotoslab_regular"-->
+        <!--                        android:text="50 Anggota"-->
+        <!--                        android:textColor="@color/biru_cikara" />-->
 
-<!--                </LinearLayout>-->
+        <!--                </LinearLayout>-->
 
-<!--            </LinearLayout>-->
+        <!--            </LinearLayout>-->
 
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="5dp"-->
-<!--                android:fontFamily="@font/robotoslab_regular"-->
-<!--                android:text="Berdiskusi Masalah PSBB"-->
-<!--                android:textColor="@color/black" />-->
+        <!--            <TextView-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginTop="5dp"-->
+        <!--                android:fontFamily="@font/robotoslab_regular"-->
+        <!--                android:text="Berdiskusi Masalah PSBB"-->
+        <!--                android:textColor="@color/black" />-->
 
-<!--        </LinearLayout>-->
+        <!--        </LinearLayout>-->
 
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:background="@drawable/border_putih_biru"-->
-<!--            android:orientation="vertical"-->
-<!--            android:padding="20dp">-->
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="10dp"-->
+        <!--            android:background="@drawable/border_putih_biru"-->
+        <!--            android:orientation="vertical"-->
+        <!--            android:padding="20dp">-->
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content">-->
+        <!--            <LinearLayout-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content">-->
 
-<!--                <androidx.cardview.widget.CardView-->
-<!--                    android:layout_width="50dp"-->
-<!--                    android:layout_height="50dp"-->
-<!--                    app:cardCornerRadius="15dp">-->
+        <!--                <androidx.cardview.widget.CardView-->
+        <!--                    android:layout_width="50dp"-->
+        <!--                    android:layout_height="50dp"-->
+        <!--                    app:cardCornerRadius="15dp">-->
 
-<!--                    <ImageView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:scaleType="centerCrop"-->
-<!--                        android:src="@drawable/img_kebijakan" />-->
-<!--                </androidx.cardview.widget.CardView>-->
+        <!--                    <ImageView-->
+        <!--                        android:layout_width="match_parent"-->
+        <!--                        android:layout_height="match_parent"-->
+        <!--                        android:scaleType="centerCrop"-->
+        <!--                        android:src="@drawable/img_kebijakan" />-->
+        <!--                </androidx.cardview.widget.CardView>-->
 
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginLeft="10dp"-->
-<!--                    android:orientation="vertical">-->
+        <!--                <LinearLayout-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_marginLeft="10dp"-->
+        <!--                    android:orientation="vertical">-->
 
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:ellipsize="end"-->
-<!--                        android:fontFamily="@font/robotoslab_bold"-->
-<!--                        android:maxLines="1"-->
-<!--                        android:text="Kebijakan Baru Pemdes 2021"-->
-<!--                        android:textColor="@color/biru_cikara"-->
-<!--                        android:textSize="25sp" />-->
+        <!--                    <TextView-->
+        <!--                        android:layout_width="match_parent"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:ellipsize="end"-->
+        <!--                        android:fontFamily="@font/robotoslab_bold"-->
+        <!--                        android:maxLines="1"-->
+        <!--                        android:text="Kebijakan Baru Pemdes 2021"-->
+        <!--                        android:textColor="@color/biru_cikara"-->
+        <!--                        android:textSize="25sp" />-->
 
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:fontFamily="@font/robotoslab_regular"-->
-<!--                        android:text="52 Anggota"-->
-<!--                        android:textColor="@color/biru_cikara" />-->
+        <!--                    <TextView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:fontFamily="@font/robotoslab_regular"-->
+        <!--                        android:text="52 Anggota"-->
+        <!--                        android:textColor="@color/biru_cikara" />-->
 
-<!--                </LinearLayout>-->
+        <!--                </LinearLayout>-->
 
-<!--            </LinearLayout>-->
+        <!--            </LinearLayout>-->
 
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="5dp"-->
-<!--                android:fontFamily="@font/robotoslab_regular"-->
-<!--                android:text="Membahas Isi Dari Pemdes 2021"-->
-<!--                android:textColor="@color/black" />-->
+        <!--            <TextView-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginTop="5dp"-->
+        <!--                android:fontFamily="@font/robotoslab_regular"-->
+        <!--                android:text="Membahas Isi Dari Pemdes 2021"-->
+        <!--                android:textColor="@color/black" />-->
 
-<!--        </LinearLayout>-->
+        <!--        </LinearLayout>-->
 
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:background="@drawable/border_putih_biru"-->
-<!--            android:orientation="vertical"-->
-<!--            android:padding="20dp">-->
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="10dp"-->
+        <!--            android:background="@drawable/border_putih_biru"-->
+        <!--            android:orientation="vertical"-->
+        <!--            android:padding="20dp">-->
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content">-->
+        <!--            <LinearLayout-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content">-->
 
-<!--                <androidx.cardview.widget.CardView-->
-<!--                    android:layout_width="50dp"-->
-<!--                    android:layout_height="50dp"-->
-<!--                    app:cardCornerRadius="15dp">-->
+        <!--                <androidx.cardview.widget.CardView-->
+        <!--                    android:layout_width="50dp"-->
+        <!--                    android:layout_height="50dp"-->
+        <!--                    app:cardCornerRadius="15dp">-->
 
-<!--                    <ImageView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:scaleType="centerCrop"-->
-<!--                        android:src="@drawable/img_blt" />-->
-<!--                </androidx.cardview.widget.CardView>-->
+        <!--                    <ImageView-->
+        <!--                        android:layout_width="match_parent"-->
+        <!--                        android:layout_height="match_parent"-->
+        <!--                        android:scaleType="centerCrop"-->
+        <!--                        android:src="@drawable/img_blt" />-->
+        <!--                </androidx.cardview.widget.CardView>-->
 
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginLeft="10dp"-->
-<!--                    android:orientation="vertical">-->
+        <!--                <LinearLayout-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_marginLeft="10dp"-->
+        <!--                    android:orientation="vertical">-->
 
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:ellipsize="end"-->
-<!--                        android:fontFamily="@font/robotoslab_bold"-->
-<!--                        android:maxLines="1"-->
-<!--                        android:text="Bantuan Langsung Tunai"-->
-<!--                        android:textColor="@color/biru_cikara"-->
-<!--                        android:textSize="25sp" />-->
+        <!--                    <TextView-->
+        <!--                        android:layout_width="match_parent"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:ellipsize="end"-->
+        <!--                        android:fontFamily="@font/robotoslab_bold"-->
+        <!--                        android:maxLines="1"-->
+        <!--                        android:text="Bantuan Langsung Tunai"-->
+        <!--                        android:textColor="@color/biru_cikara"-->
+        <!--                        android:textSize="25sp" />-->
 
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:fontFamily="@font/robotoslab_regular"-->
-<!--                        android:text="500 Anggota"-->
-<!--                        android:textColor="@color/biru_cikara" />-->
+        <!--                    <TextView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:fontFamily="@font/robotoslab_regular"-->
+        <!--                        android:text="500 Anggota"-->
+        <!--                        android:textColor="@color/biru_cikara" />-->
 
-<!--                </LinearLayout>-->
+        <!--                </LinearLayout>-->
 
-<!--            </LinearLayout>-->
+        <!--            </LinearLayout>-->
 
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="5dp"-->
-<!--                android:fontFamily="@font/robotoslab_regular"-->
-<!--                android:text="Membahas Terkait Program BLT"-->
-<!--                android:textColor="@color/black" />-->
+        <!--            <TextView-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginTop="5dp"-->
+        <!--                android:fontFamily="@font/robotoslab_regular"-->
+        <!--                android:text="Membahas Terkait Program BLT"-->
+        <!--                android:textColor="@color/black" />-->
 
-<!--        </LinearLayout>-->
+        <!--        </LinearLayout>-->
 
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:background="@drawable/border_putih_biru"-->
-<!--            android:orientation="vertical"-->
-<!--            android:padding="20dp">-->
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="10dp"-->
+        <!--            android:background="@drawable/border_putih_biru"-->
+        <!--            android:orientation="vertical"-->
+        <!--            android:padding="20dp">-->
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content">-->
+        <!--            <LinearLayout-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content">-->
 
-<!--                <androidx.cardview.widget.CardView-->
-<!--                    android:layout_width="50dp"-->
-<!--                    android:layout_height="50dp"-->
-<!--                    app:cardCornerRadius="15dp">-->
+        <!--                <androidx.cardview.widget.CardView-->
+        <!--                    android:layout_width="50dp"-->
+        <!--                    android:layout_height="50dp"-->
+        <!--                    app:cardCornerRadius="15dp">-->
 
-<!--                    <ImageView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:scaleType="centerCrop"-->
-<!--                        android:src="@drawable/img_bumdes" />-->
-<!--                </androidx.cardview.widget.CardView>-->
+        <!--                    <ImageView-->
+        <!--                        android:layout_width="match_parent"-->
+        <!--                        android:layout_height="match_parent"-->
+        <!--                        android:scaleType="centerCrop"-->
+        <!--                        android:src="@drawable/img_bumdes" />-->
+        <!--                </androidx.cardview.widget.CardView>-->
 
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginLeft="10dp"-->
-<!--                    android:orientation="vertical">-->
+        <!--                <LinearLayout-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_marginLeft="10dp"-->
+        <!--                    android:orientation="vertical">-->
 
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:ellipsize="end"-->
-<!--                        android:fontFamily="@font/robotoslab_bold"-->
-<!--                        android:maxLines="1"-->
-<!--                        android:text="Diskusi Aplikasi Bumdes"-->
-<!--                        android:textColor="@color/biru_cikara"-->
-<!--                        android:textSize="25sp" />-->
+        <!--                    <TextView-->
+        <!--                        android:layout_width="match_parent"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:ellipsize="end"-->
+        <!--                        android:fontFamily="@font/robotoslab_bold"-->
+        <!--                        android:maxLines="1"-->
+        <!--                        android:text="Diskusi Aplikasi Bumdes"-->
+        <!--                        android:textColor="@color/biru_cikara"-->
+        <!--                        android:textSize="25sp" />-->
 
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:fontFamily="@font/robotoslab_regular"-->
-<!--                        android:text="1000 Anggota"-->
-<!--                        android:textColor="@color/biru_cikara" />-->
+        <!--                    <TextView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:fontFamily="@font/robotoslab_regular"-->
+        <!--                        android:text="1000 Anggota"-->
+        <!--                        android:textColor="@color/biru_cikara" />-->
 
-<!--                </LinearLayout>-->
+        <!--                </LinearLayout>-->
 
-<!--            </LinearLayout>-->
+        <!--            </LinearLayout>-->
 
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="5dp"-->
-<!--                android:fontFamily="@font/robotoslab_regular"-->
-<!--                android:text="Membahas Terkait Apliksai BUMDes"-->
-<!--                android:textColor="@color/black" />-->
+        <!--            <TextView-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginTop="5dp"-->
+        <!--                android:fontFamily="@font/robotoslab_regular"-->
+        <!--                android:text="Membahas Terkait Apliksai BUMDes"-->
+        <!--                android:textColor="@color/black" />-->
 
-<!--        </LinearLayout>-->
+        <!--        </LinearLayout>-->
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textSize="20sp"
-            android:fontFamily="@font/robotoslab_extrabold"
-            android:textColor="@color/warna_bg"
-            android:gravity="center"
-            android:layout_marginBottom="40dp"/>
 
     </LinearLayout>
 
-</ScrollView>
+</LinearLayout>

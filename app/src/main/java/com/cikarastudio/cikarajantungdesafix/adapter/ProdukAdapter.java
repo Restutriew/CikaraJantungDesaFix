@@ -3,9 +3,11 @@ package com.cikarastudio.cikarajantungdesafix.adapter;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.cikarastudio.cikarajantungdesafix.R;
 import com.cikarastudio.cikarajantungdesafix.model.ProdukModel;
 import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
+import com.cikarastudio.cikarajantungdesafix.ui.lapak.LapakFragment;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -100,12 +103,13 @@ public class ProdukAdapter extends RecyclerView.Adapter<ProdukAdapter.ProdukView
         return mProdukList.size();
     }
 
-    public class ProdukViewHolder extends RecyclerView.ViewHolder {
+    public class ProdukViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, PopupMenu.OnMenuItemClickListener {
         public TextView nama;
         public TextView harga;
         public TextView kaliDilihat;
         public TextView keterangan;
         public ImageView gambar;
+        public ImageView img_buttonDots;
 
         ProdukViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -114,6 +118,40 @@ public class ProdukAdapter extends RecyclerView.Adapter<ProdukAdapter.ProdukView
             kaliDilihat = itemView.findViewById(R.id.tv_kaliDilihatItemProduk);
             keterangan = itemView.findViewById(R.id.tv_keteranganItemProduk);
             gambar = itemView.findViewById(R.id.img_gambarItemProduk);
+            img_buttonDots = itemView.findViewById(R.id.img_buttonDots);
+
+            img_buttonDots.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            Log.d("calpalnx", "onClick: " + getAdapterPosition());
+            showPopupMenu(view);
+        }
+
+        private void showPopupMenu(View view){
+            PopupMenu popupMenu = new PopupMenu(view.getContext(),view);
+            popupMenu.inflate(R.menu.popup_menu);
+            popupMenu.setOnMenuItemClickListener(this);
+            popupMenu.show();
+        }
+
+        @Override
+        public boolean onMenuItemClick(MenuItem menuItem) {
+            switch (menuItem.getItemId()){
+                case R.id.action_popup_edit:
+                    Log.d("calpalnx", "onMenuItemClick: edit" + getAdapterPosition());
+                    onItemClickCallback.onItemClicked(mProdukList.get(getAdapterPosition()));
+                    return true;
+                case R.id.action_popup_delete:
+                    ProdukModel currentItem = mProdukList.get(getAdapterPosition());
+                    String id = currentItem.getId();
+                    Log.d("calpalnx", "onMenuItemClick: delete" + getAdapterPosition());
+//                    LapakFragment lapakFragment = new LapakFragment();
+//                    lapakFragment.hapusData(id);
+                    return true;
+            }
+            return false;
         }
     }
 }
