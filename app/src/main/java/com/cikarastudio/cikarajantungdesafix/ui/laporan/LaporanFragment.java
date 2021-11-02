@@ -1,5 +1,6 @@
 package com.cikarastudio.cikarajantungdesafix.ui.laporan;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -45,6 +46,8 @@ import com.cikarastudio.cikarajantungdesafix.ui.profil.ProfilActivity;
 import com.google.android.flexbox.FlexWrap;
 import com.google.android.flexbox.FlexboxLayoutManager;
 import com.squareup.picasso.Picasso;
+import com.synnapps.carouselview.CarouselView;
+import com.synnapps.carouselview.ImageListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -64,12 +67,16 @@ public class LaporanFragment extends Fragment {
     private ArrayList<LaporanModel> laporanList;
     private LaporanAdapter laporanAdapter;
 
-    private  ArrayList<String> cateList;
-
-    CardView cr_keLaporanSaya;
+    private ArrayList<String> cateList;
 
     String id_user, link, linkGambar;
-    TextView et_keFormLaporan;
+
+    CarouselView carouselView;
+    int[] sampleImages = {R.drawable.img_sampah,
+            R.drawable.img_sampah1,
+            R.drawable.img_sampah2,
+            R.drawable.img_sampah3,
+            R.drawable.img_sampah4};
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -90,7 +97,7 @@ public class LaporanFragment extends Fragment {
         loadingDialog = new LoadingDialog(getActivity());
         loadingDialog.startLoading();
 
-        cateList=new ArrayList<>();
+        cateList = new ArrayList<>();
 
         kategoriList = new ArrayList<>();
         rv_kategori = root.findViewById(R.id.rv_kategori);
@@ -101,9 +108,17 @@ public class LaporanFragment extends Fragment {
 
         laporanList = new ArrayList<>();
         rv_laporanAll = root.findViewById(R.id.rv_laporanAll);
+        LinearLayoutManager linearLayoutManageraaa = new LinearLayoutManager(getContext()) {
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        };
+        rv_laporanAll.setLayoutManager(linearLayoutManageraaa);
 //        rv_laporanAll.setLayoutManager(new LinearLayoutManager(getContext()));
-        LinearLayoutManager lm = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, true); // last argument (true) is flag for reverse layout
-        rv_laporanAll.setLayoutManager(lm);
+//        LinearLayoutManager lm = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false); // last argument (true) is flag for reverse layout
+//        rv_laporanAll.setLayoutManager(lm);
+//        rv_laporanAll.setNestedScrollingEnabled(false);
         rv_laporanAll.setHasFixedSize(true);
 
         loadLaporan();
@@ -111,28 +126,57 @@ public class LaporanFragment extends Fragment {
 
         Log.d("calpalnx", String.valueOf(cateList));
 
-        et_keFormLaporan = root.findViewById(R.id.et_keFormLaporan);
-        et_keFormLaporan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent keTambahLaporan = new Intent(getActivity(), TambahLaporanActivity.class);
-                keTambahLaporan.putExtra("cateList", cateList);
-                startActivity(keTambahLaporan);
-            }
-        });
+//        et_keFormLaporan = root.findViewById(R.id.et_keFormLaporan);
+//        et_keFormLaporan.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent keTambahLaporan = new Intent(getActivity(), TambahLaporanActivity.class);
+//                keTambahLaporan.putExtra("cateList", cateList);
+//                startActivity(keTambahLaporan);
+//            }
+//        });
+//
+//        cr_keLaporanSaya = root.findViewById(R.id.cr_keLaporanSaya);
+//        cr_keLaporanSaya.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent keLaporanSaya = new Intent(getActivity(),LaporanUserActivity.class);
+//                startActivity(keLaporanSaya);
+//            }
+//        });
 
-        cr_keLaporanSaya = root.findViewById(R.id.cr_keLaporanSaya);
-        cr_keLaporanSaya.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent keLaporanSaya = new Intent(getActivity(),LaporanUserActivity.class);
-                startActivity(keLaporanSaya);
-            }
-        });
-
+        carouselView = root.findViewById(R.id.carouselView);
+        carouselView.setPageCount(sampleImages.length);
+        carouselView.setImageListener(imageListener);
         return root;
 
 
+    }
+
+    ImageListener imageListener = new ImageListener() {
+        @Override
+        public void setImageForPosition(int position, ImageView imageView) {
+            imageView.setImageResource(sampleImages[position]);
+        }
+    };
+
+
+    public class CustomGridLayoutManager extends LinearLayoutManager {
+        private boolean isScrollEnabled = true;
+
+        public CustomGridLayoutManager(Context context) {
+            super(context);
+        }
+
+        public void setScrollEnabled(boolean flag) {
+            this.isScrollEnabled = flag;
+        }
+
+        @Override
+        public boolean canScrollVertically() {
+            //Similarly you can customize "canScrollHorizontally()" for managing horizontal scroll
+            return isScrollEnabled && super.canScrollVertically();
+        }
     }
 
     private void loadLaporan() {
@@ -178,7 +222,7 @@ public class LaporanFragment extends Fragment {
                                     Log.d("calpalnx", String.valueOf(resi_tanggal));
                                     Log.d("calpalnx", String.valueOf(resi_waktu));
 
-                                    if(res_identitasLaporan.equals("ya") && res_postingLaporan.equals("ya")) {
+                                    if (res_identitasLaporan.equals("ya") && res_postingLaporan.equals("ya")) {
                                         laporanList.add(new LaporanModel(res_id, res_userId, res_isiLaporan, res_kategoriLaporan, res_statusLaporan, res_tanggapanLaporan, res_identitasLaporan, res_postingLaporan,
                                                 resi_photoLaporan, resi_waktu, resi_tanggal, resi_potoProfilLaporan, res_namaPendudukLaporan));
                                         laporanAdapter = new LaporanAdapter(getContext(), laporanList);
