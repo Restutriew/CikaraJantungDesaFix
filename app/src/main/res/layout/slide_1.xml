@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/futura"
+
         android:gravity="center_horizontal"
         android:text="Yuk, Dukung Digitalisasi Desa"
         android:textAlignment="center"
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/futura"
+
         android:gravity="center_horizontal"
         android:text="Aplikasi Jantung Desa Mendukung Digitalisasi Desa di Seluruh Indonesia"
         android:textAlignment="center"

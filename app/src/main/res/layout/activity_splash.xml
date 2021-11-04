@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
-        android:fontFamily="@font/calibri"
+
         android:gravity="center_horizontal"
         android:text="Aplikasi Jantung Desa"
         android:textAlignment="center"
@@ -39,7 +39,6 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/futura"
         android:text="Copyright @2020 Cikara Studio"
         android:textColor="@color/biru2"
         app:layout_constraintBottom_toBottomOf="parent"
