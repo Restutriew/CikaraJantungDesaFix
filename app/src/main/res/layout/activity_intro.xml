@@ -32,7 +32,7 @@
         android:background="@color/biru2"
         android:gravity="center"
         android:text="Selanjutnya"
-        android:fontFamily="@font/futura"
+
         android:textColor="@android:color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
