@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="16dp"
-
+        android:fontFamily="@font/inter_extrabold"
         android:gravity="center_horizontal"
         android:text="Ayo Gunakan Aplikasi Jantung Desa Sekarang!!"
         android:textAlignment="center"
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="16dp"
-
+        android:fontFamily="@font/inter_regular"
         android:gravity="center_horizontal"
         android:text=""
         android:textAlignment="center"

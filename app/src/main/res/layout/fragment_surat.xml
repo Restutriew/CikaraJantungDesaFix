@@ -24,7 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:fontFamily="@font/robotoslab_extrabold"
+                android:fontFamily="@font/inter_extrabold"
                 android:text="Surat"
                 android:textColor="@color/white"
                 android:textSize="30sp" />
@@ -39,8 +39,8 @@
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:visibility="gone"
                     android:src="@drawable/ic_baseline_content_copy_24"
+                    android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -99,14 +99,14 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/robotoslab_semibold"
+                                android:fontFamily="@font/inter_semibold"
                                 android:text="Total Pengajuan Surat"
                                 android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/robotoslab_semibold"
+                                android:fontFamily="@font/inter_regular"
                                 android:text="10"
                                 android:textColor="@color/black"
                                 android:textSize="25sp" />
@@ -132,14 +132,14 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/robotoslab_semibold"
+                                android:fontFamily="@font/inter_semibold"
                                 android:text="Surat Selesai"
                                 android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/robotoslab_semibold"
+                                android:fontFamily="@font/inter_regular"
                                 android:text="4"
                                 android:textColor="@color/black"
                                 android:textSize="25sp" />
@@ -165,14 +165,14 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/robotoslab_semibold"
+                                android:fontFamily="@font/inter_semibold"
                                 android:text="Surat Diproses"
                                 android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/robotoslab_semibold"
+                                android:fontFamily="@font/inter_regular"
                                 android:text="25"
                                 android:textColor="@color/black"
                                 android:textSize="25sp" />
@@ -198,14 +198,14 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/robotoslab_semibold"
+                                android:fontFamily="@font/inter_semibold"
                                 android:text="Menunggu Konfirmasi"
                                 android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/robotoslab_semibold"
+                                android:fontFamily="@font/inter_regular"
                                 android:text="15"
                                 android:textColor="@color/black"
                                 android:textSize="25sp" />
@@ -233,7 +233,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_semibold"
+                        android:fontFamily="@font/inter_extrabold"
                         android:text="Surat Terbaru"
                         android:textColor="@color/black"
                         android:textSize="25sp" />
@@ -243,7 +243,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_semibold"
+                        android:fontFamily="@font/inter_semibold"
                         android:text="30 Oktober 2021"
                         android:textColor="@color/black" />
 
@@ -263,7 +263,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/robotoslab_semibold"
+                                android:fontFamily="@font/inter_regular"
                                 android:text="Keterangan Pengantar"
                                 android:textColor="@color/black" />
 
@@ -271,7 +271,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/robotoslab_regular"
+                                android:fontFamily="@font/inter_regular"
                                 android:text="S-01/001/20051/XI/2021"
                                 android:textColor="@color/black" />
 
@@ -281,7 +281,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_marginRight="20dp"
-                            android:fontFamily="@font/robotoslab_semibold"
+                            android:fontFamily="@font/inter_regular"
                             android:gravity="center"
                             android:text="Selesai"
                             android:textColor="@color/black" />
@@ -293,7 +293,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="30dp"
-                        android:fontFamily="@font/robotoslab_semibold"
+                        android:fontFamily="@font/inter_semibold"
                         android:text="28 Oktober 2021"
                         android:textColor="@color/black" />
 
@@ -313,7 +313,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/robotoslab_semibold"
+                                android:fontFamily="@font/inter_regular"
                                 android:text="Keterangan Penduduk"
                                 android:textColor="@color/black" />
 
@@ -331,7 +331,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_marginRight="20dp"
-                            android:fontFamily="@font/robotoslab_semibold"
+                            android:fontFamily="@font/inter_regular"
                             android:gravity="center"
                             android:text="Selesai"
                             android:textColor="@color/black" />
@@ -343,7 +343,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="30dp"
-                        android:fontFamily="@font/robotoslab_semibold"
+                        android:fontFamily="@font/inter_semibold"
                         android:text="25 Oktober 2021"
                         android:textColor="@color/black" />
 
@@ -363,7 +363,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/robotoslab_semibold"
+                                android:fontFamily="@font/inter_regular"
                                 android:text="Biodata Penduduk"
                                 android:textColor="@color/black" />
 
@@ -371,7 +371,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/robotoslab_regular"
+                                android:fontFamily="@font/inter_regular"
                                 android:text="S-01/001/20051/XI/2021"
                                 android:textColor="@color/black" />
 
@@ -381,7 +381,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_marginRight="20dp"
-                            android:fontFamily="@font/robotoslab_semibold"
+                            android:fontFamily="@font/inter_regular"
                             android:gravity="center"
                             android:text="Selesai"
                             android:textColor="@color/black" />
@@ -393,7 +393,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="30dp"
-                        android:fontFamily="@font/robotoslab_semibold"
+                        android:fontFamily="@font/inter_semibold"
                         android:text="20 Oktober 2021"
                         android:textColor="@color/black" />
 
@@ -413,7 +413,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/robotoslab_semibold"
+                                android:fontFamily="@font/inter_regular"
                                 android:text="Keterangan Pindah Penduduk"
                                 android:textColor="@color/black" />
 
@@ -421,7 +421,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/robotoslab_regular"
+                                android:fontFamily="@font/inter_regular"
                                 android:text="S-01/001/20051/XI/2021"
                                 android:textColor="@color/black" />
 
@@ -431,7 +431,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_marginRight="20dp"
-                            android:fontFamily="@font/robotoslab_semibold"
+                            android:fontFamily="@font/inter_regular"
                             android:gravity="center"
                             android:text="Selesai"
                             android:textColor="@color/black" />
@@ -443,7 +443,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="30dp"
-                        android:fontFamily="@font/robotoslab_semibold"
+                        android:fontFamily="@font/inter_semibold"
                         android:text="18 Oktober 2021"
                         android:textColor="@color/black" />
 
@@ -463,7 +463,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/robotoslab_semibold"
+                                android:fontFamily="@font/inter_regular"
                                 android:text="Keterangan Jual Beli"
                                 android:textColor="@color/black" />
 
@@ -471,7 +471,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/robotoslab_regular"
+                                android:fontFamily="@font/inter_regular"
                                 android:text="S-01/001/20051/XI/2021"
                                 android:textColor="@color/black" />
 
@@ -481,7 +481,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_marginRight="20dp"
-                            android:fontFamily="@font/robotoslab_semibold"
+                            android:fontFamily="@font/inter_regular"
                             android:gravity="center"
                             android:text="Selesai"
                             android:textColor="@color/black" />
@@ -493,7 +493,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="30dp"
-                        android:fontFamily="@font/robotoslab_semibold"
+                        android:fontFamily="@font/inter_semibold"
                         android:text="15 Oktober 2021"
                         android:textColor="@color/black" />
 
@@ -513,7 +513,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/robotoslab_semibold"
+                                android:fontFamily="@font/inter_regular"
                                 android:text="Keterangan KTP Dalam Proses"
                                 android:textColor="@color/black" />
 
@@ -521,7 +521,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/robotoslab_regular"
+                                android:fontFamily="@font/inter_regular"
                                 android:text="S-01/001/20051/XI/2021"
                                 android:textColor="@color/black" />
 
@@ -531,7 +531,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_marginRight="20dp"
-                            android:fontFamily="@font/robotoslab_semibold"
+                            android:fontFamily="@font/inter_regular"
                             android:gravity="center"
                             android:text="Selesai"
                             android:textColor="@color/black" />
@@ -543,265 +543,265 @@
 
             </androidx.cardview.widget.CardView>
 
-<!--            <LinearLayout-->
-<!--                android:id="@+id/line_ketPengantar"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:background="@drawable/border_biru_muda"-->
-<!--                android:orientation="vertical"-->
-<!--                android:padding="20dp">-->
+            <!--            <LinearLayout-->
+            <!--                android:id="@+id/line_ketPengantar"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="20dp"-->
+            <!--                android:background="@drawable/border_biru_muda"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="20dp">-->
 
 
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fontFamily="@font/robotoslab_bold"-->
-<!--                    android:text="Surat Keterangan Pengantar"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    android:textSize="18sp" />-->
+            <!--                <TextView-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:fontFamily="@font/robotoslab_bold"-->
+            <!--                    android:text="Surat Keterangan Pengantar"-->
+            <!--                    android:textColor="@color/white"-->
+            <!--                    android:textSize="18sp" />-->
 
-<!--            </LinearLayout>-->
+            <!--            </LinearLayout>-->
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:background="@drawable/border_biru_muda"-->
-<!--                android:orientation="vertical"-->
-<!--                android:padding="20dp">-->
-
-
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fontFamily="@font/robotoslab_bold"-->
-<!--                    android:text="Surat Keterangan Penduduk"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    android:textSize="18sp" />-->
-
-<!--            </LinearLayout>-->
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:background="@drawable/border_biru_muda"-->
-<!--                android:orientation="vertical"-->
-<!--                android:padding="20dp">-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:background="@drawable/border_biru_muda"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="20dp">-->
 
 
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fontFamily="@font/robotoslab_bold"-->
-<!--                    android:text="Surat Keterangan Pindah Penduduk"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    android:textSize="18sp" />-->
+            <!--                <TextView-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:fontFamily="@font/robotoslab_bold"-->
+            <!--                    android:text="Surat Keterangan Penduduk"-->
+            <!--                    android:textColor="@color/white"-->
+            <!--                    android:textSize="18sp" />-->
 
-<!--            </LinearLayout>-->
+            <!--            </LinearLayout>-->
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:background="@drawable/border_biru_muda"-->
-<!--                android:orientation="vertical"-->
-<!--                android:padding="20dp">-->
-
-
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fontFamily="@font/robotoslab_bold"-->
-<!--                    android:text="Surat Keterangan Jual Beli"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    android:textSize="18sp" />-->
-
-<!--            </LinearLayout>-->
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:background="@drawable/border_biru_muda"-->
-<!--                android:orientation="vertical"-->
-<!--                android:padding="20dp">-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:background="@drawable/border_biru_muda"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="20dp">-->
 
 
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fontFamily="@font/robotoslab_bold"-->
-<!--                    android:text="Surat Keterangan Catatan Kriminal"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    android:textSize="18sp" />-->
+            <!--                <TextView-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:fontFamily="@font/robotoslab_bold"-->
+            <!--                    android:text="Surat Keterangan Pindah Penduduk"-->
+            <!--                    android:textColor="@color/white"-->
+            <!--                    android:textSize="18sp" />-->
 
-<!--            </LinearLayout>-->
+            <!--            </LinearLayout>-->
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:background="@drawable/border_biru_muda"-->
-<!--                android:orientation="vertical"-->
-<!--                android:padding="20dp">-->
-
-
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fontFamily="@font/robotoslab_bold"-->
-<!--                    android:text="Surat Keterangan KTP Dalam Proses"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    android:textSize="18sp" />-->
-
-<!--            </LinearLayout>-->
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:background="@drawable/border_biru_muda"-->
-<!--                android:orientation="vertical"-->
-<!--                android:padding="20dp">-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:background="@drawable/border_biru_muda"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="20dp">-->
 
 
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fontFamily="@font/robotoslab_bold"-->
-<!--                    android:text="Surat Keterangan Beda Nama"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    android:textSize="18sp" />-->
+            <!--                <TextView-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:fontFamily="@font/robotoslab_bold"-->
+            <!--                    android:text="Surat Keterangan Jual Beli"-->
+            <!--                    android:textColor="@color/white"-->
+            <!--                    android:textSize="18sp" />-->
 
-<!--            </LinearLayout>-->
+            <!--            </LinearLayout>-->
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:background="@drawable/border_biru_muda"-->
-<!--                android:orientation="vertical"-->
-<!--                android:padding="20dp">-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:background="@drawable/border_biru_muda"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="20dp">-->
 
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fontFamily="@font/robotoslab_bold"-->
-<!--                    android:text="Surat Jalan"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    android:textSize="18sp" />-->
 
-<!--            </LinearLayout>-->
+            <!--                <TextView-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:fontFamily="@font/robotoslab_bold"-->
+            <!--                    android:text="Surat Keterangan Catatan Kriminal"-->
+            <!--                    android:textColor="@color/white"-->
+            <!--                    android:textSize="18sp" />-->
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:background="@drawable/border_biru_muda"-->
-<!--                android:orientation="vertical"-->
-<!--                android:padding="20dp">-->
+            <!--            </LinearLayout>-->
 
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fontFamily="@font/robotoslab_bold"-->
-<!--                    android:text="Surat Keterangan Kurang Mampu"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    android:textSize="18sp" />-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:background="@drawable/border_biru_muda"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="20dp">-->
 
-<!--            </LinearLayout>-->
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:background="@drawable/border_biru_muda"-->
-<!--                android:orientation="vertical"-->
-<!--                android:padding="20dp">-->
+            <!--                <TextView-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:fontFamily="@font/robotoslab_bold"-->
+            <!--                    android:text="Surat Keterangan KTP Dalam Proses"-->
+            <!--                    android:textColor="@color/white"-->
+            <!--                    android:textSize="18sp" />-->
 
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fontFamily="@font/robotoslab_bold"-->
-<!--                    android:text="Surat Izin Keramaian"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    android:textSize="18sp" />-->
+            <!--            </LinearLayout>-->
 
-<!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:background="@drawable/border_biru_muda"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="20dp">-->
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:background="@drawable/border_biru_muda"-->
-<!--                android:orientation="vertical"-->
-<!--                android:padding="20dp">-->
 
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fontFamily="@font/robotoslab_bold"-->
-<!--                    android:text="Surat Keterangan Kehilangan"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    android:textSize="18sp" />-->
+            <!--                <TextView-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:fontFamily="@font/robotoslab_bold"-->
+            <!--                    android:text="Surat Keterangan Beda Nama"-->
+            <!--                    android:textColor="@color/white"-->
+            <!--                    android:textSize="18sp" />-->
 
-<!--            </LinearLayout>-->
+            <!--            </LinearLayout>-->
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:background="@drawable/border_biru_muda"-->
-<!--                android:orientation="vertical"-->
-<!--                android:padding="20dp">-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:background="@drawable/border_biru_muda"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="20dp">-->
 
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fontFamily="@font/robotoslab_bold"-->
-<!--                    android:text="Surat Keterangan Usaha"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    android:textSize="18sp" />-->
+            <!--                <TextView-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:fontFamily="@font/robotoslab_bold"-->
+            <!--                    android:text="Surat Jalan"-->
+            <!--                    android:textColor="@color/white"-->
+            <!--                    android:textSize="18sp" />-->
 
-<!--            </LinearLayout>-->
+            <!--            </LinearLayout>-->
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:background="@drawable/border_biru_muda"-->
-<!--                android:orientation="vertical"-->
-<!--                android:padding="20dp">-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:background="@drawable/border_biru_muda"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="20dp">-->
 
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fontFamily="@font/robotoslab_bold"-->
-<!--                    android:text="Surat Keterangan Domisili Usaha"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    android:textSize="18sp" />-->
+            <!--                <TextView-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:fontFamily="@font/robotoslab_bold"-->
+            <!--                    android:text="Surat Keterangan Kurang Mampu"-->
+            <!--                    android:textColor="@color/white"-->
+            <!--                    android:textSize="18sp" />-->
 
-<!--            </LinearLayout>-->
+            <!--            </LinearLayout>-->
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:background="@drawable/border_biru_muda"-->
-<!--                android:orientation="vertical"-->
-<!--                android:padding="20dp">-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:background="@drawable/border_biru_muda"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="20dp">-->
 
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fontFamily="@font/robotoslab_bold"-->
-<!--                    android:text="Surat Keterangan Kelahiran"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    android:textSize="18sp" />-->
+            <!--                <TextView-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:fontFamily="@font/robotoslab_bold"-->
+            <!--                    android:text="Surat Izin Keramaian"-->
+            <!--                    android:textColor="@color/white"-->
+            <!--                    android:textSize="18sp" />-->
 
-<!--            </LinearLayout>-->
+            <!--            </LinearLayout>-->
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:background="@drawable/border_biru_muda"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="20dp">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:fontFamily="@font/robotoslab_bold"-->
+            <!--                    android:text="Surat Keterangan Kehilangan"-->
+            <!--                    android:textColor="@color/white"-->
+            <!--                    android:textSize="18sp" />-->
+
+            <!--            </LinearLayout>-->
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:background="@drawable/border_biru_muda"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="20dp">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:fontFamily="@font/robotoslab_bold"-->
+            <!--                    android:text="Surat Keterangan Usaha"-->
+            <!--                    android:textColor="@color/white"-->
+            <!--                    android:textSize="18sp" />-->
+
+            <!--            </LinearLayout>-->
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:background="@drawable/border_biru_muda"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="20dp">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:fontFamily="@font/robotoslab_bold"-->
+            <!--                    android:text="Surat Keterangan Domisili Usaha"-->
+            <!--                    android:textColor="@color/white"-->
+            <!--                    android:textSize="18sp" />-->
+
+            <!--            </LinearLayout>-->
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:background="@drawable/border_biru_muda"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="20dp">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:fontFamily="@font/robotoslab_bold"-->
+            <!--                    android:text="Surat Keterangan Kelahiran"-->
+            <!--                    android:textColor="@color/white"-->
+            <!--                    android:textSize="18sp" />-->
+
+            <!--            </LinearLayout>-->
 
         </LinearLayout>
 

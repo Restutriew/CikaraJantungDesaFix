@@ -27,6 +27,7 @@
                 app:cardCornerRadius="15dp">
 
                 <ImageView
+                    android:id="@+id/img_photouser"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
@@ -41,9 +42,10 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/tv_nama"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/robotoslab_semibold"
+                    android:fontFamily="@font/inter_semibold"
                     android:text="Hi, KimimaroBoy"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
@@ -110,14 +112,14 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/robotoslab_semibold"
+                                android:fontFamily="@font/inter_semibold"
                                 android:text="Laporan Dibuat"
                                 android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/robotoslab_semibold"
+                                android:fontFamily="@font/inter_regular"
                                 android:text="10"
                                 android:textColor="@color/black"
                                 android:textSize="25sp" />
@@ -143,14 +145,14 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/robotoslab_semibold"
+                                android:fontFamily="@font/inter_semibold"
                                 android:text="Forum Diikuti"
                                 android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/robotoslab_semibold"
+                                android:fontFamily="@font/inter_regular"
                                 android:text="4"
                                 android:textColor="@color/black"
                                 android:textSize="25sp" />
@@ -176,14 +178,14 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/robotoslab_semibold"
+                                android:fontFamily="@font/inter_semibold"
                                 android:text="Jumlah Produk"
                                 android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/robotoslab_semibold"
+                                android:fontFamily="@font/inter_regular"
                                 android:text="25"
                                 android:textColor="@color/black"
                                 android:textSize="25sp" />
@@ -209,14 +211,14 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/robotoslab_semibold"
+                                android:fontFamily="@font/inter_semibold"
                                 android:text="Surat Dibuat"
                                 android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/robotoslab_semibold"
+                                android:fontFamily="@font/inter_regular"
                                 android:text="15"
                                 android:textColor="@color/black"
                                 android:textSize="25sp" />
@@ -243,7 +245,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_semibold"
+                        android:fontFamily="@font/inter_extrabold"
                         android:text="Berita Desa"
                         android:textColor="@color/black"
                         android:textSize="25sp" />
@@ -259,288 +261,18 @@
                             android:background="@color/white"
                             android:orientation="vertical">
 
-                            <LinearLayout
+                            <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                                android:layout_marginTop="5dp">
 
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="200dp"
-                                    android:scaleType="centerCrop"
-                                    android:src="@drawable/seminar_anak" />
-
-                                <LinearLayout
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/rv_artikel"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginHorizontal="10dp"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginBottom="10dp"
-                                    android:orientation="horizontal">
+                                    android:overScrollMode="never" />
 
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginTop="5dp"
-                                        android:gravity="center_vertical"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:ellipsize="end"
-                                            android:fontFamily="@font/robotoslab_regular"
-                                            android:maxLines="1"
-                                            android:text="Seminar Anak Indonesia"
-                                            android:textColor="@color/black"
-                                            android:textSize="25sp" />
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/robotoslab_extrabold"
-                                            android:text="Pariwisata"
-                                            android:textColor="@color/black" />
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:ellipsize="end"
-                                            android:fontFamily="@font/robotoslab_regular"
-                                            android:maxLines="1"
-                                            android:text="Banyaknya potensi akan sumber daya manusia menjadi kan hal"
-                                            android:textColor="@color/abu"
-                                            android:textSize="15sp" />
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:gravity="end">
-
-                                            <LinearLayout
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_marginHorizontal="20dp"
-                                                android:layout_marginTop="5dp"
-                                                android:layout_marginBottom="30dp"
-                                                android:background="@drawable/border_putih_biru"
-                                                android:gravity="center"
-                                                android:orientation="horizontal"
-                                                android:padding="10dp">
-
-                                                <ImageView
-                                                    android:layout_width="20dp"
-                                                    android:layout_height="20dp"
-                                                    android:src="@drawable/ic_baseline_share_24" />
-
-                                                <TextView
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:layout_marginLeft="10dp"
-                                                    android:ellipsize="end"
-                                                    android:fontFamily="@font/robotoslab_regular"
-                                                    android:textColor="@color/abu"
-                                                    android:maxLines="1"
-                                                    android:text="Bagikan"
-                                                    android:textSize="15sp" />
-
-                                            </LinearLayout>
-
-                                        </LinearLayout>
-
-                                    </LinearLayout>
-
-                                </LinearLayout>
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="200dp"
-                                    android:scaleType="centerCrop"
-                                    android:src="@drawable/seminar_anak" />
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginHorizontal="10dp"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginBottom="10dp"
-                                    android:orientation="horizontal">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginTop="5dp"
-                                        android:gravity="center_vertical"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:ellipsize="end"
-                                            android:fontFamily="@font/robotoslab_regular"
-                                            android:maxLines="1"
-                                            android:text="Seminar Anak Indonesia"
-                                            android:textColor="@color/black"
-                                            android:textSize="25sp" />
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/robotoslab_extrabold"
-                                            android:text="Pariwisata"
-                                            android:textColor="@color/black" />
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:ellipsize="end"
-                                            android:fontFamily="@font/robotoslab_regular"
-                                            android:maxLines="1"
-                                            android:text="Banyaknya potensi akan sumber daya manusia menjadi kan hal"
-                                            android:textColor="@color/abu"
-                                            android:textSize="15sp" />
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:gravity="end">
-
-                                            <LinearLayout
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_marginHorizontal="20dp"
-                                                android:layout_marginTop="5dp"
-                                                android:layout_marginBottom="30dp"
-                                                android:background="@drawable/border_putih_biru"
-                                                android:gravity="center"
-                                                android:orientation="horizontal"
-                                                android:padding="10dp">
-
-                                                <ImageView
-                                                    android:layout_width="20dp"
-                                                    android:layout_height="20dp"
-                                                    android:src="@drawable/ic_baseline_share_24" />
-
-                                                <TextView
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:layout_marginLeft="10dp"
-                                                    android:ellipsize="end"
-                                                    android:fontFamily="@font/robotoslab_regular"
-                                                    android:maxLines="1"
-                                                    android:text="Bagikan"
-                                                    android:textSize="15sp" />
-
-                                            </LinearLayout>
-
-                                        </LinearLayout>
-
-                                    </LinearLayout>
-
-                                </LinearLayout>
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="200dp"
-                                    android:scaleType="centerCrop"
-                                    android:src="@drawable/seminar_anak" />
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginHorizontal="10dp"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginBottom="10dp"
-                                    android:orientation="horizontal">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginTop="5dp"
-                                        android:gravity="center_vertical"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:ellipsize="end"
-                                            android:fontFamily="@font/robotoslab_regular"
-                                            android:maxLines="1"
-                                            android:text="Seminar Anak Indonesia"
-                                            android:textColor="@color/black"
-                                            android:textSize="25sp" />
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/robotoslab_extrabold"
-                                            android:text="Pariwisata"
-                                            android:textColor="@color/black" />
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:ellipsize="end"
-                                            android:fontFamily="@font/robotoslab_regular"
-                                            android:maxLines="1"
-                                            android:text="Banyaknya potensi akan sumber daya manusia menjadi kan hal"
-                                            android:textColor="@color/abu"
-                                            android:textSize="15sp" />
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:gravity="end">
-
-                                            <LinearLayout
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_marginHorizontal="20dp"
-                                                android:layout_marginTop="5dp"
-                                                android:layout_marginBottom="30dp"
-                                                android:background="@drawable/border_putih_biru"
-                                                android:gravity="center"
-                                                android:orientation="horizontal"
-                                                android:padding="10dp">
-
-                                                <ImageView
-                                                    android:layout_width="20dp"
-                                                    android:layout_height="20dp"
-                                                    android:src="@drawable/ic_baseline_share_24" />
-
-                                                <TextView
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:layout_marginLeft="10dp"
-                                                    android:ellipsize="end"
-                                                    android:fontFamily="@font/robotoslab_regular"
-                                                    android:maxLines="1"
-                                                    android:text="Bagikan"
-                                                    android:textSize="15sp" />
-
-                                            </LinearLayout>
-
-                                        </LinearLayout>
-
-                                    </LinearLayout>
-
-                                </LinearLayout>
-
-                            </LinearLayout>
+                            </RelativeLayout>
 
                         </LinearLayout>
 
@@ -566,7 +298,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_semibold"
+                        android:fontFamily="@font/inter_extrabold"
                         android:text="Perangkat Desa"
                         android:textColor="@color/black"
                         android:textSize="25sp" />
@@ -609,7 +341,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="5dp"
-                                        android:fontFamily="@font/robotoslab_extrabold"
+                                        android:fontFamily="@font/inter_semibold"
                                         android:text="Wahyu M Rizqi"
                                         android:textColor="@color/black"
                                         android:textSize="18sp" />
@@ -618,7 +350,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="5dp"
-                                        android:fontFamily="@font/robotoslab_regular"
+                                        android:fontFamily="@font/inter_regular"
                                         android:text="Kepala Desa"
                                         android:textColor="@color/abu" />
 
@@ -655,7 +387,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="5dp"
-                                        android:fontFamily="@font/robotoslab_extrabold"
+                                        android:fontFamily="@font/inter_semibold"
                                         android:text="Muhammad Solihin"
                                         android:textColor="@color/black"
                                         android:textSize="18sp" />
@@ -664,7 +396,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="5dp"
-                                        android:fontFamily="@font/robotoslab_regular"
+                                        android:fontFamily="@font/inter_regular"
                                         android:text="Sekretaris Desa"
                                         android:textColor="@color/abu" />
 
@@ -701,7 +433,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="5dp"
-                                        android:fontFamily="@font/robotoslab_extrabold"
+                                        android:fontFamily="@font/inter_semibold"
                                         android:text="Firman Setiawan"
                                         android:textColor="@color/black"
                                         android:textSize="18sp" />
@@ -710,7 +442,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="5dp"
-                                        android:fontFamily="@font/robotoslab_regular"
+                                        android:fontFamily="@font/inter_regular"
                                         android:text="Bendahara Desa"
                                         android:textColor="@color/abu" />
 
@@ -747,7 +479,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="5dp"
-                                        android:fontFamily="@font/robotoslab_extrabold"
+                                        android:fontFamily="@font/inter_semibold"
                                         android:text="Restu Trie W"
                                         android:textColor="@color/black"
                                         android:textSize="18sp" />
@@ -756,7 +488,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="5dp"
-                                        android:fontFamily="@font/robotoslab_regular"
+                                        android:fontFamily="@font/inter_regular"
                                         android:text="Kasi Pemerintahan"
                                         android:textColor="@color/abu" />
 

@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/robotoslab_extrabold"
+                android:fontFamily="@font/inter_extrabold"
                 android:text="Edit Produk"
                 android:textColor="@color/white"
                 android:textSize="30sp"
@@ -60,60 +60,53 @@
                         android:id="@+id/img_editProduk"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        />
+                        android:scaleType="centerCrop" />
                 </androidx.cardview.widget.CardView>
 
-                <TextView
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/robotoslab_regular"
-                    android:text="Nama Produk"
-                    android:textColor="@color/white" />
+                    android:layout_marginTop="10dp">
 
-                <EditText
-                    android:id="@+id/et_namaProduk"
+                    <EditText
+                        android:id="@+id/et_namaProduk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border_putih_biru_inputan"
+                        android:fontFamily="@font/inter_regular"
+                        android:hint="Nama Produk" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="10dp"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/robotoslab_regular"
-                    android:padding="10dp" />
+                    android:layout_marginTop="10dp">
 
-                <TextView
+                    <EditText
+                        android:id="@+id/et_hargaProduk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border_putih_biru_inputan"
+                        android:fontFamily="@font/inter_regular"
+                        android:hint="Harga Produk (Rp.)" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/robotoslab_regular"
-                    android:text="Harga Produk (Rp.)"
-                    android:textColor="@color/white" />
+                    android:layout_marginTop="10dp">
 
-                <EditText
-                    android:id="@+id/et_hargaProduk"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="10dp"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/robotoslab_regular"
-                    android:padding="10dp" />
+                    <EditText
+                        android:id="@+id/et_keteranganProduk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border_putih_biru_inputan"
+                        android:fontFamily="@font/inter_regular"
+                        android:hint="Keterangan Produk" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/robotoslab_regular"
-                    android:text="Keterangan Produk"
-                    android:textColor="@color/white" />
-
-
-                <EditText
-                    android:id="@+id/et_keteranganProduk"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="10dp"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:gravity="start"
-                    android:lines="5"
-                    android:padding="10dp" />
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cr_simpanProduk"
@@ -132,6 +125,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
+                            android:fontFamily="@font/inter_extrabold"
                             android:text="Simpan"
                             android:textColor="@color/white"
                             android:textSize="20sp" />
@@ -141,21 +135,21 @@
                 </androidx.cardview.widget.CardView>
 
                 <TextView
-                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/robotoslab_regular"
                     android:gravity="center"
                     android:text="atau"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:visibility="gone" />
 
                 <androidx.cardview.widget.CardView
-                    android:visibility="gone"
                     android:id="@+id/cr_hapusProduk"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
+                    android:visibility="gone"
                     app:cardCornerRadius="15dp">
 
                     <LinearLayout

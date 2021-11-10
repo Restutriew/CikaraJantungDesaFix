@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:fontFamily="@font/robotoslab_bold"
+            android:fontFamily="@font/inter_extrabold"
             android:text="Filter Data"
             android:textColor="@color/biru_cikara"
             android:textSize="20sp" />
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:fontFamily="@font/robotoslab_bold"
+        android:fontFamily="@font/inter_bold"
         android:text="Urutkan Berdasarkan"
         android:textColor="@color/biru_cikara"
         android:textSize="18sp" />
@@ -50,21 +50,21 @@
             android:layout_marginVertical="5dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="5dp"
-            android:background="@drawable/border_putih_biru_inputan"
-            android:fontFamily="@font/robotoslab_bold"
+            android:background="@drawable/border_biru_muda"
+            android:fontFamily="@font/inter_semibold"
             android:padding="5dp"
             android:text="Like"
-            android:textColor="@color/biru_cikara" />
+            android:textColor="@color/white" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="@drawable/border_putih_biru_inputan"
-            android:fontFamily="@font/robotoslab_bold"
+            android:background="@drawable/border_putih_biru_muda"
+            android:fontFamily="@font/inter_semibold"
             android:padding="5dp"
             android:text="Waktu"
-            android:textColor="@color/biru_cikara" />
+            android:textColor="@color/biru2" />
 
     </LinearLayout>
 
@@ -79,7 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:fontFamily="@font/robotoslab_bold"
+        android:fontFamily="@font/inter_bold"
         android:text="Filter Berdasarkan"
         android:textColor="@color/biru_cikara"
         android:textSize="18sp" />
@@ -95,41 +95,41 @@
             android:layout_marginVertical="5dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="5dp"
-            android:background="@drawable/border_putih_biru_inputan"
-            android:fontFamily="@font/robotoslab_bold"
+            android:background="@drawable/border_putih_biru_muda"
+            android:fontFamily="@font/inter_semibold"
             android:padding="5dp"
             android:text="Keamanan"
-            android:textColor="@color/biru_cikara" />
+            android:textColor="@color/biru2" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="@drawable/border_putih_biru_inputan"
-            android:fontFamily="@font/robotoslab_bold"
+            android:background="@drawable/border_putih_biru_muda"
+            android:fontFamily="@font/inter_semibold"
             android:padding="5dp"
             android:text="Kesehatan"
-            android:textColor="@color/biru_cikara" />
+            android:textColor="@color/biru2" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="@drawable/border_putih_biru_inputan"
-            android:fontFamily="@font/robotoslab_bold"
+            android:background="@drawable/border_putih_biru_muda"
+            android:fontFamily="@font/inter_semibold"
             android:padding="5dp"
             android:text="Ekonomi"
-            android:textColor="@color/biru_cikara" />
+            android:textColor="@color/biru2" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="@drawable/border_putih_biru_inputan"
-            android:fontFamily="@font/robotoslab_bold"
+            android:background="@drawable/border_putih_biru_muda"
+            android:fontFamily="@font/inter_semibold"
             android:padding="5dp"
             android:text="Kebijakan"
-            android:textColor="@color/biru_cikara" />
+            android:textColor="@color/biru2" />
 
     </LinearLayout>
 
@@ -144,21 +144,21 @@
             android:layout_marginVertical="5dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/border_putih_biru_inputan"
-            android:fontFamily="@font/robotoslab_bold"
+            android:background="@drawable/border_putih_biru_muda"
+            android:fontFamily="@font/inter_semibold"
             android:padding="5dp"
             android:text="Sosial"
-            android:textColor="@color/biru_cikara" />
+            android:textColor="@color/biru2" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="@drawable/border_putih_biru_inputan"
-            android:fontFamily="@font/robotoslab_bold"
+            android:background="@drawable/border_putih_biru_muda"
+            android:fontFamily="@font/inter_semibold"
             android:padding="5dp"
             android:text="Bantuan"
-            android:textColor="@color/biru_cikara" />
+            android:textColor="@color/biru2" />
 
     </LinearLayout>
 

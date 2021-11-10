@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:fontFamily="@font/robotoslab_extrabold"
+        android:fontFamily="@font/inter_extrabold"
         android:text="Ajukan Laporan"
         android:textColor="@color/white"
         android:textSize="30sp"
@@ -45,6 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Pilih Jenis Laporan"
+            android:fontFamily="@font/inter_semibold"
             android:textColor="@color/white" />
 
         <LinearLayout
@@ -80,7 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/border_putih_biru_inputan"
-                android:fontFamily="@font/robotoslab_regular"
+                android:fontFamily="@font/inter_regular"
                 android:hint="Isi Laporan"
                 android:inputType="textEmailAddress" />
 
@@ -102,6 +103,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Sertakan Identitas"
+            android:fontFamily="@font/inter_semibold"
             android:textColor="@color/white" />
 
         <Spinner
@@ -116,6 +118,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/inter_semibold"
             android:text="Posting"
             android:textColor="@color/white" />
 
@@ -145,7 +148,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:fontFamily="@font/robotoslab_bold"
+                    android:fontFamily="@font/inter_extrabold"
                     android:text="Kirim"
                     android:textColor="@color/white"
                     android:textSize="20sp" />

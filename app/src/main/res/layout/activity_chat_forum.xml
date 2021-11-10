@@ -11,7 +11,7 @@
         android:id="@+id/img_back"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_marginLeft="25dp"
+        android:layout_marginStart="25dp"
         android:layout_marginTop="25dp"
         android:src="@drawable/ic_baseline_arrow_back_24"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:fontFamily="@font/robotoslab_extrabold"
+        android:fontFamily="@font/inter_extrabold"
         android:text="Diskusi Sampah Desa"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -61,20 +61,21 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/robotoslab_regular"
+                    android:fontFamily="@font/inter_regular"
                     android:text="KimimaroBoy"
                     android:textColor="@color/warna_utama" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/robotoslab_regular"
+                    android:fontFamily="@font/inter_regular"
                     android:text="Hai kawan kawan"
                     android:textColor="@color/white" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_regular"
                     android:gravity="end"
                     android:text="12:01"
                     android:textColor="@color/abu" />
@@ -104,20 +105,21 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/robotoslab_regular"
+                    android:fontFamily="@font/inter_regular"
                     android:text="Ahmad Slardar"
                     android:textColor="@color/purple_200" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/robotoslab_regular"
+                    android:fontFamily="@font/inter_regular"
                     android:text="Hai guys, gimana sehat-sehat semunyakaah? salam kenal saya Ahmad Slardar"
                     android:textColor="@color/white" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_regular"
                     android:gravity="end"
                     android:text="12:05"
                     android:textColor="@color/abu" />
@@ -146,14 +148,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/robotoslab_regular"
+                    android:fontFamily="@font/inter_regular"
                     android:text="Anda"
                     android:textColor="@color/hijau" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/robotoslab_regular"
+                    android:fontFamily="@font/inter_regular"
                     android:text="Alhamdulillah sehat guys salam kenal"
                     android:textColor="@color/white" />
 
@@ -161,6 +163,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="end"
+                    android:fontFamily="@font/inter_regular"
                     android:text="12:15"
                     android:textColor="@color/abu" />
 
@@ -186,6 +189,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/inter_regular"
                 android:hint="Pesan"
                 android:background="@drawable/border_putih_biru_inputan"
                 android:padding="10dp"

@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:fontFamily="@font/robotoslab_extrabold"
+        android:fontFamily="@font/inter_extrabold"
         android:text="Edit Data Lapak"
         android:textColor="@color/white"
         android:textSize="30sp"
@@ -54,71 +54,64 @@
                 android:scaleType="centerCrop" />
         </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/robotoslab_regular"
-            android:text="Nama Lapak"
-            android:textColor="@color/white" />
 
-        <EditText
-            android:id="@+id/et_namaLapakEdit"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
-            android:background="@drawable/border_putih_biru_inputan"
-            android:fontFamily="@font/robotoslab_regular"
-            android:padding="10dp" />
+            android:layout_marginTop="10dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/robotoslab_regular"
-            android:text="Alamat"
-            android:textColor="@color/white" />
+            <EditText
+                android:id="@+id/et_namaLapakEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_putih_biru_inputan"
+                android:fontFamily="@font/inter_regular"
+                android:hint="Nama Lapak" />
 
-        <EditText
-            android:id="@+id/et_alamatLapakEdit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
-            android:background="@drawable/border_putih_biru_inputan"
-            android:fontFamily="@font/robotoslab_regular"
-            android:padding="10dp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/robotoslab_regular"
-            android:text="Tentang Lapak"
-            android:textColor="@color/white" />
+            android:layout_marginTop="10dp">
 
-        <EditText
-            android:id="@+id/et_tentangLapakEdit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
-            android:background="@drawable/border_putih_biru_inputan"
-            android:fontFamily="@font/robotoslab_regular"
-            android:padding="10dp" />
+            <EditText
+                android:id="@+id/et_alamatLapakEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_putih_biru_inputan"
+                android:fontFamily="@font/inter_regular"
+                android:hint="Alamat Lapak" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/robotoslab_regular"
-            android:text="No Telepon/HP"
-            android:textColor="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/et_telpLapakEdit"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
-            android:background="@drawable/border_putih_biru_inputan"
-            android:fontFamily="@font/robotoslab_regular"
-            android:inputType="number"
-            android:padding="10dp" />
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/et_tentangLapakEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_putih_biru_inputan"
+                android:fontFamily="@font/inter_regular"
+                android:hint="Tentang Lapak" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/et_telpLapakEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_putih_biru_inputan"
+                android:fontFamily="@font/inter_regular"
+                android:hint="No Telepon/HP" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cr_simpanEditLapak"
@@ -137,6 +130,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
+                    android:fontFamily="@font/inter_extrabold"
                     android:text="Simpan"
                     android:textColor="@color/white"
                     android:textSize="20sp" />

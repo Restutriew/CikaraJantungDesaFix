@@ -8,10 +8,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:background="@drawable/border_putih_biru_inputan"
-        android:fontFamily="@font/robotoslab_bold"
+        android:background="@drawable/border_putih_biru_muda"
+        android:fontFamily="@font/inter_semibold"
         android:padding="5dp"
         android:text=""
-        android:textColor="@color/biru_cikara" />
+        android:textColor="@color/biru2" />
 
 </LinearLayout>

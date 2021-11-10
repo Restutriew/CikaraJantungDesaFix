@@ -24,7 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:fontFamily="@font/robotoslab_extrabold"
+                android:fontFamily="@font/inter_extrabold"
                 android:text="Laporan"
                 android:textColor="@color/white"
                 android:textSize="30sp" />
@@ -96,12 +96,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="5dp"
                         android:layout_marginRight="5dp"
-                        android:fontFamily="@font/robotoslab_bold"
+                        android:fontFamily="@font/inter_semibold"
                         android:text="Filter"
                         android:textColor="@color/white" />
 
                 </LinearLayout>
-
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_kategori"
@@ -155,7 +154,7 @@
                                 android:id="@+id/tv_namaUserLaporan"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/robotoslab_extrabold"
+                                android:fontFamily="@font/inter_extrabold"
                                 android:text="Wahyu M Rizki"
                                 android:textColor="@color/black"
                                 android:textSize="18sp" />
@@ -165,7 +164,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:ellipsize="end"
-                                android:fontFamily="@font/robotoslab_regular"
+                                android:fontFamily="@font/inter_regular"
                                 android:maxLines="1"
                                 android:text="12:12"
                                 android:textColor="@color/black" />
@@ -175,7 +174,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:ellipsize="end"
-                                android:fontFamily="@font/robotoslab_regular"
+                                android:fontFamily="@font/inter_regular"
                                 android:maxLines="1"
                                 android:text="01-11-2021"
                                 android:textColor="@color/black" />
@@ -225,7 +224,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
+                        android:fontFamily="@font/inter_regular"
                         android:text="1.234 suka"
                         android:textColor="@color/biru2" />
 
@@ -234,7 +233,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
+                        android:fontFamily="@font/inter_regular"
                         android:text="Sampah menumpuk di TPS"
                         android:textColor="@color/black" />
 
@@ -245,7 +244,7 @@
                         android:layout_marginTop="15dp"
                         android:fontFamily="@font/robotoslab_regular"
                         android:text="Respon :"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/abu" />
 
                     <TextView
                         android:id="@+id/tv_responlaporan"
@@ -253,9 +252,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="10dp"
                         android:layout_marginBottom="20dp"
-                        android:fontFamily="@font/robotoslab_regular"
+                        android:fontFamily="@font/inter_regular"
                         android:text="Belum Ada Tanggapan"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/abu" />
 
                 </LinearLayout>
 

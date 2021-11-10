@@ -8,6 +8,8 @@ import com.cikarastudio.cikarajantungdesafix.R;
 
 public class ChatForumActivity extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -2,8 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/imageView"
@@ -22,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="16dp"
-
+        android:fontFamily="@font/inter_extrabold"
         android:gravity="center_horizontal"
         android:text="Lapor, Bergabung Degan Forum, Belanja dan Ajukan Surat-Surat Penting"
         android:textAlignment="center"
@@ -37,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="16dp"
-
+        android:fontFamily="@font/inter_regular"
         android:gravity="center_horizontal"
         android:text="Dapat Melakukan Pelaporan, Pengajuan Forum, Pengauan lapak dan Pengauan Surat Secara Langsung Ke Desa Yang Kita Tempati"
         android:textAlignment="center"

@@ -4,16 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="60dp"
     android:orientation="vertical"
     android:scrollbars="none"
     tools:context=".ui.laporan.LaporanUserActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/biru2"
-        android:paddingVertical="20dp"
-        android:layout_height="wrap_content">
+        android:paddingVertical="20dp">
 
         <ImageView
             android:id="@+id/img_back"
@@ -29,7 +28,7 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/robotoslab_extrabold"
+            android:fontFamily="@font/inter_extrabold"
             android:text="Laporan Saya"
             android:textColor="@color/white"
             android:textSize="30sp"
@@ -70,7 +69,7 @@
                         tools:ignore="RtlSymmetry">
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/cr_dashboardLaporanDibuat"
+                            android:id="@+id/cr_dashboradTotalLaporan"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="5dp"
@@ -87,14 +86,15 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/robotoslab_semibold"
+                                    android:fontFamily="@font/inter_semibold"
                                     android:text="Total Laporan"
                                     android:textColor="@color/black" />
 
                                 <TextView
+                                    android:id="@+id/tv_totalDashboard"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/robotoslab_semibold"
+                                    android:fontFamily="@font/inter_regular"
                                     android:text="8"
                                     android:textColor="@color/black"
                                     android:textSize="25sp" />
@@ -103,7 +103,7 @@
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/cr_dashboardForumDiikuti"
+                            android:id="@+id/cr_dashboardLaporanSelesai"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="5dp"
@@ -120,14 +120,15 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/robotoslab_semibold"
+                                    android:fontFamily="@font/inter_semibold"
                                     android:text="Laporan Selesai"
                                     android:textColor="@color/black" />
 
                                 <TextView
+                                    android:id="@+id/tv_selesaiDashboard"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/robotoslab_semibold"
+                                    android:fontFamily="@font/inter_regular"
                                     android:text="4"
                                     android:textColor="@color/black"
                                     android:textSize="25sp" />
@@ -136,7 +137,7 @@
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/cr_dashboardJumlahProduk"
+                            android:id="@+id/cr_dashboardLaporanDiproses"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="5dp"
@@ -153,14 +154,15 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/robotoslab_semibold"
+                                    android:fontFamily="@font/inter_semibold"
                                     android:text="Laporan Diproses"
                                     android:textColor="@color/black" />
 
                                 <TextView
+                                    android:id="@+id/tv_diprosesDashboard"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/robotoslab_semibold"
+                                    android:fontFamily="@font/inter_regular"
                                     android:text="2"
                                     android:textColor="@color/black"
                                     android:textSize="25sp" />
@@ -169,7 +171,7 @@
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/cr_dashboardSuratDibuat"
+                            android:id="@+id/cr_dashboardLaporanMenunggu"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="5dp"
@@ -186,14 +188,15 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/robotoslab_semibold"
+                                    android:fontFamily="@font/inter_semibold"
                                     android:text="Laporan Menunggu"
                                     android:textColor="@color/black" />
 
                                 <TextView
+                                    android:id="@+id/tv_menungguDashboard"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/robotoslab_semibold"
+                                    android:fontFamily="@font/inter_regular"
                                     android:text="2"
                                     android:textColor="@color/black"
                                     android:textSize="25sp" />
@@ -215,16 +218,21 @@
                     android:queryHint="Cari Laporan"
                     android:searchIcon="@drawable/ic_baseline_search_24" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_laporanUser"
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal" />
+                    android:layout_marginTop="5dp">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_laporanUser"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:overScrollMode="never" />
+
+                </RelativeLayout>
 
             </LinearLayout>
-            
+
         </ScrollView>
 
     </LinearLayout>

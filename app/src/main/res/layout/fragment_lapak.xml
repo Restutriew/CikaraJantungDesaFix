@@ -105,7 +105,7 @@
                                 android:id="@+id/tv_namaLapak"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/robotoslab_bold"
+                                android:fontFamily="@font/inter_extrabold"
                                 android:text=""
                                 android:textColor="@color/white"
                                 android:textSize="25sp" />
@@ -114,7 +114,7 @@
                                 android:id="@+id/tv_alamatLapak"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/robotoslab_regular"
+                                android:fontFamily="@font/inter_regular"
                                 android:text=""
                                 android:textColor="@color/white" />
 
@@ -139,7 +139,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
-                            android:fontFamily="@font/robotoslab_regular"
+                            android:fontFamily="@font/inter_regular"
                             android:text=""
                             android:textColor="@color/white" />
 
@@ -150,7 +150,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:fontFamily="@font/robotoslab_regular"
+                        android:fontFamily="@font/inter_regular"
                         android:text=""
                         android:textColor="@color/white" />
 
@@ -171,6 +171,7 @@
                                 android:id="@+id/tv_statusLapak"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/inter_semibold"
                                 android:layout_margin="10dp"
                                 android:textColor="@color/white"
                                 android:textSize="20sp" />
@@ -196,7 +197,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="@font/robotoslab_extrabold"
+                android:fontFamily="@font/inter_extrabold"
                 android:text="Produk"
                 android:textColor="@color/biru2"
                 android:textSize="25sp" />
@@ -206,7 +207,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="@drawable/border_biru_muda"
-                android:fontFamily="@font/robotoslab_semibold"
+                android:fontFamily="@font/inter_semibold"
                 android:padding="10dp"
                 android:text="Tambah Produk"
                 android:textColor="@color/white"
@@ -242,7 +243,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="5dp"
                     android:background="@drawable/border_biru_muda"
-                    android:fontFamily="@font/robotoslab_bold"
+                    android:fontFamily="@font/inter_semibold"
                     android:padding="10dp"
                     android:text="Alfabet"
                     android:textColor="@color/white" />
@@ -252,22 +253,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="5dp"
-                    android:background="@drawable/border_putih_biru"
-                    android:fontFamily="@font/robotoslab_bold"
+                    android:background="@drawable/border_putih_biru_muda"
+                    android:fontFamily="@font/inter_semibold"
                     android:padding="10dp"
                     android:text="Harga"
-                    android:textColor="@color/biru_cikara" />
+                    android:textColor="@color/biru2" />
 
                 <TextView
                     android:id="@+id/tv_sortProdukPopuler"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="5dp"
-                    android:background="@drawable/border_putih_biru"
-                    android:fontFamily="@font/robotoslab_bold"
+                    android:background="@drawable/border_putih_biru_muda"
+                    android:fontFamily="@font/inter_semibold"
                     android:padding="10dp"
                     android:text="Populer"
-                    android:textColor="@color/biru_cikara" />
+                    android:textColor="@color/biru2" />
 
             </LinearLayout>
 

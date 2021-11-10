@@ -32,7 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="@drawable/border_putih_biru_inputan"
-                android:fontFamily="@font/robotoslab_regular"
+                android:fontFamily="@font/inter_regular"
                 android:hint="Email"
                 android:inputType="textEmailAddress" />
 
@@ -49,7 +49,7 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/border_putih_biru_inputan"
-                android:fontFamily="@font/robotoslab_regular"
+                android:fontFamily="@font/inter_regular"
                 android:hint="Password"
                 android:inputType="textPassword" />
 
@@ -59,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/robotoslab_regular"
+            android:fontFamily="@font/inter_bold"
             android:text="Lupa Password? Klik Disini" />
 
         <androidx.cardview.widget.CardView
@@ -80,10 +80,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/robotoslab_semibold"
+                    android:fontFamily="@font/inter_extrabold"
                     android:text="LOGIN"
                     android:textColor="@color/white"
-                    android:textSize="30sp" />
+                    android:textSize="20sp" />
 
             </LinearLayout>
 

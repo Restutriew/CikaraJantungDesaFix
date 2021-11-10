@@ -59,4 +59,15 @@ public class mentahan {
 //    telp=0823536256352&
 //    logo=logo.png&
 //    token=%242y%2410%24kIAxk2KCirEdUXMv8iuX6OkLHP6ha.XIbSkIrN1HcLga9zEi4%2FsLa'
+
+//            "id": 3,
+//            "user_id": 1,
+//            "kategoriartikel_id": 3,
+//            "judul_artikel": "launching aplikasi sidesa (sistem informasi desa)",
+//            "slug": "launching-aplikasi-sidesa-sistem-informasi-desa",
+//            "isi_artikel": "<p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower</p>\r\n\r\n<p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower to actually sit through a self-imposed MCSE training. who has the willpower to actually</p>",
+//            "view": 1,
+//            "gambar_artikel": "1616749110_about_banner.png",
+//            "created_at": "2021-03-26T01:58:30.000000Z",
+//            "updated_at": "2021-03-26T02:26:32.000000Z"
 }

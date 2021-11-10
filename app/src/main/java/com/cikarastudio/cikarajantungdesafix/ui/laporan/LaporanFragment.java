@@ -173,24 +173,6 @@ public class LaporanFragment extends Fragment {
     };
 
 
-    public class CustomGridLayoutManager extends LinearLayoutManager {
-        private boolean isScrollEnabled = true;
-
-        public CustomGridLayoutManager(Context context) {
-            super(context);
-        }
-
-        public void setScrollEnabled(boolean flag) {
-            this.isScrollEnabled = flag;
-        }
-
-        @Override
-        public boolean canScrollVertically() {
-            //Similarly you can customize "canScrollHorizontally()" for managing horizontal scroll
-            return isScrollEnabled && super.canScrollVertically();
-        }
-    }
-
     private void loadLaporan() {
         String URL_READ = link + "lapor";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,

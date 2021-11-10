@@ -21,6 +21,7 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_extrabold"
         android:layout_marginHorizontal="40dp"
 
         android:gravity="center_horizontal"
@@ -41,6 +42,7 @@
         android:layout_height="wrap_content"
         android:text="Copyright @2020 Cikara Studio"
         android:textColor="@color/biru2"
+        android:fontFamily="@font/inter_regular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
