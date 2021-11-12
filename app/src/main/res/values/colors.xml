@@ -7,6 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="whitetransparent">#7AFFFFFF</color>
 
     <color name="biru_cikara">#283444</color>
     <color name="biru_cikara_secondary">#536B8C</color>
@@ -29,6 +30,8 @@
     <color name="biru2">#1597E5</color>
     <color name="biru3">#113CFC</color>
     <color name="biru4">#193498</color>
+
+    <color name="test">#EF5350</color>
 
 
     <color name="dot_inactive_screen1">@color/biru_cikara_secondary</color>

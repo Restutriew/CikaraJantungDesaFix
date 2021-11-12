@@ -224,72 +224,74 @@ public class HomeFragment extends Fragment {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
                         try {
-                            JSONObject jsonObject = new JSONObject(response);
+                            JSONArray jsonArray = new JSONArray(response);
+                            if (jsonArray.length() > 0) {
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-                            //data diri
-                            String res_nik = jsonObject.getString("nik").trim();
-                            String res_nama = jsonObject.getString("nama_penduduk").trim();
-                            String res_ktpEl = jsonObject.getString("status_ktp").trim();
-                            String res_statusRekam = jsonObject.getString("status_rekam").trim();
-                            String res_idCard = jsonObject.getString("id_card").trim();
-                            String res_noKK = jsonObject.getString("kk_sebelum").trim();
-                            String res_hubunganKeluarga = jsonObject.getString("hubungan_keluarga").trim();
-                            String res_jenisKelamin = jsonObject.getString("jk").trim();
-                            String res_agama = jsonObject.getString("agama").trim();
-                            String res_statusPenduduk = jsonObject.getString("status_penduduk").trim();
-                            String res_noTelepon = jsonObject.getString("no_telp").trim();
-                            String res_alamatEmail = jsonObject.getString("email").trim();
-                            String res_alamatSebelum = jsonObject.getString("alamat_sebelum").trim();
-                            String res_alamatSekarang = jsonObject.getString("alamat_sekarang").trim();
-                            String res_rt = jsonObject.getString("rt_id").trim();
+                                    //data diri
+                                    String res_nik = jsonObject.getString("nik").trim();
+                                    String res_nama = jsonObject.getString("nama_penduduk").trim();
+                                    String res_ktpEl = jsonObject.getString("status_ktp").trim();
+                                    String res_statusRekam = jsonObject.getString("status_rekam").trim();
+                                    String res_idCard = jsonObject.getString("id_card").trim();
+                                    String res_noKK = jsonObject.getString("kk_sebelum").trim();
+                                    String res_hubunganKeluarga = jsonObject.getString("hubungan_keluarga").trim();
+                                    String res_jenisKelamin = jsonObject.getString("jk").trim();
+                                    String res_agama = jsonObject.getString("agama").trim();
+                                    String res_statusPenduduk = jsonObject.getString("status_penduduk").trim();
+                                    String res_noTelepon = jsonObject.getString("no_telp").trim();
+                                    String res_alamatEmail = jsonObject.getString("email").trim();
+                                    String res_alamatSebelum = jsonObject.getString("alamat_sebelum").trim();
+                                    String res_alamatSekarang = jsonObject.getString("alamat_sekarang").trim();
+                                    String res_rt = jsonObject.getString("rt_id").trim();
 
-                            //data kelahiran
-                            String res_nomorAktakelahiran = jsonObject.getString("no_akta").trim();
-                            String res_tempatLahir = jsonObject.getString("tempat_lahir").trim();
-                            String res_waktuKelahiran = jsonObject.getString("waktu_lahir").trim();
-                            String res_tempatDilahirkan = jsonObject.getString("tempat_dilahirkan").trim();
-                            String res_jenisKelahiran = jsonObject.getString("jenis_kelahiran").trim();
-                            String res_anakKe = jsonObject.getString("anak_ke").trim();
-                            String res_penolongKelahiran = jsonObject.getString("penolong_kelahiran").trim();
-                            String res_beratLahir = jsonObject.getString("berat_lahir").trim();
-                            String res_panjangLahir = jsonObject.getString("panjang_lahir").trim();
+                                    //data kelahiran
+                                    String res_nomorAktakelahiran = jsonObject.getString("no_akta").trim();
+                                    String res_tempatLahir = jsonObject.getString("tempat_lahir").trim();
+                                    String res_waktuKelahiran = jsonObject.getString("waktu_lahir").trim();
+                                    String res_tempatDilahirkan = jsonObject.getString("tempat_dilahirkan").trim();
+                                    String res_jenisKelahiran = jsonObject.getString("jenis_kelahiran").trim();
+                                    String res_anakKe = jsonObject.getString("anak_ke").trim();
+                                    String res_penolongKelahiran = jsonObject.getString("penolong_kelahiran").trim();
+                                    String res_beratLahir = jsonObject.getString("berat_lahir").trim();
+                                    String res_panjangLahir = jsonObject.getString("panjang_lahir").trim();
 
-                            //data pendidikan
-                            String res_pendidikanKK = jsonObject.getString("pendidikan_kk").trim();
-                            String res_pendidikanTempuh = jsonObject.getString("pendidikan_tempuh").trim();
-                            String res_pekerjaan = jsonObject.getString("pekerjaan").trim();
+                                    //data pendidikan
+                                    String res_pendidikanKK = jsonObject.getString("pendidikan_kk").trim();
+                                    String res_pendidikanTempuh = jsonObject.getString("pendidikan_tempuh").trim();
+                                    String res_pekerjaan = jsonObject.getString("pekerjaan").trim();
 
-                            //data kewarganegaraan
-                            String res_statusKewarganegaraan = jsonObject.getString("status_warganegara").trim();
-                            String res_noPaspor = jsonObject.getString("nomor_paspor").trim();
-                            String res_tglAkhirPaspor = jsonObject.getString("tgl_akhirpaspor").trim();
+                                    //data kewarganegaraan
+                                    String res_statusKewarganegaraan = jsonObject.getString("status_warganegara").trim();
+                                    String res_noPaspor = jsonObject.getString("nomor_paspor").trim();
+                                    String res_tglAkhirPaspor = jsonObject.getString("tgl_akhirpaspor").trim();
 
-                            //data keluarga
-                            String res_nikAyah = jsonObject.getString("nik_ayah").trim();
-                            String res_namaAyah = jsonObject.getString("nama_ayah").trim();
-                            String res_nikIbu = jsonObject.getString("nik_ibu").trim();
-                            String res_namaIbu = jsonObject.getString("nama_ibu").trim();
+                                    //data keluarga
+                                    String res_nikAyah = jsonObject.getString("nik_ayah").trim();
+                                    String res_namaAyah = jsonObject.getString("nama_ayah").trim();
+                                    String res_nikIbu = jsonObject.getString("nik_ibu").trim();
+                                    String res_namaIbu = jsonObject.getString("nama_ibu").trim();
 
-                            //data perkawinan
-                            String res_statusPerkawinan = jsonObject.getString("status_perkawinan").trim();
-                            String res_noBukuNikah = jsonObject.getString("no_bukunikah").trim();
-                            String res_tglPerkawinan = jsonObject.getString("tgl_perkawinan").trim();
-                            String res_aktaPerceraian = jsonObject.getString("akta_perceraian").trim();
-                            String res_tglPerceraian = jsonObject.getString("tgl_perceraian").trim();
+                                    //data perkawinan
+                                    String res_statusPerkawinan = jsonObject.getString("status_perkawinan").trim();
+                                    String res_noBukuNikah = jsonObject.getString("no_bukunikah").trim();
+                                    String res_tglPerkawinan = jsonObject.getString("tgl_perkawinan").trim();
+                                    String res_aktaPerceraian = jsonObject.getString("akta_perceraian").trim();
+                                    String res_tglPerceraian = jsonObject.getString("tgl_perceraian").trim();
 
-                            //data kesehatan
-                            String res_golonganDarah = jsonObject.getString("golongan_darah").trim();
-                            String res_cacat = jsonObject.getString("cacat").trim();
-                            String res_sakitMenahun = jsonObject.getString("sakit_menahun").trim();
-                            String res_akseptorKB = jsonObject.getString("akseptor_kb").trim();
-                            String res_asuransi = jsonObject.getString("asuransi").trim();
+                                    //data kesehatan
+                                    String res_golonganDarah = jsonObject.getString("golongan_darah").trim();
+                                    String res_cacat = jsonObject.getString("cacat").trim();
+                                    String res_sakitMenahun = jsonObject.getString("sakit_menahun").trim();
+                                    String res_akseptorKB = jsonObject.getString("akseptor_kb").trim();
+                                    String res_asuransi = jsonObject.getString("asuransi").trim();
 
 
-                            TextFuntion textFuntion = new TextFuntion();
-                            //data diri
-                            textFuntion.setTextDanNullData(tv_nama, res_nama);
+                                    TextFuntion textFuntion = new TextFuntion();
+                                    //data diri
+                                    textFuntion.setTextDanNullData(tv_nama, res_nama);
 //                            textFuntion.setTextDanNullData(et_nik, res_nik);
 //                            textFuntion.setTextDanNullData(et_nama, res_nama);
 //                            textFuntion.setTextDanNullData(et_ktpEl, res_ktpEl);
@@ -348,13 +350,17 @@ public class HomeFragment extends Fragment {
 //                            textFuntion.setTextDanNullData(et_akseptorKB, res_akseptorKB);
 //                            textFuntion.setTextDanNullData(et_asuransi, res_asuransi);
 
-                            String resi_gambar = profile_photo_path.replace(" ", "%20");
+                                    String resi_gambar = profile_photo_path.replace(" ", "%20");
 
-                            String imageUrl = linkGambar + "user/" + resi_gambar;
-                            Picasso.with(getActivity()).load(imageUrl).fit().centerCrop().into(img_photouser);
-                            //hilangkan loading
-                            loadingDialog.dissmissDialog();
-
+                                    String imageUrl = linkGambar + "user/" + resi_gambar;
+                                    Picasso.with(getActivity()).load(imageUrl).fit().centerCrop().into(img_photouser);
+                                    //hilangkan loading
+                                    loadingDialog.dissmissDialog();
+                                }
+                            } else {
+                                Toast.makeText(getActivity(), "Data Artikel Tidak Ada!", Toast.LENGTH_SHORT).show();
+                                loadingDialog.dissmissDialog();
+                            }
                         } catch (JSONException e) {
                             e.printStackTrace();
                             loadingDialog.dissmissDialog();

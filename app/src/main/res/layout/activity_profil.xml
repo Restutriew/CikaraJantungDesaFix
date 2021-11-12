@@ -69,17 +69,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="10dp"
-                android:fontFamily="@font/robotoslab_medium"
+                android:fontFamily="@font/inter_medium"
                 android:textColor="@color/white"
                 android:textSize="25sp" />
 
             <TextView
-                android:id="@+id/et_desa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/robotoslab_medium"
+                android:fontFamily="@font/inter_light"
+                android:text="Kelengkapan Data"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
+
+            <com.akexorcist.roundcornerprogressbar.TextRoundCornerProgressBar
+                android:id="@+id/pb_presentaseKelengkapan"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="15dp"
+                app:rcBackgroundColor="#0A000000"
+                app:rcBackgroundPadding="2dp"
+                app:rcMax="100"
+                app:rcProgressColor="#D5FFFF"
+                app:rcRadius="80dp"
+                app:rcTextPositionPriority="inside"
+                app:rcTextProgressColor="#000000" />
 
         </LinearLayout>
 
@@ -139,7 +154,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="-5dp"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:cardCornerRadius="10dp">
 
                 <LinearLayout

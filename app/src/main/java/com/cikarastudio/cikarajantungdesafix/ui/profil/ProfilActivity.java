@@ -5,13 +5,16 @@ import androidx.cardview.widget.CardView;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.akexorcist.roundcornerprogressbar.TextRoundCornerProgressBar;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -23,10 +26,12 @@ import com.android.volley.toolbox.Volley;
 import com.cikarastudio.cikarajantungdesafix.session.SessionManager;
 import com.cikarastudio.cikarajantungdesafix.ssl.HttpsTrustManager;
 import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
+import com.cikarastudio.cikarajantungdesafix.ui.laporan.LaporanUserActivity;
 import com.cikarastudio.cikarajantungdesafix.ui.loadingdialog.LoadingDialog;
 import com.cikarastudio.cikarajantungdesafix.R;
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -37,7 +42,7 @@ public class ProfilActivity extends AppCompatActivity {
     SessionManager sessionManager;
     LoadingDialog loadingDialog;
 
-    String id_user, profile_photo_path, link, linkGambar;
+    String id_user, profile_photo_path, link, linkGambar, token;
 
     ImageView img_back, img_dataDiri, img_dataKelahiran,
             img_dataPendidikan, img_dataKewarganegaraan,
@@ -80,6 +85,9 @@ public class ProfilActivity extends AppCompatActivity {
     //data kesehatan
     et_golonganDarah, et_cacat, et_sakitMenahun, et_akseptorKB, et_asuransi;
 
+    //persentase data
+    TextRoundCornerProgressBar pb_presentaseKelengkapan;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,9 +105,12 @@ public class ProfilActivity extends AppCompatActivity {
         link = getString(R.string.link);
         linkGambar = getString(R.string.linkGambar);
 
+        //inisiasi token
+        token = getString(R.string.token);
+
+
         loadingDialog = new LoadingDialog(ProfilActivity.this);
         loadingDialog.startLoading();
-
 
         img_back = findViewById(R.id.img_back);
         cr_dataDiri = findViewById(R.id.cr_dataDiri);
@@ -125,12 +136,12 @@ public class ProfilActivity extends AppCompatActivity {
         img_dataKesehatan = findViewById(R.id.img_dataKesehatan);
         cr_logout = findViewById(R.id.cr_logout);
 
+        pb_presentaseKelengkapan = findViewById(R.id.pb_presentaseKelengkapan);
+
         img_photoprofile = findViewById(R.id.img_photoprofile);
 
         cr_fotoProfil = findViewById(R.id.cr_fotoProfil);
-        et_desa = findViewById(R.id.et_desa);
         et_nama1 = findViewById(R.id.et_nama1);
-
 
         //data diri
         et_nik = findViewById(R.id.et_nik);
@@ -191,6 +202,7 @@ public class ProfilActivity extends AppCompatActivity {
         et_asuransi = findViewById(R.id.et_asuransi);
 
         loadDataDiri();
+        loadDataPercentage();
 
         cr_dataDiri.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -278,6 +290,49 @@ public class ProfilActivity extends AppCompatActivity {
         });
     }
 
+    private void loadDataPercentage() {
+        String URL_READ = link + "persentasependuduk?user=" + id_user + "&token=" + token;
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+
+                            //data dashboard laporan
+                            String persentase = jsonObject.getString("persentase").trim();
+                            Float int_persentase = Float.parseFloat(persentase);
+                            pb_presentaseKelengkapan.setProgress(int_persentase);
+                            pb_presentaseKelengkapan.setProgressText(persentase + "%");
+
+                            //hilangkan loading
+                            loadingDialog.dissmissDialog();
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            loadingDialog.dissmissDialog();
+                            Toast.makeText(ProfilActivity.this, "Data Persentase Tidak Ada!" + e.toString(), Toast.LENGTH_LONG).show();
+                        }
+
+                    }
+                }
+                , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                loadingDialog.dissmissDialog();
+                Toast.makeText(ProfilActivity.this, "Tidak Ada Koneksi Internet!" + error, Toast.LENGTH_LONG).show();
+            }
+        }) {
+        };
+        int socketTimeout = 10000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(policy);
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+
+
     private void dialogLogout() {
         AlertDialog.Builder alertdialogBuilder = new AlertDialog.Builder(ProfilActivity.this);
         alertdialogBuilder.setTitle("Konfismasi Logout");
@@ -308,135 +363,143 @@ public class ProfilActivity extends AppCompatActivity {
                     public void onResponse(String response) {
 
                         try {
-                            JSONObject jsonObject = new JSONObject(response);
+                            JSONArray jsonArray = new JSONArray(response);
+                            if (jsonArray.length() > 0) {
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-                            //data diri
-                            String res_nik = jsonObject.getString("nik").trim();
-                            String res_nama = jsonObject.getString("nama_penduduk").trim();
-                            String res_ktpEl = jsonObject.getString("status_ktp").trim();
-                            String res_statusRekam = jsonObject.getString("status_rekam").trim();
-                            String res_idCard = jsonObject.getString("id_card").trim();
-                            String res_noKK = jsonObject.getString("kk_sebelum").trim();
-                            String res_hubunganKeluarga = jsonObject.getString("hubungan_keluarga").trim();
-                            String res_jenisKelamin = jsonObject.getString("jk").trim();
-                            String res_agama = jsonObject.getString("agama").trim();
-                            String res_statusPenduduk = jsonObject.getString("status_penduduk").trim();
-                            String res_noTelepon = jsonObject.getString("no_telp").trim();
-                            String res_alamatEmail = jsonObject.getString("email").trim();
-                            String res_alamatSebelum = jsonObject.getString("alamat_sebelum").trim();
-                            String res_alamatSekarang = jsonObject.getString("alamat_sekarang").trim();
-                            String res_rt = jsonObject.getString("rt_id").trim();
+                                    //data diri
+                                    String res_nik = jsonObject.getString("nik").trim();
+                                    String res_nama = jsonObject.getString("nama_penduduk").trim();
+                                    String res_ktpEl = jsonObject.getString("status_ktp").trim();
+                                    String res_statusRekam = jsonObject.getString("status_rekam").trim();
+                                    String res_idCard = jsonObject.getString("id_card").trim();
+                                    String res_noKK = jsonObject.getString("kk_sebelum").trim();
+                                    String res_hubunganKeluarga = jsonObject.getString("hubungan_keluarga").trim();
+                                    String res_jenisKelamin = jsonObject.getString("jk").trim();
+                                    String res_agama = jsonObject.getString("agama").trim();
+                                    String res_statusPenduduk = jsonObject.getString("status_penduduk").trim();
+                                    String res_noTelepon = jsonObject.getString("no_telp").trim();
+                                    String res_alamatEmail = jsonObject.getString("email").trim();
+                                    String res_alamatSebelum = jsonObject.getString("alamat_sebelum").trim();
+                                    String res_alamatSekarang = jsonObject.getString("alamat_sekarang").trim();
+                                    String res_rt = jsonObject.getString("rt_id").trim();
+                                    String res_namaRt = jsonObject.getString("nama_rt").trim();
 
-                            //data kelahiran
-                            String res_nomorAktakelahiran = jsonObject.getString("no_akta").trim();
-                            String res_tempatLahir = jsonObject.getString("tempat_lahir").trim();
-                            String res_waktuKelahiran = jsonObject.getString("waktu_lahir").trim();
-                            String res_tempatDilahirkan = jsonObject.getString("tempat_dilahirkan").trim();
-                            String res_jenisKelahiran = jsonObject.getString("jenis_kelahiran").trim();
-                            String res_anakKe = jsonObject.getString("anak_ke").trim();
-                            String res_penolongKelahiran = jsonObject.getString("penolong_kelahiran").trim();
-                            String res_beratLahir = jsonObject.getString("berat_lahir").trim();
-                            String res_panjangLahir = jsonObject.getString("panjang_lahir").trim();
+                                    //data kelahiran
+                                    String res_nomorAktakelahiran = jsonObject.getString("no_akta").trim();
+                                    String res_tempatLahir = jsonObject.getString("tempat_lahir").trim();
+                                    String res_waktuKelahiran = jsonObject.getString("waktu_lahir").trim();
+                                    String res_tempatDilahirkan = jsonObject.getString("tempat_dilahirkan").trim();
+                                    String res_jenisKelahiran = jsonObject.getString("jenis_kelahiran").trim();
+                                    String res_anakKe = jsonObject.getString("anak_ke").trim();
+                                    String res_penolongKelahiran = jsonObject.getString("penolong_kelahiran").trim();
+                                    String res_beratLahir = jsonObject.getString("berat_lahir").trim();
+                                    String res_panjangLahir = jsonObject.getString("panjang_lahir").trim();
 
-                            //data pendidikan
-                            String res_pendidikanKK = jsonObject.getString("pendidikan_kk").trim();
-                            String res_pendidikanTempuh = jsonObject.getString("pendidikan_tempuh").trim();
-                            String res_pekerjaan = jsonObject.getString("pekerjaan").trim();
+                                    //data pendidikan
+                                    String res_pendidikanKK = jsonObject.getString("pendidikan_kk").trim();
+                                    String res_pendidikanTempuh = jsonObject.getString("pendidikan_tempuh").trim();
+                                    String res_pekerjaan = jsonObject.getString("pekerjaan").trim();
 
-                            //data kewarganegaraan
-                            String res_statusKewarganegaraan = jsonObject.getString("status_warganegara").trim();
-                            String res_noPaspor = jsonObject.getString("nomor_paspor").trim();
-                            String res_tglAkhirPaspor = jsonObject.getString("tgl_akhirpaspor").trim();
+                                    //data kewarganegaraan
+                                    String res_statusKewarganegaraan = jsonObject.getString("status_warganegara").trim();
+                                    String res_noPaspor = jsonObject.getString("nomor_paspor").trim();
+                                    String res_tglAkhirPaspor = jsonObject.getString("tgl_akhirpaspor").trim();
 
-                            //data keluarga
-                            String res_nikAyah = jsonObject.getString("nik_ayah").trim();
-                            String res_namaAyah = jsonObject.getString("nama_ayah").trim();
-                            String res_nikIbu = jsonObject.getString("nik_ibu").trim();
-                            String res_namaIbu = jsonObject.getString("nama_ibu").trim();
+                                    //data keluarga
+                                    String res_nikAyah = jsonObject.getString("nik_ayah").trim();
+                                    String res_namaAyah = jsonObject.getString("nama_ayah").trim();
+                                    String res_nikIbu = jsonObject.getString("nik_ibu").trim();
+                                    String res_namaIbu = jsonObject.getString("nama_ibu").trim();
 
-                            //data perkawinan
-                            String res_statusPerkawinan = jsonObject.getString("status_perkawinan").trim();
-                            String res_noBukuNikah = jsonObject.getString("no_bukunikah").trim();
-                            String res_tglPerkawinan = jsonObject.getString("tgl_perkawinan").trim();
-                            String res_aktaPerceraian = jsonObject.getString("akta_perceraian").trim();
-                            String res_tglPerceraian = jsonObject.getString("tgl_perceraian").trim();
+                                    //data perkawinan
+                                    String res_statusPerkawinan = jsonObject.getString("status_perkawinan").trim();
+                                    String res_noBukuNikah = jsonObject.getString("no_bukunikah").trim();
+                                    String res_tglPerkawinan = jsonObject.getString("tgl_perkawinan").trim();
+                                    String res_aktaPerceraian = jsonObject.getString("akta_perceraian").trim();
+                                    String res_tglPerceraian = jsonObject.getString("tgl_perceraian").trim();
 
-                            //data kesehatan
-                            String res_golonganDarah = jsonObject.getString("golongan_darah").trim();
-                            String res_cacat = jsonObject.getString("cacat").trim();
-                            String res_sakitMenahun = jsonObject.getString("sakit_menahun").trim();
-                            String res_akseptorKB = jsonObject.getString("akseptor_kb").trim();
-                            String res_asuransi = jsonObject.getString("asuransi").trim();
+                                    //data kesehatan
+                                    String res_golonganDarah = jsonObject.getString("golongan_darah").trim();
+                                    String res_cacat = jsonObject.getString("cacat").trim();
+                                    String res_sakitMenahun = jsonObject.getString("sakit_menahun").trim();
+                                    String res_akseptorKB = jsonObject.getString("akseptor_kb").trim();
+                                    String res_asuransi = jsonObject.getString("asuransi").trim();
 
 
-                            TextFuntion textFuntion = new TextFuntion();
-                            //data diri
-                            textFuntion.setTextDanNullData(et_nama1, res_nama);
-                            textFuntion.setTextDanNullData(et_nik, res_nik);
-                            textFuntion.setTextDanNullData(et_nama, res_nama);
-                            textFuntion.setTextDanNullData(et_ktpEl, res_ktpEl);
-                            textFuntion.setTextDanNullData(et_statusRekam, res_statusRekam);
-                            textFuntion.setTextDanNullData(et_idCard, res_idCard);
-                            textFuntion.setTextDanNullData(et_noKK, res_noKK);
-                            textFuntion.setTextDanNullData(et_ktpEl, res_ktpEl);
-                            textFuntion.setTextDanNullData(et_hubunganKeluarga, res_hubunganKeluarga);
-                            textFuntion.setTextDanNullData(et_jenisKelamin, res_jenisKelamin);
-                            textFuntion.setTextDanNullData(et_agama, res_agama);
-                            textFuntion.setTextDanNullData(et_statusPenduduk, res_statusPenduduk);
-                            textFuntion.setTextDanNullData(et_noTelepon, res_noTelepon);
-                            textFuntion.setTextDanNullData(et_alamatEmail, res_alamatEmail);
-                            textFuntion.setTextDanNullData(et_alamatSebelum, res_alamatSebelum);
-                            textFuntion.setTextDanNullData(et_alamatSekarang, res_alamatSekarang);
-                            textFuntion.setTextDanNullData(et_rt, res_rt);
+                                    TextFuntion textFuntion = new TextFuntion();
+                                    //data diri
+                                    textFuntion.setTextDanNullData(et_nama1, res_nama);
+                                    textFuntion.setTextDanNullData(et_nik, res_nik);
+                                    textFuntion.setTextDanNullData(et_nama, res_nama);
+                                    textFuntion.setTextDanNullData(et_ktpEl, res_ktpEl);
+                                    textFuntion.setTextDanNullData(et_statusRekam, res_statusRekam);
+                                    textFuntion.setTextDanNullData(et_idCard, res_idCard);
+                                    textFuntion.setTextDanNullData(et_noKK, res_noKK);
+                                    textFuntion.setTextDanNullData(et_ktpEl, res_ktpEl);
+                                    textFuntion.setTextDanNullData(et_hubunganKeluarga, res_hubunganKeluarga);
+                                    textFuntion.setTextDanNullData(et_jenisKelamin, res_jenisKelamin);
+                                    textFuntion.setTextDanNullData(et_agama, res_agama);
+                                    textFuntion.setTextDanNullData(et_statusPenduduk, res_statusPenduduk);
+                                    textFuntion.setTextDanNullData(et_noTelepon, res_noTelepon);
+                                    textFuntion.setTextDanNullData(et_alamatEmail, res_alamatEmail);
+                                    textFuntion.setTextDanNullData(et_alamatSebelum, res_alamatSebelum);
+                                    textFuntion.setTextDanNullData(et_alamatSekarang, res_alamatSekarang);
+                                    textFuntion.setTextDanNullData(et_rt, res_namaRt);
 
-                            //data kelahiran
-                            textFuntion.setTextDanNullData(et_nomorAktakelahiran, res_nomorAktakelahiran);
-                            textFuntion.setTextDanNullData(et_tempatLahir, res_tempatLahir);
-                            textFuntion.setTextDanNullData(et_waktuKelahiran, res_waktuKelahiran);
-                            textFuntion.setTextDanNullData(et_tempatDilahirkan, res_tempatDilahirkan);
-                            textFuntion.setTextDanNullData(et_jenisKelahiran, res_jenisKelahiran);
-                            textFuntion.setTextDanNullData(et_anakKe, res_anakKe);
-                            textFuntion.setTextDanNullData(et_penolongKelahiran, res_penolongKelahiran);
-                            textFuntion.setTextDanNullData(et_beratLahir, res_beratLahir);
-                            textFuntion.setTextDanNullData(et_panjangLahir, res_panjangLahir);
+                                    //data kelahiran
+                                    textFuntion.setTextDanNullData(et_nomorAktakelahiran, res_nomorAktakelahiran);
+                                    textFuntion.setTextDanNullData(et_tempatLahir, res_tempatLahir);
+                                    textFuntion.setTextDanNullData(et_waktuKelahiran, res_waktuKelahiran);
+                                    textFuntion.setTextDanNullData(et_tempatDilahirkan, res_tempatDilahirkan);
+                                    textFuntion.setTextDanNullData(et_jenisKelahiran, res_jenisKelahiran);
+                                    textFuntion.setTextDanNullData(et_anakKe, res_anakKe);
+                                    textFuntion.setTextDanNullData(et_penolongKelahiran, res_penolongKelahiran);
+                                    textFuntion.setTextDanNullData(et_beratLahir, res_beratLahir);
+                                    textFuntion.setTextDanNullData(et_panjangLahir, res_panjangLahir);
 
-                            //data pendidikan
-                            textFuntion.setTextDanNullData(et_pendidikanKK, res_pendidikanKK);
-                            textFuntion.setTextDanNullData(et_pendidikanTempuh, res_pendidikanTempuh);
-                            textFuntion.setTextDanNullData(et_pekerjaan, res_pekerjaan);
+                                    //data pendidikan
+                                    textFuntion.setTextDanNullData(et_pendidikanKK, res_pendidikanKK);
+                                    textFuntion.setTextDanNullData(et_pendidikanTempuh, res_pendidikanTempuh);
+                                    textFuntion.setTextDanNullData(et_pekerjaan, res_pekerjaan);
 
-                            //data kewarganegaraan
-                            textFuntion.setTextDanNullData(et_statusKewarganegaraan, res_statusKewarganegaraan);
-                            textFuntion.setTextDanNullData(et_noPaspor, res_noPaspor);
-                            textFuntion.setTextDanNullData(et_tglAkhirPaspor, res_tglAkhirPaspor);
+                                    //data kewarganegaraan
+                                    textFuntion.setTextDanNullData(et_statusKewarganegaraan, res_statusKewarganegaraan);
+                                    textFuntion.setTextDanNullData(et_noPaspor, res_noPaspor);
+                                    textFuntion.setTextDanNullData(et_tglAkhirPaspor, res_tglAkhirPaspor);
 
-                            //data keluarga
-                            textFuntion.setTextDanNullData(et_nikAyah, res_nikAyah);
-                            textFuntion.setTextDanNullData(et_namaAyah, res_namaAyah);
-                            textFuntion.setTextDanNullData(et_nikIbu, res_nikIbu);
-                            textFuntion.setTextDanNullData(et_namaIbu, res_namaIbu);
+                                    //data keluarga
+                                    textFuntion.setTextDanNullData(et_nikAyah, res_nikAyah);
+                                    textFuntion.setTextDanNullData(et_namaAyah, res_namaAyah);
+                                    textFuntion.setTextDanNullData(et_nikIbu, res_nikIbu);
+                                    textFuntion.setTextDanNullData(et_namaIbu, res_namaIbu);
 
-                            //data perkawinan
-                            textFuntion.setTextDanNullData(et_statusPerkawinan, res_statusPerkawinan);
-                            textFuntion.setTextDanNullData(et_noBukuNikah, res_noBukuNikah);
-                            textFuntion.setTextDanNullData(et_tglPerkawinan, res_tglPerkawinan);
-                            textFuntion.setTextDanNullData(et_aktaPerceraian, res_aktaPerceraian);
-                            textFuntion.setTextDanNullData(et_tglPerceraian, res_tglPerceraian);
+                                    //data perkawinan
+                                    textFuntion.setTextDanNullData(et_statusPerkawinan, res_statusPerkawinan);
+                                    textFuntion.setTextDanNullData(et_noBukuNikah, res_noBukuNikah);
+                                    textFuntion.setTextDanNullData(et_tglPerkawinan, res_tglPerkawinan);
+                                    textFuntion.setTextDanNullData(et_aktaPerceraian, res_aktaPerceraian);
+                                    textFuntion.setTextDanNullData(et_tglPerceraian, res_tglPerceraian);
 
-                            //data kesehatan
-                            textFuntion.setTextDanNullData(et_golonganDarah, res_golonganDarah);
-                            textFuntion.setTextDanNullData(et_cacat, res_cacat);
-                            textFuntion.setTextDanNullData(et_sakitMenahun, res_sakitMenahun);
-                            textFuntion.setTextDanNullData(et_akseptorKB, res_akseptorKB);
-                            textFuntion.setTextDanNullData(et_asuransi, res_asuransi);
+                                    //data kesehatan
+                                    textFuntion.setTextDanNullData(et_golonganDarah, res_golonganDarah);
+                                    textFuntion.setTextDanNullData(et_cacat, res_cacat);
+                                    textFuntion.setTextDanNullData(et_sakitMenahun, res_sakitMenahun);
+                                    textFuntion.setTextDanNullData(et_akseptorKB, res_akseptorKB);
+                                    textFuntion.setTextDanNullData(et_asuransi, res_asuransi);
 
-                            String resi_gambar = profile_photo_path.replace(" ", "%20");
+                                    String resi_gambar = profile_photo_path.replace(" ", "%20");
 
-                            String imageUrl = linkGambar + "user/" + resi_gambar;
-                            Picasso.with(ProfilActivity.this).load(imageUrl).fit().centerCrop().into(img_photoprofile);
-                            //hilangkan loading
-                            loadingDialog.dissmissDialog();
-
+                                    String imageUrl = linkGambar + "user/" + resi_gambar;
+                                    Picasso.with(ProfilActivity.this).load(imageUrl).fit().centerCrop().into(img_photoprofile);
+                                    //hilangkan loading
+                                    loadingDialog.dissmissDialog();
+                                }
+                            } else {
+                                Toast.makeText(ProfilActivity.this, "Data Akun Tidak Ada!", Toast.LENGTH_SHORT).show();
+                                loadingDialog.dissmissDialog();
+                            }
                         } catch (JSONException e) {
                             e.printStackTrace();
                             loadingDialog.dissmissDialog();
