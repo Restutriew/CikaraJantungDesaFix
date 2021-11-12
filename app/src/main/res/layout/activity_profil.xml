@@ -60,7 +60,7 @@
                     android:id="@+id/img_photoprofile"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerCrop"/>
+                    android:scaleType="centerCrop" />
 
             </androidx.cardview.widget.CardView>
 
@@ -101,8 +101,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center_vertical"
                     android:background="@color/biru2"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:padding="10dp">
 
@@ -117,7 +117,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
-                        android:fontFamily="@font/robotoslab_semibold"
+                        android:fontFamily="@font/inter_semibold"
                         android:gravity="center_vertical"
                         android:text="Data Diri"
                         android:textColor="@android:color/white"
@@ -145,338 +145,469 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/biru3"
-                    android:padding="10dp">
+                    android:background="@drawable/border_putih_biru_muda"
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="NIK"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
-                    <TextView
-                        android:id="@+id/et_nik"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="3278012991600001"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="NIK"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Nama Lengkap"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        <TextView
+                            android:id="@+id/et_nik"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="3278012991600001"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
 
-                    <TextView
-                        android:id="@+id/et_nama"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="Kimimaro Kaguya"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="KTP Elektronik"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginVertical="2dp"
+                        android:background="@color/birubg"
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
-                    <TextView
-                        android:id="@+id/et_ktpEl"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="KTP-EL"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Nama Lengkap"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Status Rekam"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        <TextView
+                            android:id="@+id/et_nama"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="Kimimaro Kaguya"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
 
-                    <TextView
-                        android:id="@+id/et_statusRekam"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="BELUM REKAM"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Tag ID Card"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
-                    <TextView
-                        android:id="@+id/et_idCard"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="Tidak Ada Data"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="KTP Elektronik"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Nomor KK Sebelumnya"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        <TextView
+                            android:id="@+id/et_ktpEl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="KTP-EL"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
 
-                    <TextView
-                        android:id="@+id/et_noKK"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="3278012991600005"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Hubungan Dalam Keluarga"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginVertical="2dp"
+                        android:background="@color/birubg"
 
-                    <TextView
-                        android:id="@+id/et_hubunganKeluarga"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="Anak"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Jenis Kelamin"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Status Rekam"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
 
-                    <TextView
-                        android:id="@+id/et_jenisKelamin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="LAKI-LAKI"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        <TextView
+                            android:id="@+id/et_statusRekam"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="BELUM REKAM"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Agama"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/et_agama"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="KHONGHUCU"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Status Penduduk"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Tag ID Card"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
 
-                    <TextView
-                        android:id="@+id/et_statusPenduduk"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="PENDATANG"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        <TextView
+                            android:id="@+id/et_idCard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="Tidak Ada Data"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Nomor Telepon/HP"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/et_noTelepon"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="085222838181"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginVertical="2dp"
+                        android:background="@color/birubg"
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Alamat Email"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
-                    <TextView
-                        android:id="@+id/et_alamatEmail"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="Kimimarokaguya@gmail.com"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Nomor KK Sebelumnya"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Alamat Sebelumnya"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        <TextView
+                            android:id="@+id/et_noKK"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="3278012991600005"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
 
-                    <TextView
-                        android:id="@+id/et_alamatSebelum"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="Tidak Ada Data"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Alamat Sekarang"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
-                    <TextView
-                        android:id="@+id/et_alamatSekarang"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="Jl. K.H. Tubagus Abdullah No.90"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Hubungan Dalam Keluarga"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="RT"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        <TextView
+                            android:id="@+id/et_hubunganKeluarga"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="Anak"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
 
-                    <TextView
-                        android:id="@+id/et_rt"
-                        android:layout_width="wrap_content"
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="010000"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginVertical="2dp"
+                        android:background="@color/birubg"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Jenis Kelamin"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/et_jenisKelamin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="LAKI-LAKI"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Agama"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/et_agama"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="KHONGHUCU"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginVertical="2dp"
+                        android:background="@color/birubg"
+
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Status Penduduk"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/et_statusPenduduk"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="PENDATANG"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Nomor Telepon/HP"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/et_noTelepon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="085222838181"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginVertical="2dp"
+                        android:background="@color/birubg"
+
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Alamat Email"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/et_alamatEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="Kimimarokaguya@gmail.com"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Alamat Sebelumnya"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/et_alamatSebelum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="Tidak Ada Data"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginVertical="2dp"
+                        android:background="@color/birubg"
+
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Alamat Sekarang"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/et_alamatSekarang"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="Jl. K.H. Tubagus Abdullah No.90"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="RT"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/et_rt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="010000"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -493,9 +624,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/biru2"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:background="@color/biru2"
                     android:padding="10dp">
 
                     <ImageView
@@ -509,7 +640,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
-                        android:fontFamily="@font/robotoslab_semibold"
+                        android:fontFamily="@font/inter_semibold"
                         android:gravity="center_vertical"
                         android:text="Data Kelahiran"
                         android:textColor="@android:color/white"
@@ -537,206 +668,285 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/biru3"
-                    android:padding="10dp">
+                    android:background="@drawable/border_putih_biru_muda"
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Nomor Akta Kelahiran"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
-                    <TextView
-                        android:id="@+id/et_nomorAktakelahiran"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="3278012991600005"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Nomor Akta Kelahiran"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Tempat Lahir"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        <TextView
+                            android:id="@+id/et_nomorAktakelahiran"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="3278012991600005"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
 
-                    <TextView
-                        android:id="@+id/et_tempatLahir"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="Tasikmalaya"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Waktu Kelahiran"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginVertical="2dp"
+                        android:background="@color/birubg"
 
-                    <TextView
-                        android:id="@+id/et_waktuKelahiran"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="Tidak Ada Data"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Tempat Dilahirkan"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Tempat Lahir"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
 
-                    <TextView
-                        android:id="@+id/et_tempatDilahirkan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="Rumah"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        <TextView
+                            android:id="@+id/et_tempatLahir"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="Tasikmalaya"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Jenis Kelahiran"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/et_jenisKelahiran"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="Tunggal"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Anak Ke"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Waktu Kelahiran"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
 
-                    <TextView
-                        android:id="@+id/et_anakKe"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="3"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        <TextView
+                            android:id="@+id/et_waktuKelahiran"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="Tidak Ada Data"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Penolong Kelahiran"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/et_penolongKelahiran"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="DUKUN"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginVertical="2dp"
+                        android:background="@color/birubg"
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Berat Lahir (gram)"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
-                    <TextView
-                        android:id="@+id/et_beratLahir"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="500"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Tempat Dilahirkan"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Panjang Lahir (cm)"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        <TextView
+                            android:id="@+id/et_tempatDilahirkan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="Rumah"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
 
-                    <TextView
-                        android:id="@+id/et_panjangLahir"
-                        android:layout_width="wrap_content"
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="400"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Jenis Kelahiran"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/et_jenisKelahiran"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="Tunggal"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginVertical="2dp"
+                        android:background="@color/birubg"
+
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Anak Ke"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/et_anakKe"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="3"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Penolong Kelahiran"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/et_penolongKelahiran"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="DUKUN"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginVertical="2dp"
+                        android:background="@color/birubg"
+
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Berat Lahir (gram)"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/et_beratLahir"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="500"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Panjang Lahir (cm)"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/et_panjangLahir"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="400"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -753,10 +963,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
                     android:background="@color/biru2"
-                    android:padding="10dp">
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="40dp"
@@ -769,7 +978,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
-                        android:fontFamily="@font/robotoslab_semibold"
+                        android:fontFamily="@font/inter_semibold"
                         android:gravity="center_vertical"
                         android:text="Pendidikan &amp; Pekerjaan"
                         android:textColor="@android:color/white"
@@ -797,74 +1006,99 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/biru3"
-                    android:padding="10dp">
+                    android:background="@drawable/border_putih_biru_muda"
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Pendidikan Dalam KK"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
-                    <TextView
-                        android:id="@+id/et_pendidikanKK"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="Mahasiswa"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Pendidikan Dalam KK"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Pendidikan Sedang Ditempuh"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        <TextView
+                            android:id="@+id/et_pendidikanKK"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="Mahasiswa"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
 
-                    <TextView
-                        android:id="@+id/et_pendidikanTempuh"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="Mahasiswa"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Pekerjaan"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginVertical="2dp"
+                        android:background="@color/birubg"
 
-                    <TextView
-                        android:id="@+id/et_pekerjaan"
-                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Pendidikan Sedang Ditempuh"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/et_pendidikanTempuh"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="Mahasiswa"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="Awak Kapal Tongkang"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Pekerjaan"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/et_pekerjaan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="Awak Kapal Tongkang"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -881,9 +1115,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/biru2"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:background="@color/biru2"
                     android:padding="10dp">
 
                     <ImageView
@@ -897,7 +1131,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
-                        android:fontFamily="@font/robotoslab_semibold"
+                        android:fontFamily="@font/inter_semibold"
                         android:gravity="center_vertical"
                         android:text="Data Kewarganegaraan"
                         android:textColor="@android:color/white"
@@ -925,74 +1159,99 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/biru3"
-                    android:padding="10dp">
+                    android:background="@drawable/border_putih_biru_muda"
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Status Warga Negara"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
-                    <TextView
-                        android:id="@+id/et_statusKewarganegaraan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="WNI"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Status Warga Negara"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Nomor Paspor"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        <TextView
+                            android:id="@+id/et_statusKewarganegaraan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="WNI"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
 
-                    <TextView
-                        android:id="@+id/et_noPaspor"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="00129102931381238"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Tgl Berakhir Paspor"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginVertical="2dp"
+                        android:background="@color/birubg"
 
-                    <TextView
-                        android:id="@+id/et_tglAkhirPaspor"
-                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Nomor Paspor"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/et_noPaspor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="00129102931381238"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="20-01-2030"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Tgl Berakhir Paspor"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/et_tglAkhirPaspor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="20-01-2030"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -1009,9 +1268,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/biru2"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:background="@color/biru2"
                     android:padding="10dp">
 
                     <ImageView
@@ -1025,7 +1284,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
-                        android:fontFamily="@font/robotoslab_semibold"
+                        android:fontFamily="@font/inter_semibold"
                         android:gravity="center_vertical"
                         android:text="Data Keluarga"
                         android:textColor="@android:color/white"
@@ -1053,96 +1312,132 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/biru3"
-                    android:padding="10dp">
+                    android:background="@drawable/border_putih_biru_muda"
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="NIK Ayah"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
-                    <TextView
-                        android:id="@+id/et_nikAyah"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="3218293010000001"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="NIK Ayah"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Nama Ayah"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        <TextView
+                            android:id="@+id/et_nikAyah"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="3218293010000001"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
 
-                    <TextView
-                        android:id="@+id/et_namaAyah"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="Ahmad Slardar"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="NIK Ibu"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginVertical="2dp"
+                        android:background="@color/birubg"
 
-                    <TextView
-                        android:id="@+id/et_nikIbu"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="23126371832300001"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Nama Ibu"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Nama Ayah"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
 
-                    <TextView
-                        android:id="@+id/et_namaIbu"
-                        android:layout_width="wrap_content"
+                        <TextView
+                            android:id="@+id/et_namaAyah"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="Ahmad Slardar"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="Juminten Ranger"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="NIK Ibu"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/et_nikIbu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="23126371832300001"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginVertical="2dp"
+                        android:background="@color/birubg"
+
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Nama Ibu"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/et_namaIbu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="Juminten Ranger"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -1159,9 +1454,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/biru2"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:background="@color/biru2"
                     android:padding="10dp">
 
                     <ImageView
@@ -1175,7 +1470,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
-                        android:fontFamily="@font/robotoslab_semibold"
+                        android:fontFamily="@font/inter_semibold"
                         android:gravity="center_vertical"
                         android:text="Status Perkawinan"
                         android:textColor="@android:color/white"
@@ -1203,118 +1498,161 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/biru3"
-                    android:padding="10dp">
+                    android:background="@drawable/border_putih_biru_muda"
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Status Perkawinan"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
-                    <TextView
-                        android:id="@+id/et_statusPerkawinan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="KAWIN"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Status Perkawinan"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="No. Akta Nikah (Buku Nikah)/ Perkawinan"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        <TextView
+                            android:id="@+id/et_statusPerkawinan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="KAWIN"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
 
-                    <TextView
-                        android:id="@+id/et_noBukuNikah"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="123013941701511409409180891"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Tanggal Perkawinan"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginVertical="2dp"
+                        android:background="@color/birubg"
 
-                    <TextView
-                        android:id="@+id/et_tglPerkawinan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="10-10-2022"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Akta Perceraian"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="No. Akta Nikah (Buku Nikah)/ Perkawinan"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
 
-                    <TextView
-                        android:id="@+id/et_aktaPerceraian"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="Tidak Ada Data"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        <TextView
+                            android:id="@+id/et_noBukuNikah"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="123013941701511409409180891"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Tanggal Perceraian"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/et_tglPerceraian"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="00-00-0000"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Tanggal Perkawinan"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/et_tglPerkawinan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="10-10-2022"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginVertical="2dp"
+                        android:background="@color/birubg"
+
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Akta Perceraian"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/et_aktaPerceraian"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="Tidak Ada Data"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Tanggal Perceraian"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/et_tglPerceraian"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="00-00-0000"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -1331,9 +1669,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/biru2"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:background="@color/biru2"
                     android:padding="10dp">
 
                     <ImageView
@@ -1347,7 +1685,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
-                        android:fontFamily="@font/robotoslab_semibold"
+                        android:fontFamily="@font/inter_semibold"
                         android:gravity="center_vertical"
                         android:text="Data Kesehatan"
                         android:textColor="@android:color/white"
@@ -1375,190 +1713,233 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/biru3"
-                    android:padding="10dp">
+                    android:background="@drawable/border_putih_biru_muda"
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Golongan Darah"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
-                    <TextView
-                        android:id="@+id/et_golonganDarah"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="O"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Golongan Darah"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Cacat"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        <TextView
+                            android:id="@+id/et_golonganDarah"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="O"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
 
-                    <TextView
-                        android:id="@+id/et_cacat"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="TIDAK CACAT"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Sakit Menahun"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginVertical="2dp"
+                        android:background="@color/birubg"
 
-                    <TextView
-                        android:id="@+id/et_sakitMenahun"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="TIDAK ADA / TIDAK SAKIT"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Akseptor KB"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Cacat"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
 
-                    <TextView
-                        android:id="@+id/et_akseptorKB"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="LAINNYA"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        <TextView
+                            android:id="@+id/et_cacat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="TIDAK CACAT"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab_extrabold"
-                        android:gravity="center_vertical"
-                        android:text="Asuransi"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/et_asuransi"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/robotoslab_regular"
-                        android:gravity="center_vertical"
-                        android:text="TIDAK/BELUM PUNYA"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Sakit Menahun"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/et_sakitMenahun"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="TIDAK ADA / TIDAK SAKIT"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginVertical="2dp"
+                        android:background="@color/birubg"
+
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Akseptor KB"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/et_akseptorKB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="LAINNYA"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_extrabold"
+                            android:gravity="center_vertical"
+                            android:text="Asuransi"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/et_asuransi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="center_vertical"
+                            android:text="TIDAK/BELUM PUNYA"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/robotoslab_extrabold"
-                android:text="Pengaturan"
-                android:textColor="@color/biru2"
-                android:textSize="20sp" />
+            <!--            <TextView-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginLeft="20dp"-->
+            <!--                android:layout_marginTop="20dp"-->
+            <!--                android:fontFamily="@font/robotoslab_extrabold"-->
+            <!--                android:text="Pengaturan"-->
+            <!--                android:textColor="@color/biru2"-->
+            <!--                android:textSize="20sp" />-->
 
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="15dp"
-                app:cardCornerRadius="10dp">
+            <!--            <androidx.cardview.widget.CardView-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="60dp"-->
+            <!--                android:layout_marginHorizontal="10dp"-->
+            <!--                android:layout_marginTop="15dp"-->
+            <!--                app:cardCornerRadius="10dp">-->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:background="@color/biru3"
-                    android:padding="10dp">
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="match_parent"-->
+            <!--                    android:background="@color/biru3"-->
+            <!--                    android:gravity="center_vertical"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
 
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/ic_baseline_settings_24" />
+            <!--                    <ImageView-->
+            <!--                        android:layout_width="40dp"-->
+            <!--                        android:layout_height="40dp"-->
+            <!--                        android:layout_marginLeft="10dp"-->
+            <!--                        android:src="@drawable/ic_baseline_settings_24" />-->
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="10dp"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/robotoslab_semibold"
-                        android:gravity="center_vertical"
-                        android:text="Pengaturan"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
+            <!--                    <TextView-->
+            <!--                        android:layout_width="0dp"-->
+            <!--                        android:layout_height="match_parent"-->
+            <!--                        android:layout_marginStart="10dp"-->
+            <!--                        android:layout_weight="1"-->
+            <!--                        android:fontFamily="@font/robotoslab_semibold"-->
+            <!--                        android:gravity="center_vertical"-->
+            <!--                        android:text="Pengaturan"-->
+            <!--                        android:textColor="@android:color/white"-->
+            <!--                        android:textSize="18sp" />-->
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/ic_baseline_arrow_forward_ios_24" />
+            <!--                    <ImageView-->
+            <!--                        android:layout_width="30dp"-->
+            <!--                        android:layout_height="match_parent"-->
+            <!--                        android:src="@drawable/ic_baseline_arrow_forward_ios_24" />-->
 
-                </LinearLayout>
+            <!--                </LinearLayout>-->
 
-            </androidx.cardview.widget.CardView>
+            <!--            </androidx.cardview.widget.CardView>-->
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cr_logout"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginBottom="10dp"
                 app:cardCornerRadius="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@android:color/holo_red_dark"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:background="@android:color/holo_red_dark"
                     android:padding="10dp">
 
                     <ImageView

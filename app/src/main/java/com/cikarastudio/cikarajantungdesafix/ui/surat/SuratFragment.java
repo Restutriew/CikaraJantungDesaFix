@@ -20,7 +20,6 @@ import com.cikarastudio.cikarajantungdesafix.R;
 
 public class SuratFragment extends Fragment {
 
-//    LinearLayout line_ketPengantar;
     ImageView img_tambahSurat;
 
     @Override
@@ -38,15 +37,6 @@ public class SuratFragment extends Fragment {
             }
         });
 
-//        line_ketPengantar = root.findViewById(R.id.line_ketPengantar);
-//
-//        line_ketPengantar.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent keSuratKK = new Intent(getActivity(), TambahSuratActivity.class);
-//                startActivity(keSuratKK);
-//            }
-//        });
 
         return root;
     }

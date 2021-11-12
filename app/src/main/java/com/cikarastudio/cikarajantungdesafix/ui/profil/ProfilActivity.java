@@ -5,6 +5,7 @@ import androidx.cardview.widget.CardView;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -194,49 +195,71 @@ public class ProfilActivity extends AppCompatActivity {
         cr_dataDiri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setVisibleGoneBlack(cr_isiDataDiri, img_dataDiri);
+                setVisibleGoneBlack(cr_isiDataDiri, img_dataDiri, cr_isiDataKelahiran, img_dataKelahiran,
+                        cr_isiDataPendidikan, img_dataPendidikan, cr_isiDataKewarganegaraan, img_dataKewarganegaraan,
+                        cr_isiDataKeluarga, img_dataKeluarga, cr_isiDataPerkawinan, img_dataPerkawinan,
+                        cr_isiDataKesehatan, img_dataKesehatan);
             }
         });
 
         cr_dataKelahiran.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setVisibleGoneBlack(cr_isiDataKelahiran, img_dataKelahiran);
+                setVisibleGoneBlack(cr_isiDataKelahiran, img_dataKelahiran, cr_isiDataDiri, img_dataDiri,
+                        cr_isiDataPendidikan, img_dataPendidikan, cr_isiDataKewarganegaraan, img_dataKewarganegaraan,
+                        cr_isiDataKeluarga, img_dataKeluarga, cr_isiDataPerkawinan, img_dataPerkawinan,
+                        cr_isiDataKesehatan, img_dataKesehatan);
             }
         });
 
         cr_dataPendidikan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setVisibleGoneBlack(cr_isiDataPendidikan, img_dataPendidikan);
+                setVisibleGoneBlack(cr_isiDataPendidikan, img_dataPendidikan, cr_isiDataKelahiran, img_dataKelahiran,
+                        cr_isiDataDiri, img_dataDiri, cr_isiDataKewarganegaraan, img_dataKewarganegaraan,
+                        cr_isiDataKeluarga, img_dataKeluarga, cr_isiDataPerkawinan, img_dataPerkawinan,
+                        cr_isiDataKesehatan, img_dataKesehatan);
             }
         });
 
         cr_dataKewarganegaraan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setVisibleGoneBlack(cr_isiDataKewarganegaraan, img_dataKewarganegaraan);
+                setVisibleGoneBlack(cr_isiDataKewarganegaraan, img_dataKewarganegaraan, cr_isiDataDiri, img_dataDiri,
+                        cr_isiDataKelahiran, img_dataKelahiran, cr_isiDataPendidikan, img_dataPendidikan,
+                        cr_isiDataKeluarga, img_dataKeluarga, cr_isiDataPerkawinan, img_dataPerkawinan,
+                        cr_isiDataKesehatan, img_dataKesehatan);
             }
         });
 
         cr_dataKeluarga.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setVisibleGoneBlack(cr_isiDataKeluarga, img_dataKeluarga);
+                setVisibleGoneBlack(cr_isiDataKeluarga, img_dataKeluarga, cr_isiDataDiri, img_dataDiri,
+                        cr_isiDataKelahiran, img_dataKelahiran, cr_isiDataPendidikan, img_dataPendidikan,
+                        cr_isiDataKewarganegaraan, img_dataKewarganegaraan, cr_isiDataPerkawinan, img_dataPerkawinan,
+                        cr_isiDataKesehatan, img_dataKesehatan);
             }
         });
 
         cr_dataPerkawinan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setVisibleGoneBlack(cr_isiDataPerkawinan, img_dataPerkawinan);
+                setVisibleGoneBlack(cr_isiDataPerkawinan, img_dataPerkawinan, cr_isiDataDiri, img_dataDiri,
+                        cr_isiDataKelahiran, img_dataKelahiran, cr_isiDataPendidikan, img_dataPendidikan,
+                        cr_isiDataKewarganegaraan, img_dataKewarganegaraan, cr_isiDataKeluarga, img_dataKeluarga,
+                        cr_isiDataKesehatan, img_dataKesehatan);
             }
         });
 
         cr_dataKesehatan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setVisibleGoneBlack(cr_isiDataKesehatan, img_dataKesehatan);
+                setVisibleGoneBlack(cr_isiDataKesehatan, img_dataKesehatan, cr_isiDataDiri, img_dataDiri,
+                        cr_isiDataKelahiran, img_dataKelahiran, cr_isiDataPendidikan, img_dataPendidikan,
+                        cr_isiDataKewarganegaraan, img_dataKewarganegaraan, cr_isiDataKeluarga, img_dataKeluarga,
+                        cr_isiDataPerkawinan, img_dataPerkawinan
+                );
             }
         });
 
@@ -412,7 +435,7 @@ public class ProfilActivity extends AppCompatActivity {
                             String imageUrl = linkGambar + "user/" + resi_gambar;
                             Picasso.with(ProfilActivity.this).load(imageUrl).fit().centerCrop().into(img_photoprofile);
                             //hilangkan loading
-                                loadingDialog.dissmissDialog();
+                            loadingDialog.dissmissDialog();
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -437,13 +460,28 @@ public class ProfilActivity extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-    private void setVisibleGoneBlack(CardView isiData, ImageView imgData) {
-        if (isiData.getVisibility() == View.VISIBLE) {
-            isiData.setVisibility(View.GONE);
-            imgData.setImageResource(R.drawable.ic_baseline_arrow_forward_ios_24);
+    private void setVisibleGoneBlack(CardView isiData1, ImageView imgData1, CardView isiData2, ImageView imgData2,
+                                     CardView isiData3, ImageView imgData3, CardView isiData4, ImageView imgData4,
+                                     CardView isiData5, ImageView imgData5, CardView isiData6, ImageView imgData6,
+                                     CardView isiData7, ImageView imgData7) {
+        if (isiData1.getVisibility() == View.VISIBLE) {
+            isiData1.setVisibility(View.GONE);
+            imgData1.setImageResource(R.drawable.ic_baseline_arrow_forward_ios_24);
         } else {
-            isiData.setVisibility(View.VISIBLE);
-            imgData.setImageResource(R.drawable.ic_baseline_keyboard_arrow_up_24);
+            isiData1.setVisibility(View.VISIBLE);
+            imgData1.setImageResource(R.drawable.ic_baseline_keyboard_arrow_up_24);
+            isiData2.setVisibility(View.GONE);
+            imgData2.setImageResource(R.drawable.ic_baseline_arrow_forward_ios_24);
+            isiData3.setVisibility(View.GONE);
+            imgData3.setImageResource(R.drawable.ic_baseline_arrow_forward_ios_24);
+            isiData4.setVisibility(View.GONE);
+            imgData4.setImageResource(R.drawable.ic_baseline_arrow_forward_ios_24);
+            isiData5.setVisibility(View.GONE);
+            imgData5.setImageResource(R.drawable.ic_baseline_arrow_forward_ios_24);
+            isiData6.setVisibility(View.GONE);
+            imgData6.setImageResource(R.drawable.ic_baseline_arrow_forward_ios_24);
+            isiData7.setVisibility(View.GONE);
+            imgData7.setImageResource(R.drawable.ic_baseline_arrow_forward_ios_24);
         }
 
     }
