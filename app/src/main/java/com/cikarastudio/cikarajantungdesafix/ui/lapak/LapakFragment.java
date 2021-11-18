@@ -323,7 +323,6 @@ public class LapakFragment extends Fragment {
         stringRequest.setRetryPolicy(policy);
         RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
         requestQueue.add(stringRequest);
-
     }
 
     private void loadProduct() {

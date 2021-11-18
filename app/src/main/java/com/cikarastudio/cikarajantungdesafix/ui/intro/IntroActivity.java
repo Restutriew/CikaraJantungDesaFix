@@ -1,6 +1,7 @@
 package com.cikarastudio.cikarajantungdesafix.ui.intro;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -26,7 +27,8 @@ public class IntroActivity extends AppCompatActivity {
     private LinearLayout dotsLayout;
     private TextView[] dots;
     private int[] layouts;
-    private Button btnNext;
+    private CardView btnNext;
+    TextView tv_selanjutnya;
     private IntroAdapter prefManager;
 
     @Override
@@ -50,7 +52,8 @@ public class IntroActivity extends AppCompatActivity {
 
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
-        btnNext = (Button) findViewById(R.id.btn_next);
+        btnNext = (CardView) findViewById(R.id.cr_btnNext);
+        tv_selanjutnya = (TextView) findViewById(R.id.tv_selanjutnya);
 
         // layouts of all welcome sliders
         // add few more layouts if you want
@@ -63,19 +66,9 @@ public class IntroActivity extends AppCompatActivity {
         // adding bottom dots
         addBottomDots(0);
 
-        // making notification bar transparent
-//        changeStatusBarColor();
-
         myViewPagerAdapter = new MyViewPagerAdapter();
         viewPager.setAdapter(myViewPagerAdapter);
         viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
-
-//        btnSkip.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                launchHomeScreen();
-//            }
-//        });
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,12 +125,10 @@ public class IntroActivity extends AppCompatActivity {
             // changing the next button text 'NEXT' / 'GOT IT'
             if (position == layouts.length - 1) {
                 // last page. make button text to GOT IT
-                btnNext.setText(getString(R.string.start));
-//                btnSkip.setVisibility(View.GONE);
+                tv_selanjutnya.setText(getString(R.string.start));
             } else {
                 // still pages are left
-                btnNext.setText(getString(R.string.next));
-//                btnSkip.setVisibility(View.VISIBLE);
+                tv_selanjutnya.setText(getString(R.string.next));
             }
         }
 

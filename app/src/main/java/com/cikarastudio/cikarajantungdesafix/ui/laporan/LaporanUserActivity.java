@@ -61,7 +61,7 @@ public class LaporanUserActivity extends AppCompatActivity {
         sessionManager.checkLogin();
         HashMap<String, String> user = sessionManager.getUserDetail();
         id_user = user.get(sessionManager.ID);
-        profile_photo_path = user.get(sessionManager.PROFILE_PHOTO_PATH);
+//        profile_photo_path = user.get(sessionManager.PROFILE_PHOTO_PATH);
 //        namapenduduk = user.get(sessionManager.);
 
         HttpsTrustManager.allowAllSSL();

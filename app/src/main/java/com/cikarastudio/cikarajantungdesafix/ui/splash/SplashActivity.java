@@ -29,7 +29,7 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
 
                 //setelah loading maka akan langsung berpindah ke intro activity
-                Intent home = new Intent(SplashActivity.this, IntroActivity.class);
+                Intent home = new Intent(SplashActivity.this, SplashKabupatenActivity.class);
                 startActivity(home);
                 finish();
 

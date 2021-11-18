@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void login() {
-        String URL_LOGIN = "https://jantungdesa.cikarastudio.com/jantungdesaandroid/login_user.php";
+        String URL_LOGIN = "https://puteran.cikarastudio.com/jantungdesaandroid/login_user.php";
         loadingDialog.startLoading();
         HttpsTrustManager.allowAllSSL();
         final String email = this.et_loginEmail.getText().toString().trim();
@@ -93,8 +93,8 @@ public class LoginActivity extends AppCompatActivity {
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject object = jsonArray.getJSONObject(i);
                                     String id = object.getString("id").trim();
-                                    String profile_photo_path = object.getString("profile_photo_path").trim();
-                                    sessionManager.createSession(id, profile_photo_path);
+//                                    String profile_photo_path = object.getString("profile_photo_path").trim();
+                                    sessionManager.createSession(id);
                                     Toast.makeText(LoginActivity.this, "Login Berhasil! " , Toast.LENGTH_LONG).show();
                                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                     startActivity(intent);
@@ -107,7 +107,7 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Toast.makeText(LoginActivity.this, "Login Gagal : Email Salah!" + e.toString(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this, "Login Gagal : Email Salah!", Toast.LENGTH_LONG).show();
                             loadingDialog.dissmissDialog();
                         }
                     }

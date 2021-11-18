@@ -109,7 +109,6 @@
                 android:padding="5dp">
 
                 <ImageView
-                    android:id="@+id/imageView3"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:src="@drawable/ic_outline_favorite_border_24"

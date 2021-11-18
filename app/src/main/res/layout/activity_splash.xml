@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2300000" />
+        app:layout_constraintVertical_bias="0.418" />
 
     <TextView
         android:id="@+id/textView"
@@ -23,7 +23,6 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_extrabold"
         android:layout_marginHorizontal="40dp"
-
         android:gravity="center_horizontal"
         android:text="Aplikasi Jantung Desa"
         android:textAlignment="center"
@@ -34,7 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo"
-        app:layout_constraintVertical_bias="0.342" />
+        app:layout_constraintVertical_bias="0.095"  />
 
     <TextView
         android:id="@+id/textView2"

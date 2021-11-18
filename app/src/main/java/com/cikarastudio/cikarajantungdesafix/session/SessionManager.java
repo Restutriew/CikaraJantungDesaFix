@@ -20,7 +20,7 @@ public class SessionManager {
     private static final String PREF_NAME = "LOGIN";
     private static final String LOGIN = "IS_LOGIN";
     public static final String ID = "ID";
-    public static final String PROFILE_PHOTO_PATH = "PROFILE_PHOTO_PATH";
+//    public static final String PROFILE_PHOTO_PATH = "PROFILE_PHOTO_PATH";
 
     public SessionManager(Context context) {
         this.context = context;
@@ -28,11 +28,11 @@ public class SessionManager {
         editor = sharedPreferences.edit();
     }
 
-    public void createSession(String id, String profile_photo_path) {
+    public void createSession(String id) {
 
         editor.putBoolean(LOGIN, true);
         editor.putString(ID, id);
-        editor.putString(PROFILE_PHOTO_PATH, profile_photo_path);
+//        editor.putString(PROFILE_PHOTO_PATH, profile_photo_path);
         editor.apply();
     }
 
@@ -50,7 +50,7 @@ public class SessionManager {
 
     public HashMap<String, String> getUserDetail() {
         HashMap<String, String> user = new HashMap<>();
-        user.put(PROFILE_PHOTO_PATH, sharedPreferences.getString(PROFILE_PHOTO_PATH, null));
+//        user.put(PROFILE_PHOTO_PATH, sharedPreferences.getString(PROFILE_PHOTO_PATH, null));
         user.put(ID, sharedPreferences.getString(ID, null));
         return user;
     }
