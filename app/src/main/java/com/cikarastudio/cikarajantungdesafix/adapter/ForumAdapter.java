@@ -66,7 +66,7 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ForumViewHol
         textFuntion.setTextDanNullData(holder.tv_keteranganForum, keteranganForum);
 
 
-        String imageUrl = "https://jantungdesa.cikarastudio.com/public/img/layanan/forum/" + gambarForum;
+        String imageUrl = "https://puteran.cikarastudio.com/public/img/layanan/forum/" + gambarForum;
         Picasso.with(mContext.getApplicationContext()).load(imageUrl).fit().centerCrop().into(holder.img_gambarForum);
     }
 

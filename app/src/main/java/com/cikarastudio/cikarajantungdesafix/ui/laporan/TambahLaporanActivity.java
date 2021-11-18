@@ -106,6 +106,8 @@ public class TambahLaporanActivity extends AppCompatActivity {
         final String photoLaporan = "kimalaporan.jpg";
         final String identitasLaporan = sp_identitasLaporan.getSelectedItem().toString().toLowerCase();
         final String postingLaporan = sp_postingLaporan.getSelectedItem().toString().toLowerCase();
+        String uploadBase64 = "data:image/png;base64," + photoLaporan;
+
 
         Log.d("calpalnx", String.valueOf(id_user));
         Log.d("calpalnx", String.valueOf(isiLaporan));
@@ -155,7 +157,7 @@ public class TambahLaporanActivity extends AppCompatActivity {
                 params.put("kategori", jenisLaporan);
                 params.put("status", statusLaporan);
                 params.put("token", token);
-                params.put("photo", photoLaporan);
+                params.put("image", uploadBase64);
                 params.put("identitas", identitasLaporan);
                 params.put("posting", postingLaporan);
                 return params;

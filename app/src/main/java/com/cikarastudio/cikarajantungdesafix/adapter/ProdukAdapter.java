@@ -76,7 +76,7 @@ public class ProdukAdapter extends RecyclerView.Adapter<ProdukAdapter.ProdukView
 
         Log.d("calpalnx", gambarProduk);
 
-        String imageUrl = "https://jantungdesa.cikarastudio.com/public/img/penduduk/produk/" + gambarProduk;
+        String imageUrl = "https://puteran.cikarastudio.com/public/img/penduduk/produk/" + gambarProduk;
         Picasso.with(mContext.getApplicationContext()).load(imageUrl).fit().centerCrop().into(holder.gambar);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

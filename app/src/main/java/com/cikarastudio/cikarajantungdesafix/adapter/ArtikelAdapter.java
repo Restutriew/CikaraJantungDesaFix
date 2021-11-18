@@ -56,7 +56,7 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ArtikelV
         //data kategori
         textFuntion.setTextDanNullData(holder.tv_judulArtikel, judulArtikel);
         textFuntion.setTextDanNullData(holder.tv_isiArtikel, isiArtikel);
-        String imageUrl = "https://jantungdesa.cikarastudio.com/public/img/pengaturan/artikel/" + imgArtikel;
+        String imageUrl = "https://puteran.cikarastudio.com/public/img/pengaturan/artikel/" + imgArtikel;
         Picasso.with(mContext.getApplicationContext()).load(imageUrl).fit().centerCrop().into(holder.img_gambarArtikel);
     }
 

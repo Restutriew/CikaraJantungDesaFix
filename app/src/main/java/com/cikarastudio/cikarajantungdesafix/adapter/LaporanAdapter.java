@@ -72,10 +72,10 @@ public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanV
 
         holder.tv_isiLaporan.setText(isiLaporan);
 
-        String imgUser = "https://jantungdesa.cikarastudio.com/public/img/user/" + photoUser;
+        String imgUser = "https://puteran.cikarastudio.com/public/img/user/" + photoUser;
         Picasso.with(mContext.getApplicationContext()).load(imgUser).fit().centerCrop().into(holder.img_potouser);
 
-        String imgLaporan = "https://jantungdesa.cikarastudio.com/public/img/penduduk/lapor/" + gambarLaporan;
+        String imgLaporan = "https://puteran.cikarastudio.com/public/img/penduduk/lapor/" + gambarLaporan;
         Picasso.with(mContext.getApplicationContext()).load(imgLaporan).fit().centerCrop().into(holder.img_gambarLaporan);
 
     }

@@ -91,6 +91,8 @@ public class TambahProdukActivity extends AppCompatActivity {
         final String lapak_id = id_lapak;
         final String gambar = "blablabla.jpg";
         final String dilihat = "0";
+        String uploadBase64 = "data:image/png;base64," + gambar;
+
 
         Log.d("calpalnx", String.valueOf(namaProduk));
         Log.d("calpalnx", String.valueOf(hargaProduk));
@@ -152,7 +154,7 @@ public class TambahProdukActivity extends AppCompatActivity {
                 params.put("lapak_id", lapak_id);
                 params.put("nama", namaProduk);
                 params.put("keterangan", keteranganProduk);
-                params.put("gambar", gambar);
+                params.put("image", uploadBase64);
                 params.put("harga", hargaProduk);
                 params.put("token", token);
                 params.put("dilihat", dilihat);
