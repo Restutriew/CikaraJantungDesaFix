@@ -1,6 +1,5 @@
 package com.cikarastudio.cikarajantungdesafix.ui.profil;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;

@@ -1,6 +1,10 @@
 package com.cikarastudio.cikarajantungdesafix.adapter;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.os.Build;
+import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,14 +59,35 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ArtikelV
         TextFuntion textFuntion = new TextFuntion();
         //data kategori
         textFuntion.setTextDanNullData(holder.tv_judulArtikel, judulArtikel);
-        textFuntion.setTextDanNullData(holder.tv_isiArtikel, isiArtikel);
-        String imageUrl = "https://puteran.cikarastudio.com/public/img/pengaturan/artikel/" + imgArtikel;
+
+        String linkgambar = mContext.getString(R.string.linkGambar);
+        Log.d("calpalnx", "onBindViewHolder: " + linkgambar);
+        String imageUrl = linkgambar + "pengaturan/artikel/" + imgArtikel;
         Picasso.with(mContext.getApplicationContext()).load(imageUrl).fit().centerCrop().into(holder.img_gambarArtikel);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            holder.tv_isiArtikel.setText(Html.fromHtml(isiArtikel, Html.FROM_HTML_MODE_COMPACT));
+        } else {
+            holder.tv_isiArtikel.setText(Html.fromHtml(isiArtikel));
+        }
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onItemClickCallback.onItemClicked(mArtikelList.get(holder.getAdapterPosition()));
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return mArtikelList.size();
+        Integer limit;
+        if (mArtikelList.size() < 5) {
+            limit = mArtikelList.size();
+        } else {
+            limit = 5;
+        }
+        return limit;
     }
 
     public class ArtikelViewHolder extends RecyclerView.ViewHolder {

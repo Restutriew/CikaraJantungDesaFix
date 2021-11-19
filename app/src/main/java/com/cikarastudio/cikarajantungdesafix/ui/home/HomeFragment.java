@@ -1,12 +1,10 @@
 package com.cikarastudio.cikarajantungdesafix.ui.home;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,7 +12,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,19 +24,17 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.cikarastudio.cikarajantungdesafix.adapter.ArtikelAllAdapter;
+import com.cikarastudio.cikarajantungdesafix.ui.artikel.DetailArtikelActivity;
+import com.cikarastudio.cikarajantungdesafix.ui.artikel.ListArtikelActivity;
 import com.cikarastudio.cikarajantungdesafix.R;
 import com.cikarastudio.cikarajantungdesafix.adapter.ArtikelAdapter;
-import com.cikarastudio.cikarajantungdesafix.adapter.KategoriAdapter;
-import com.cikarastudio.cikarajantungdesafix.adapter.LaporanAdapter;
 import com.cikarastudio.cikarajantungdesafix.adapter.PerangkatDesaAdapter;
 import com.cikarastudio.cikarajantungdesafix.model.ArtikelModel;
-import com.cikarastudio.cikarajantungdesafix.model.KategoriModel;
-import com.cikarastudio.cikarajantungdesafix.model.LaporanModel;
 import com.cikarastudio.cikarajantungdesafix.model.PerangkatDesaModel;
 import com.cikarastudio.cikarajantungdesafix.session.SessionManager;
 import com.cikarastudio.cikarajantungdesafix.ssl.HttpsTrustManager;
 import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
-import com.cikarastudio.cikarajantungdesafix.ui.forum.ForumFragment;
 import com.cikarastudio.cikarajantungdesafix.ui.laporan.LaporanUserActivity;
 import com.cikarastudio.cikarajantungdesafix.ui.loadingdialog.LoadingDialog;
 import com.cikarastudio.cikarajantungdesafix.ui.profil.ProfilActivity;
@@ -59,7 +54,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     LoadingDialog loadingDialog;
     String id_user, link, linkGambar, token;
     ImageView img_photouser;
-    TextView tv_nama;
+    TextView tv_nama, tv_lihatSelengkapnyaArtikel;
     RecyclerView rv_artikel, rv_perangkatDesa;
     private ArrayList<ArtikelModel> artikelList;
     private ArtikelAdapter artikelAdapter;
@@ -88,7 +83,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         token = getString(R.string.token);
 
         loadingDialog = new LoadingDialog(getActivity());
-        loadingDialog.startLoading();
 
         img_photouser = root.findViewById(R.id.img_photouser);
         tv_nama = root.findViewById(R.id.tv_nama);
@@ -110,10 +104,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         rv_perangkatDesa.setLayoutManager(rvKategoriAdapter);
         rv_perangkatDesa.setHasFixedSize(true);
 
-        loadDataDiri();
         loadArtikel();
-        loadPotoProfil();
         loadPerangkatDesa();
+
+        tv_lihatSelengkapnyaArtikel = root.findViewById(R.id.tv_lihatSelengkapnyaArtikel);
+        tv_lihatSelengkapnyaArtikel.setOnClickListener(this);
 
         cr_dashboardLaporanDibuat = root.findViewById(R.id.cr_dashboardLaporanDibuat);
         cr_dashboardLaporanDibuat.setOnClickListener(this);
@@ -128,8 +123,21 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        loadingDialog.startLoading();
+        loadDataDiri();
+        loadPotoProfil();
+    }
+
+    @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.tv_lihatSelengkapnyaArtikel:
+                // do your code
+                Intent keListArtikel = new Intent(getActivity(), ListArtikelActivity.class);
+                startActivity(keListArtikel);
+                break;
             case R.id.cr_dashboardLaporanDibuat:
                 // do your code
                 Intent keLaporanDibuat = new Intent(getActivity(), LaporanUserActivity.class);
@@ -154,7 +162,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
                         try {
                             JSONObject jsonObject = new JSONObject(response);
 
@@ -172,7 +179,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                         } catch (JSONException e) {
                             e.printStackTrace();
                             loadingDialog.dissmissDialog();
-//                            Toast.makeText(getActivity(), "Data Akun Tidak Ada!" + e.toString(), Toast.LENGTH_LONG).show();
                         }
 
                     }
@@ -222,18 +228,26 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                                             res_updatedAt));
                                     artikelAdapter = new ArtikelAdapter(getContext(), artikelList);
                                     rv_artikel.setAdapter(artikelAdapter);
+                                    artikelAdapter.setOnItemClickCallback(new ArtikelAdapter.OnItemClickCallback() {
+                                        @Override
+                                        public void onItemClicked(ArtikelModel data) {
+                                            Intent transferArtikel = new Intent(getActivity(), DetailArtikelActivity.class);
+                                            transferArtikel.putExtra(DetailArtikelActivity.ARTIKEL_DATA, data);
+                                            startActivity(transferArtikel);
+                                        }
+                                    });
 
                                     //hilangkan loading
                                     loadingDialog.dissmissDialog();
                                 }
                             } else {
-                                Toast.makeText(getActivity(), "Data Artikel Tidak Ada!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "Data Berita Tidak Ada!", Toast.LENGTH_SHORT).show();
                                 loadingDialog.dissmissDialog();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
                             loadingDialog.dissmissDialog();
-                            Toast.makeText(getActivity(), "Data Artikel Tidak Ada!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getActivity(), "Data Berita Tidak Ada!", Toast.LENGTH_LONG).show();
                         }
 
                     }
