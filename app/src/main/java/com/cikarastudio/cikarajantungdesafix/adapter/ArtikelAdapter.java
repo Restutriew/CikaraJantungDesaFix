@@ -1,6 +1,7 @@
 package com.cikarastudio.cikarajantungdesafix.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Build;
 import android.text.Html;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,11 +20,16 @@ import com.cikarastudio.cikarajantungdesafix.R;
 import com.cikarastudio.cikarajantungdesafix.model.ArtikelModel;
 import com.cikarastudio.cikarajantungdesafix.model.KategoriModel;
 import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
+import com.cikarastudio.cikarajantungdesafix.ui.artikel.ListArtikelActivity;
+import com.cikarastudio.cikarajantungdesafix.ui.laporan.LaporanUserActivity;
+import com.cikarastudio.cikarajantungdesafix.ui.profil.ProfilActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ArtikelViewHolder> {
+
+    String judulArtikel, isiArtikel, imgArtikel, slugArtikel, namaKategoriArtikel, linkArtikel;
 
     private Context mContext;
     private ArrayList<ArtikelModel> mArtikelList;
@@ -52,16 +59,20 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ArtikelV
     @Override
     public void onBindViewHolder(@NonNull ArtikelViewHolder holder, int position) {
         ArtikelModel currentItem = mArtikelList.get(position);
-        String judulArtikel = currentItem.getJudul_artikel();
-        String isiArtikel = currentItem.getIsi_artikel();
-        String imgArtikel = currentItem.getGambar_artikel();
+        judulArtikel = currentItem.getJudul_artikel();
+        isiArtikel = currentItem.getIsi_artikel();
+        imgArtikel = currentItem.getGambar_artikel();
+        slugArtikel = currentItem.getSlug();
+        namaKategoriArtikel = currentItem.getNama_kategori();
+
+        linkArtikel = mContext.getString(R.string.linkArtikel);
 
         TextFuntion textFuntion = new TextFuntion();
         //data kategori
         textFuntion.setTextDanNullData(holder.tv_judulArtikel, judulArtikel);
+        textFuntion.setTextDanNullData(holder.tv_namaKategoriArtikel, namaKategoriArtikel);
 
         String linkgambar = mContext.getString(R.string.linkGambar);
-        Log.d("calpalnx", "onBindViewHolder: " + linkgambar);
         String imageUrl = linkgambar + "pengaturan/artikel/" + imgArtikel;
         Picasso.with(mContext.getApplicationContext()).load(imageUrl).fit().centerCrop().into(holder.img_gambarArtikel);
 
@@ -90,16 +101,39 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ArtikelV
         return limit;
     }
 
-    public class ArtikelViewHolder extends RecyclerView.ViewHolder {
+    public class ArtikelViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView tv_judulArtikel;
         public TextView tv_isiArtikel;
+        public TextView tv_namaKategoriArtikel;
         public ImageView img_gambarArtikel;
+        public LinearLayout line_buttonShare;
 
         ArtikelViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_judulArtikel = itemView.findViewById(R.id.tv_judulArtikel);
             tv_isiArtikel = itemView.findViewById(R.id.tv_isiArtikel);
+            tv_namaKategoriArtikel = itemView.findViewById(R.id.tv_namaKategoriArtikel);
             img_gambarArtikel = itemView.findViewById(R.id.img_gambarArtikel);
+            line_buttonShare = itemView.findViewById(R.id.line_buttonShare);
+
+            line_buttonShare.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.line_buttonShare:
+                    // do your code
+                    Intent share = new Intent(android.content.Intent.ACTION_SEND);
+                    share.setType("text/plain");
+                    share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+                    share.putExtra(Intent.EXTRA_SUBJECT, judulArtikel);
+                    share.putExtra(Intent.EXTRA_TEXT, linkArtikel + slugArtikel);
+                    mContext.startActivity(Intent.createChooser(share, "Share Artikel"));
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

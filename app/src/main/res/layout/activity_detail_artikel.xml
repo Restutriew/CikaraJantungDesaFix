@@ -15,8 +15,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
             android:background="@color/biru2"
+            android:padding="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -35,11 +35,11 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:gravity="center"
                 android:fontFamily="@font/inter_extrabold"
+                android:gravity="center"
                 android:text="Berita Desa"
                 android:textColor="@color/white"
-                android:textSize="18sp"
+                android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -60,30 +60,36 @@
             android:id="@+id/img_gambarArtikelDeskripsi"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:scaleType="centerCrop"/>
+            android:layout_margin="8dp"
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/tv_judulArtikelDeskripsi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
             android:fontFamily="@font/inter_bold"
-            android:text=""
+            android:text="Judul"
             android:textColor="@color/black"
             android:textSize="25sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/inter_semibold"
-            android:text="Pariwisata"
+            android:text="Kategori"
             android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/tv_isiArtikelDeskripsi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/inter_regular"
-            android:text=""
+            android:text="Isi"
             android:textColor="@color/abu"
             android:textSize="15sp" />
 

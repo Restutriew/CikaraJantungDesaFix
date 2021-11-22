@@ -199,7 +199,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     }
 
     private void loadArtikel() {
-        String URL_READ = link + "listartikel";
+        String URL_READ = link + "list/artikel?token=" + token + "&kategori=semua";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
                 new Response.Listener<String>() {
                     @Override
@@ -221,11 +221,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                                     String res_gambarArtikel = jsonObject.getString("gambar_artikel").trim();
                                     String res_createdAt = jsonObject.getString("created_at").trim();
                                     String res_updatedAt = jsonObject.getString("updated_at").trim();
+                                    String res_namaKategori = jsonObject.getString("nama_kategori").trim();
 
                                     String resi_gambarArtikel = res_gambarArtikel.replace(" ", "%20");
 
                                     artikelList.add(new ArtikelModel(res_id, res_userId, res_kategoriArtikelId, res_judulArtikel, res_slug, res_isiArtikel, res_view, resi_gambarArtikel, res_createdAt,
-                                            res_updatedAt));
+                                            res_updatedAt, res_namaKategori));
                                     artikelAdapter = new ArtikelAdapter(getContext(), artikelList);
                                     rv_artikel.setAdapter(artikelAdapter);
                                     artikelAdapter.setOnItemClickCallback(new ArtikelAdapter.OnItemClickCallback() {

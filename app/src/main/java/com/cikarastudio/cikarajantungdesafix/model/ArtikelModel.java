@@ -15,8 +15,9 @@ public class ArtikelModel implements Parcelable {
     String gambar_artikel;
     String created_at;
     String updated_at;
+    String nama_kategori;
 
-    public ArtikelModel(String id, String user_id, String kategoriartikel_id, String judul_artikel, String slug, String isi_artikel, String view, String gambar_artikel, String created_at, String updated_at) {
+    public ArtikelModel(String id, String user_id, String kategoriartikel_id, String judul_artikel, String slug, String isi_artikel, String view, String gambar_artikel, String created_at, String updated_at, String nama_kategori) {
         this.id = id;
         this.user_id = user_id;
         this.kategoriartikel_id = kategoriartikel_id;
@@ -27,6 +28,7 @@ public class ArtikelModel implements Parcelable {
         this.gambar_artikel = gambar_artikel;
         this.created_at = created_at;
         this.updated_at = updated_at;
+        this.nama_kategori = nama_kategori;
     }
 
     public String getId() {
@@ -109,6 +111,14 @@ public class ArtikelModel implements Parcelable {
         this.updated_at = updated_at;
     }
 
+    public String getNama_kategori() {
+        return nama_kategori;
+    }
+
+    public void setNama_kategori(String nama_kategori) {
+        this.nama_kategori = nama_kategori;
+    }
+
     public static Creator<ArtikelModel> getCREATOR() {
         return CREATOR;
     }
@@ -124,6 +134,7 @@ public class ArtikelModel implements Parcelable {
         gambar_artikel = in.readString();
         created_at = in.readString();
         updated_at = in.readString();
+        nama_kategori = in.readString();
     }
 
     public static final Creator<ArtikelModel> CREATOR = new Creator<ArtikelModel>() {
@@ -155,5 +166,6 @@ public class ArtikelModel implements Parcelable {
         dest.writeString(gambar_artikel);
         dest.writeString(created_at);
         dest.writeString(updated_at);
+        dest.writeString(nama_kategori);
     }
 }

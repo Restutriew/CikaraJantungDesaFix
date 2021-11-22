@@ -8,6 +8,8 @@
     <string name="link">https://puteran.cikarastudio.com/api/</string>
     <string name="linkGambar">https://puteran.cikarastudio.com/public/img/</string>
 
+    <string name="linkArtikel">https://puteran.cikarastudio.com/halaman/berita/</string>
+
     <string name="lihatSelengkapnya"><u>Lihat Selengkapnya ></u></string>
 
     <string-array name="ya_tidak">
