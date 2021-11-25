@@ -95,8 +95,103 @@ public class SuratModel implements Parcelable {
     String kec_saksi2;
     String kab_saksi2;
     String prov_saksi2;
-    String waktu;
-    String tanggal;
+    String created_at;
+    String updated_at;
+
+    public SuratModel(String id, String user_id, String formatsurat_id, String status, String nomor_surat, String keperluan, String keterangan, String tgl_awal, String tgl_akhir, String atas_nama, String staf_pemerintahan, String menjabat, String tampilkan_poto, String kepala_kk, String no_kk, String rt_tujuan, String rw_tujuan, String dusun_tujuan, String desa_tujuan, String kecamatan_tujuan, String kabupaten_tujuan, String alasan_pindah, String tanggal_pindah, String jumlah_pengikut, String barang, String jenis, String nama, String no_identitas, String tempat_lahir, String tgl_lahir, String jk, String agama, String alamat, String pekerjaan, String ketua_adat, String perbedaan, String kartu_identitas, String rincian, String usaha, String no_jamkesos, String hari_lahir, String waktu_lahir, String kelahiran_ke, String nama_ibu, String nik_ibu, String umur_ibu, String pekerjaan_ibu, String alamat_ibu, String desa_ibu, String kec_ibu, String kab_ibu, String nama_ayah, String nik_ayah, String umur_ayah, String pekerjaan_ayah, String alamat_ayah, String desa_ayah, String kec_ayah, String kab_ayah, String nama_pelapor, String nik_pelapor, String umur_pelapor, String pekerjaan_pelapor, String desa_pelapor, String kec_pelapor, String kab_pelapor, String prov_pelapor, String hub_pelapor, String tempat_lahir_pelapor, String tanggal_lahir_pelapor, String nama_saksi1, String nik_saksi1, String tempat_lahir_saksi1, String tanggal_lahir_saksi1, String umur_saksi1, String pekerjaan_saksi1, String desa_saksi1, String kec_saksi1, String kab_saksi1, String prov_saksi1, String nama_saksi2, String nik_saksi2, String tempat_lahir_saksi2, String tanggal_lahir_saksi2, String umur_saksi2, String pekerjaan_saksi2, String desa_saksi2, String kec_saksi2, String kab_saksi2, String prov_saksi2, String created_at, String updated_at) {
+        this.id = id;
+        this.user_id = user_id;
+        this.formatsurat_id = formatsurat_id;
+        this.status = status;
+        this.nomor_surat = nomor_surat;
+        this.keperluan = keperluan;
+        this.keterangan = keterangan;
+        this.tgl_awal = tgl_awal;
+        this.tgl_akhir = tgl_akhir;
+        this.atas_nama = atas_nama;
+        this.staf_pemerintahan = staf_pemerintahan;
+        this.menjabat = menjabat;
+        this.tampilkan_poto = tampilkan_poto;
+        this.kepala_kk = kepala_kk;
+        this.no_kk = no_kk;
+        this.rt_tujuan = rt_tujuan;
+        this.rw_tujuan = rw_tujuan;
+        this.dusun_tujuan = dusun_tujuan;
+        this.desa_tujuan = desa_tujuan;
+        this.kecamatan_tujuan = kecamatan_tujuan;
+        this.kabupaten_tujuan = kabupaten_tujuan;
+        this.alasan_pindah = alasan_pindah;
+        this.tanggal_pindah = tanggal_pindah;
+        this.jumlah_pengikut = jumlah_pengikut;
+        this.barang = barang;
+        this.jenis = jenis;
+        this.nama = nama;
+        this.no_identitas = no_identitas;
+        this.tempat_lahir = tempat_lahir;
+        this.tgl_lahir = tgl_lahir;
+        this.jk = jk;
+        this.agama = agama;
+        this.alamat = alamat;
+        this.pekerjaan = pekerjaan;
+        this.ketua_adat = ketua_adat;
+        this.perbedaan = perbedaan;
+        this.kartu_identitas = kartu_identitas;
+        this.rincian = rincian;
+        this.usaha = usaha;
+        this.no_jamkesos = no_jamkesos;
+        this.hari_lahir = hari_lahir;
+        this.waktu_lahir = waktu_lahir;
+        this.kelahiran_ke = kelahiran_ke;
+        this.nama_ibu = nama_ibu;
+        this.nik_ibu = nik_ibu;
+        this.umur_ibu = umur_ibu;
+        this.pekerjaan_ibu = pekerjaan_ibu;
+        this.alamat_ibu = alamat_ibu;
+        this.desa_ibu = desa_ibu;
+        this.kec_ibu = kec_ibu;
+        this.kab_ibu = kab_ibu;
+        this.nama_ayah = nama_ayah;
+        this.nik_ayah = nik_ayah;
+        this.umur_ayah = umur_ayah;
+        this.pekerjaan_ayah = pekerjaan_ayah;
+        this.alamat_ayah = alamat_ayah;
+        this.desa_ayah = desa_ayah;
+        this.kec_ayah = kec_ayah;
+        this.kab_ayah = kab_ayah;
+        this.nama_pelapor = nama_pelapor;
+        this.nik_pelapor = nik_pelapor;
+        this.umur_pelapor = umur_pelapor;
+        this.pekerjaan_pelapor = pekerjaan_pelapor;
+        this.desa_pelapor = desa_pelapor;
+        this.kec_pelapor = kec_pelapor;
+        this.kab_pelapor = kab_pelapor;
+        this.prov_pelapor = prov_pelapor;
+        this.hub_pelapor = hub_pelapor;
+        this.tempat_lahir_pelapor = tempat_lahir_pelapor;
+        this.tanggal_lahir_pelapor = tanggal_lahir_pelapor;
+        this.nama_saksi1 = nama_saksi1;
+        this.nik_saksi1 = nik_saksi1;
+        this.tempat_lahir_saksi1 = tempat_lahir_saksi1;
+        this.tanggal_lahir_saksi1 = tanggal_lahir_saksi1;
+        this.umur_saksi1 = umur_saksi1;
+        this.pekerjaan_saksi1 = pekerjaan_saksi1;
+        this.desa_saksi1 = desa_saksi1;
+        this.kec_saksi1 = kec_saksi1;
+        this.kab_saksi1 = kab_saksi1;
+        this.prov_saksi1 = prov_saksi1;
+        this.nama_saksi2 = nama_saksi2;
+        this.nik_saksi2 = nik_saksi2;
+        this.tempat_lahir_saksi2 = tempat_lahir_saksi2;
+        this.tanggal_lahir_saksi2 = tanggal_lahir_saksi2;
+        this.umur_saksi2 = umur_saksi2;
+        this.pekerjaan_saksi2 = pekerjaan_saksi2;
+        this.desa_saksi2 = desa_saksi2;
+        this.kec_saksi2 = kec_saksi2;
+        this.kab_saksi2 = kab_saksi2;
+        this.prov_saksi2 = prov_saksi2;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
+    }
 
     public String getId() {
         return id;
@@ -818,20 +913,20 @@ public class SuratModel implements Parcelable {
         this.prov_saksi2 = prov_saksi2;
     }
 
-    public String getWaktu() {
-        return waktu;
+    public String getCreated_at() {
+        return created_at;
     }
 
-    public void setWaktu(String waktu) {
-        this.waktu = waktu;
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
     }
 
-    public String getTanggal() {
-        return tanggal;
+    public String getUpdated_at() {
+        return updated_at;
     }
 
-    public void setTanggal(String tanggal) {
-        this.tanggal = tanggal;
+    public void setUpdated_at(String updated_at) {
+        this.updated_at = updated_at;
     }
 
     public static Creator<SuratModel> getCREATOR() {
@@ -929,8 +1024,8 @@ public class SuratModel implements Parcelable {
         kec_saksi2 = in.readString();
         kab_saksi2 = in.readString();
         prov_saksi2 = in.readString();
-        waktu = in.readString();
-        tanggal = in.readString();
+        created_at = in.readString();
+        updated_at = in.readString();
     }
 
     public static final Creator<SuratModel> CREATOR = new Creator<SuratModel>() {
@@ -1042,7 +1137,7 @@ public class SuratModel implements Parcelable {
         dest.writeString(kec_saksi2);
         dest.writeString(kab_saksi2);
         dest.writeString(prov_saksi2);
-        dest.writeString(waktu);
-        dest.writeString(tanggal);
+        dest.writeString(created_at);
+        dest.writeString(updated_at);
     }
 }

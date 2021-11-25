@@ -129,7 +129,7 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ArtikelV
                     share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
                     share.putExtra(Intent.EXTRA_SUBJECT, judulArtikel);
                     share.putExtra(Intent.EXTRA_TEXT, linkArtikel + slugArtikel);
-                    mContext.startActivity(Intent.createChooser(share, "Share Artikel"));
+                    mContext.startActivity(Intent.createChooser(share, "Share Berita"));
                     break;
                 default:
                     break;

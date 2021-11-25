@@ -60,6 +60,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private ArtikelAdapter artikelAdapter;
     private ArrayList<PerangkatDesaModel> perangkatDesaList;
     private PerangkatDesaAdapter perangkatDesaAdapter;
+    TextView tv_dashboardLaporanDibuat, tv_dashboardForumDiikuti, tv_dashboardJumlahProduk, tv_dashboardSuratDibuat;
     CardView cr_fotoProfil,
             cr_dashboardLaporanDibuat, cr_dashboardForumDiikuti, cr_dashboardJumlahProduk, cr_dashboardSuratDibuat;
 
@@ -107,6 +108,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         loadArtikel();
         loadPerangkatDesa();
 
+        tv_dashboardLaporanDibuat = root.findViewById(R.id.tv_dashboardLaporanDibuat);
+        tv_dashboardForumDiikuti =root.findViewById(R.id.tv_dashboardForumDiikuti);
+        tv_dashboardJumlahProduk = root.findViewById(R.id.tv_dashboardJumlahProduk);
+        tv_dashboardSuratDibuat = root.findViewById(R.id.tv_dashboardSuratDibuat);
+
         tv_lihatSelengkapnyaArtikel = root.findViewById(R.id.tv_lihatSelengkapnyaArtikel);
         tv_lihatSelengkapnyaArtikel.setOnClickListener(this);
 
@@ -128,6 +134,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         loadingDialog.startLoading();
         loadDataDiri();
         loadPotoProfil();
+        loadDashboarHome();
     }
 
     @Override
@@ -179,6 +186,56 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                         } catch (JSONException e) {
                             e.printStackTrace();
                             loadingDialog.dissmissDialog();
+                        }
+
+                    }
+                }
+                , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                loadingDialog.dissmissDialog();
+                Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!" + error, Toast.LENGTH_LONG).show();
+            }
+        }) {
+        };
+        int socketTimeout = 10000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(policy);
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+        requestQueue.add(stringRequest);
+    }
+
+    private void loadDashboarHome() {
+        String URL_READ = link + "dashboarduser/home/" + id_user;
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+
+                            //data dashboard home
+                            String res_laporan = jsonObject.getString("laporan").trim();
+                            String res_surat = jsonObject.getString("surat").trim();
+                            String res_produk = jsonObject.getString("produk").trim();
+                            String res_forum = jsonObject.getString("forum").trim();
+
+                            TextFuntion textFuntion = new TextFuntion();
+                            //data dashboard home
+
+                            textFuntion.setTextDanNullData(tv_dashboardLaporanDibuat, res_laporan);
+                            textFuntion.setTextDanNullData(tv_dashboardForumDiikuti, res_forum);
+                            textFuntion.setTextDanNullData(tv_dashboardJumlahProduk, res_produk);
+                            textFuntion.setTextDanNullData(tv_dashboardSuratDibuat, res_surat);
+
+                            //hilangkan loading
+                            loadingDialog.dissmissDialog();
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            loadingDialog.dissmissDialog();
+                            Toast.makeText(getActivity(), "Data Dashboard Tidak Ada!" + e.toString(), Toast.LENGTH_LONG).show();
                         }
 
                     }

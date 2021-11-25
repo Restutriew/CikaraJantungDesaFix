@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cikarastudio.cikarajantungdesafix" >
+    package="com.cikarastudio.cikarajantungdesafix">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -11,7 +11,10 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_jandes_round"
         android:theme="@style/Theme.CikaraJantungDesaFix"
-        android:usesCleartextTraffic="true" >
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ui.surat.ListKategoriSuratActivity"
+            android:exported="true" />
         <activity
             android:name=".ui.artikel.DetailArtikelActivity"
             android:exported="true" />
@@ -47,7 +50,7 @@
             android:exported="true" />
         <activity
             android:name=".ui.splash.SplashCikaraActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

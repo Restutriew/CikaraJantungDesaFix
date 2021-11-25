@@ -115,10 +115,11 @@
                                 android:textColor="@color/black" />
 
                             <TextView
+                                android:id="@+id/tv_dashboardLaporanDibuat"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/inter_regular"
-                                android:text="10"
+                                android:text="0"
                                 android:textColor="@color/black"
                                 android:textSize="25sp" />
                         </LinearLayout>
@@ -148,10 +149,11 @@
                                 android:textColor="@color/black" />
 
                             <TextView
+                                android:id="@+id/tv_dashboardForumDiikuti"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/inter_regular"
-                                android:text="4"
+                                android:text="0"
                                 android:textColor="@color/black"
                                 android:textSize="25sp" />
                         </LinearLayout>
@@ -180,10 +182,11 @@
                                 android:textColor="@color/black" />
 
                             <TextView
+                                android:id="@+id/tv_dashboardJumlahProduk"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/inter_regular"
-                                android:text="25"
+                                android:text="0"
                                 android:textColor="@color/black"
                                 android:textSize="25sp" />
                         </LinearLayout>
@@ -212,10 +215,11 @@
                                 android:textColor="@color/black" />
 
                             <TextView
+                                android:id="@+id/tv_dashboardSuratDibuat"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/inter_regular"
-                                android:text="15"
+                                android:text="0"
                                 android:textColor="@color/black"
                                 android:textSize="25sp" />
                         </LinearLayout>
