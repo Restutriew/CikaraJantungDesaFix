@@ -117,6 +117,7 @@
                     android:background="@drawable/border_putih_biru_inputan"
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
+                    android:inputType="number"
                     android:hint="Kepala KK"
                     android:textColor="@color/black" />
 
@@ -137,6 +138,7 @@
                     android:background="@drawable/border_putih_biru_inputan"
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
+                    android:maxLength="16"
                     android:hint="Nomor KK"
                     android:textColor="@color/black" />
 
@@ -697,6 +699,7 @@
                     android:background="@drawable/border_putih_biru_inputan"
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
+                    android:inputType="number"
                     android:hint="Kelahiran Ke"
                     android:textColor="@color/black" />
 
@@ -737,6 +740,8 @@
                     android:background="@drawable/border_putih_biru_inputan"
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
+                    android:maxLength="16"
+                    android:inputType="number"
                     android:hint="NIK Ibu"
                     android:textColor="@color/black" />
 
@@ -897,6 +902,8 @@
                     android:background="@drawable/border_putih_biru_inputan"
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
+                    android:maxLength="16"
+                    android:inputType="number"
                     android:hint="NIK Ayah"
                     android:textColor="@color/black" />
 
@@ -1057,6 +1064,8 @@
                     android:background="@drawable/border_putih_biru_inputan"
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
+                    android:maxLength="16"
+                    android:inputType="number"
                     android:hint="NIK Pelapor"
                     android:textColor="@color/black" />
 
@@ -1277,6 +1286,8 @@
                     android:background="@drawable/border_putih_biru_inputan"
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
+                    android:maxLength="16"
+                    android:inputType="number"
                     android:hint="NIK Saksi Pertama"
                     android:textColor="@color/black" />
 
@@ -1477,6 +1488,8 @@
                     android:background="@drawable/border_putih_biru_inputan"
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
+                    android:maxLength="16"
+                    android:inputType="number"
                     android:hint="NIK Saksi Kedua"
                     android:textColor="@color/black" />
 

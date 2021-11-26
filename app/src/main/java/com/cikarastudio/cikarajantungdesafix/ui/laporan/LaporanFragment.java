@@ -158,9 +158,9 @@ public class LaporanFragment extends Fragment {
             }
         });
 
-        carouselView = root.findViewById(R.id.carouselView);
-        carouselView.setPageCount(sampleImages.length);
-        carouselView.setImageListener(imageListener);
+//        carouselView = root.findViewById(R.id.carouselView);
+//        carouselView.setPageCount(sampleImages.length);
+//        carouselView.setImageListener(imageListener);
         return root;
 
     }

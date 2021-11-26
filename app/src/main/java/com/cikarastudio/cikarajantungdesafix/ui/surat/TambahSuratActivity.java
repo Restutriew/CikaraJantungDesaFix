@@ -2,6 +2,7 @@ package com.cikarastudio.cikarajantungdesafix.ui.surat;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -39,6 +40,7 @@ public class TambahSuratActivity extends AppCompatActivity implements View.OnCli
     public static final String DATA_FORMAT_SURAT = "extra_data";
     SessionManager sessionManager;
     LoadingDialog loadingDialog;
+    TextFuntion textFuntion;
     ImageView img_back;
     String link, id_user, status, idSurat, namaSurat, kodeSurat;
     TextView tv_namaSurat;
@@ -108,7 +110,7 @@ public class TambahSuratActivity extends AppCompatActivity implements View.OnCli
         link = getString(R.string.link);
 
         tv_namaSurat = findViewById(R.id.tv_namaSurat);
-        TextFuntion textFuntion = new TextFuntion();
+        textFuntion = new TextFuntion();
         textFuntion.setTextDanNullData(tv_namaSurat, namaSurat);
 
         loadFormIsian();
@@ -314,8 +316,9 @@ public class TambahSuratActivity extends AppCompatActivity implements View.OnCli
 
                                     //data form isian surat
                                     String res_form = jsonObject.getString("form").trim();
+                                    String res_label = jsonObject.getString("label").trim();
 
-                                    filterFormSurat(res_form);
+                                    filterFormSurat(res_form, res_label);
 
                                     Log.d("calpalnx", "onResponse: " + res_form);
 
@@ -349,244 +352,323 @@ public class TambahSuratActivity extends AppCompatActivity implements View.OnCli
         requestQueue.add(stringRequest);
     }
 
-    private void filterFormSurat(String res_form) {
+    private void filterFormSurat(String res_form, String res_label) {
         switch (res_form) {
             case "keperluan":
                 til_keperluanSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_keperluanSurat, res_label);
                 break;
             case "keterangan":
                 til_keteranganSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_keteranganSurat, res_label);
                 break;
             case "kepala_kk":
                 til_kepalaKKSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_kepalaKKSurat, res_label);
                 break;
             case "no_kk":
                 til_noKKSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_noKKSurat, res_label);
                 break;
             case "rt_tujuan":
                 til_rtTujuanSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_rtTujuanSurat, res_label);
                 break;
             case "rw_tujuan":
                 til_rwRujuanSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_rwRujuanSurat, res_label);
                 break;
             case "dusun_tujuan":
                 til_dusunTujuanSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_dusunTujuanSurat, res_label);
                 break;
             case "desa_tujuan":
                 til_desaTujuanSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_desaTujuanSurat, res_label);
                 break;
             case "kecamatan_tujuan":
                 til_kecamatanTujuanSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_kecamatanTujuanSurat, res_label);
                 break;
             case "kabupaten_tujuan":
                 til_kabupatenTujuanSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_kabupatenTujuanSurat, res_label);
                 break;
             case "alasan_pindah":
                 til_alasanPindahSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_alasanPindahSurat, res_label);
                 break;
             case "tanggal_pindah":
                 til_tanggalPindahSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_tanggalPindahSurat, res_label);
                 break;
             case "jumlah_pengikut":
                 til_jumlahPengikutSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_jumlahPengikutSurat, res_label);
                 break;
             case "barang":
                 til_barangSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_barangSurat, res_label);
                 break;
             case "jenis":
                 til_jenisSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_jenisSurat, res_label);
                 break;
             case "nama":
                 til_namaSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_namaSurat, res_label);
                 break;
             case "no_identitas":
                 til_noIdentitasSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_noIdentitasSurat, res_label);
                 break;
             case "tempat_lahir":
                 til_tempatLahirSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_tempatLahirSurat, res_label);
                 break;
             case "tgl_lahir":
                 til_tglLahirSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_tglLahirSurat, res_label);
                 break;
             case "jk":
                 til_jenisKelaminSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_jenisKelaminSurat, res_label);
                 break;
             case "alamat":
                 til_alamatSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_alamatSurat, res_label);
                 break;
             case "pekerjaan":
                 til_pekerjaanSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_pekerjaanSurat, res_label);
                 break;
             case "ketua_adat":
                 til_ketuaAdatSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_ketuaAdatSurat, res_label);
                 break;
             case "agama":
                 til_agamaSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_agamaSurat, res_label);
                 break;
             case "perbedaan":
                 til_perbedaanSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_perbedaanSurat, res_label);
                 break;
             case "kartu_identitas":
                 til_kartuIdentitasSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_kartuIdentitasSurat, res_label);
                 break;
             case "rincian":
                 til_rincianSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_rincianSurat, res_label);
                 break;
             case "usaha":
                 til_usahaSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_usahaSurat, res_label);
                 break;
             case "no_jamkesos":
                 til_noJamkesosSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_noJamkesosSurat, res_label);
                 break;
             case "hari_lahir":
                 til_hariLahirSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_hariLahirSurat, res_label);
                 break;
             case "waktu_lahir":
                 til_waktuLahirSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_waktuLahirSurat, res_label);
                 break;
             case "kelahiran_ke":
                 til_kelahiranKeSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_kelahiranKeSurat, res_label);
                 break;
             case "nama_ibu":
                 til_namaIbuSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_namaIbuSurat, res_label);
                 break;
             case "nik_ibu":
                 til_nikIbuSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_nikIbuSurat, res_label);
                 break;
             case "umur_ibu":
                 til_umurIbuSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_umurIbuSurat, res_label);
                 break;
             case "pekerjaan_ibu":
                 til_pekerjaanIbuSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_pekerjaanIbuSurat, res_label);
                 break;
             case "alamat_ibu":
                 til_alamatIbuSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_alamatIbuSurat, res_label);
                 break;
             case "desa_ibu":
                 til_desaIbuSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_desaIbuSurat, res_label);
                 break;
             case "kec_ibu":
                 til_kecamatanIbuSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_kecamatanIbuSurat, res_label);
                 break;
             case "kab_ibu":
                 til_kabupatenIbuSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_kabupatenIbuSurat, res_label);
                 break;
             case "nama_ayah":
                 til_namaAyahSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_namaAyahSurat, res_label);
                 break;
             case "nik_ayah":
                 til_nikAyahSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_nikAyahSurat, res_label);
                 break;
             case "umur_ayah":
                 til_umurAyahSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_umurAyahSurat, res_label);
                 break;
             case "pekerjaan_ayah":
                 til_pekerjaanAyahSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_pekerjaanAyahSurat, res_label);
                 break;
             case "alamat_ayah":
                 til_alamatAyahSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_alamatAyahSurat, res_label);
                 break;
             case "desa_ayah":
                 til_desaAyahSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_desaAyahSurat, res_label);
                 break;
             case "kec_ayah":
                 til_kecamatanAyahSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_kecamatanAyahSurat, res_label);
                 break;
             case "kab_ayah":
                 til_kabupatenAyahSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_kabupatenAyahSurat, res_label);
                 break;
             case "nama_pelapor":
                 til_namaPelaporSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_namaPelaporSurat, res_label);
                 break;
             case "nik_pelapor":
                 til_nikPelaporSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_nikPelaporSurat, res_label);
                 break;
             case "umur_pelapor":
                 til_umurPelaporSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_umurPelaporSurat, res_label);
                 break;
             case "pekerjaan_pelapor":
                 til_pekerjaanPelaporSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_pekerjaanPelaporSurat, res_label);
                 break;
             case "desa_pelapor":
                 til_desaPelaporSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_desaPelaporSurat, res_label);
                 break;
             case "kec_pelapor":
                 til_kecamatanPelaporSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_kecamatanPelaporSurat, res_label);
                 break;
             case "kab_pelapor":
                 til_kabupatenPelaporSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_kabupatenPelaporSurat, res_label);
                 break;
             case "prov_pelapor":
                 til_provinsiPelaporSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_provinsiPelaporSurat, res_label);
                 break;
             case "hub_pelapor":
                 til_hubPelaporSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_hubPelaporSurat, res_label);
                 break;
             case "tempat_lahir_pelapor":
                 til_tempatLahirPelaporSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_tempatLahirPelaporSurat, res_label);
                 break;
             case "tanggal_lahir_pelapor":
                 til_tanggalLahirPelaporSurat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_tanggalLahirPelaporSurat, res_label);
                 break;
             case "nama_saksi1":
                 til_namaSaksi1Surat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_namaSaksi1Surat, res_label);
                 break;
             case "nik_saksi1":
                 til_nikSaksi1Surat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_nikSaksi1Surat, res_label);
                 break;
             case "tempat_lahir_saksi1":
                 til_tempatLahirSaksi1Surat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_tempatLahirSaksi1Surat, res_label);
                 break;
             case "tanggal_lahir_saksi1":
                 til_tanggalLahirSaksi1Surat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_tanggalLahirSaksi1Surat, res_label);
                 break;
             case "umur_saksi1":
                 til_umurSaksi1Surat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_umurSaksi1Surat, res_label);
                 break;
             case "pekerjaan_saksi1":
                 til_pekerjaanSaksi1Surat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_pekerjaanSaksi1Surat, res_label);
                 break;
             case "desa_saksi1":
                 til_desaSaksi1Surat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_desaSaksi1Surat, res_label);
                 break;
             case "kec_saksi1":
                 til_kecamatanSaksi1Surat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_kecamatanSaksi1Surat, res_label);
                 break;
             case "kab_saksi1":
                 til_kabupatenSaksi1Surat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_kabupatenSaksi1Surat, res_label);
                 break;
             case "prov_saksi1":
                 til_provinsiSaksi1Surat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_provinsiSaksi1Surat, res_label);
                 break;
             case "nama_saksi2":
                 til_namaSaksi2Surat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_namaSaksi2Surat, res_label);
                 break;
             case "nik_saksi2":
                 til_nikSaksi2Surat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_nikSaksi2Surat, res_label);
                 break;
             case "tempat_lahir_saksi2":
                 til_tempatLahirSaksi2Surat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_tempatLahirSaksi2Surat, res_label);
                 break;
             case "tanggal_lahir_saksi2":
                 til_tanggalLahirSaksi2Surat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_tanggalLahirSaksi2Surat, res_label);
                 break;
             case "umur_saksi2":
                 til_umurSaksi2Surat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_umurSaksi2Surat, res_label);
                 break;
             case "pekerjaan_saksi2":
                 til_pekerjaanSaksi2Surat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_pekerjaanSaksi2Surat, res_label);
                 break;
             case "desa_saksi2":
                 til_desaSaksi2Surat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_desaSaksi2Surat, res_label);
                 break;
             case "kec_saksi2":
                 til_kecamatanSaksi2Surat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_kecamatanSaksi2Surat, res_label);
                 break;
             case "kab_saksi2":
                 til_kabupatenSaksi2Surat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_kabupatenSaksi2Surat, res_label);
                 break;
             case "prov_saksi2":
                 til_provinsiSaksi2Surat.setVisibility(View.VISIBLE);
+                textFuntion.setHintData(til_provinsiSaksi2Surat, res_label);
                 break;
             default:
                 break;

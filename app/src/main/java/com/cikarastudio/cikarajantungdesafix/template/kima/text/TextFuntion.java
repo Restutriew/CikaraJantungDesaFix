@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cikarastudio.cikarajantungdesafix.R;
 import com.cikarastudio.cikarajantungdesafix.model.ProdukModel;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -50,6 +51,10 @@ public class TextFuntion {
             textView.setText(convertUpperCase(string));
         }
 
+    }
+
+    public void setHintData(TextInputLayout editText, String string){
+        editText.setHint(convertUpperCase(string));
     }
 
     public String convertUpperCase(String text) {
