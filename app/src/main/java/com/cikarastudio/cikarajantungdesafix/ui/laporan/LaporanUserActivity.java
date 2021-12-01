@@ -188,8 +188,8 @@ public class LaporanUserActivity extends AppCompatActivity {
                                     Log.d("calpalnx", String.valueOf(resi_tanggal));
                                     Log.d("calpalnx", String.valueOf(resi_waktu));
 
-                                    laporanUserList.add(new LaporanModel(res_id, res_userId, res_isiLaporan, res_kategoriLaporan, res_statusLaporan, res_tanggapanLaporan, res_identitasLaporan, res_postingLaporan,
-                                            resi_photoLaporan, resi_waktu, resi_tanggal, resi_potoProfilLaporan, res_namaPendudukLaporan));
+//                                    laporanUserList.add(new LaporanModel(res_id, res_userId, res_isiLaporan, res_kategoriLaporan, res_statusLaporan, res_tanggapanLaporan, res_identitasLaporan, res_postingLaporan,
+//                                            resi_photoLaporan, resi_waktu, resi_tanggal, resi_potoProfilLaporan, res_namaPendudukLaporan));
                                     laporanUserAdapter = new LaporanUserAdapter(getApplicationContext(), laporanUserList);
                                     rv_laporanUser.setAdapter(laporanUserAdapter);
 

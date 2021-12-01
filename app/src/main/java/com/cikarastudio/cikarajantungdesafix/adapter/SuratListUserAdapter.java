@@ -11,20 +11,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cikarastudio.cikarajantungdesafix.R;
-import com.cikarastudio.cikarajantungdesafix.model.SuratModel;
+import com.cikarastudio.cikarajantungdesafix.model.ProdukModel;
+import com.cikarastudio.cikarajantungdesafix.model.SuratV2Model;
 import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
 
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 
 public class SuratListUserAdapter extends RecyclerView.Adapter<SuratListUserAdapter.SuratListUserViewHolder> {
 
     private Context mContext;
-    private ArrayList<SuratModel> mSuratUserList;
+    private ArrayList<SuratV2Model> mSuratUserList;
 
     private SuratListUserAdapter.OnItemClickCallback onItemClickCallback;
 
@@ -33,12 +33,19 @@ public class SuratListUserAdapter extends RecyclerView.Adapter<SuratListUserAdap
     }
 
     public interface OnItemClickCallback {
-        void onItemClicked(SuratModel data);
+        void onItemClicked(SuratV2Model data);
     }
 
-    public SuratListUserAdapter(Context mContext, ArrayList<SuratModel> mSuratUserList) {
+    public SuratListUserAdapter(Context mContext, ArrayList<SuratV2Model> mSuratUserList) {
         this.mContext = mContext;
         this.mSuratUserList = mSuratUserList;
+    }
+
+    //setfilter
+    public void setFilter(ArrayList<SuratV2Model> dataFilter) {
+        mSuratUserList = new ArrayList<>();
+        mSuratUserList.addAll(dataFilter);
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -50,8 +57,8 @@ public class SuratListUserAdapter extends RecyclerView.Adapter<SuratListUserAdap
 
     @Override
     public void onBindViewHolder(@NonNull SuratListUserViewHolder holder, int position) {
-        SuratModel currentItem = mSuratUserList.get(position);
-        String namaSurat = currentItem.getFormatsurat_id();
+        SuratV2Model currentItem = mSuratUserList.get(position);
+        String namaSurat = currentItem.getNama_surat();
         String nomorSurat = currentItem.getNomor_surat();
         String statusSurat = currentItem.getStatus();
         String created_at = currentItem.getCreated_at();

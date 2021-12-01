@@ -18,8 +18,13 @@ public class LaporanModel implements Parcelable {
     String tanggal;
     String profile_photo_path;
     String nama_penduduk;
+    String datalike;
+    String jumlahlike;
+    String statusLike;
 
-    public LaporanModel(String id, String user_id, String isi, String kategori, String status, String tanggapan, String identitas, String posting, String photo, String waktu, String tanggal, String profile_photo_path, String nama_penduduk) {
+
+    public LaporanModel(String id, String user_id, String isi, String kategori, String status, String tanggapan, String identitas, String posting,
+                        String photo, String waktu, String tanggal, String profile_photo_path, String nama_penduduk, String datalike, String jumlahlike,String statusLike) {
         this.id = id;
         this.user_id = user_id;
         this.isi = isi;
@@ -33,6 +38,9 @@ public class LaporanModel implements Parcelable {
         this.tanggal = tanggal;
         this.profile_photo_path = profile_photo_path;
         this.nama_penduduk = nama_penduduk;
+        this.datalike = datalike;
+        this.jumlahlike = jumlahlike;
+        this.statusLike = statusLike;
     }
 
     protected LaporanModel(Parcel in) {
@@ -49,6 +57,9 @@ public class LaporanModel implements Parcelable {
         tanggal = in.readString();
         profile_photo_path = in.readString();
         nama_penduduk = in.readString();
+        datalike = in.readString();
+        jumlahlike = in.readString();
+        statusLike = in.readString();
     }
 
     public static final Creator<LaporanModel> CREATOR = new Creator<LaporanModel>() {
@@ -168,6 +179,30 @@ public class LaporanModel implements Parcelable {
     }
 
 
+    public String getDatalike() {
+        return datalike;
+    }
+
+    public void setDatalike(String datalike) {
+        this.datalike = datalike;
+    }
+
+    public String getJumlahlike() {
+        return jumlahlike;
+    }
+
+    public void setJumlahlike(String jumlahlike) {
+        this.jumlahlike = jumlahlike;
+    }
+
+    public String getStatusLike() {
+        return statusLike;
+    }
+
+    public void setStatusLike(String statusLike) {
+        this.statusLike = statusLike;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -188,5 +223,8 @@ public class LaporanModel implements Parcelable {
         dest.writeString(tanggal);
         dest.writeString(profile_photo_path);
         dest.writeString(nama_penduduk);
+        dest.writeString(datalike);
+        dest.writeString(jumlahlike);
+        dest.writeString(statusLike);
     }
 }

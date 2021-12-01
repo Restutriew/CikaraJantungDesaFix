@@ -152,7 +152,7 @@ public class LaporanFragment extends Fragment {
                 );
                 View bottomSheetView = LayoutInflater.from(getActivity()).inflate(
                         R.layout.layout_bottom_sheet,
-                        (LinearLayout)root.findViewById(R.id.bottomSheetContainer));
+                        (LinearLayout) root.findViewById(R.id.bottomSheetContainer));
                 bottomSheetDialog.setContentView(bottomSheetView);
                 bottomSheetDialog.show();
             }
@@ -174,7 +174,7 @@ public class LaporanFragment extends Fragment {
 
 
     private void loadLaporan() {
-        String URL_READ = link + "lapor";
+        String URL_READ = link + "lapor?user_id=" + id_user;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
                 new Response.Listener<String>() {
                     @Override
@@ -199,6 +199,9 @@ public class LaporanFragment extends Fragment {
                                     String res_updateAtLaporan = jsonObject.getString("updated_at").trim();
                                     String res_potoProfilLaporan = jsonObject.getString("profile_photo_path").trim();
                                     String res_namaPendudukLaporan = jsonObject.getString("nama_penduduk").trim();
+                                    String res_dataLikeLaporan = jsonObject.getString("datalike").trim();
+                                    String res_jumlahLikeLaporan = jsonObject.getString("jumlahlike").trim();
+                                    String res_statusLikeLaporan = jsonObject.getString("statuslike").trim();
 
                                     String resi_photoLaporan = res_photoLaporan.replace(" ", "%20");
                                     String resi_potoProfilLaporan = res_potoProfilLaporan.replace(" ", "%20");
@@ -218,7 +221,7 @@ public class LaporanFragment extends Fragment {
 
                                     if (res_identitasLaporan.equals("ya") && res_postingLaporan.equals("ya")) {
                                         laporanList.add(new LaporanModel(res_id, res_userId, res_isiLaporan, res_kategoriLaporan, res_statusLaporan, res_tanggapanLaporan, res_identitasLaporan, res_postingLaporan,
-                                                resi_photoLaporan, resi_waktu, resi_tanggal, resi_potoProfilLaporan, res_namaPendudukLaporan));
+                                                resi_photoLaporan, resi_waktu, resi_tanggal, resi_potoProfilLaporan, res_namaPendudukLaporan, res_dataLikeLaporan, res_jumlahLikeLaporan, res_statusLikeLaporan));
                                         laporanAdapter = new LaporanAdapter(getContext(), laporanList);
                                         rv_laporanAll.setAdapter(laporanAdapter);
                                     } else {

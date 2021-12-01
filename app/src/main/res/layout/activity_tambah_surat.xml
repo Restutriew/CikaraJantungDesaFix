@@ -302,6 +302,7 @@
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
                     android:hint="Tanggal Pindah"
+                    android:inputType="number"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -388,6 +389,26 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_namaBayiSurat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/et_namaBayiSurat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_putih_biru_inputan"
+                    android:fontFamily="@font/inter_regular"
+                    android:gravity="start"
+                    android:hint="Nama"
+                    android:textColor="@color/black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_noIdentitasSurat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -443,6 +464,7 @@
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
                     android:hint="Tanggal Lahir"
+                    android:inputType="number"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -452,18 +474,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="20dp"
                 android:visibility="gone">
 
-                <EditText
-                    android:id="@+id/et_jenisKelaminSurat"
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
-                    android:gravity="start"
-                    android:hint="Jenis Kelamin"
+                    android:fontFamily="@font/inter_semibold"
+                    android:text="Pilih Jenis Kelamin"
                     android:textColor="@color/black" />
+
+                <Spinner
+                    android:id="@+id/sp_jenisKelaminSurat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/border_putih_biru_inputan"
+                    android:theme="@style/SpinnerTheme" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -512,18 +538,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="20dp"
                 android:visibility="gone">
 
-                <EditText
-                    android:id="@+id/et_pekerjaanSurat"
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
-                    android:gravity="start"
-                    android:hint="Pekerjaan"
+                    android:fontFamily="@font/inter_semibold"
+                    android:text="Pilih Pekerjaan"
                     android:textColor="@color/black" />
+
+                <Spinner
+                    android:id="@+id/sp_pekerjaanSurat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/border_putih_biru_inputan"
+                    android:theme="@style/SpinnerTheme" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -552,18 +582,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="20dp"
                 android:visibility="gone">
 
-                <EditText
-                    android:id="@+id/et_agamaSurat"
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
-                    android:gravity="start"
-                    android:hint="Agama"
+                    android:fontFamily="@font/inter_semibold"
+                    android:text="Pilih Agama"
                     android:textColor="@color/black" />
+
+                <Spinner
+                    android:id="@+id/sp_agamaSurat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/border_putih_biru_inputan"
+                    android:theme="@style/SpinnerTheme" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -644,6 +678,7 @@
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
                     android:hint="Nomor Jamkesos"
+                    android:inputType="number"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -767,6 +802,7 @@
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
                     android:hint="Umur Ibu"
+                    android:inputType="number"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -776,18 +812,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="20dp"
                 android:visibility="gone">
 
-                <EditText
-                    android:id="@+id/et_pekerjaanIbuSurat"
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
-                    android:gravity="start"
-                    android:hint="Pekerjaan Ibu"
+                    android:fontFamily="@font/inter_semibold"
+                    android:text="Pilih Pekerjan Ibu"
                     android:textColor="@color/black" />
+
+                <Spinner
+                    android:id="@+id/sp_pekerjaanIbuSurat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/border_putih_biru_inputan"
+                    android:theme="@style/SpinnerTheme" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -929,6 +969,7 @@
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
                     android:hint="Umur Ayah"
+                    android:inputType="number"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -938,18 +979,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="20dp"
                 android:visibility="gone">
 
-                <EditText
-                    android:id="@+id/et_pekerjaanAyahSurat"
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
-                    android:gravity="start"
-                    android:hint="Pekerjaan Ayah"
+                    android:fontFamily="@font/inter_semibold"
+                    android:text="Pilih Pekerjaan Ayah"
                     android:textColor="@color/black" />
+
+                <Spinner
+                    android:id="@+id/sp_pekerjaanAyahSurat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/border_putih_biru_inputan"
+                    android:theme="@style/SpinnerTheme" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1091,6 +1136,7 @@
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
                     android:hint="Umur Pelapor"
+                    android:inputType="number"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -1100,18 +1146,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="20dp"
                 android:visibility="gone">
 
-                <EditText
-                    android:id="@+id/et_pekerjaanPelaporSurat"
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
-                    android:gravity="start"
-                    android:hint="Pekerjaan Pelapor"
+                    android:fontFamily="@font/inter_semibold"
+                    android:text="Pilih Pekerjaan Pelapor"
                     android:textColor="@color/black" />
+
+                <Spinner
+                    android:id="@+id/sp_pekerjaanPelaporSurat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/border_putih_biru_inputan"
+                    android:theme="@style/SpinnerTheme" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1251,6 +1301,7 @@
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
                     android:hint="Tanggal Lahir Pelapor"
+                    android:inputType="number"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -1333,6 +1384,7 @@
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
                     android:hint="Tanggal Lahir Saksi Pertama"
+                    android:inputType="number"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -1353,6 +1405,7 @@
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
                     android:hint="Umur Saksi Pertama"
+                    android:inputType="number"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -1362,18 +1415,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="20dp"
                 android:visibility="gone">
 
-                <EditText
-                    android:id="@+id/et_pekerjaanSaksi1Surat"
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
-                    android:gravity="start"
-                    android:hint="Pekerjaan Saksi Pertama"
+                    android:fontFamily="@font/inter_semibold"
+                    android:text="Pilih Pekerjaan Saksi 1"
                     android:textColor="@color/black" />
+
+                <Spinner
+                    android:id="@+id/sp_pekerjaanSaksi1Surat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/border_putih_biru_inputan"
+                    android:theme="@style/SpinnerTheme" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1535,6 +1592,7 @@
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
                     android:hint="Tanggal Lahir Saksi Kedua"
+                    android:inputType="number"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -1555,6 +1613,7 @@
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
                     android:hint="Umur Saksi Kedua"
+                    android:inputType="number"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -1564,18 +1623,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="20dp"
                 android:visibility="gone">
 
-                <EditText
-                    android:id="@+id/et_pekerjaanSaksi2Surat"
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
-                    android:gravity="start"
-                    android:hint="Pekerjaan Saksi Kedua"
+                    android:fontFamily="@font/inter_semibold"
+                    android:text="Pilih Pekerjaan Saksi 2"
                     android:textColor="@color/black" />
+
+                <Spinner
+                    android:id="@+id/sp_pekerjaanSaksi2Surat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/border_putih_biru_inputan"
+                    android:theme="@style/SpinnerTheme" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

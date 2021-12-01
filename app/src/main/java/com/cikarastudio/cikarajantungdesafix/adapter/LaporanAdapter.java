@@ -52,6 +52,7 @@ public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanV
         String kategoriLaporan = currentItem.getKategori();
         String isiLaporan = currentItem.getIsi();
         String tanggapanLaporan = currentItem.getTanggapan();
+        String jumlahLikeLaporan = currentItem.getJumlahlike();
         String photoUser = currentItem.getProfile_photo_path();
         String gambarLaporan = currentItem.getPhoto();
 
@@ -63,6 +64,7 @@ public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanV
         textFuntion.setTextDanNullData(holder.tv_waktuLaporan, waktuLaporan);
         textFuntion.setTextDanNullData(holder.tv_tglLaporan, tglLaporan);
         textFuntion.setTextDanNullData(holder.tv_kategoriLaporan, kategoriLaporan);
+        textFuntion.setTextDanNullData(holder.tv_jumlahLikeLaporan, jumlahLikeLaporan + " suka");
 
         if (tanggapanLaporan.equals("null")) {
             holder.tv_responlaporan.setText("Belum Ada Tanggapan");
@@ -92,6 +94,7 @@ public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanV
         public TextView tv_kategoriLaporan;
         public TextView tv_isiLaporan;
         public TextView tv_responlaporan;
+        public TextView tv_jumlahLikeLaporan;
         public ImageView img_potouser;
         public ImageView img_gambarLaporan;
 
@@ -103,6 +106,7 @@ public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanV
             tv_kategoriLaporan = itemView.findViewById(R.id.tv_kategoriLaporan);
             tv_isiLaporan = itemView.findViewById(R.id.tv_isiLaporan);
             tv_responlaporan = itemView.findViewById(R.id.tv_responlaporan);
+            tv_jumlahLikeLaporan = itemView.findViewById(R.id.tv_jumlahLikeLaporan);
             img_potouser = itemView.findViewById(R.id.img_potouser);
             img_gambarLaporan = itemView.findViewById(R.id.img_gambarLaporan);
         }
