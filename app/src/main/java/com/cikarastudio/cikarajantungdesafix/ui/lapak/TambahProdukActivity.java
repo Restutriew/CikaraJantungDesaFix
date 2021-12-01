@@ -4,7 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -26,6 +30,8 @@ import com.cikarastudio.cikarajantungdesafix.ui.loadingdialog.LoadingDialog;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -34,11 +40,12 @@ import java.util.Map;
 
 public class TambahProdukActivity extends AppCompatActivity {
 
-    ImageView img_back;
+    ImageView img_back, img_tambahProduk, img_tambahPhotoProduk;
     LoadingDialog loadingDialog;
     CardView cr_tambahProduk;
     EditText et_namaProduk, et_hargaProduk, et_keteranganProduk;
-    String id_lapak, token,  link;
+    String id_lapak, token, link;
+    private Bitmap bitmap;
 
 
     @Override
@@ -50,6 +57,7 @@ public class TambahProdukActivity extends AppCompatActivity {
         et_namaProduk = findViewById(R.id.et_namaProduk);
         et_hargaProduk = findViewById(R.id.et_hargaProduk);
         et_keteranganProduk = findViewById(R.id.et_keteranganProduk);
+        img_tambahProduk = findViewById(R.id.img_tambahProduk);
 
         //allow ssl
         HttpsTrustManager.allowAllSSL();
@@ -63,6 +71,14 @@ public class TambahProdukActivity extends AppCompatActivity {
         id_lapak = intent.getStringExtra("id_lapak");
 
         token = getString(R.string.token);
+
+        img_tambahPhotoProduk = findViewById(R.id.img_tambahPhotoProduk);
+        img_tambahPhotoProduk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                chooseFile();
+            }
+        });
 
         cr_tambahProduk.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,19 +96,46 @@ public class TambahProdukActivity extends AppCompatActivity {
             }
         });
 
+    }
 
+    private void chooseFile() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Pilih Foto"), 1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            Uri filepath = data.getData();
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filepath);
+                img_tambahProduk.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public String getStringImage(Bitmap bitmap) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+        byte[] imageByteArray = byteArrayOutputStream.toByteArray();
+        String encodedImage = Base64.encodeToString(imageByteArray, Base64.DEFAULT);
+
+        return encodedImage;
     }
 
     private void addProduk() {
-        String URL_TAMBAHPRODUK = link +  "produk";
+        String URL_TAMBAHPRODUK = link + "produk";
         final String namaProduk = et_namaProduk.getText().toString().trim();
         final String hargaProduk = et_hargaProduk.getText().toString().trim();
         final String keteranganProduk = et_keteranganProduk.getText().toString().trim();
         final String lapak_id = id_lapak;
-        final String gambar = "blablabla.jpg";
         final String dilihat = "0";
-        String uploadBase64 = "data:image/png;base64," + gambar;
-
+        final String gambar = "data:image/png;base64," + getStringImage(bitmap);
 
         Log.d("calpalnx", String.valueOf(namaProduk));
         Log.d("calpalnx", String.valueOf(hargaProduk));
@@ -101,21 +144,6 @@ public class TambahProdukActivity extends AppCompatActivity {
         Log.d("calpalnx", String.valueOf(gambar));
         Log.d("calpalnx", String.valueOf(token));
         Log.d("calpalnx", String.valueOf(dilihat));
-
-
-//        String tglLahir = et_tambahBumilTglLahir.getText().toString().trim();
-//        String tanggal = tglLahir.substring(0, 2);
-//        String bulan = tglLahir.substring(3, 5);
-//        String tahun = tglLahir.substring(6, 10);
-//        final String tglLahirFixBumil = tahun + "-" + bulan + "-" + tanggal;
-//        final String goldarBumil = et_golDarah.getSelectedItem().toString();
-//        final String agamaBumil = et_agama.getSelectedItem().toString();
-//        final String pekerjaanBumil = et_tambahBumilPekerjaan.getText().toString().trim();
-//        final String pendidikanBumil = et_pendidikan.getSelectedItem().toString();
-
-//        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//        Calendar cal = Calendar.getInstance();
-//        final String tanggalSekarang = dateFormat.format(cal.getTime());
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_TAMBAHPRODUK,
                 new Response.Listener<String>() {
@@ -154,7 +182,7 @@ public class TambahProdukActivity extends AppCompatActivity {
                 params.put("lapak_id", lapak_id);
                 params.put("nama", namaProduk);
                 params.put("keterangan", keteranganProduk);
-                params.put("image", uploadBase64);
+                params.put("image", gambar);
                 params.put("harga", hargaProduk);
                 params.put("token", token);
                 params.put("dilihat", dilihat);

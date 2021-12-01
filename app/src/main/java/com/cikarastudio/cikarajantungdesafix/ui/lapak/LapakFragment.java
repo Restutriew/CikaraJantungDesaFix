@@ -1,8 +1,9 @@
 package com.cikarastudio.cikarajantungdesafix.ui.lapak;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Rect;
 import android.net.http.AndroidHttpClient;
 import android.os.Build;
 import android.os.Bundle;
@@ -10,7 +11,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -71,7 +71,7 @@ public class LapakFragment extends Fragment {
     tv_namaLapak, tv_alamatLapak, tv_telpLapak, tv_tentangLapak, tv_statusLapak,
     //atas
     tv_namaLapakAtas;
-    ImageView img_lapak, img_lapakAtas;
+    ImageView img_lapak, img_lapakAtas, img_editLapak;
     private ArrayList<ProdukModel> produkList;
     private ProdukAdapter produkAdapter;
     SearchView et_produkSearch;
@@ -95,11 +95,12 @@ public class LapakFragment extends Fragment {
         link = getString(R.string.link);
         linkGambar = getString(R.string.linkGambar);
 
-//        inisiasi token
+        //inisiasi token
         token = getString(R.string.token);
 
         loadingDialog = new LoadingDialog(getActivity());
-        loadingDialog.startLoading();
+        loadLapak();
+//        loadProduct();
 
         line_editLapak = root.findViewById(R.id.line_editLapak);
         tv_tambahProduk = root.findViewById(R.id.tv_tambahProduk);
@@ -119,9 +120,15 @@ public class LapakFragment extends Fragment {
         //list produk inisiasi
         produkList = new ArrayList<>();
         recyclerView = root.findViewById(R.id.rv_listProduk);
+        LinearLayoutManager linearLayoutManageraaa = new LinearLayoutManager(getContext()) {
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        };
+        recyclerView.setLayoutManager(linearLayoutManageraaa);
         recyclerView.setHasFixedSize(true);
-        loadLapak();
-        loadProduct();
+
 
         //hide show judul
         scroll_lapak = root.findViewById(R.id.scroll_lapak);
@@ -155,30 +162,31 @@ public class LapakFragment extends Fragment {
 
         //search data produk
         et_produkSearch = root.findViewById(R.id.et_produkSearch);
-        et_produkSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @SuppressLint("SetTextI18n")
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
+//        et_produkSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @SuppressLint("SetTextI18n")
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String nextText) {
+//                //Data akan berubah saat user menginputkan text/kata kunci pada SearchView
+//                nextText = nextText.toLowerCase();
+//                ArrayList<ProdukModel> dataFilter = new ArrayList<>();
+//                for (ProdukModel data : produkList) {
+//                    String nama = data.getNama().toLowerCase();
+//                    if (nama.contains(nextText)) {
+//                        dataFilter.add(data);
+//                    }
+//                }
+//                produkAdapter.setFilter(dataFilter);
+//                return true;
+//            }
+//        });
 
-            @Override
-            public boolean onQueryTextChange(String nextText) {
-                //Data akan berubah saat user menginputkan text/kata kunci pada SearchView
-                nextText = nextText.toLowerCase();
-                ArrayList<ProdukModel> dataFilter = new ArrayList<>();
-                for (ProdukModel data : produkList) {
-                    String nama = data.getNama().toLowerCase();
-                    if (nama.contains(nextText)) {
-                        dataFilter.add(data);
-                    }
-                }
-                produkAdapter.setFilter(dataFilter);
-                return true;
-            }
-        });
-
-        line_editLapak.setOnClickListener(new View.OnClickListener() {
+        img_editLapak = root.findViewById(R.id.img_editLapak);
+        img_editLapak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent keEditLapak = new Intent(getActivity(), EditLapakActivity.class);
@@ -249,6 +257,37 @@ public class LapakFragment extends Fragment {
         });
 
         return root;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadingDialog.startLoading();
+        loadLapak();
+        loadProduct();
+
+        et_produkSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String nextText) {
+                //Data akan berubah saat user menginputkan text/kata kunci pada SearchView
+                nextText = nextText.toLowerCase();
+                ArrayList<ProdukModel> dataFilter = new ArrayList<>();
+                for (ProdukModel data : produkList) {
+                    String nama = data.getNama().toLowerCase();
+                    if (nama.contains(nextText)) {
+                        dataFilter.add(data);
+                    }
+                }
+                produkAdapter.setFilter(dataFilter);
+                return true;
+            }
+        });
     }
 
     private void loadLapak() {
@@ -326,6 +365,9 @@ public class LapakFragment extends Fragment {
     }
 
     private void loadProduct() {
+        if (produkList.size() > 0) {
+            produkList.clear();
+        }
         String URL_READ = link + "produklapak/" + id_user;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
                 new Response.Listener<String>() {
@@ -353,19 +395,27 @@ public class LapakFragment extends Fragment {
                                     Log.d("calpalnx", resi_gambar);
 
                                     produkList.add(new ProdukModel(res_id, res_lapakID, res_nama, res_keterangan, resi_gambar, res_harga, res_dilihat));
-                                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                                     produkAdapter = new ProdukAdapter(getContext(), produkList);
                                     recyclerView.setAdapter(produkAdapter);
                                     //sort alfabet
-                                    sortAlfabet();
+                                    if (produkList.size() > 0) {
+                                        sortAlfabet();
+                                    }
                                     produkAdapter.setOnItemClickCallback(new ProdukAdapter.OnItemClickCallback() {
                                         @Override
                                         public void onItemClicked(ProdukModel data) {
                                             Intent transferDataProduk = new Intent(getActivity(), EditProdukActivity.class);
                                             transferDataProduk.putExtra(EditProdukActivity.DATA_PRODUK, data);
                                             startActivity(transferDataProduk);
+//                                            dialogDelete(data.getId());
                                         }
                                     });
+//                                    produkAdapter.setOnItemClickCallbackDelete(new ProdukAdapter.OnItemClickCallbackDelete() {
+//                                        @Override
+//                                        public void onItemClicked(ProdukModel data) {
+//                                            dialogDelete(data.getId());
+//                                        }
+//                                    });
                                     //hilangkan loading
                                     loadingDialog.dissmissDialog();
                                 }
@@ -394,6 +444,84 @@ public class LapakFragment extends Fragment {
         stringRequest.setRetryPolicy(policy);
         RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
         requestQueue.add(stringRequest);
+    }
+
+    private void dialogDelete(String id_produk) {
+        AlertDialog.Builder alertdialogBuilder = new AlertDialog.Builder(getActivity());
+        alertdialogBuilder.setTitle("Konfismasi Delete");
+        alertdialogBuilder.setMessage("Apakah Anda Yakin Menghapus Data Ini?");
+        alertdialogBuilder.setCancelable(false);
+        alertdialogBuilder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                hapusData(id_produk);
+            }
+        });
+        alertdialogBuilder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
+        });
+        AlertDialog alertDialog = alertdialogBuilder.create();
+        alertDialog.show();
+    }
+
+    private void hapusData(String id) {
+        loadingDialog.startLoading();
+        Log.d("calpalnx", String.valueOf(id));
+        String URL_DELETEPRODUK = link + "produk/" + id;
+        StringRequest stringRequest = new StringRequest(Request.Method.DELETE, URL_DELETEPRODUK,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String success = jsonObject.getString("success");
+                            if (success.equals("1")) {
+                                Toast.makeText(getActivity(), "Hapus Produk Sukses", Toast.LENGTH_LONG).show();
+                                loadingDialog.dissmissDialog();
+                                onResume();
+//                                finish();
+                            } else {
+                                Toast.makeText(getActivity(), "Hapus Produk Gagal!", Toast.LENGTH_LONG).show();
+                                loadingDialog.dissmissDialog();
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(getActivity(), "Hapus Produk Gagal! : " + e.toString(), Toast.LENGTH_LONG).show();
+                            loadingDialog.dissmissDialog();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getActivity(), "Hapus Produk Gagal! : Cek Koneksi Anda, " + error, Toast.LENGTH_LONG).show();
+                        loadingDialog.dissmissDialog();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("token", token);
+                return params;
+            }
+        };
+
+        HttpStack httpStack;
+        if (Build.VERSION.SDK_INT > 19) {
+            httpStack = new CustomHurlStack();
+            //disable okhttphurlstack
+//        } else if (Build.VERSION.SDK_INT >= 9 && Build.VERSION.SDK_INT <= 19)
+//        {
+//            httpStack = new OkHttpHurlStack();
+        } else {
+            httpStack = new HttpClientStack(AndroidHttpClient.newInstance("Android"));
+        }
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity(), httpStack);
+        requestQueue.add(stringRequest);
+
     }
 
     //sort alfabet

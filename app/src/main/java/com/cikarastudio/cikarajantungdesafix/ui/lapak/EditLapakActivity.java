@@ -4,7 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -26,17 +30,20 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class EditLapakActivity extends AppCompatActivity {
 
-    ImageView img_back, img_editLapak;
+    ImageView img_back, img_editLapak, img_editPhotoLapak;
     LoadingDialog loadingDialog;
     CardView cr_simpanEditLapak;
     EditText et_namaLapakEdit, et_alamatLapakEdit, et_tentangLapakEdit, et_telpLapakEdit;
     String id_lapak, nama_lapak, alamat_lapak, tentang_lapak, telp_lapak, logo_lapak, status_lapak,
             token, link, linkGambar;
+    private Bitmap bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +91,13 @@ public class EditLapakActivity extends AppCompatActivity {
             }
         });
 
+        img_editPhotoLapak = findViewById(R.id.img_editPhotoLapak);
+        img_editPhotoLapak.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                chooseFile();
+            }
+        });
 
         img_back = findViewById(R.id.img_back);
         img_back.setOnClickListener(new View.OnClickListener() {
@@ -95,6 +109,36 @@ public class EditLapakActivity extends AppCompatActivity {
 
     }
 
+    private void chooseFile() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Pilih Foto"), 1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            Uri filepath = data.getData();
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filepath);
+                img_editLapak.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public String getStringImage(Bitmap bitmap) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+        byte[] imageByteArray = byteArrayOutputStream.toByteArray();
+        String encodedImage = Base64.encodeToString(imageByteArray, Base64.DEFAULT);
+
+        return encodedImage;
+    }
+
     private void editLapak() {
         loadingDialog.startLoading();
         final String inp_lapak_id = id_lapak;
@@ -102,8 +146,9 @@ public class EditLapakActivity extends AppCompatActivity {
         final String inp_alamatLapak = et_alamatLapakEdit.getText().toString().trim();
         final String inp_tentangLapak = et_tentangLapakEdit.getText().toString().trim();
         final String inp_telpLapak = et_telpLapakEdit.getText().toString().trim();
-        final String inp_logoLapak = logo_lapak;
         final String inp_statusLapak = "menunggu";
+
+        final String inp_logoLapak = "data:image/png;base64," + getStringImage(bitmap);
 
         Log.d("calpalnx", String.valueOf(inp_lapak_id));
         Log.d("calpalnx", String.valueOf(inp_namaLapak));
@@ -113,8 +158,8 @@ public class EditLapakActivity extends AppCompatActivity {
         Log.d("calpalnx", String.valueOf(inp_logoLapak));
         Log.d("calpalnx", String.valueOf(inp_statusLapak));
 
-        String URL_EDITPRODUK = link + "lapak/" + inp_lapak_id;
-        StringRequest stringRequest = new StringRequest(Request.Method.PATCH, URL_EDITPRODUK,
+        String URL_EDITLAPAK = link + "lapak/" + inp_lapak_id;
+        StringRequest stringRequest = new StringRequest(Request.Method.PATCH, URL_EDITLAPAK,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -153,7 +198,7 @@ public class EditLapakActivity extends AppCompatActivity {
                 params.put("alamat", inp_alamatLapak);
                 params.put("status_lapak", inp_statusLapak);
                 params.put("telp", inp_telpLapak);
-                params.put("logo", inp_logoLapak);
+                params.put("image", inp_logoLapak);
                 params.put("token", token);
                 return params;
 

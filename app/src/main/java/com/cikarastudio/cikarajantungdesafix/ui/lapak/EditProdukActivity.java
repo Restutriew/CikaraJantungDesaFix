@@ -2,9 +2,14 @@ package com.cikarastudio.cikarajantungdesafix.ui.lapak;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.net.http.AndroidHttpClient;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -33,6 +38,8 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,8 +51,9 @@ public class EditProdukActivity extends AppCompatActivity {
             token, link, linkGambar;
     Integer harga, dilihat;
     EditText et_namaProduk, et_hargaProduk, et_keteranganProduk;
-    ImageView img_editProduk;
+    ImageView img_back, img_editProduk, img_editPhotoProduk;
     CardView cr_simpanProduk, cr_hapusProduk;
+    private Bitmap bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +95,14 @@ public class EditProdukActivity extends AppCompatActivity {
         String imageUrl = linkGambar + "penduduk/produk/" + gambar;
         Picasso.with(EditProdukActivity.this).load(imageUrl).fit().centerCrop().into(img_editProduk);
 
+        img_editPhotoProduk = findViewById(R.id.img_editPhotoProduk);
+        img_editPhotoProduk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                chooseFile();
+            }
+        });
+
         cr_simpanProduk = findViewById(R.id.cr_simpanProduk);
         cr_simpanProduk.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,9 +116,48 @@ public class EditProdukActivity extends AppCompatActivity {
         cr_hapusProduk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                loadingDialog.startLoading();
                 dialogDelete();
             }
         });
+
+        img_back = findViewById(R.id.img_back);
+        img_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
+
+    private void chooseFile() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Pilih Foto"), 1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            Uri filepath = data.getData();
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filepath);
+                img_editProduk.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public String getStringImage(Bitmap bitmap) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+        byte[] imageByteArray = byteArrayOutputStream.toByteArray();
+        String encodedImage = Base64.encodeToString(imageByteArray, Base64.DEFAULT);
+
+        return encodedImage;
     }
 
     private void dialogDelete() {
@@ -113,6 +168,7 @@ public class EditProdukActivity extends AppCompatActivity {
         alertdialogBuilder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                loadingDialog.startLoading();
                 hapusData();
             }
         });
@@ -126,7 +182,6 @@ public class EditProdukActivity extends AppCompatActivity {
     }
 
     private void hapusData() {
-        loadingDialog.startLoading();
         Log.d("calpalnx", String.valueOf(id));
         String URL_DELETEPRODUK = link + "produk/" + id;
         StringRequest stringRequest = new StringRequest(Request.Method.DELETE, URL_DELETEPRODUK,
@@ -138,8 +193,8 @@ public class EditProdukActivity extends AppCompatActivity {
                             String success = jsonObject.getString("success");
                             if (success.equals("1")) {
                                 Toast.makeText(EditProdukActivity.this, "Hapus Produk Sukses", Toast.LENGTH_LONG).show();
-                                loadingDialog.dissmissDialog();
-                                finish();
+//                                loadingDialog.dissmissDialog();
+//                                finish();
                             } else {
                                 Toast.makeText(EditProdukActivity.this, "Hapus Produk Gagal!", Toast.LENGTH_LONG).show();
                                 loadingDialog.dissmissDialog();
@@ -168,7 +223,7 @@ public class EditProdukActivity extends AppCompatActivity {
         };
 
         HttpStack httpStack;
-        if (Build.VERSION.SDK_INT > 19){
+        if (Build.VERSION.SDK_INT > 19) {
             httpStack = new CustomHurlStack();
             //disable okhttphurlstack
 //        } else if (Build.VERSION.SDK_INT >= 9 && Build.VERSION.SDK_INT <= 19)
@@ -177,7 +232,7 @@ public class EditProdukActivity extends AppCompatActivity {
         } else {
             httpStack = new HttpClientStack(AndroidHttpClient.newInstance("Android"));
         }
-        RequestQueue requestQueue = Volley.newRequestQueue(this, httpStack);
+        RequestQueue requestQueue = Volley.newRequestQueue(EditProdukActivity.this, httpStack);
         requestQueue.add(stringRequest);
 
     }
@@ -186,9 +241,11 @@ public class EditProdukActivity extends AppCompatActivity {
         final String inp_lapak_id = id_lapak;
         final String inp_namaProduk = et_namaProduk.getText().toString().trim();
         final String inp_keteranganProduk = et_keteranganProduk.getText().toString().trim();
-        final String inp_gambarProduk = gambar;
+//        final String inp_gambarProduk = gambar;
         final String inp_hargaProduk = et_hargaProduk.getText().toString().trim();
         final String inp_dilihatProduk = String.valueOf(dilihat);
+
+        final String inp_gambarProduk = "data:image/png;base64," + getStringImage(bitmap);
 
         Log.d("calpalnx", String.valueOf(id));
         Log.d("calpalnx", String.valueOf(inp_lapak_id));
@@ -233,11 +290,10 @@ public class EditProdukActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("lapak_id", inp_lapak_id);
                 params.put("nama", inp_namaProduk);
-                params.put("keterangan", inp_keteranganProduk);
-                params.put("gambar", inp_gambarProduk);
                 params.put("harga", inp_hargaProduk);
+                params.put("keterangan", inp_keteranganProduk);
+                params.put("image", inp_gambarProduk);
                 params.put("token", token);
 //                params.put("dilihat", dilihat);
                 return params;

@@ -754,6 +754,17 @@ public class ProfilActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
+    public String getStringImage(Bitmap bitmap) {
+
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+
+        byte[] imageByteArray = byteArrayOutputStream.toByteArray();
+        String encodedImage = Base64.encodeToString(imageByteArray, Base64.DEFAULT);
+
+        return encodedImage;
+    }
+
     private void uploadImage(String base64photo) {
         loadingDialog.startLoading();
         String uploadBase64 = "data:image/png;base64," + base64photo;
@@ -803,19 +814,9 @@ public class ProfilActivity extends AppCompatActivity implements View.OnClickLis
         };
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
-
     }
 
-    public String getStringImage(Bitmap bitmap) {
 
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-
-        byte[] imageByteArray = byteArrayOutputStream.toByteArray();
-        String encodedImage = Base64.encodeToString(imageByteArray, Base64.DEFAULT);
-
-        return encodedImage;
-    }
 
     private void showPopupMenuAduan(View view, String key, String keyshow) {
         PopupMenu popupMenu = new PopupMenu(view.getContext(), view);

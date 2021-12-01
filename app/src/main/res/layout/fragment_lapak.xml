@@ -101,14 +101,28 @@
                             android:layout_marginLeft="10dp"
                             android:orientation="vertical">
 
-                            <TextView
-                                android:id="@+id/tv_namaLapak"
+                            <androidx.appcompat.widget.LinearLayoutCompat
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/inter_extrabold"
-                                android:text=""
-                                android:textColor="@color/white"
-                                android:textSize="25sp" />
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tv_namaLapak"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/inter_extrabold"
+                                    android:text=""
+                                    android:textColor="@color/white"
+                                    android:textSize="25sp" />
+
+                                <ImageView
+                                    android:id="@+id/img_editLapak"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:src="@drawable/ic_baseline_edit_24" />
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
 
                             <TextView
                                 android:id="@+id/tv_alamatLapak"
@@ -171,8 +185,8 @@
                                 android:id="@+id/tv_statusLapak"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/inter_semibold"
                                 android:layout_margin="10dp"
+                                android:fontFamily="@font/inter_semibold"
                                 android:textColor="@color/white"
                                 android:textSize="20sp" />
 
@@ -282,7 +296,8 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_listProduk"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:overScrollMode="never" />
 
         </RelativeLayout>
 

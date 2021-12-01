@@ -93,7 +93,6 @@ public class LoginActivity extends AppCompatActivity {
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject object = jsonArray.getJSONObject(i);
                                     String id = object.getString("id").trim();
-//                                    String profile_photo_path = object.getString("profile_photo_path").trim();
                                     sessionManager.createSession(id);
                                     Toast.makeText(LoginActivity.this, "Login Berhasil! " , Toast.LENGTH_LONG).show();
                                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
@@ -102,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                 }
                             } else {
-                                Toast.makeText(LoginActivity.this, "Login Gagal: Password Salah!"+ password, Toast.LENGTH_LONG).show();
+                                Toast.makeText(LoginActivity.this, "Login Gagal: Password Salah!", Toast.LENGTH_LONG).show();
                                 loadingDialog.dissmissDialog();
                             }
                         } catch (JSONException e) {
@@ -115,7 +114,7 @@ public class LoginActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(LoginActivity.this, "Login Gagal : Terjadi Kesalahan Dengan Jaringan " + error.toString(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this, "Login Gagal : Terjadi Kesalahan Dengan Jaringan!" + error.toString(), Toast.LENGTH_LONG).show();
                         loadingDialog.dissmissDialog();
                     }
                 }) {

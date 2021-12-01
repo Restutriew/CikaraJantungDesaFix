@@ -67,8 +67,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_keperluanSurat"
@@ -87,8 +87,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_keteranganSurat"
@@ -107,8 +107,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_kepalaKKSurat"
@@ -117,7 +117,6 @@
                     android:background="@drawable/border_putih_biru_inputan"
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
-                    android:inputType="number"
                     android:hint="Kepala KK"
                     android:textColor="@color/black" />
 
@@ -128,8 +127,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_noKKSurat"
@@ -138,8 +137,9 @@
                     android:background="@drawable/border_putih_biru_inputan"
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
-                    android:maxLength="16"
                     android:hint="Nomor KK"
+                    android:inputType="number"
+                    android:maxLength="16"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -149,8 +149,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_rtTujuanSurat"
@@ -160,6 +160,7 @@
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
                     android:hint="RT Tujuan"
+                    android:inputType="number"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -169,8 +170,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_rwTujuanSurat"
@@ -180,6 +181,7 @@
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
                     android:hint="RW Tujuan"
+                    android:inputType="number"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -189,8 +191,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_dusunTujuanSurat"
@@ -209,8 +211,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_desaTujuanSurat"
@@ -229,8 +231,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_kecamatanTujuanSurat"
@@ -249,8 +251,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_kabupatenTujuanSurat"
@@ -269,8 +271,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_alasanPindahSurat"
@@ -289,8 +291,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_tanggalPindahSurat"
@@ -309,8 +311,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_jumlahPengikutSurat"
@@ -320,6 +322,7 @@
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
                     android:hint="Jumlah Pengikut"
+                    android:inputType="number"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -329,8 +332,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_barangSurat"
@@ -349,8 +352,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_jenisSurat"
@@ -369,8 +372,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_namaSurat"
@@ -389,8 +392,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_noIdentitasSurat"
@@ -409,8 +412,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_tempatLahirSurat"
@@ -429,8 +432,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_tglLahirSurat"
@@ -449,8 +452,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_jenisKelaminSurat"
@@ -465,12 +468,32 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_usahaSurat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/et_usahaSurat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_putih_biru_inputan"
+                    android:fontFamily="@font/inter_regular"
+                    android:gravity="start"
+                    android:hint="Usaha"
+                    android:textColor="@color/black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_alamatSurat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_alamatSurat"
@@ -489,8 +512,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_pekerjaanSurat"
@@ -509,8 +532,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_ketuaAdatSurat"
@@ -529,8 +552,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_agamaSurat"
@@ -549,8 +572,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_perbedaanSurat"
@@ -569,8 +592,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_kartuIdentitasSurat"
@@ -589,8 +612,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_rincianSurat"
@@ -604,33 +627,14 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_usahaSurat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
-
-                <EditText
-                    android:id="@+id/et_usahaSurat"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
-                    android:gravity="start"
-                    android:hint="Usaha"
-                    android:textColor="@color/black" />
-
-            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_noJamkesosSurat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_noJamkesosSurat"
@@ -649,8 +653,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_hariLahirSurat"
@@ -669,8 +673,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_waktuLahirSurat"
@@ -689,8 +693,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_kelahiranKeSurat"
@@ -699,8 +703,8 @@
                     android:background="@drawable/border_putih_biru_inputan"
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
-                    android:inputType="number"
                     android:hint="Kelahiran Ke"
+                    android:inputType="number"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -710,8 +714,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_namaIbuSurat"
@@ -730,8 +734,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_nikIbuSurat"
@@ -740,9 +744,9 @@
                     android:background="@drawable/border_putih_biru_inputan"
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
-                    android:maxLength="16"
-                    android:inputType="number"
                     android:hint="NIK Ibu"
+                    android:inputType="number"
+                    android:maxLength="16"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -752,8 +756,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_umurIbuSurat"
@@ -772,8 +776,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_pekerjaanIbuSurat"
@@ -792,8 +796,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_alamatIbuSurat"
@@ -812,8 +816,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_desaIbuSurat"
@@ -832,8 +836,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_kecamatanIbuSurat"
@@ -852,8 +856,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_kabupatenIbuSurat"
@@ -872,8 +876,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_namaAyahSurat"
@@ -892,8 +896,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_nikAyahSurat"
@@ -902,9 +906,9 @@
                     android:background="@drawable/border_putih_biru_inputan"
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
-                    android:maxLength="16"
-                    android:inputType="number"
                     android:hint="NIK Ayah"
+                    android:inputType="number"
+                    android:maxLength="16"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -914,8 +918,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_umurAyahSurat"
@@ -934,8 +938,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_pekerjaanAyahSurat"
@@ -954,8 +958,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_alamatAyahSurat"
@@ -974,8 +978,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_desaAyahSurat"
@@ -994,8 +998,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_kecamatanAyahSurat"
@@ -1014,8 +1018,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_kabupatenAyahSurat"
@@ -1034,8 +1038,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_namaPelaporSurat"
@@ -1054,8 +1058,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_nikPelaporSurat"
@@ -1064,9 +1068,9 @@
                     android:background="@drawable/border_putih_biru_inputan"
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
-                    android:maxLength="16"
-                    android:inputType="number"
                     android:hint="NIK Pelapor"
+                    android:inputType="number"
+                    android:maxLength="16"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -1076,8 +1080,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_umurPelaporSurat"
@@ -1096,8 +1100,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_pekerjaanPelaporSurat"
@@ -1116,8 +1120,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_desaPelaporSurat"
@@ -1136,8 +1140,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_kecamatanPelaporSurat"
@@ -1156,8 +1160,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_kabupatenPelaporSurat"
@@ -1176,8 +1180,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_provinsiPelaporSurat"
@@ -1196,8 +1200,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_hubPelaporSurat"
@@ -1216,8 +1220,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_tempatLahirPelaporSurat"
@@ -1236,8 +1240,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_tanggalLahirPelaporSurat"
@@ -1256,8 +1260,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_namaSaksi1Surat"
@@ -1276,8 +1280,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_nikSaksi1Surat"
@@ -1286,9 +1290,9 @@
                     android:background="@drawable/border_putih_biru_inputan"
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
-                    android:maxLength="16"
-                    android:inputType="number"
                     android:hint="NIK Saksi Pertama"
+                    android:inputType="number"
+                    android:maxLength="16"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -1298,8 +1302,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_tempatLahirSaksi1Surat"
@@ -1318,8 +1322,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_tanggalLahirSaksi1Surat"
@@ -1338,8 +1342,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_umurSaksi1Surat"
@@ -1358,8 +1362,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_pekerjaanSaksi1Surat"
@@ -1378,8 +1382,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_desaSaksi1Surat"
@@ -1398,8 +1402,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_kecamatanSaksi1Surat"
@@ -1418,8 +1422,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_kabupatenSaksi1Surat"
@@ -1438,8 +1442,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_provinsiSaksi1Surat"
@@ -1458,8 +1462,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_namaSaksi2Surat"
@@ -1478,8 +1482,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_nikSaksi2Surat"
@@ -1488,9 +1492,9 @@
                     android:background="@drawable/border_putih_biru_inputan"
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
-                    android:maxLength="16"
-                    android:inputType="number"
                     android:hint="NIK Saksi Kedua"
+                    android:inputType="number"
+                    android:maxLength="16"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -1500,8 +1504,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_tempatLahirSaksi2Surat"
@@ -1520,8 +1524,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_tanggalLahirSaksi2Surat"
@@ -1540,8 +1544,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_umurSaksi2Surat"
@@ -1560,8 +1564,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_pekerjaanSaksi2Surat"
@@ -1580,8 +1584,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_desaSaksi2Surat"
@@ -1600,8 +1604,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_kecamatanSaksi2Surat"
@@ -1620,8 +1624,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_kabupatenSaksi2Surat"
@@ -1640,8 +1644,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/et_provinsiSaksi2Surat"

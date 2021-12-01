@@ -45,12 +45,23 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="center"
+            android:backgroundTint="@color/abu"
             app:cardCornerRadius="15dp">
 
             <ImageView
+                android:id="@+id/img_tambahLapak"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/img_tambahPhotoLapak"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="bottom|end"
+                android:background="@drawable/bg_dialog_aduan"
+                android:padding="10dp"
+                android:src="@drawable/ic_baseline_camera_alt_24" />
         </androidx.cardview.widget.CardView>
 
         <com.google.android.material.textfield.TextInputLayout
