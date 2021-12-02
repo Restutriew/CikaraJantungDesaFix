@@ -100,7 +100,6 @@ public class LapakFragment extends Fragment {
 
         loadingDialog = new LoadingDialog(getActivity());
         loadLapak();
-//        loadProduct();
 
         line_editLapak = root.findViewById(R.id.line_editLapak);
         tv_tambahProduk = root.findViewById(R.id.tv_tambahProduk);
@@ -410,12 +409,12 @@ public class LapakFragment extends Fragment {
 //                                            dialogDelete(data.getId());
                                         }
                                     });
-//                                    produkAdapter.setOnItemClickCallbackDelete(new ProdukAdapter.OnItemClickCallbackDelete() {
-//                                        @Override
-//                                        public void onItemClicked(ProdukModel data) {
-//                                            dialogDelete(data.getId());
-//                                        }
-//                                    });
+                                    produkAdapter.setOnDeleteClick(new ProdukAdapter.OnDeleteClick() {
+                                        @Override
+                                        public void onItemClicked(ProdukModel data) {
+                                            dialogDelete(data.getId());
+                                        }
+                                    });
                                     //hilangkan loading
                                     loadingDialog.dissmissDialog();
                                 }
@@ -469,7 +468,7 @@ public class LapakFragment extends Fragment {
     private void hapusData(String id) {
         loadingDialog.startLoading();
         Log.d("calpalnx", String.valueOf(id));
-        String URL_DELETEPRODUK = link + "produk/" + id;
+        String URL_DELETEPRODUK = link + "produk/" + id + "?token=" + token;
         StringRequest stringRequest = new StringRequest(Request.Method.DELETE, URL_DELETEPRODUK,
                 new Response.Listener<String>() {
                     @Override
@@ -508,20 +507,11 @@ public class LapakFragment extends Fragment {
                 return params;
             }
         };
-
-        HttpStack httpStack;
-        if (Build.VERSION.SDK_INT > 19) {
-            httpStack = new CustomHurlStack();
-            //disable okhttphurlstack
-//        } else if (Build.VERSION.SDK_INT >= 9 && Build.VERSION.SDK_INT <= 19)
-//        {
-//            httpStack = new OkHttpHurlStack();
-        } else {
-            httpStack = new HttpClientStack(AndroidHttpClient.newInstance("Android"));
-        }
-        RequestQueue requestQueue = Volley.newRequestQueue(getActivity(), httpStack);
+        int socketTimeout = 10000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(policy);
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
         requestQueue.add(stringRequest);
-
     }
 
     //sort alfabet

@@ -50,6 +50,7 @@
             app:cardCornerRadius="15dp">
 
             <ImageView
+                android:src="@drawable/abukotak"
                 android:id="@+id/img_tambahProduk"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

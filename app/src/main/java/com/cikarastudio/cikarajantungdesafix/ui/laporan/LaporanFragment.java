@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -30,13 +31,17 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.cikarastudio.cikarajantungdesafix.R;
+import com.cikarastudio.cikarajantungdesafix.adapter.ArtikelAllAdapter;
 import com.cikarastudio.cikarajantungdesafix.adapter.KategoriAdapter;
 import com.cikarastudio.cikarajantungdesafix.adapter.LaporanAdapter;
+import com.cikarastudio.cikarajantungdesafix.model.ArtikelModel;
 import com.cikarastudio.cikarajantungdesafix.model.KategoriModel;
 import com.cikarastudio.cikarajantungdesafix.model.LaporanModel;
 import com.cikarastudio.cikarajantungdesafix.session.SessionManager;
 import com.cikarastudio.cikarajantungdesafix.ssl.HttpsTrustManager;
 import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
+import com.cikarastudio.cikarajantungdesafix.ui.artikel.DetailArtikelActivity;
+import com.cikarastudio.cikarajantungdesafix.ui.lapak.TambahProdukActivity;
 import com.cikarastudio.cikarajantungdesafix.ui.loadingdialog.LoadingDialog;
 import com.google.android.flexbox.FlexWrap;
 import com.google.android.flexbox.FlexboxLayoutManager;
@@ -50,6 +55,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class LaporanFragment extends Fragment {
 
@@ -64,7 +70,7 @@ public class LaporanFragment extends Fragment {
 
     private ArrayList<String> cateList;
 
-    String id_user, link, linkGambar;
+    String id_user, link, linkGambar, token;
     ImageView img_laporanSaya, img_tambahLaporan;
     LinearLayout line_filterKategori;
 
@@ -91,8 +97,10 @@ public class LaporanFragment extends Fragment {
         link = getString(R.string.link);
         linkGambar = getString(R.string.linkGambar);
 
+        //inisiasi token
+        token = getString(R.string.token);
+
         loadingDialog = new LoadingDialog(getActivity());
-        loadingDialog.startLoading();
 
         cateList = new ArrayList<>();
 
@@ -119,8 +127,6 @@ public class LaporanFragment extends Fragment {
 //        rv_laporanAll.setNestedScrollingEnabled(false);
         rv_laporanAll.setHasFixedSize(true);
 
-        loadLaporan();
-        loadDataKategori();
 
         Log.d("calpalnx", String.valueOf(cateList));
 
@@ -172,8 +178,18 @@ public class LaporanFragment extends Fragment {
         }
     };
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadingDialog.startLoading();
+        loadLaporan();
+        loadDataKategori();
+    }
 
     private void loadLaporan() {
+        if (laporanList.size() > 0) {
+            laporanList.clear();
+        }
         String URL_READ = link + "lapor?user_id=" + id_user;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
                 new Response.Listener<String>() {
@@ -224,12 +240,18 @@ public class LaporanFragment extends Fragment {
                                                 resi_photoLaporan, resi_waktu, resi_tanggal, resi_potoProfilLaporan, res_namaPendudukLaporan, res_dataLikeLaporan, res_jumlahLikeLaporan, res_statusLikeLaporan));
                                         laporanAdapter = new LaporanAdapter(getContext(), laporanList);
                                         rv_laporanAll.setAdapter(laporanAdapter);
-                                    } else {
-//                                        Toast.makeText(getActivity(), "Data Laporan Tidak Ada!", Toast.LENGTH_SHORT).show();
                                     }
-
                                     //hilangkan loading
                                     loadingDialog.dissmissDialog();
+
+                                    laporanAdapter.setOnFavoriteClick(new LaporanAdapter.OnFavoriteClick() {
+                                        @Override
+                                        public void onItemClicked(LaporanModel data) {
+                                            Log.d("calpalnx", "onClick: testing tombol like " + data.getIsi());
+                                            addLike(data.getId());
+                                        }
+                                    });
+
                                 }
                             } else {
                                 Toast.makeText(getActivity(), "Data Laporan Tidak Ada!", Toast.LENGTH_SHORT).show();
@@ -258,7 +280,68 @@ public class LaporanFragment extends Fragment {
         requestQueue.add(stringRequest);
     }
 
+    private void addLike(String id) {
+        String URL_TAMBAHPRODUK = link + "likelaporan";
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_TAMBAHPRODUK,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String success = jsonObject.getString("success");
+
+                            if (success.equals("1")) {
+                                Toast.makeText(getActivity(), "Like Sukses", Toast.LENGTH_LONG).show();
+                            } else {
+                                Toast.makeText(getActivity(), "Like Gagal!", Toast.LENGTH_LONG).show();
+                                loadingDialog.dissmissDialog();
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(getActivity(), "Tambah Produk Gagal!" + e.toString(), Toast.LENGTH_LONG).show();
+                            loadingDialog.dissmissDialog();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getActivity(), "Tambah Produk Gagal! : Cek Koneksi Anda" + error, Toast.LENGTH_LONG).show();
+                        loadingDialog.dissmissDialog();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("token", token);
+                params.put("user_id", id_user);
+                params.put("id", id);
+                return params;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+        requestQueue.add(stringRequest);
+    }
+
+    private void filterDashboard(String bahan) {
+        bahan = bahan.toLowerCase();
+        ArrayList<LaporanModel> dataFilter = new ArrayList<>();
+        for (LaporanModel data : laporanList) {
+            String namaKategori = data.getKategori().toLowerCase();
+            if (namaKategori.contains(bahan)) {
+                dataFilter.add(data);
+            }
+        }
+        laporanAdapter.setFilter(dataFilter);
+    }
+
     private void loadDataKategori() {
+        if (cateList.size() > 0) {
+            cateList.clear();
+            kategoriList.clear();
+        }
         String URL_READ = link + "kategori/laporan";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
                 new Response.Listener<String>() {
@@ -287,9 +370,12 @@ public class LaporanFragment extends Fragment {
                                     kategoriAdapter.setOnItemClickCallback(new KategoriAdapter.OnItemClickCallback() {
                                         @Override
                                         public void onItemClicked(KategoriModel data) {
-//                                            Intent transferDataProduk = new Intent(getActivity(), EditProdukActivity.class);
-//                                            transferDataProduk.putExtra(EditProdukActivity.DATA_KATEGORI, data);
-//                                            startActivity(transferDataProduk);
+                                            Log.d("calpalnx", "onItemClicked: " + data.getNama_kategori());
+                                            if (data.getNama_kategori().equals("semua")) {
+                                                loadLaporan();
+                                            } else {
+                                                filterDashboard(data.getNama_kategori());
+                                            }
                                         }
                                     });
                                     //hilangkan loading

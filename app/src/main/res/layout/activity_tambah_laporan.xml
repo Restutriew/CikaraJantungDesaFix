@@ -41,11 +41,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cr_fotoLaporan"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/abu"
+            android:visibility="gone"
+            app:cardCornerRadius="15dp">
+
+            <ImageView
+                android:src="@drawable/abukotak"
+                android:id="@+id/img_frameTambahLaporan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+
+        </androidx.cardview.widget.CardView>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pilih Jenis Laporan"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/inter_semibold"
+            android:text="Pilih Jenis Laporan"
             android:textColor="@color/white" />
 
         <LinearLayout
@@ -63,6 +82,7 @@
                 android:theme="@style/SpinnerTheme" />
 
             <ImageView
+                android:id="@+id/img_chooseTambahLaporan"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
@@ -102,8 +122,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Sertakan Identitas"
             android:fontFamily="@font/inter_semibold"
+            android:text="Sertakan Identitas"
             android:textColor="@color/white" />
 
         <Spinner
@@ -135,8 +155,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            app:cardElevation="10dp"
-            app:cardCornerRadius="15dp">
+            app:cardCornerRadius="15dp"
+            app:cardElevation="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"

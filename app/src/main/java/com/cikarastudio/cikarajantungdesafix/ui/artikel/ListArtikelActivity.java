@@ -66,9 +66,7 @@ public class ListArtikelActivity extends AppCompatActivity implements View.OnCli
         token = getString(R.string.token);
 
         loadingDialog = new LoadingDialog(ListArtikelActivity.this);
-        loadingDialog.startLoading();
-        loadKategoriArtikel();
-        loadArtikel();
+
 
         kategoriArtikelList = new ArrayList<>();
         rv_kategoriListArtikel = findViewById(R.id.rv_kategoriListArtikel);
@@ -98,7 +96,9 @@ public class ListArtikelActivity extends AppCompatActivity implements View.OnCli
     @Override
     protected void onResume() {
         super.onResume();
-        //
+        loadingDialog.startLoading();
+        loadKategoriArtikel();
+        loadArtikel();
     }
 
     @Override
@@ -137,6 +137,9 @@ public class ListArtikelActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void loadKategoriArtikel() {
+        if (kategoriArtikelList.size() > 0) {
+            kategoriArtikelList.clear();
+        }
         String URL_READ = link + "list/kategoriartikel?token=" + token;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
                 new Response.Listener<String>() {
@@ -198,6 +201,9 @@ public class ListArtikelActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void loadArtikel() {
+        if (artikelList.size() > 0) {
+            artikelList.clear();
+        }
         String URL_READ = link + "list/artikel?token=" + token + "&kategori=semua";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
                 new Response.Listener<String>() {

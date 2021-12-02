@@ -741,7 +741,6 @@ public class TambahSuratActivity extends AppCompatActivity implements View.OnCli
 
     }
 
-
     private void cekVisibleWaktu(EditText visibleEditTextWaktu) {
         if (visibleEditTextWaktu.getVisibility() == View.VISIBLE) {
             setInputanWaktu(visibleEditTextWaktu);
@@ -810,7 +809,6 @@ public class TambahSuratActivity extends AppCompatActivity implements View.OnCli
                     inputanTanggal.setSelection(sel < current.length() ? sel : current.length());
                 }
             }
-
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -1153,6 +1151,7 @@ public class TambahSuratActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void addAjuanSurat() {
+        loadingDialog.startLoading();
         final String keperluan = et_keperluanSurat.getText().toString().trim();
         final String keterangan = et_keteranganSurat.getText().toString().trim();
         final String kepala_kk = et_kepalaKKSurat.getText().toString().trim();
@@ -1260,7 +1259,6 @@ public class TambahSuratActivity extends AppCompatActivity implements View.OnCli
             agama = "";
         }
 
-
         if (!tanggal_pindah.equals("")) {
             String tanggal = tanggal_pindah.substring(0, 2);
             String bulan = tanggal_pindah.substring(3, 5);
@@ -1337,6 +1335,7 @@ public class TambahSuratActivity extends AppCompatActivity implements View.OnCli
 
                             if (success.equals("1")) {
                                 Toast.makeText(TambahSuratActivity.this, "Pengajuan Surat Sukses", Toast.LENGTH_LONG).show();
+                                finish();
 
                             } else {
                                 Toast.makeText(TambahSuratActivity.this, "Pengajuan Gagal! Anda Telah Melakukan Pengajuan Untuk Data Ini", Toast.LENGTH_LONG).show();

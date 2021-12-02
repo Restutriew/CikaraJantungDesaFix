@@ -52,7 +52,8 @@
                 android:id="@+id/img_editLapak"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+                android:src="@drawable/abukotak" />
 
             <ImageView
                 android:id="@+id/img_editPhotoLapak"
@@ -121,8 +122,8 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/border_putih_biru_inputan"
                 android:fontFamily="@font/inter_regular"
-                android:inputType="number"
-                android:hint="No Telepon/HP" />
+                android:hint="No Telepon/HP"
+                android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.cardview.widget.CardView

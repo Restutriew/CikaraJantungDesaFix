@@ -38,6 +38,16 @@ public class ProdukAdapter extends RecyclerView.Adapter<ProdukAdapter.ProdukView
         void onItemClicked(ProdukModel data);
     }
 
+    private OnDeleteClick onDeleteClick;
+
+    public void setOnDeleteClick(OnDeleteClick onDeleteClick) {
+        this.onDeleteClick = onDeleteClick;
+    }
+
+    public interface OnDeleteClick {
+        void onItemClicked(ProdukModel data);
+    }
+
     public ProdukAdapter(Context mContext, ArrayList<ProdukModel> mProdukList) {
         this.mContext = mContext;
         this.mProdukList = mProdukList;
@@ -134,9 +144,11 @@ public class ProdukAdapter extends RecyclerView.Adapter<ProdukAdapter.ProdukView
                     onItemClickCallback.onItemClicked(mProdukList.get(getAdapterPosition()));
                     return true;
                 case R.id.action_popup_delete:
-                    ProdukModel currentItem = mProdukList.get(getAdapterPosition());
-                    String id = currentItem.getId();
                     Log.d("calpalnx", "onMenuItemClick: delete" + getAdapterPosition());
+                    onDeleteClick.onItemClicked(mProdukList.get(getAdapterPosition()));
+//                    ProdukModel currentItem = mProdukList.get(getAdapterPosition());
+//                    String id = currentItem.getId();
+//                    Log.d("calpalnx", "onMenuItemClick: delete" + getAdapterPosition());
 //                    LapakFragment lapakFragment = new LapakFragment();
 //                    lapakFragment.hapusData(id);
                     return true;

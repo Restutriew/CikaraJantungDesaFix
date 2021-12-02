@@ -22,6 +22,8 @@ public class KategoriAdapter extends RecyclerView.Adapter<KategoriAdapter.Katego
 
     private Context mContext;
     private ArrayList<KategoriModel> mKategoriList;
+    private int selected_position = -1;
+
 
     private KategoriAdapter.OnItemClickCallback onItemClickCallback;
 
@@ -53,6 +55,24 @@ public class KategoriAdapter extends RecyclerView.Adapter<KategoriAdapter.Katego
         TextFuntion textFuntion = new TextFuntion();
         //data kategori
         textFuntion.setTextDanNullData(holder.namaKategori, namaKategori);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onItemClickCallback.onItemClicked(mKategoriList.get(holder.getAdapterPosition()));
+                selected_position = holder.getAdapterPosition();
+                notifyDataSetChanged();
+            }
+
+        });
+
+        if (selected_position == position) {
+            holder.namaKategori.setBackgroundResource(R.drawable.border_biru_muda);
+            holder.namaKategori.setTextColor(mContext.getResources().getColor(R.color.white));
+        } else {
+            holder.namaKategori.setBackgroundResource(R.drawable.border_putih_biru_muda);
+            holder.namaKategori.setTextColor(mContext.getResources().getColor(R.color.biru2));
+        }
 
     }
 

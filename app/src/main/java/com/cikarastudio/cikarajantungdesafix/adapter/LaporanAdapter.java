@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cikarastudio.cikarajantungdesafix.R;
+import com.cikarastudio.cikarajantungdesafix.model.ArtikelModel;
 import com.cikarastudio.cikarajantungdesafix.model.LaporanModel;
 import com.cikarastudio.cikarajantungdesafix.model.ProdukModel;
 import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
@@ -27,6 +28,16 @@ public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanV
     public LaporanAdapter(Context mContext, ArrayList<LaporanModel> mLaporanList) {
         this.mContext = mContext;
         this.mLaporanList = mLaporanList;
+    }
+
+    private LaporanAdapter.OnFavoriteClick onFavoriteClick;
+
+    public void setOnFavoriteClick(LaporanAdapter.OnFavoriteClick onFavoriteClick) {
+        this.onFavoriteClick = onFavoriteClick;
+    }
+
+    public interface OnFavoriteClick {
+        void onItemClicked(LaporanModel data);
     }
 
     //setfilter
@@ -55,6 +66,7 @@ public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanV
         String jumlahLikeLaporan = currentItem.getJumlahlike();
         String photoUser = currentItem.getProfile_photo_path();
         String gambarLaporan = currentItem.getPhoto();
+        String likeLaporan = currentItem.getStatusLike();
 
         Log.d("calpalnx", currentItem.getIsi());
 
@@ -73,6 +85,18 @@ public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanV
         }
 
         holder.tv_isiLaporan.setText(isiLaporan);
+
+        if (likeLaporan.equals("0")){
+            holder.img_loveLike.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onFavoriteClick.onItemClicked(mLaporanList.get(holder.getAdapterPosition()));
+                    holder.img_loveLike.setImageResource(R.drawable.ic_baseline_favorite_24);
+                }
+            });
+        }else{
+            holder.img_loveLike.setImageResource(R.drawable.ic_baseline_favorite_24);
+        }
 
         String imgUser = "https://puteran.cikarastudio.com/public/img/user/" + photoUser;
         Picasso.with(mContext.getApplicationContext()).load(imgUser).fit().centerCrop().into(holder.img_potouser);
@@ -97,6 +121,8 @@ public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanV
         public TextView tv_jumlahLikeLaporan;
         public ImageView img_potouser;
         public ImageView img_gambarLaporan;
+        public ImageView img_loveLike;
+
 
         LaporanViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -109,6 +135,7 @@ public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanV
             tv_jumlahLikeLaporan = itemView.findViewById(R.id.tv_jumlahLikeLaporan);
             img_potouser = itemView.findViewById(R.id.img_potouser);
             img_gambarLaporan = itemView.findViewById(R.id.img_gambarLaporan);
+            img_loveLike = itemView.findViewById(R.id.img_loveLike);
         }
     }
 }

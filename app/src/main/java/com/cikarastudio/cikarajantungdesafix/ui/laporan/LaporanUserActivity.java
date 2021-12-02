@@ -5,10 +5,12 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +26,7 @@ import com.cikarastudio.cikarajantungdesafix.R;
 import com.cikarastudio.cikarajantungdesafix.adapter.LaporanAdapter;
 import com.cikarastudio.cikarajantungdesafix.adapter.LaporanUserAdapter;
 import com.cikarastudio.cikarajantungdesafix.model.LaporanModel;
+import com.cikarastudio.cikarajantungdesafix.model.LaporanUserModel;
 import com.cikarastudio.cikarajantungdesafix.model.ProdukModel;
 import com.cikarastudio.cikarajantungdesafix.session.SessionManager;
 import com.cikarastudio.cikarajantungdesafix.ssl.HttpsTrustManager;
@@ -44,13 +47,14 @@ public class LaporanUserActivity extends AppCompatActivity {
     ImageView img_back;
     SessionManager sessionManager;
     LoadingDialog loadingDialog;
-    String id_user, link, profile_photo_path, namapenduduk;
+    String id_user, link;
     TextView tv_totalDashboard, tv_selesaiDashboard, tv_diprosesDashboard, tv_menungguDashboard;
     RecyclerView rv_laporanUser;
-    private ArrayList<LaporanModel> laporanUserList;
+    private ArrayList<LaporanUserModel> laporanUserList;
     private LaporanUserAdapter laporanUserAdapter;
     CardView cr_dashboradTotalLaporan, cr_dashboardLaporanSelesai,
             cr_dashboardLaporanDiproses, cr_dashboardLaporanMenunggu;
+    SearchView et_laporanUserSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,9 +75,9 @@ public class LaporanUserActivity extends AppCompatActivity {
         tv_selesaiDashboard = findViewById(R.id.tv_selesaiDashboard);
         tv_diprosesDashboard = findViewById(R.id.tv_diprosesDashboard);
         tv_menungguDashboard = findViewById(R.id.tv_menungguDashboard);
+        et_laporanUserSearch = findViewById(R.id.et_laporanUserSearch);
 
         loadingDialog = new LoadingDialog(this);
-        loadingDialog.startLoading();
 
         laporanUserList = new ArrayList<>();
         rv_laporanUser = findViewById(R.id.rv_laporanUser);
@@ -85,9 +89,6 @@ public class LaporanUserActivity extends AppCompatActivity {
         };
         rv_laporanUser.setLayoutManager(linearLayoutManageraaa);
         rv_laporanUser.setHasFixedSize(true);
-
-        loadLaporanUser();
-        loadDataDashboardLaporanUser();
 
         cr_dashboradTotalLaporan = findViewById(R.id.cr_dashboradTotalLaporan);
         cr_dashboradTotalLaporan.setOnClickListener(new View.OnClickListener() {
@@ -132,10 +133,42 @@ public class LaporanUserActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadingDialog.startLoading();
+        loadLaporanUser();
+        loadDataDashboardLaporanUser();
+
+        et_laporanUserSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String nextText) {
+                //Data akan berubah saat user menginputkan text/kata kunci pada SearchView
+                nextText = nextText.toLowerCase();
+                ArrayList<LaporanUserModel> dataFilter = new ArrayList<>();
+                for (LaporanUserModel data : laporanUserList) {
+                    String nama = data.getIsi().toLowerCase();
+                    if (nama.contains(nextText)) {
+                        dataFilter.add(data);
+                    }
+                }
+                laporanUserAdapter.setFilter(dataFilter);
+                return true;
+            }
+        });
+
+    }
+
     private void filterDashboard(String bahan) {
         bahan = bahan.toLowerCase();
-        ArrayList<LaporanModel> dataFilter = new ArrayList<>();
-        for (LaporanModel data : laporanUserList) {
+        ArrayList<LaporanUserModel> dataFilter = new ArrayList<>();
+        for (LaporanUserModel data : laporanUserList) {
             String status = data.getStatus().toLowerCase();
             if (status.contains(bahan)) {
                 dataFilter.add(data);
@@ -145,6 +178,9 @@ public class LaporanUserActivity extends AppCompatActivity {
     }
 
     private void loadLaporanUser() {
+        if (laporanUserList.size() > 0) {
+            laporanUserList.clear();
+        }
         String URL_READ = link + "lapor/user/" + id_user;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
                 new Response.Listener<String>() {
@@ -167,29 +203,13 @@ public class LaporanUserActivity extends AppCompatActivity {
                                     String res_identitasLaporan = jsonObject.getString("identitas").trim();
                                     String res_postingLaporan = jsonObject.getString("posting").trim();
                                     String res_photoLaporan = jsonObject.getString("photo").trim();
+                                    String res_createdAtLaporan = jsonObject.getString("created_at").trim();
                                     String res_updateAtLaporan = jsonObject.getString("updated_at").trim();
-//                                    String res_potoProfilLaporan = jsonObject.getString("profile_photo_path").trim();
-//                                    String res_namaPendudukLaporan = jsonObject.getString("nama_penduduk").trim();
-                                    String res_namaPendudukLaporan = "testing";
 
                                     String resi_photoLaporan = res_photoLaporan.replace(" ", "%20");
-                                    String resi_potoProfilLaporan = profile_photo_path.replace(" ", "%20");
 
-                                    String jam = res_updateAtLaporan.substring(11, 13);
-                                    String menit = res_updateAtLaporan.substring(14, 16);
-
-                                    String tanggal = res_updateAtLaporan.substring(8, 10);
-                                    String bulan = res_updateAtLaporan.substring(5, 7);
-                                    String tahun = res_updateAtLaporan.substring(0, 4);
-
-                                    String resi_waktu = jam + "." + menit;
-                                    String resi_tanggal = tanggal + "-" + bulan + "-" + tahun;
-
-                                    Log.d("calpalnx", String.valueOf(resi_tanggal));
-                                    Log.d("calpalnx", String.valueOf(resi_waktu));
-
-//                                    laporanUserList.add(new LaporanModel(res_id, res_userId, res_isiLaporan, res_kategoriLaporan, res_statusLaporan, res_tanggapanLaporan, res_identitasLaporan, res_postingLaporan,
-//                                            resi_photoLaporan, resi_waktu, resi_tanggal, resi_potoProfilLaporan, res_namaPendudukLaporan));
+                                    laporanUserList.add(new LaporanUserModel(res_id, res_userId, res_isiLaporan, res_kategoriLaporan, res_statusLaporan, res_tanggapanLaporan, res_identitasLaporan, res_postingLaporan,
+                                            resi_photoLaporan, res_createdAtLaporan, res_updateAtLaporan));
                                     laporanUserAdapter = new LaporanUserAdapter(getApplicationContext(), laporanUserList);
                                     rv_laporanUser.setAdapter(laporanUserAdapter);
 

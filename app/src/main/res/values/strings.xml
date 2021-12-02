@@ -13,6 +13,7 @@
     <string name="lihatSelengkapnya"><u>Lihat Selengkapnya ></u></string>
 
     <string-array name="ya_tidak">
+        <item>Pilih</item>
         <item>Ya</item>
         <item>Tidak</item>
     </string-array>

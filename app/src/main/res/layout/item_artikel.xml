@@ -31,9 +31,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter_bold"
-                android:text=""
+                android:text="Judul"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tv_namaKategoriArtikel"
@@ -83,7 +83,7 @@
                         android:fontFamily="@font/inter_regular"
                         android:text="Bagikan"
                         android:textColor="@color/abu"
-                        android:textSize="15sp" />
+                         />
 
                 </LinearLayout>
 

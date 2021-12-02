@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.net.http.AndroidHttpClient;
 import android.os.Build;
@@ -34,6 +36,7 @@ import com.cikarastudio.cikarajantungdesafix.ssl.HttpsTrustManager;
 import com.cikarastudio.cikarajantungdesafix.template.kima.deletereq.CustomHurlStack;
 import com.cikarastudio.cikarajantungdesafix.ui.loadingdialog.LoadingDialog;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -152,6 +155,11 @@ public class EditProdukActivity extends AppCompatActivity {
     }
 
     public String getStringImage(Bitmap bitmap) {
+
+        if (bitmap == null) {
+            bitmap = ((BitmapDrawable) img_editProduk.getDrawable()).getBitmap();
+        }
+
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
         byte[] imageByteArray = byteArrayOutputStream.toByteArray();

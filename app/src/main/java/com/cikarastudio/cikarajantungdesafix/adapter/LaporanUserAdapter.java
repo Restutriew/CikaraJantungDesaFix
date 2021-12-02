@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cikarastudio.cikarajantungdesafix.R;
-import com.cikarastudio.cikarajantungdesafix.model.LaporanModel;
+import com.cikarastudio.cikarajantungdesafix.model.LaporanUserModel;
 import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
 import com.squareup.picasso.Picasso;
 
@@ -21,15 +21,15 @@ import java.util.ArrayList;
 public class LaporanUserAdapter extends RecyclerView.Adapter<LaporanUserAdapter.LaporanUserViewHolder> {
 
     private Context mContext;
-    private ArrayList<LaporanModel> mLaporanUserList;
+    private ArrayList<LaporanUserModel> mLaporanUserList;
 
-    public LaporanUserAdapter(Context mContext, ArrayList<LaporanModel> mLaporanUserList) {
+    public LaporanUserAdapter(Context mContext, ArrayList<LaporanUserModel> mLaporanUserList) {
         this.mContext = mContext;
         this.mLaporanUserList = mLaporanUserList;
     }
 
     //setfilter
-    public void setFilter(ArrayList<LaporanModel> dataFilter) {
+    public void setFilter(ArrayList<LaporanUserModel> dataFilter) {
         mLaporanUserList = new ArrayList<>();
         mLaporanUserList.addAll(dataFilter);
         notifyDataSetChanged();
@@ -45,26 +45,35 @@ public class LaporanUserAdapter extends RecyclerView.Adapter<LaporanUserAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull LaporanUserViewHolder holder, int position) {
-        LaporanModel currentItem = mLaporanUserList.get(position);
-        String namaUser = currentItem.getNama_penduduk();
-        String waktuLaporan = currentItem.getWaktu();
-        String tglLaporan = currentItem.getTanggal();
-        String kategoriLaporan = currentItem.getKategori();
-        String isiLaporan = currentItem.getIsi();
-        String statusLaporan = currentItem.getStatus();
-        String tanggapanLaporan = currentItem.getTanggapan();
-        String photoUser = currentItem.getProfile_photo_path();
+        LaporanUserModel currentItem = mLaporanUserList.get(position);
         String gambarLaporan = currentItem.getPhoto();
+        String isiLaporan = currentItem.getIsi();
+        String tanggapanLaporan = currentItem.getTanggapan();
+        String kategoriLaporan = currentItem.getKategori();
+        String statusLaporan = currentItem.getStatus();
+        String identitasLaporan = currentItem.getIdentitas();
+        String postingLaporan = currentItem.getPosting();
+        String updatedAtLaporan = currentItem.getUpdated_at();
+
+        String jam = updatedAtLaporan.substring(11, 13);
+        String menit = updatedAtLaporan.substring(14, 16);
+
+        String tanggal = updatedAtLaporan.substring(8, 10);
+        String bulan = updatedAtLaporan.substring(5, 7);
+        String tahun = updatedAtLaporan.substring(0, 4);
+
+        String waktuLaporan = jam + "." + menit;
+        String tanggalLaporan = tanggal + "-" + bulan + "-" + tahun;
+
+
+
 
         Log.d("calpalnx", currentItem.getIsi());
 
-        TextFuntion textFuntion = new TextFuntion();
-        //data laporan
-        textFuntion.setTextDanNullData(holder.tv_namaUserLaporan, namaUser);
-        textFuntion.setTextDanNullData(holder.tv_waktuLaporan, waktuLaporan);
-        textFuntion.setTextDanNullData(holder.tv_tglLaporan, tglLaporan);
-        textFuntion.setTextDanNullData(holder.tv_kategoriLaporan, kategoriLaporan);
-        textFuntion.setTextDanNullData(holder.tv_statuslaporan, statusLaporan);
+        String imgLaporan = "https://puteran.cikarastudio.com/public/img/penduduk/lapor/" + gambarLaporan;
+        Picasso.with(mContext.getApplicationContext()).load(imgLaporan).fit().centerCrop().into(holder.img_gambarLaporan);
+
+        holder.tv_isiLaporan.setText(isiLaporan);
 
         if (tanggapanLaporan.equals("null")) {
             holder.tv_responlaporan.setText("Belum Ada Tanggapan");
@@ -72,13 +81,15 @@ public class LaporanUserAdapter extends RecyclerView.Adapter<LaporanUserAdapter.
             holder.tv_responlaporan.setText(tanggapanLaporan);
         }
 
-        holder.tv_isiLaporan.setText(isiLaporan);
+        TextFuntion textFuntion = new TextFuntion();
+        //data laporan
+        textFuntion.setTextDanNullData(holder.tv_kategoriLaporan, kategoriLaporan);
+        textFuntion.setTextDanNullData(holder.tv_statuslaporan, statusLaporan);
+        textFuntion.setTextDanNullData(holder.tv_identitasLaporan, identitasLaporan);
+        textFuntion.setTextDanNullData(holder.tv_postingLaporan, postingLaporan);
+        textFuntion.setTextDanNullData(holder.tv_waktuLaporan, waktuLaporan);
+        textFuntion.setTextDanNullData(holder.tv_tglLaporan, tanggalLaporan);
 
-        String imgUser = "https://puteran.cikarastudio.com/public/img/user/" + photoUser;
-        Picasso.with(mContext.getApplicationContext()).load(imgUser).fit().centerCrop().into(holder.img_potouser);
-
-        String imgLaporan = "https://puteran.cikarastudio.com/public/img/penduduk/lapor/" + gambarLaporan;
-        Picasso.with(mContext.getApplicationContext()).load(imgLaporan).fit().centerCrop().into(holder.img_gambarLaporan);
     }
 
     @Override
@@ -87,27 +98,28 @@ public class LaporanUserAdapter extends RecyclerView.Adapter<LaporanUserAdapter.
     }
 
     public class LaporanUserViewHolder extends RecyclerView.ViewHolder {
-        public TextView tv_namaUserLaporan;
-        public TextView tv_waktuLaporan;
-        public TextView tv_tglLaporan;
-        public TextView tv_kategoriLaporan;
+        public ImageView img_gambarLaporan;
         public TextView tv_isiLaporan;
         public TextView tv_responlaporan;
         public TextView tv_statuslaporan;
-        public ImageView img_potouser;
-        public ImageView img_gambarLaporan;
+        public TextView tv_kategoriLaporan;
+        public TextView tv_tglLaporan;
+        public TextView tv_waktuLaporan;
+        public TextView tv_postingLaporan;
+        public TextView tv_identitasLaporan;
+
 
         LaporanUserViewHolder(@NonNull View itemView) {
             super(itemView);
-            tv_namaUserLaporan = itemView.findViewById(R.id.tv_namaUserLaporan);
-            tv_waktuLaporan = itemView.findViewById(R.id.tv_waktuLaporan);
-            tv_tglLaporan = itemView.findViewById(R.id.tv_tglLaporan);
-            tv_kategoriLaporan = itemView.findViewById(R.id.tv_kategoriLaporan);
+            img_gambarLaporan = itemView.findViewById(R.id.img_gambarLaporan);
             tv_isiLaporan = itemView.findViewById(R.id.tv_isiLaporan);
             tv_responlaporan = itemView.findViewById(R.id.tv_responlaporan);
             tv_statuslaporan = itemView.findViewById(R.id.tv_statuslaporan);
-            img_potouser = itemView.findViewById(R.id.img_potouser);
-            img_gambarLaporan = itemView.findViewById(R.id.img_gambarLaporan);
+            tv_kategoriLaporan = itemView.findViewById(R.id.tv_kategoriLaporan);
+            tv_tglLaporan = itemView.findViewById(R.id.tv_tglLaporan);
+            tv_waktuLaporan = itemView.findViewById(R.id.tv_waktuLaporan);
+            tv_postingLaporan = itemView.findViewById(R.id.tv_postingLaporan);
+            tv_identitasLaporan = itemView.findViewById(R.id.tv_identitasLaporan);
         }
     }
 }
