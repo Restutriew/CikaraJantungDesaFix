@@ -11,6 +11,8 @@ import android.net.http.AndroidHttpClient;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -34,6 +36,7 @@ import com.cikarastudio.cikarajantungdesafix.R;
 import com.cikarastudio.cikarajantungdesafix.model.ProdukModel;
 import com.cikarastudio.cikarajantungdesafix.ssl.HttpsTrustManager;
 import com.cikarastudio.cikarajantungdesafix.template.kima.deletereq.CustomHurlStack;
+import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
 import com.cikarastudio.cikarajantungdesafix.ui.loadingdialog.LoadingDialog;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
@@ -43,7 +46,9 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.text.NumberFormat;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class EditProdukActivity extends AppCompatActivity {
@@ -92,7 +97,9 @@ public class EditProdukActivity extends AppCompatActivity {
         img_editProduk = findViewById(R.id.img_editProduk);
 
         et_namaProduk.setText(nama);
-        et_hargaProduk.setText(String.valueOf(harga));
+//        et_hargaProduk.setText(String.valueOf(harga));
+        TextFuntion textFuntion = new TextFuntion();
+        textFuntion.setRupiah(et_hargaProduk, harga);
         et_keteranganProduk.setText(keterangan);
 
         String imageUrl = linkGambar + "penduduk/produk/" + gambar;
@@ -110,7 +117,7 @@ public class EditProdukActivity extends AppCompatActivity {
         cr_simpanProduk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loadingDialog.startLoading();
+                cekInputanEditProduk();
                 simpanEditProduk();
             }
         });
@@ -131,7 +138,39 @@ public class EditProdukActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        et_hargaProduk.addTextChangedListener(new TextWatcher() {
+            private String setEditText = et_hargaProduk.getText().toString().trim();
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (!s.toString().equals(setEditText)) {
+                    et_hargaProduk.removeTextChangedListener(this);
+                    String replace = s.toString().replaceAll("[Rp. ]", "");
+                    if (!replace.isEmpty()) {
+                        setEditText = formatrupiah(Double.parseDouble(replace));
+                    } else {
+                        setEditText = "";
+                    }
+                    et_hargaProduk.setText(setEditText);
+                    et_hargaProduk.setSelection(setEditText.length());
+                    et_hargaProduk.addTextChangedListener(this);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable view) {
+
+            }
+        });
+
     }
+
 
     private void chooseFile() {
         Intent intent = new Intent();
@@ -245,13 +284,31 @@ public class EditProdukActivity extends AppCompatActivity {
 
     }
 
+
+    private void cekInputanEditProduk() {
+        if (et_namaProduk.isShown() && et_namaProduk.getText().toString().equals("")) {
+            et_namaProduk.setError("Form ini harus diisi!");
+            et_namaProduk.requestFocus();
+        } else if (et_hargaProduk.isShown() && et_hargaProduk.getText().toString().equals("")) {
+            et_hargaProduk.setError("Form ini harus diisi!");
+            et_hargaProduk.requestFocus();
+        } else if (et_keteranganProduk.isShown() && et_keteranganProduk.getText().toString().equals("")) {
+            et_keteranganProduk.setError("Form ini harus diisi!");
+            et_keteranganProduk.requestFocus();
+        } else {
+            simpanEditProduk();
+        }
+    }
+
     private void simpanEditProduk() {
+        loadingDialog.startLoading();
         final String inp_lapak_id = id_lapak;
         final String inp_namaProduk = et_namaProduk.getText().toString().trim();
         final String inp_keteranganProduk = et_keteranganProduk.getText().toString().trim();
-//        final String inp_gambarProduk = gambar;
-        final String inp_hargaProduk = et_hargaProduk.getText().toString().trim();
+        final String hargaProduka = et_hargaProduk.getText().toString().trim();
         final String inp_dilihatProduk = String.valueOf(dilihat);
+
+        final String inp_hargaProduk = hargaProduka.replace("Rp. ", "").replace(".", "");
 
         final String inp_gambarProduk = "data:image/png;base64," + getStringImage(bitmap);
 
@@ -312,5 +369,15 @@ public class EditProdukActivity extends AppCompatActivity {
         requestQueue.add(stringRequest);
 
     }
+
+    private String formatrupiah(Double number) {
+        Locale localeID = new Locale("IND", "ID");
+        NumberFormat numberFormat = NumberFormat.getCurrencyInstance(localeID);
+        String formatrupiah = numberFormat.format(number);
+        String[] split = formatrupiah.split(",");
+        int length = split[0].length();
+        return split[0].substring(0, 2) + ". " + split[0].substring(2, length);
+    }
+
 
 }

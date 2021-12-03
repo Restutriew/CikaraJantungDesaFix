@@ -240,17 +240,17 @@ public class LaporanFragment extends Fragment {
                                                 resi_photoLaporan, resi_waktu, resi_tanggal, resi_potoProfilLaporan, res_namaPendudukLaporan, res_dataLikeLaporan, res_jumlahLikeLaporan, res_statusLikeLaporan));
                                         laporanAdapter = new LaporanAdapter(getContext(), laporanList);
                                         rv_laporanAll.setAdapter(laporanAdapter);
+                                        laporanAdapter.setOnFavoriteClick(new LaporanAdapter.OnFavoriteClick() {
+                                            @Override
+                                            public void onItemClicked(LaporanModel data) {
+                                                Log.d("calpalnx", "onClick: testing tombol like " + data.getIsi());
+                                                addLike(data.getId());
+                                            }
+                                        });
                                     }
+
                                     //hilangkan loading
                                     loadingDialog.dissmissDialog();
-
-                                    laporanAdapter.setOnFavoriteClick(new LaporanAdapter.OnFavoriteClick() {
-                                        @Override
-                                        public void onItemClicked(LaporanModel data) {
-                                            Log.d("calpalnx", "onClick: testing tombol like " + data.getIsi());
-                                            addLike(data.getId());
-                                        }
-                                    });
 
                                 }
                             } else {

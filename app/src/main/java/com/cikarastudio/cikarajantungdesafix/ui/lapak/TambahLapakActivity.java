@@ -47,7 +47,6 @@ public class TambahLapakActivity extends AppCompatActivity {
     String id_user, token, link;
     private Bitmap bitmap;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,11 +92,11 @@ public class TambahLapakActivity extends AppCompatActivity {
         cr_simpanTambahLapak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loadingDialog.startLoading();
-                tambahLapak();
+                cekInputanTambahLapak();
             }
         });
     }
+
 
     private void chooseFile() {
         Intent intent = new Intent();
@@ -134,7 +133,27 @@ public class TambahLapakActivity extends AppCompatActivity {
         return encodedImage;
     }
 
+    private void cekInputanTambahLapak() {
+        if (et_namaLapakTambah.isShown() && et_namaLapakTambah.getText().toString().equals("")) {
+            et_namaLapakTambah.setError("Form ini harus diisi!");
+            et_namaLapakTambah.requestFocus();
+        } else if (et_alamatLapakTambah.isShown() && et_alamatLapakTambah.getText().toString().equals("")) {
+            et_alamatLapakTambah.setError("Form ini harus diisi!");
+            et_alamatLapakTambah.requestFocus();
+        } else if (et_tentangLapakTambah.isShown() && et_tentangLapakTambah.getText().toString().equals("")) {
+            et_tentangLapakTambah.setError("Form ini harus diisi!");
+            et_tentangLapakTambah.requestFocus();
+        } else if (et_telpLapakTambah.isShown() && et_telpLapakTambah.getText().toString().length() < 10) {
+            et_telpLapakTambah.setError("Masukkan No Telepon/HP Dengan Benar!");
+            et_telpLapakTambah.requestFocus();
+        } else {
+            tambahLapak();
+        }
+    }
+
     private void tambahLapak() {
+        loadingDialog.startLoading();
+
         String URL_TAMBAHLAPAK = link + "tambahlapak";
         final String namalapak = et_namaLapakTambah.getText().toString().trim();
         final String alamatLapak = et_alamatLapakTambah.getText().toString().trim();

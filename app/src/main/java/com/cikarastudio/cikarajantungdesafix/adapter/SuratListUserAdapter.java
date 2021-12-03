@@ -86,12 +86,12 @@ public class SuratListUserAdapter extends RecyclerView.Adapter<SuratListUserAdap
         textFuntion.setTextDanNullData(holder.tv_statusSuratListUser, statusSurat);
         textFuntion.setTextDanNullData(holder.tv_tanggalPengajuanSuratListUser, tanggalfix);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onItemClickCallback.onItemClicked(mSuratUserList.get(holder.getAdapterPosition()));
-            }
-        });
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                onItemClickCallback.onItemClicked(mSuratUserList.get(holder.getAdapterPosition()));
+//            }
+//        });
     }
 
     @Override

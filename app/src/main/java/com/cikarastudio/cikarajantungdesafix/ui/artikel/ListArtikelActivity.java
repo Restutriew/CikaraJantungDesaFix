@@ -167,7 +167,12 @@ public class ListArtikelActivity extends AppCompatActivity implements View.OnCli
                                         @Override
                                         public void onItemClicked(KategoriArtikelModel data) {
                                             Log.d("calpalnx", "onItemClicked: " + data.getNama_kategori());
-                                            filterDashboard(data.getNama_kategori());
+                                            if (data.getNama_kategori().equals("semua")) {
+                                                loadArtikel();
+                                            } else {
+                                                filterDashboard(data.getNama_kategori());
+                                            }
+
                                         }
                                     });
                                     //hilangkan loading

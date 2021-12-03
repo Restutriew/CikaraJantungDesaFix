@@ -9,6 +9,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -34,9 +36,11 @@ import org.json.JSONObject;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.text.DateFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class TambahProdukActivity extends AppCompatActivity {
@@ -84,8 +88,7 @@ public class TambahProdukActivity extends AppCompatActivity {
         cr_tambahProduk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loadingDialog.startLoading();
-                addProduk();
+                cekInputanTambahProduk();
             }
         });
 
@@ -96,6 +99,43 @@ public class TambahProdukActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+
+        et_hargaProduk.addTextChangedListener(new TextWatcher() {
+            private String setEditText = et_hargaProduk.getText().toString().trim();
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (!s.toString().equals(setEditText)) {
+                    et_hargaProduk.removeTextChangedListener(this);
+                    String replace = s.toString().replaceAll("[Rp. ]", "");
+                    if (!replace.isEmpty()) {
+                        setEditText = formatrupiah(Double.parseDouble(replace));
+                    } else {
+                        setEditText = "";
+                    }
+                    et_hargaProduk.setText(setEditText);
+                    et_hargaProduk.setSelection(setEditText.length());
+                    et_hargaProduk.addTextChangedListener(this);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable view) {
+
+            }
+        });
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
     }
 
@@ -134,14 +174,32 @@ public class TambahProdukActivity extends AppCompatActivity {
         return encodedImage;
     }
 
+    private void cekInputanTambahProduk() {
+        if (et_namaProduk.isShown() && et_namaProduk.getText().toString().equals("")) {
+            et_namaProduk.setError("Form ini harus diisi!");
+            et_namaProduk.requestFocus();
+        } else if (et_hargaProduk.isShown() && et_hargaProduk.getText().toString().equals("")) {
+            et_hargaProduk.setError("Form ini harus diisi!");
+            et_hargaProduk.requestFocus();
+        } else if (et_keteranganProduk.isShown() && et_keteranganProduk.getText().toString().equals("")) {
+            et_keteranganProduk.setError("Form ini harus diisi!");
+            et_keteranganProduk.requestFocus();
+        } else {
+            addProduk();
+        }
+    }
+
     private void addProduk() {
+        loadingDialog.startLoading();
         String URL_TAMBAHPRODUK = link + "produk";
         final String namaProduk = et_namaProduk.getText().toString().trim();
-        final String hargaProduk = et_hargaProduk.getText().toString().trim();
+        final String hargaProduka = et_hargaProduk.getText().toString().trim();
         final String keteranganProduk = et_keteranganProduk.getText().toString().trim();
         final String lapak_id = id_lapak;
         final String dilihat = "0";
         final String gambar = "data:image/png;base64," + getStringImage(bitmap);
+
+        final String hargaProduk = hargaProduka.replace("Rp. ", "").replace(".", "");
 
         Log.d("calpalnx", String.valueOf(namaProduk));
         Log.d("calpalnx", String.valueOf(hargaProduk));
@@ -199,5 +257,14 @@ public class TambahProdukActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
 
+    }
+
+    private String formatrupiah(Double number) {
+        Locale localeID = new Locale("IND", "ID");
+        NumberFormat numberFormat = NumberFormat.getCurrencyInstance(localeID);
+        String formatrupiah = numberFormat.format(number);
+        String[] split = formatrupiah.split(",");
+        int length = split[0].length();
+        return split[0].substring(0, 2) + ". " + split[0].substring(2, length);
     }
 }

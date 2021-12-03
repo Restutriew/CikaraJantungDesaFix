@@ -57,14 +57,18 @@ public class LoginActivity extends AppCompatActivity {
         textFuntion.hideEdittextKeyboard(et_loginEmail);
         textFuntion.hideEdittextKeyboard(et_loginPassword);
 
-
         cr_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String Semail = et_loginEmail.getText().toString();
                 String Spassword = et_loginPassword.getText().toString();
+
+                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
                 if (Semail.equals("")) {
                     textFuntion.cekKosongEdittext(et_loginEmail, "Email");
+                } else if (!Semail.matches(emailPattern)) {
+                    Toast.makeText(getApplicationContext(), "Penulisan Email Salah, Masukkan Email Dengan Benar!", Toast.LENGTH_SHORT).show();
                 } else if (Spassword.equals("")) {
                     textFuntion.cekKosongEdittext(et_loginPassword, "Password");
                 } else {
@@ -94,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
                                     JSONObject object = jsonArray.getJSONObject(i);
                                     String id = object.getString("id").trim();
                                     sessionManager.createSession(id);
-                                    Toast.makeText(LoginActivity.this, "Login Berhasil! " , Toast.LENGTH_LONG).show();
+                                    Toast.makeText(LoginActivity.this, "Login Berhasil! ", Toast.LENGTH_LONG).show();
                                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                     startActivity(intent);
                                     finish();
@@ -106,7 +110,7 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Toast.makeText(LoginActivity.this, "Login Gagal : Email Salah!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this, "Login Gagal : Email Tidak Ditemukan, Mohon Periksa Kembali Email Anda!", Toast.LENGTH_LONG).show();
                             loadingDialog.dissmissDialog();
                         }
                     }

@@ -101,7 +101,8 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/border_putih_biru_inputan"
                         android:fontFamily="@font/inter_regular"
-                        android:hint="Harga Produk (Rp.)" />
+                        android:hint="Harga Produk (Rp.)"
+                        android:inputType="number" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 

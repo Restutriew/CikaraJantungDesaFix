@@ -9,6 +9,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -51,6 +53,7 @@ public class TambahLaporanActivity extends AppCompatActivity {
     ImageView img_back, img_chooseTambahLaporan, img_frameTambahLaporan;
     CardView cr_tambahLaporan, cr_fotoLaporan;
     Bitmap bitmap;
+    TextView tv_itungCharLaporan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +68,7 @@ public class TambahLaporanActivity extends AppCompatActivity {
         img_chooseTambahLaporan = findViewById(R.id.img_chooseTambahLaporan);
         cr_fotoLaporan = findViewById(R.id.cr_fotoLaporan);
         img_frameTambahLaporan = findViewById(R.id.img_frameTambahLaporan);
+        tv_itungCharLaporan = findViewById(R.id.tv_itungCharLaporan);
 
         sessionManager = new SessionManager(TambahLaporanActivity.this);
         sessionManager.checkLogin();
@@ -104,7 +108,6 @@ public class TambahLaporanActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 cekInputEdittext();
-//                tambahDataLaporan();
             }
         });
 
@@ -112,6 +115,22 @@ public class TambahLaporanActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 chooseFile();
+            }
+        });
+
+        et_isilaporan.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int aft) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // this will show characters remaining
+                tv_itungCharLaporan.setText(250 - s.toString().length() + "/250");
             }
         });
 
@@ -182,9 +201,9 @@ public class TambahLaporanActivity extends AppCompatActivity {
         final String statusLaporan = "menunggu";
         final String identitasLaporan = sp_identitasLaporan.getSelectedItem().toString().toLowerCase();
         final String postingLaporan = sp_postingLaporan.getSelectedItem().toString().toLowerCase();
-        if (cr_fotoLaporan.isShown()){
+        if (cr_fotoLaporan.isShown()) {
             uploadBase64 = "data:image/png;base64," + getStringImage(bitmap);
-        }else{
+        } else {
             uploadBase64 = "data:image/png;base64,";
         }
 

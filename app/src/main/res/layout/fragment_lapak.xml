@@ -284,6 +284,17 @@
                     android:text="Populer"
                     android:textColor="@color/biru2" />
 
+                <TextView
+                    android:id="@+id/tv_sortProdukWaktu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    android:background="@drawable/border_putih_biru_muda"
+                    android:fontFamily="@font/inter_semibold"
+                    android:padding="10dp"
+                    android:text="Waktu"
+                    android:textColor="@color/biru2" />
+
             </LinearLayout>
 
         </HorizontalScrollView>

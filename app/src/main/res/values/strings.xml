@@ -24,7 +24,7 @@
         <item>Perempuan</item>
     </string-array>
 
-    <string-array name="pekerjaan">
+    <string-array name="pekerjaan_mentahan">
         <item>Pilih Pekerjaan</item>
         <item>Belum/Tidak Bekerja</item>
         <item>Mengurus Rumah Tangga</item>
@@ -112,6 +112,190 @@
         <item>Perangkat Desa</item>
         <item>Kepala Desa</item>
         <item>Biarawati</item>
+        <item>Lainnya</item>
+    </string-array>
+
+    <string-array name="pekerjaan_ibu">
+        <item>Pilih Pekerjaan</item>
+        <item>Belum/Tidak Bekerja</item>
+        <item>Mengurus Rumah Tangga</item>
+        <item>Akuntan</item>
+        <item>Anggota BPK</item>
+        <item>Anggota DPR-RI</item>
+        <item>Anggota DPRD Kabupaten/Kota</item>
+        <item>Anggota DPRD Provinsi</item>
+        <item>Anggota DPS</item>
+        <item>Anggota Kabinet Kementerian</item>
+        <item>Anggota Mahkamah Konstitusi</item>
+        <item>Apoteker</item>
+        <item>Arsitek</item>
+        <item>Biarawati</item>
+        <item>Bidan</item>
+        <item>Bupati</item>
+        <item>Buruh Harian Lepas</item>
+        <item>Buruh Nelayan/Perikanan</item>
+        <item>Buruh Peternakan</item>
+        <item>Buruh Tani/Perkebunan</item>
+        <item>Dokter</item>
+        <item>Dosen</item>
+        <item>Duta Besar</item>
+        <item>Gubernur</item>
+        <item>Guru</item>
+        <item>Imam Masjid</item>
+        <item>Industri</item>
+        <item>Juru Masak</item>
+        <item>Karyawan BUMD</item>
+        <item>Karyawan Honorer</item>
+        <item>Karyawan Swasta</item>
+        <item>Kepala Desa</item>
+        <item>Kepolisian RI (POLRI)</item>
+        <item>Konsultan</item>
+        <item>Kontruksi</item>
+        <item>Mekanik</item>
+        <item>Nelayan/Perikanan</item>
+        <item>Notaris</item>
+        <item>Paraji</item>
+        <item>Paranormal</item>
+        <item>Pastor</item>
+        <item>Pedagang</item>
+        <item>Pegawai Negeri Sipil (PNS)</item>
+        <item>Pelajar/Mahasiswa</item>
+        <item>Pelaut</item>
+        <item>Pembantu Rumah Tangga</item>
+        <item>Penata Busana</item>
+        <item>Penata Rambut</item>
+        <item>Penata Rias</item>
+        <item>Pendeta</item>
+        <item>Peneliti</item>
+        <item>Pengacara</item>
+        <item>Pensiunan</item>
+        <item>Penyiar Radio</item>
+        <item>Penyiar Televisi</item>
+        <item>Perancang Busana</item>
+        <item>Perangkat Desa</item>
+        <item>Perawat</item>
+        <item>Perdagangan</item>
+        <item>Petani/Pekebun</item>
+        <item>Peterjemah</item>
+        <item>Peternak</item>
+        <item>Pialang</item>
+        <item>Pilot</item>
+        <item>Presiden</item>
+        <item>Promotor Acara</item>
+        <item>Psikiater/Psikolog</item>
+        <item>Seniman</item>
+        <item>Sopir</item>
+        <item>Tabib</item>
+        <item>Tentara Nasional Indonesia (TNI)</item>
+        <item>Tranportasi</item>
+        <item>Tukang Batu</item>
+        <item>Tukang Cukur</item>
+        <item>Tukang Gigi</item>
+        <item>Tukang Jahit</item>
+        <item>Tukang Kayu</item>
+        <item>Tukang Las/Pandai Besi</item>
+        <item>Tukang Listrik</item>
+        <item>Tukang Sol Sepatu</item>
+        <item>Ustadz/Mubaligh</item>
+        <item>Wakil Bupati</item>
+        <item>Wakil Gubernur</item>
+        <item>Wakil Presiden</item>
+        <item>Wakil Walikota</item>
+        <item>Walikota</item>
+        <item>Wartawan</item>
+        <item>Wiraswasta</item>
+        <item>Lainnya</item>
+    </string-array>
+
+    <string-array name="pekerjaan">
+        <item>Pilih Pekerjaan</item>
+        <item>Belum/Tidak Bekerja</item>
+        <item>Wiraswasta</item>
+        <item>Pegawai Negeri Sipil (PNS)</item>
+        <item>Akuntan</item>
+        <item>Anggota BPK</item>
+        <item>Anggota DPR-RI</item>
+        <item>Anggota DPRD Kabupaten/Kota</item>
+        <item>Anggota DPRD Provinsi</item>
+        <item>Anggota DPS</item>
+        <item>Anggota Kabinet Kementerian</item>
+        <item>Anggota Mahkamah Konstitusi</item>
+        <item>Apoteker</item>
+        <item>Arsitek</item>
+        <item>Biarawati</item>
+        <item>Bidan</item>
+        <item>Bupati</item>
+        <item>Buruh Harian Lepas</item>
+        <item>Buruh Nelayan/Perikanan</item>
+        <item>Buruh Peternakan</item>
+        <item>Buruh Tani/Perkebunan</item>
+        <item>Dokter</item>
+        <item>Dosen</item>
+        <item>Duta Besar</item>
+        <item>Gubernur</item>
+        <item>Guru</item>
+        <item>Imam Masjid</item>
+        <item>Industri</item>
+        <item>Juru Masak</item>
+        <item>Karyawan BUMD</item>
+        <item>Karyawan Honorer</item>
+        <item>Karyawan Swasta</item>
+        <item>Kepala Desa</item>
+        <item>Kepolisian RI (POLRI)</item>
+        <item>Konsultan</item>
+        <item>Kontruksi</item>
+        <item>Mekanik</item>
+        <item>Mengurus Rumah Tangga</item>
+        <item>Nelayan/Perikanan</item>
+        <item>Notaris</item>
+        <item>Paraji</item>
+        <item>Paranormal</item>
+        <item>Pastor</item>
+        <item>Pedagang</item>
+        <item>Pelajar/Mahasiswa</item>
+        <item>Pelaut</item>
+        <item>Pembantu Rumah Tangga</item>
+        <item>Penata Busana</item>
+        <item>Penata Rambut</item>
+        <item>Penata Rias</item>
+        <item>Pendeta</item>
+        <item>Peneliti</item>
+        <item>Pengacara</item>
+        <item>Pensiunan</item>
+        <item>Penyiar Radio</item>
+        <item>Penyiar Televisi</item>
+        <item>Perancang Busana</item>
+        <item>Perangkat Desa</item>
+        <item>Perawat</item>
+        <item>Perdagangan</item>
+        <item>Petani/Pekebun</item>
+        <item>Peterjemah</item>
+        <item>Peternak</item>
+        <item>Pialang</item>
+        <item>Pilot</item>
+        <item>Presiden</item>
+        <item>Promotor Acara</item>
+        <item>Psikiater/Psikolog</item>
+        <item>Seniman</item>
+        <item>Sopir</item>
+        <item>Tabib</item>
+        <item>Tentara Nasional Indonesia (TNI)</item>
+        <item>Tranportasi</item>
+        <item>Tukang Batu</item>
+        <item>Tukang Cukur</item>
+        <item>Tukang Gigi</item>
+        <item>Tukang Jahit</item>
+        <item>Tukang Kayu</item>
+        <item>Tukang Las/Pandai Besi</item>
+        <item>Tukang Listrik</item>
+        <item>Tukang Sol Sepatu</item>
+        <item>Ustadz/Mubaligh</item>
+        <item>Wakil Bupati</item>
+        <item>Wakil Gubernur</item>
+        <item>Wakil Presiden</item>
+        <item>Wakil Walikota</item>
+        <item>Walikota</item>
+        <item>Wartawan</item>
         <item>Lainnya</item>
     </string-array>
 

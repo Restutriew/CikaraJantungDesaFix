@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,6 +32,7 @@ import com.cikarastudio.cikarajantungdesafix.R;
 import com.cikarastudio.cikarajantungdesafix.adapter.LaporanAdapter;
 import com.cikarastudio.cikarajantungdesafix.adapter.SuratListUserAdapter;
 import com.cikarastudio.cikarajantungdesafix.model.LaporanModel;
+import com.cikarastudio.cikarajantungdesafix.model.LaporanUserModel;
 import com.cikarastudio.cikarajantungdesafix.model.ProdukModel;
 import com.cikarastudio.cikarajantungdesafix.model.SuratModel;
 import com.cikarastudio.cikarajantungdesafix.model.SuratV2Model;
@@ -57,6 +59,7 @@ public class SuratFragment extends Fragment implements View.OnClickListener {
     SuratListUserAdapter suratListUserAdapter;
     ImageView img_tambahSurat;
     SearchView et_suratSearch;
+    CardView cr_dashboardTotalSurat, cr_dashboardSelesaiSurat, cr_dashboardDiprosesSurat, cr_dashboardMenungguSurat;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -93,6 +96,18 @@ public class SuratFragment extends Fragment implements View.OnClickListener {
         tv_dashboardSuratDiprosesSurat = root.findViewById(R.id.tv_dashboardSuratDiprosesSurat);
         tv_dashboardSuratMenungguSurat = root.findViewById(R.id.tv_dashboardSuratMenungguSurat);
         et_suratSearch = root.findViewById(R.id.et_suratSearch);
+
+        cr_dashboardTotalSurat = root.findViewById(R.id.cr_dashboardTotalSurat);
+        cr_dashboardTotalSurat.setOnClickListener(this);
+
+        cr_dashboardSelesaiSurat = root.findViewById(R.id.cr_dashboardSelesaiSurat);
+        cr_dashboardSelesaiSurat.setOnClickListener(this);
+
+        cr_dashboardDiprosesSurat = root.findViewById(R.id.cr_dashboardDiprosesSurat);
+        cr_dashboardDiprosesSurat.setOnClickListener(this);
+
+        cr_dashboardMenungguSurat = root.findViewById(R.id.cr_dashboardMenungguSurat);
+        cr_dashboardMenungguSurat.setOnClickListener(this);
 
         img_tambahSurat = root.findViewById(R.id.img_tambahSurat);
         img_tambahSurat.setOnClickListener(this);
@@ -131,6 +146,46 @@ public class SuratFragment extends Fragment implements View.OnClickListener {
         });
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.img_tambahSurat:
+                // do your code
+                Intent keTambahSurat = new Intent(getActivity(), ListKategoriSuratActivity.class);
+                startActivity(keTambahSurat);
+                break;
+            case R.id.cr_dashboardTotalSurat:
+                // do your code
+                loadSuratUser();
+                break;
+            case R.id.cr_dashboardSelesaiSurat:
+                // do your code
+                filterDashboard("selesai");
+                break;
+            case R.id.cr_dashboardDiprosesSurat:
+                // do your code
+                filterDashboard("proses");
+                break;
+            case R.id.cr_dashboardMenungguSurat:
+                // do your code
+                filterDashboard("menunggu");
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void filterDashboard(String bahan) {
+        bahan = bahan.toLowerCase();
+        ArrayList<SuratV2Model> dataFilter = new ArrayList<>();
+        for (SuratV2Model data : suratUserlist) {
+            String status = data.getStatus().toLowerCase();
+            if (status.contains(bahan)) {
+                dataFilter.add(data);
+            }
+        }
+        suratListUserAdapter.setFilter(dataFilter);
+    }
 
     private void loadDashboardSurat() {
         String URL_READ = link + "dashboarduser/surat/" + id_user;
@@ -183,7 +238,9 @@ public class SuratFragment extends Fragment implements View.OnClickListener {
     }
 
     private void loadSuratUser() {
-        suratUserlist.clear();
+        if (suratUserlist.size() > 0) {
+            suratUserlist.clear();
+        }
         String URL_READ = link + "listsuratbyuser/" + id_user;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
                 new Response.Listener<String>() {
@@ -355,16 +412,5 @@ public class SuratFragment extends Fragment implements View.OnClickListener {
         requestQueue.add(stringRequest);
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.img_tambahSurat:
-                // do your code
-                Intent keTambahSurat = new Intent(getActivity(), ListKategoriSuratActivity.class);
-                startActivity(keTambahSurat);
-                break;
-            default:
-                break;
-        }
-    }
+
 }

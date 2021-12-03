@@ -719,6 +719,7 @@
                     android:fontFamily="@font/inter_regular"
                     android:gravity="start"
                     android:hint="Waktu Lahir"
+                    android:inputType="number"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>

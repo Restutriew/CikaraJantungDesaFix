@@ -66,7 +66,7 @@ public class LapakFragment extends Fragment {
             token;
 
     LinearLayout line_editLapak;
-    TextView tv_tambahProduk, tv_sortProdukAlfabet, tv_sortProdukHarga, tv_sortProdukPopuler,
+    TextView tv_tambahProduk, tv_sortProdukAlfabet, tv_sortProdukHarga, tv_sortProdukPopuler, tv_sortProdukWaktu,
     //lapak
     tv_namaLapak, tv_alamatLapak, tv_telpLapak, tv_tentangLapak, tv_statusLapak,
     //atas
@@ -214,6 +214,7 @@ public class LapakFragment extends Fragment {
         tv_sortProdukAlfabet = root.findViewById(R.id.tv_sortProdukAlfabet);
         tv_sortProdukHarga = root.findViewById(R.id.tv_sortProdukHarga);
         tv_sortProdukPopuler = root.findViewById(R.id.tv_sortProdukPopuler);
+        tv_sortProdukWaktu = root.findViewById(R.id.tv_sortProdukWaktu);
 
         tv_sortProdukAlfabet.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -221,9 +222,11 @@ public class LapakFragment extends Fragment {
                 tv_sortProdukAlfabet.setBackgroundResource(R.drawable.border_biru_muda);
                 tv_sortProdukHarga.setBackgroundResource(R.drawable.border_putih_biru_muda);
                 tv_sortProdukPopuler.setBackgroundResource(R.drawable.border_putih_biru_muda);
+                tv_sortProdukWaktu.setBackgroundResource(R.drawable.border_putih_biru_muda);
                 tv_sortProdukAlfabet.setTextColor(getResources().getColor(R.color.white));
                 tv_sortProdukHarga.setTextColor(getResources().getColor(R.color.biru2));
                 tv_sortProdukPopuler.setTextColor(getResources().getColor(R.color.biru2));
+                tv_sortProdukWaktu.setTextColor(getResources().getColor(R.color.biru2));
                 sortAlfabet();
             }
         });
@@ -234,10 +237,11 @@ public class LapakFragment extends Fragment {
                 tv_sortProdukHarga.setBackgroundResource(R.drawable.border_biru_muda);
                 tv_sortProdukAlfabet.setBackgroundResource(R.drawable.border_putih_biru_muda);
                 tv_sortProdukPopuler.setBackgroundResource(R.drawable.border_putih_biru_muda);
+                tv_sortProdukWaktu.setBackgroundResource(R.drawable.border_putih_biru_muda);
                 tv_sortProdukHarga.setTextColor(getResources().getColor(R.color.white));
                 tv_sortProdukAlfabet.setTextColor(getResources().getColor(R.color.biru2));
                 tv_sortProdukPopuler.setTextColor(getResources().getColor(R.color.biru2));
-
+                tv_sortProdukWaktu.setTextColor(getResources().getColor(R.color.biru2));
                 sortHarga();
             }
         });
@@ -248,10 +252,27 @@ public class LapakFragment extends Fragment {
                 tv_sortProdukPopuler.setBackgroundResource(R.drawable.border_biru_muda);
                 tv_sortProdukHarga.setBackgroundResource(R.drawable.border_putih_biru_muda);
                 tv_sortProdukAlfabet.setBackgroundResource(R.drawable.border_putih_biru_muda);
+                tv_sortProdukWaktu.setBackgroundResource(R.drawable.border_putih_biru_muda);
                 tv_sortProdukPopuler.setTextColor(getResources().getColor(R.color.white));
                 tv_sortProdukHarga.setTextColor(getResources().getColor(R.color.biru2));
                 tv_sortProdukAlfabet.setTextColor(getResources().getColor(R.color.biru2));
+                tv_sortProdukWaktu.setTextColor(getResources().getColor(R.color.biru2));
                 sortAngka();
+            }
+        });
+
+        tv_sortProdukWaktu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tv_sortProdukWaktu.setBackgroundResource(R.drawable.border_biru_muda);
+                tv_sortProdukPopuler.setBackgroundResource(R.drawable.border_putih_biru_muda);
+                tv_sortProdukHarga.setBackgroundResource(R.drawable.border_putih_biru_muda);
+                tv_sortProdukAlfabet.setBackgroundResource(R.drawable.border_putih_biru_muda);
+                tv_sortProdukWaktu.setTextColor(getResources().getColor(R.color.white));
+                tv_sortProdukPopuler.setTextColor(getResources().getColor(R.color.biru2));
+                tv_sortProdukHarga.setTextColor(getResources().getColor(R.color.biru2));
+                tv_sortProdukAlfabet.setTextColor(getResources().getColor(R.color.biru2));
+                loadProduct();
             }
         });
 
@@ -264,6 +285,9 @@ public class LapakFragment extends Fragment {
         loadingDialog.startLoading();
         loadLapak();
         loadProduct();
+        if (produkList.size() > 0) {
+            sortAlfabet();
+        }
 
         et_produkSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @SuppressLint("SetTextI18n")
@@ -397,9 +421,9 @@ public class LapakFragment extends Fragment {
                                     produkAdapter = new ProdukAdapter(getContext(), produkList);
                                     recyclerView.setAdapter(produkAdapter);
                                     //sort alfabet
-                                    if (produkList.size() > 0) {
-                                        sortAlfabet();
-                                    }
+//                                    if (produkList.size() > 0) {
+//                                        sortAlfabet();
+//                                    }
                                     produkAdapter.setOnItemClickCallback(new ProdukAdapter.OnItemClickCallback() {
                                         @Override
                                         public void onItemClicked(ProdukModel data) {
@@ -516,33 +540,40 @@ public class LapakFragment extends Fragment {
 
     //sort alfabet
     private void sortAlfabet() {
-        Collections.sort(produkList, new Comparator<ProdukModel>() {
-            @Override
-            public int compare(ProdukModel t1, ProdukModel t2) {
-                return t1.getNama().compareToIgnoreCase(t2.getNama());
-            }
-        });
-        produkAdapter.notifyDataSetChanged();
+        if (produkList.size() > 0) {
+            Collections.sort(produkList, new Comparator<ProdukModel>() {
+                @Override
+                public int compare(ProdukModel t1, ProdukModel t2) {
+                    return t1.getNama().compareToIgnoreCase(t2.getNama());
+                }
+            });
+            produkAdapter.notifyDataSetChanged();
+        }
     }
 
     //sort harga
     private void sortHarga() {
-        Collections.sort(produkList, new Comparator<ProdukModel>() {
-            public int compare(ProdukModel o1, ProdukModel o2) {
-                return o1.getHarga() - o2.getHarga();
-            }
-        });
-        produkAdapter.notifyDataSetChanged();
+        if (produkList.size() > 0) {
+            Collections.sort(produkList, new Comparator<ProdukModel>() {
+                public int compare(ProdukModel o1, ProdukModel o2) {
+                    return o1.getHarga() - o2.getHarga();
+                }
+            });
+            produkAdapter.notifyDataSetChanged();
+        }
     }
 
     //sort angka
     private void sortAngka() {
-        Collections.sort(produkList, new Comparator<ProdukModel>() {
-            public int compare(ProdukModel o1, ProdukModel o2) {
-                return o2.getDilihat() - o1.getDilihat();
-            }
-        });
-        produkAdapter.notifyDataSetChanged();
+        if (produkList.size() > 0) {
+            Collections.sort(produkList, new Comparator<ProdukModel>() {
+                public int compare(ProdukModel o1, ProdukModel o2) {
+                    return o2.getDilihat() - o1.getDilihat();
+                }
+            });
+            produkAdapter.notifyDataSetChanged();
+        }
+
     }
 
 }

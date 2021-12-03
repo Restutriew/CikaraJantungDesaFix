@@ -346,10 +346,14 @@ public class TambahSuratActivity extends AppCompatActivity implements View.OnCli
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.jenis_kelamin));
         sp_jenisKelaminSurat.setAdapter(jenisKelaminAdapter);
 
+        ArrayAdapter<String> pekerjaanIbuAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.pekerjaan_ibu));
+        sp_pekerjaanIbuSurat.setAdapter(pekerjaanIbuAdapter);
+
+
         ArrayAdapter<String> pekerjaanAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.pekerjaan));
         sp_pekerjaanAyahSurat.setAdapter(pekerjaanAdapter);
-        sp_pekerjaanIbuSurat.setAdapter(pekerjaanAdapter);
         sp_pekerjaanPelaporSurat.setAdapter(pekerjaanAdapter);
         sp_pekerjaanSurat.setAdapter(pekerjaanAdapter);
         sp_pekerjaanSaksi1Surat.setAdapter(pekerjaanAdapter);

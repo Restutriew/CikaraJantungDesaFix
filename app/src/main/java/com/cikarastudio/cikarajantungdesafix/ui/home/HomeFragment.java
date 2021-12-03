@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -109,7 +110,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         loadPerangkatDesa();
 
         tv_dashboardLaporanDibuat = root.findViewById(R.id.tv_dashboardLaporanDibuat);
-        tv_dashboardForumDiikuti =root.findViewById(R.id.tv_dashboardForumDiikuti);
+        tv_dashboardForumDiikuti = root.findViewById(R.id.tv_dashboardForumDiikuti);
         tv_dashboardJumlahProduk = root.findViewById(R.id.tv_dashboardJumlahProduk);
         tv_dashboardSuratDibuat = root.findViewById(R.id.tv_dashboardSuratDibuat);
 
@@ -121,6 +122,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         cr_dashboardForumDiikuti = root.findViewById(R.id.cr_dashboardForumDiikuti);
         cr_dashboardForumDiikuti.setOnClickListener(this);
+
+        cr_dashboardJumlahProduk = root.findViewById(R.id.cr_dashboardJumlahProduk);
+        cr_dashboardJumlahProduk.setOnClickListener(this);
+
+        cr_dashboardSuratDibuat = root.findViewById(R.id.cr_dashboardSuratDibuat);
+        cr_dashboardSuratDibuat.setOnClickListener(this);
 
         cr_fotoProfil = root.findViewById(R.id.cr_fotoProfil);
         cr_fotoProfil.setOnClickListener(this);
@@ -152,6 +159,15 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.cr_dashboardForumDiikuti:
                 // do your code
+                Navigation.findNavController(v).navigate(R.id.navigation_forum);
+                break;
+            case R.id.cr_dashboardJumlahProduk:
+                // do your code
+                Navigation.findNavController(v).navigate(R.id.navigation_lapak);
+                break;
+            case R.id.cr_dashboardSuratDibuat:
+                // do your code
+                Navigation.findNavController(v).navigate(R.id.navigation_surat);
                 break;
             case R.id.cr_fotoProfil:
                 // do your code

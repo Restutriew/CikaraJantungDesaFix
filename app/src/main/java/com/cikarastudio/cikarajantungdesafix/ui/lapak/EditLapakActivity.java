@@ -90,7 +90,7 @@ public class EditLapakActivity extends AppCompatActivity {
         cr_simpanEditLapak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editLapak();
+                cekInputanEditLapak();
             }
         });
 
@@ -111,6 +111,8 @@ public class EditLapakActivity extends AppCompatActivity {
         });
 
     }
+
+
 
     private void chooseFile() {
         Intent intent = new Intent();
@@ -145,6 +147,24 @@ public class EditLapakActivity extends AppCompatActivity {
         String encodedImage = Base64.encodeToString(imageByteArray, Base64.DEFAULT);
 
         return encodedImage;
+    }
+
+    private void cekInputanEditLapak() {
+        if (et_namaLapakEdit.isShown() && et_namaLapakEdit.getText().toString().equals("")) {
+            et_namaLapakEdit.setError("Form ini harus diisi!");
+            et_namaLapakEdit.requestFocus();
+        } else if (et_alamatLapakEdit.isShown() && et_alamatLapakEdit.getText().toString().equals("")) {
+            et_alamatLapakEdit.setError("Form ini harus diisi!");
+            et_alamatLapakEdit.requestFocus();
+        } else if (et_tentangLapakEdit.isShown() && et_tentangLapakEdit.getText().toString().equals("")) {
+            et_tentangLapakEdit.setError("Form ini harus diisi!");
+            et_tentangLapakEdit.requestFocus();
+        } else if (et_telpLapakEdit.isShown() && et_telpLapakEdit.getText().toString().length() < 10) {
+            et_telpLapakEdit.setError("Masukkan No Telepon/HP Dengan Benar!");
+            et_telpLapakEdit.requestFocus();
+        } else {
+            editLapak();
+        }
     }
 
     private void editLapak() {
