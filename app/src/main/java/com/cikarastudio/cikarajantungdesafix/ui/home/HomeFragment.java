@@ -197,11 +197,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                             String imageUrl = linkGambar + "user/" + resi_gambar;
                             Picasso.with(getActivity()).load(imageUrl).fit().centerCrop().into(img_photouser);
                             //hilangkan loading
-                            loadingDialog.dissmissDialog();
+//                            loadingDialog.dissmissDialog();
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            loadingDialog.dissmissDialog();
+//                            loadingDialog.dissmissDialog();
                         }
 
                     }
@@ -209,7 +209,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 , new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                loadingDialog.dissmissDialog();
+//                loadingDialog.dissmissDialog();
                 Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!" + error, Toast.LENGTH_LONG).show();
             }
         }) {
@@ -246,11 +246,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                             textFuntion.setTextDanNullData(tv_dashboardSuratDibuat, res_surat);
 
                             //hilangkan loading
-                            loadingDialog.dissmissDialog();
+//                            loadingDialog.dissmissDialog();
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            loadingDialog.dissmissDialog();
+//                            loadingDialog.dissmissDialog();
                             Toast.makeText(getActivity(), "Data Dashboard Tidak Ada!" + e.toString(), Toast.LENGTH_LONG).show();
                         }
 
@@ -259,7 +259,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 , new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                loadingDialog.dissmissDialog();
+//                loadingDialog.dissmissDialog();
                 Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!" + error, Toast.LENGTH_LONG).show();
             }
         }) {
@@ -312,15 +312,15 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                                     });
 
                                     //hilangkan loading
-                                    loadingDialog.dissmissDialog();
+//                                    loadingDialog.dissmissDialog();
                                 }
                             } else {
                                 Toast.makeText(getActivity(), "Data Berita Tidak Ada!", Toast.LENGTH_SHORT).show();
-                                loadingDialog.dissmissDialog();
+//                                loadingDialog.dissmissDialog();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            loadingDialog.dissmissDialog();
+//                            loadingDialog.dissmissDialog();
                             Toast.makeText(getActivity(), "Data Berita Tidak Ada!", Toast.LENGTH_LONG).show();
                         }
 
@@ -329,7 +329,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 , new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                loadingDialog.dissmissDialog();
+//                loadingDialog.dissmissDialog();
                 Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!" + error, Toast.LENGTH_LONG).show();
             }
         }) {
@@ -360,15 +360,15 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                                     //data diri
                                     textFuntion.setTextDanNullData(tv_nama, res_nama);
                                     //hilangkan loading
-                                    loadingDialog.dissmissDialog();
+//                                    loadingDialog.dissmissDialog();
                                 }
                             } else {
 //                                Toast.makeText(getActivity(), "Data Akun Tidak Ada!", Toast.LENGTH_SHORT).show();
-                                loadingDialog.dissmissDialog();
+//                                loadingDialog.dissmissDialog();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            loadingDialog.dissmissDialog();
+//                            loadingDialog.dissmissDialog();
 //                            Toast.makeText(getActivity(), "Data Akun Tidak Ada!" + e.toString(), Toast.LENGTH_LONG).show();
                         }
 
@@ -377,7 +377,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 , new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                loadingDialog.dissmissDialog();
+//                loadingDialog.dissmissDialog();
                 Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!" + error, Toast.LENGTH_LONG).show();
             }
         }) {
@@ -438,15 +438,15 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                                     rv_perangkatDesa.setAdapter(perangkatDesaAdapter);
 
                                     //hilangkan loading
-                                    loadingDialog.dissmissDialog();
+//                                    loadingDialog.dissmissDialog();
                                 }
                             } else {
                                 Toast.makeText(getActivity(), "Data Perangkat Desa Tidak Ada!", Toast.LENGTH_SHORT).show();
-                                loadingDialog.dissmissDialog();
+//                                loadingDialog.dissmissDialog();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            loadingDialog.dissmissDialog();
+//                            loadingDialog.dissmissDialog();
                             Toast.makeText(getActivity(), "Data Perangkat Desa Tidak Ada!", Toast.LENGTH_LONG).show();
                         }
 
@@ -455,7 +455,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 , new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                loadingDialog.dissmissDialog();
+//                loadingDialog.dissmissDialog();
                 Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!" + error, Toast.LENGTH_LONG).show();
             }
         }) {

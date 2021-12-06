@@ -250,16 +250,16 @@ public class LaporanFragment extends Fragment {
                                     }
 
                                     //hilangkan loading
-                                    loadingDialog.dissmissDialog();
+//                                    loadingDialog.dissmissDialog();
 
                                 }
                             } else {
                                 Toast.makeText(getActivity(), "Data Laporan Tidak Ada!", Toast.LENGTH_SHORT).show();
-                                loadingDialog.dissmissDialog();
+//                                loadingDialog.dissmissDialog();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            loadingDialog.dissmissDialog();
+//                            loadingDialog.dissmissDialog();
                             Toast.makeText(getActivity(), "Data Laporan Tidak Ada!", Toast.LENGTH_LONG).show();
                         }
 
@@ -268,7 +268,7 @@ public class LaporanFragment extends Fragment {
                 , new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                loadingDialog.dissmissDialog();
+//                loadingDialog.dissmissDialog();
                 Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!" + error, Toast.LENGTH_LONG).show();
             }
         }) {
@@ -294,13 +294,13 @@ public class LaporanFragment extends Fragment {
                                 Toast.makeText(getActivity(), "Like Sukses", Toast.LENGTH_LONG).show();
                             } else {
                                 Toast.makeText(getActivity(), "Like Gagal!", Toast.LENGTH_LONG).show();
-                                loadingDialog.dissmissDialog();
+//                                loadingDialog.dissmissDialog();
                             }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
                             Toast.makeText(getActivity(), "Tambah Produk Gagal!" + e.toString(), Toast.LENGTH_LONG).show();
-                            loadingDialog.dissmissDialog();
+//                            loadingDialog.dissmissDialog();
                         }
                     }
                 },
@@ -308,7 +308,7 @@ public class LaporanFragment extends Fragment {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(getActivity(), "Tambah Produk Gagal! : Cek Koneksi Anda" + error, Toast.LENGTH_LONG).show();
-                        loadingDialog.dissmissDialog();
+//                        loadingDialog.dissmissDialog();
                     }
                 }) {
             @Override
@@ -379,15 +379,15 @@ public class LaporanFragment extends Fragment {
                                         }
                                     });
                                     //hilangkan loading
-                                    loadingDialog.dissmissDialog();
+//                                    loadingDialog.dissmissDialog();
                                 }
                             } else {
                                 Toast.makeText(getActivity(), "Data Kategori Tidak Ada!", Toast.LENGTH_SHORT).show();
-                                loadingDialog.dissmissDialog();
+//                                loadingDialog.dissmissDialog();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            loadingDialog.dissmissDialog();
+//                            loadingDialog.dissmissDialog();
                             Toast.makeText(getActivity(), "Data Kategori Tidak Ada!", Toast.LENGTH_LONG).show();
                         }
 
@@ -396,7 +396,7 @@ public class LaporanFragment extends Fragment {
                 , new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                loadingDialog.dissmissDialog();
+//                loadingDialog.dissmissDialog();
                 Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!" + error, Toast.LENGTH_LONG).show();
             }
         }) {

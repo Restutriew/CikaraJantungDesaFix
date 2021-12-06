@@ -117,15 +117,15 @@ public class ForumFragment extends Fragment {
                                         }
                                     });
                                     //hilangkan loading
-                                    loadingDialog.dissmissDialog();
+//                                    loadingDialog.dissmissDialog();
                                 }
                             } else {
                                 Toast.makeText(getActivity(), "Data Forum Tidak Ada!", Toast.LENGTH_SHORT).show();
-                                loadingDialog.dissmissDialog();
+//                                loadingDialog.dissmissDialog();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            loadingDialog.dissmissDialog();
+//                            loadingDialog.dissmissDialog();
                             Toast.makeText(getActivity(), "Data Forum Tidak Ada!" +e.toString(), Toast.LENGTH_LONG).show();
                         }
                     }
@@ -133,7 +133,7 @@ public class ForumFragment extends Fragment {
                 , new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                loadingDialog.dissmissDialog();
+//                loadingDialog.dissmissDialog();
                 Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!" + error.toString(), Toast.LENGTH_LONG).show();
             }
         }) {

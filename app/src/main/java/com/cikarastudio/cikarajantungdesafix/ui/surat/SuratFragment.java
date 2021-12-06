@@ -212,11 +212,11 @@ public class SuratFragment extends Fragment implements View.OnClickListener {
                             textFuntion.setTextDanNullData(tv_dashboardSuratMenungguSurat, res_menunggu);
 
                             //hilangkan loading
-                            loadingDialog.dissmissDialog();
+//                            loadingDialog.dissmissDialog();
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            loadingDialog.dissmissDialog();
+//                            loadingDialog.dissmissDialog();
                             Toast.makeText(getActivity(), "Data Dashboard Tidak Ada!" + e.toString(), Toast.LENGTH_LONG).show();
                         }
 
@@ -225,7 +225,7 @@ public class SuratFragment extends Fragment implements View.OnClickListener {
                 , new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                loadingDialog.dissmissDialog();
+//                loadingDialog.dissmissDialog();
                 Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!" + error, Toast.LENGTH_LONG).show();
             }
         }) {
@@ -383,15 +383,15 @@ public class SuratFragment extends Fragment implements View.OnClickListener {
                                     suratListUserAdapter = new SuratListUserAdapter(getContext(), suratUserlist);
                                     rv_listSuratUser.setAdapter(suratListUserAdapter);
                                     //hilangkan loading
-                                    loadingDialog.dissmissDialog();
+//                                    loadingDialog.dissmissDialog();
                                 }
                             } else {
                                 Toast.makeText(getActivity(), "Data Surat Tidak Ada!", Toast.LENGTH_SHORT).show();
-                                loadingDialog.dissmissDialog();
+//                                loadingDialog.dissmissDialog();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            loadingDialog.dissmissDialog();
+//                            loadingDialog.dissmissDialog();
                             Toast.makeText(getActivity(), "Data Surat Tidak Ada!" + e.toString(), Toast.LENGTH_LONG).show();
                         }
 
@@ -400,7 +400,7 @@ public class SuratFragment extends Fragment implements View.OnClickListener {
                 , new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                loadingDialog.dissmissDialog();
+//                loadingDialog.dissmissDialog();
                 Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!" + error, Toast.LENGTH_LONG).show();
             }
         }) {
