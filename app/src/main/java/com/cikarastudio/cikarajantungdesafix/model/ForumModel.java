@@ -5,6 +5,17 @@ import android.os.Parcelable;
 
 public class ForumModel implements Parcelable {
 
+    public static final Creator<ForumModel> CREATOR = new Creator<ForumModel>() {
+        @Override
+        public ForumModel createFromParcel(Parcel in) {
+            return new ForumModel(in);
+        }
+
+        @Override
+        public ForumModel[] newArray(int size) {
+            return new ForumModel[size];
+        }
+    };
     String id;
     String nama;
     String ket_forum;
@@ -21,6 +32,20 @@ public class ForumModel implements Parcelable {
         this.status = status;
         this.created_at = created_at;
         this.updated_at = updated_at;
+    }
+
+    protected ForumModel(Parcel in) {
+        id = in.readString();
+        nama = in.readString();
+        ket_forum = in.readString();
+        poto = in.readString();
+        status = in.readString();
+        created_at = in.readString();
+        updated_at = in.readString();
+    }
+
+    public static Creator<ForumModel> getCREATOR() {
+        return CREATOR;
     }
 
     public String getId() {
@@ -78,32 +103,6 @@ public class ForumModel implements Parcelable {
     public void setUpdated_at(String updated_at) {
         this.updated_at = updated_at;
     }
-
-    public static Creator<ForumModel> getCREATOR() {
-        return CREATOR;
-    }
-
-    protected ForumModel(Parcel in) {
-        id = in.readString();
-        nama = in.readString();
-        ket_forum = in.readString();
-        poto = in.readString();
-        status = in.readString();
-        created_at = in.readString();
-        updated_at = in.readString();
-    }
-
-    public static final Creator<ForumModel> CREATOR = new Creator<ForumModel>() {
-        @Override
-        public ForumModel createFromParcel(Parcel in) {
-            return new ForumModel(in);
-        }
-
-        @Override
-        public ForumModel[] newArray(int size) {
-            return new ForumModel[size];
-        }
-    };
 
     @Override
     public int describeContents() {

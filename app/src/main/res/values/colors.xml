@@ -5,6 +5,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="white_invi">#65FFFFFF</color>
 
     <color name="biru_cikara">#283444</color>
     <color name="biru_cikara_secondary">#536B8C</color>
@@ -15,6 +16,8 @@
     <color name="warna_bg">#EBFBFF</color>
     <color name="dongker">#21363f</color>
     <color name="hijau">#51FF2E</color>
+
+    <color name="fmaslfdnaknakf">#DDEEFF</color>
 
     <color name="hijausukses">#28A745</color>
     <color name="kuningproses">#FFC107</color>
@@ -29,15 +32,15 @@
     <color name="birubg">#D5FFFF</color>
 
 
-    <color name="dot_inactive_screen1">@color/biru1</color>
-    <color name="dot_inactive_screen2">@color/biru1</color>
-    <color name="dot_inactive_screen3">@color/biru1</color>
-    <color name="dot_inactive_screen4">@color/biru1</color>
+    <color name="dot_inactive_screen1">@color/abu</color>
+    <color name="dot_inactive_screen2">@color/abu</color>
+    <color name="dot_inactive_screen3">@color/abu</color>
+    <color name="dot_inactive_screen4">@color/abu</color>
     <!-- dots active colors -->
-    <color name="dot_active_screen1">@color/biru3</color>
-    <color name="dot_active_screen2">@color/biru3</color>
-    <color name="dot_active_screen3">@color/biru3</color>
-    <color name="dot_active_screen4">@color/biru3</color>
+    <color name="dot_active_screen1">@color/biru2</color>
+    <color name="dot_active_screen2">@color/biru2</color>
+    <color name="dot_active_screen3">@color/biru2</color>
+    <color name="dot_active_screen4">@color/biru2</color>
 
     <array name="array_dot_active">
         <item>@color/dot_active_screen1</item>

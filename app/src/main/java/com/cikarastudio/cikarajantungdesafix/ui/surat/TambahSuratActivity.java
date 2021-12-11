@@ -1,8 +1,5 @@
 package com.cikarastudio.cikarajantungdesafix.ui.surat;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -14,6 +11,9 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -47,7 +47,7 @@ public class TambahSuratActivity extends AppCompatActivity implements View.OnCli
     LoadingDialog loadingDialog;
     TextFuntion textFuntion;
     ImageView img_back;
-    String link, id_user, status, idSurat, namaSurat, kodeSurat;
+    String link, id_user, status, idSurat, namaSurat, kodeSurat,token;
     TextView tv_namaSurat;
     EditText et_keperluanSurat, et_keteranganSurat, et_kepalaKKSurat, et_noKKSurat, et_rtTujuanSurat,
             et_rwTujuanSurat, et_dusunTujuanSurat, et_desaTujuanSurat, et_kecamatanTujuanSurat,
@@ -117,6 +117,9 @@ public class TambahSuratActivity extends AppCompatActivity implements View.OnCli
 
         //inisiasi link
         link = getString(R.string.link);
+
+        //inisiasi token
+        token = getString(R.string.token);
 
         tv_namaSurat = findViewById(R.id.tv_namaSurat);
         textFuntion = new TextFuntion();
@@ -367,7 +370,7 @@ public class TambahSuratActivity extends AppCompatActivity implements View.OnCli
 
 
     private void loadFormIsian() {
-        String URL_READ = link + "formatsuratbykode/" + kodeSurat + "?versi=3";
+        String URL_READ = link + "formatsuratbykode/" + kodeSurat + "?versi=3&token=" + token;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
                 new Response.Listener<String>() {
                     @Override
@@ -1445,7 +1448,7 @@ public class TambahSuratActivity extends AppCompatActivity implements View.OnCli
                 params.put("desa_saksi2", desa_saksi2);
                 params.put("kec_saksi2", kec_saksi2);
                 params.put("kab_saksi2", kab_saksi2);
-                params.put("prov_saksi2", prov_saksi2);
+                params.put("token", token);
                 return params;
             }
         };

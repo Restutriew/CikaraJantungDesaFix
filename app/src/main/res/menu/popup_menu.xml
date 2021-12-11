@@ -4,6 +4,7 @@
     <item
         android:id="@+id/action_popup_edit"
         android:title="Edit" />
-    <item android:title="Hapus"
-        android:id="@+id/action_popup_delete"/>
+    <item
+        android:id="@+id/action_popup_delete"
+        android:title="Hapus" />
 </menu>

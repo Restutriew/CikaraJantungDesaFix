@@ -18,8 +18,6 @@ import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
 
 import java.util.ArrayList;
 
-import kotlin._Assertions;
-
 public class StatusAduanAdapter extends RecyclerView.Adapter<StatusAduanAdapter.StatusAduanViewHolder> {
 
     private Context mContext;
@@ -53,23 +51,23 @@ public class StatusAduanAdapter extends RecyclerView.Adapter<StatusAduanAdapter.
 
         if ("jk".equals(keyAduan)) {
             res_key = "jenis kelamin";
-        }else if ("no_akta".equals(keyAduan)){
+        } else if ("no_akta".equals(keyAduan)) {
             res_key = "nomor akta kelahiran";
-        }else if ("tgl_lahir".equals(keyAduan)){
+        } else if ("tgl_lahir".equals(keyAduan)) {
             res_key = "tanggal lahir";
-        }else if ("status_warganegara".equals(keyAduan)){
+        } else if ("status_warganegara".equals(keyAduan)) {
             res_key = "status kewarganegaraan";
-        }else if ("tgl_akhirpaspor".equals(keyAduan)){
+        } else if ("tgl_akhirpaspor".equals(keyAduan)) {
             res_key = "tanggal akhir paspor";
-        }else if ("no_telp".equals(keyAduan)){
+        } else if ("no_telp".equals(keyAduan)) {
             res_key = "nomor telepon";
-        }else if ("no_bukunikah".equals(keyAduan)){
+        } else if ("no_bukunikah".equals(keyAduan)) {
             res_key = "nomor buku nikah";
-        }else if ("tgl_perkawinan".equals(keyAduan)){
+        } else if ("tgl_perkawinan".equals(keyAduan)) {
             res_key = "tanggal perkawinan";
-        }else if ("tgl_perceraian".equals(keyAduan)){
+        } else if ("tgl_perceraian".equals(keyAduan)) {
             res_key = "tanggal perceraian";
-        }else {
+        } else {
             res_key = keyAduan.replace("_", " ");
         }
 

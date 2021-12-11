@@ -1,47 +1,43 @@
 package com.cikarastudio.cikarajantungdesafix.ui.laporan;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.Cache;
 import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.NetworkResponse;
+import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.cikarastudio.cikarajantungdesafix.R;
-import com.cikarastudio.cikarajantungdesafix.adapter.ArtikelAllAdapter;
 import com.cikarastudio.cikarajantungdesafix.adapter.KategoriAdapter;
 import com.cikarastudio.cikarajantungdesafix.adapter.LaporanAdapter;
-import com.cikarastudio.cikarajantungdesafix.model.ArtikelModel;
 import com.cikarastudio.cikarajantungdesafix.model.KategoriModel;
 import com.cikarastudio.cikarajantungdesafix.model.LaporanModel;
 import com.cikarastudio.cikarajantungdesafix.session.SessionManager;
 import com.cikarastudio.cikarajantungdesafix.ssl.HttpsTrustManager;
 import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
-import com.cikarastudio.cikarajantungdesafix.ui.artikel.DetailArtikelActivity;
-import com.cikarastudio.cikarajantungdesafix.ui.lapak.TambahProdukActivity;
 import com.cikarastudio.cikarajantungdesafix.ui.loadingdialog.LoadingDialog;
 import com.google.android.flexbox.FlexWrap;
 import com.google.android.flexbox.FlexboxLayoutManager;
@@ -53,6 +49,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -61,25 +58,27 @@ public class LaporanFragment extends Fragment {
 
     SessionManager sessionManager;
     LoadingDialog loadingDialog;
-    RecyclerView rv_kategori, rv_laporanAll;
-    private ArrayList<KategoriModel> kategoriList;
-    private KategoriAdapter kategoriAdapter;
-
-    private ArrayList<LaporanModel> laporanList;
-    private LaporanAdapter laporanAdapter;
-
-    private ArrayList<String> cateList;
-
+    RecyclerView rv_kategori, rv_laporanAll, rv_kategoriFilterPopUp;
     String id_user, link, linkGambar, token;
     ImageView img_laporanSaya, img_tambahLaporan;
     LinearLayout line_filterKategori;
-
     CarouselView carouselView;
     int[] sampleImages = {R.drawable.img_sampah,
             R.drawable.img_sampah1,
             R.drawable.img_sampah2,
             R.drawable.img_sampah3,
             R.drawable.img_sampah4};
+    ImageListener imageListener = new ImageListener() {
+        @Override
+        public void setImageForPosition(int position, ImageView imageView) {
+            imageView.setImageResource(sampleImages[position]);
+        }
+    };
+    private ArrayList<KategoriModel> kategoriList;
+    private KategoriAdapter kategoriAdapter;
+    private ArrayList<LaporanModel> laporanList;
+    private LaporanAdapter laporanAdapter;
+    private ArrayList<String> cateList;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -103,12 +102,9 @@ public class LaporanFragment extends Fragment {
         loadingDialog = new LoadingDialog(getActivity());
 
         cateList = new ArrayList<>();
-
         kategoriList = new ArrayList<>();
         rv_kategori = root.findViewById(R.id.rv_kategori);
         LinearLayoutManager rvKategoriAdapter = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-//        FlexboxLayoutManager layoutManager = new FlexboxLayoutManager(getContext());
-//        layoutManager.setFlexWrap(FlexWrap.WRAP);
         rv_kategori.setLayoutManager(rvKategoriAdapter);
         rv_kategori.setHasFixedSize(true);
 
@@ -121,11 +117,12 @@ public class LaporanFragment extends Fragment {
             }
         };
         rv_laporanAll.setLayoutManager(linearLayoutManageraaa);
+        rv_laporanAll.setHasFixedSize(true);
+
 //        rv_laporanAll.setLayoutManager(new LinearLayoutManager(getContext()));
 //        LinearLayoutManager lm = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false); // last argument (true) is flag for reverse layout
 //        rv_laporanAll.setLayoutManager(lm);
 //        rv_laporanAll.setNestedScrollingEnabled(false);
-        rv_laporanAll.setHasFixedSize(true);
 
 
         Log.d("calpalnx", String.valueOf(cateList));
@@ -153,14 +150,35 @@ public class LaporanFragment extends Fragment {
         line_filterKategori.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
-                        getActivity(), R.style.BottomSheetDialogTheme
-                );
-                View bottomSheetView = LayoutInflater.from(getActivity()).inflate(
-                        R.layout.layout_bottom_sheet,
-                        (LinearLayout) root.findViewById(R.id.bottomSheetContainer));
-                bottomSheetDialog.setContentView(bottomSheetView);
-                bottomSheetDialog.show();
+                final BottomSheetDialog dialog = new BottomSheetDialog(getActivity());
+                dialog.setContentView(R.layout.layout_bottom_sheet);
+                dialog.setCanceledOnTouchOutside(false);
+                rv_kategoriFilterPopUp = dialog.findViewById(R.id.rv_kategoriFilterPopUp);
+                FlexboxLayoutManager layoutManager = new FlexboxLayoutManager(getContext());
+                layoutManager.setFlexWrap(FlexWrap.WRAP);
+                rv_kategoriFilterPopUp.setAdapter(kategoriAdapter);
+                rv_kategoriFilterPopUp.setLayoutManager(layoutManager);
+                rv_kategoriFilterPopUp.setHasFixedSize(true);
+                kategoriAdapter.setOnItemClickCallback(new KategoriAdapter.OnItemClickCallback() {
+                    @Override
+                    public void onItemClicked(KategoriModel data) {
+                        Log.d("calpalnx", "onItemClicked: " + data.getNama_kategori());
+                        if (data.getNama_kategori().equals("semua")) {
+                            loadLaporan();
+                        } else {
+                            filterDashboard(data.getNama_kategori());
+                        }
+                    }
+                });
+
+                CardView cr_okFilterPopUp = dialog.findViewById(R.id.cr_okFilterPopUp);
+                cr_okFilterPopUp.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
             }
         });
 
@@ -171,31 +189,25 @@ public class LaporanFragment extends Fragment {
 
     }
 
-    ImageListener imageListener = new ImageListener() {
-        @Override
-        public void setImageForPosition(int position, ImageView imageView) {
-            imageView.setImageResource(sampleImages[position]);
-        }
-    };
-
     @Override
     public void onResume() {
         super.onResume();
-        loadingDialog.startLoading();
         loadLaporan();
         loadDataKategori();
+        if (kategoriList.size() > 0) {
+            kategoriAdapter.notifyDataSetChanged();
+        }
     }
 
     private void loadLaporan() {
-        if (laporanList.size() > 0) {
-            laporanList.clear();
-        }
-        String URL_READ = link + "lapor?user_id=" + id_user;
+        String URL_READ = link + "lapor?user_id=" + id_user + "&token=" + token;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
+                        if (laporanList.size() > 0) {
+                            laporanList.clear();
+                        }
                         try {
                             JSONArray jsonArray = new JSONArray(response);
                             if (jsonArray.length() > 0) {
@@ -249,29 +261,67 @@ public class LaporanFragment extends Fragment {
                                         });
                                     }
 
-                                    //hilangkan loading
-//                                    loadingDialog.dissmissDialog();
-
                                 }
-                            } else {
-                                Toast.makeText(getActivity(), "Data Laporan Tidak Ada!", Toast.LENGTH_SHORT).show();
-//                                loadingDialog.dissmissDialog();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-//                            loadingDialog.dissmissDialog();
                             Toast.makeText(getActivity(), "Data Laporan Tidak Ada!", Toast.LENGTH_LONG).show();
                         }
-
                     }
                 }
                 , new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-//                loadingDialog.dissmissDialog();
-                Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!" + error, Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!", Toast.LENGTH_LONG).show();
             }
         }) {
+            @Override
+            protected Response<String> parseNetworkResponse(NetworkResponse response) {
+                try {
+                    Cache.Entry cacheEntry = HttpHeaderParser.parseCacheHeaders(response);
+                    if (cacheEntry == null) {
+                        cacheEntry = new Cache.Entry();
+                    }
+                    final long cacheHitButRefreshed = 5 * 1000; // in 3 minutes cache will be hit, but also refreshed on background
+                    final long cacheExpired = 24 * 60 * 60 * 1000; // in 24 hours this cache entry expires completely
+                    long now = System.currentTimeMillis();
+                    final long softExpire = now + cacheHitButRefreshed;
+                    final long ttl = now + cacheExpired;
+                    cacheEntry.data = response.data;
+                    cacheEntry.softTtl = softExpire;
+                    cacheEntry.ttl = ttl;
+                    String headerValue;
+                    headerValue = response.headers.get("Date");
+                    if (headerValue != null) {
+                        cacheEntry.serverDate = HttpHeaderParser.parseDateAsEpoch(headerValue);
+                    }
+                    headerValue = response.headers.get("Last-Modified");
+                    if (headerValue != null) {
+                        cacheEntry.lastModified = HttpHeaderParser.parseDateAsEpoch(headerValue);
+                    }
+                    cacheEntry.responseHeaders = response.headers;
+                    final String jsonString = new String(response.data,
+                            HttpHeaderParser.parseCharset(response.headers));
+                    return Response.success(jsonString, cacheEntry);
+                } catch (UnsupportedEncodingException e) {
+                    return Response.error(new ParseError(e));
+                }
+            }
+
+            @Override
+            protected void deliverResponse(String response) {
+                super.deliverResponse(response);
+            }
+
+            @Override
+            public void deliverError(VolleyError error) {
+                super.deliverError(error);
+            }
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError) {
+                return super.parseNetworkError(volleyError);
+            }
         };
         int socketTimeout = 10000;
         RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
@@ -292,6 +342,7 @@ public class LaporanFragment extends Fragment {
 
                             if (success.equals("1")) {
                                 Toast.makeText(getActivity(), "Like Sukses", Toast.LENGTH_LONG).show();
+
                             } else {
                                 Toast.makeText(getActivity(), "Like Gagal!", Toast.LENGTH_LONG).show();
 //                                loadingDialog.dissmissDialog();
@@ -326,28 +377,29 @@ public class LaporanFragment extends Fragment {
     }
 
     private void filterDashboard(String bahan) {
-        bahan = bahan.toLowerCase();
-        ArrayList<LaporanModel> dataFilter = new ArrayList<>();
-        for (LaporanModel data : laporanList) {
-            String namaKategori = data.getKategori().toLowerCase();
-            if (namaKategori.contains(bahan)) {
-                dataFilter.add(data);
+        if (laporanList.size() > 0) {
+            bahan = bahan.toLowerCase();
+            ArrayList<LaporanModel> dataFilter = new ArrayList<>();
+            for (LaporanModel data : laporanList) {
+                String namaKategori = data.getKategori().toLowerCase();
+                if (namaKategori.contains(bahan)) {
+                    dataFilter.add(data);
+                }
             }
+            laporanAdapter.setFilter(dataFilter);
         }
-        laporanAdapter.setFilter(dataFilter);
     }
 
     private void loadDataKategori() {
-        if (cateList.size() > 0) {
-            cateList.clear();
-            kategoriList.clear();
-        }
         String URL_READ = link + "kategori/laporan";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
+                        if (cateList.size() > 0) {
+                            cateList.clear();
+                            kategoriList.clear();
+                        }
                         try {
                             JSONArray jsonArray = new JSONArray(response);
                             if (jsonArray.length() > 0) {
@@ -362,11 +414,9 @@ public class LaporanFragment extends Fragment {
                                     TextFuntion textFuntion = new TextFuntion();
 
                                     cateList.add(textFuntion.convertUpperCase(res_namaKategori));
-
                                     kategoriList.add(new KategoriModel(res_id, res_namaKategori));
                                     kategoriAdapter = new KategoriAdapter(getContext(), kategoriList);
                                     rv_kategori.setAdapter(kategoriAdapter);
-
                                     kategoriAdapter.setOnItemClickCallback(new KategoriAdapter.OnItemClickCallback() {
                                         @Override
                                         public void onItemClicked(KategoriModel data) {
@@ -378,28 +428,70 @@ public class LaporanFragment extends Fragment {
                                             }
                                         }
                                     });
-                                    //hilangkan loading
-//                                    loadingDialog.dissmissDialog();
+                                    Log.d("calpalnxx", "onResponse: kategorilist ");
                                 }
-                            } else {
-                                Toast.makeText(getActivity(), "Data Kategori Tidak Ada!", Toast.LENGTH_SHORT).show();
-//                                loadingDialog.dissmissDialog();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-//                            loadingDialog.dissmissDialog();
                             Toast.makeText(getActivity(), "Data Kategori Tidak Ada!", Toast.LENGTH_LONG).show();
                         }
-
                     }
                 }
                 , new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-//                loadingDialog.dissmissDialog();
-                Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!" + error, Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!", Toast.LENGTH_LONG).show();
             }
         }) {
+            @Override
+            protected Response<String> parseNetworkResponse(NetworkResponse response) {
+                try {
+                    Cache.Entry cacheEntry = HttpHeaderParser.parseCacheHeaders(response);
+                    if (cacheEntry == null) {
+                        cacheEntry = new Cache.Entry();
+                    }
+                    final long cacheHitButRefreshed = 10 * 1000; // in 3 minutes cache will be hit, but also refreshed on background
+                    final long cacheExpired = 24 * 60 * 60 * 1000; // in 24 hours this cache entry expires completely
+                    long now = System.currentTimeMillis();
+                    final long softExpire = now + cacheHitButRefreshed;
+                    final long ttl = now + cacheExpired;
+                    cacheEntry.data = response.data;
+                    cacheEntry.softTtl = softExpire;
+                    cacheEntry.ttl = ttl;
+                    String headerValue;
+                    headerValue = response.headers.get("Date");
+                    if (headerValue != null) {
+                        cacheEntry.serverDate = HttpHeaderParser.parseDateAsEpoch(headerValue);
+                    }
+                    headerValue = response.headers.get("Last-Modified");
+                    if (headerValue != null) {
+                        cacheEntry.lastModified = HttpHeaderParser.parseDateAsEpoch(headerValue);
+                    }
+                    cacheEntry.responseHeaders = response.headers;
+                    final String jsonString = new String(response.data,
+                            HttpHeaderParser.parseCharset(response.headers));
+                    Log.d("calpalnxx", "parseNetworkResponse: parsenetwork");
+
+                    return Response.success(jsonString, cacheEntry);
+                } catch (UnsupportedEncodingException e) {
+                    return Response.error(new ParseError(e));
+                }
+            }
+
+            @Override
+            protected void deliverResponse(String response) {
+                super.deliverResponse(response);
+            }
+
+            @Override
+            public void deliverError(VolleyError error) {
+                super.deliverError(error);
+            }
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError) {
+                return super.parseNetworkError(volleyError);
+            }
         };
         int socketTimeout = 10000;
         RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);

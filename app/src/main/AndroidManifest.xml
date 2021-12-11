@@ -13,6 +13,12 @@
         android:theme="@style/Theme.CikaraJantungDesaFix"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.laporan.EditLaporanActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.surat.EditSuratActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.surat.ListKategoriSuratActivity"
             android:exported="true" />
         <activity
@@ -68,7 +74,8 @@
             android:exported="true" />
         <activity
             android:name=".ui.lapak.TambahLapakActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:launchMode="singleTop" />
         <activity
             android:name=".ui.laporan.TambahLaporanActivity"
             android:exported="true" />

@@ -1,15 +1,14 @@
 package com.cikarastudio.cikarajantungdesafix.ui.artikel;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.cikarastudio.cikarajantungdesafix.R;
 import com.cikarastudio.cikarajantungdesafix.model.ArtikelModel;
@@ -21,8 +20,8 @@ public class DetailArtikelActivity extends AppCompatActivity implements View.OnC
 
     public static final String ARTIKEL_DATA = "extra_data";
     ImageView img_back, img_share, img_gambarArtikelDeskripsi;
-    TextView tv_judulArtikelDeskripsi, tv_isiArtikelDeskripsi;
-    String  linkArtikel, linkGambar, judul, isi, gambar, slug;
+    TextView tv_judulArtikelDeskripsi, tv_isiArtikelDeskripsi, tv_isiArtikelKategori;
+    String linkArtikel, linkGambar, judul, kategori, isi, gambar, slug;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +30,7 @@ public class DetailArtikelActivity extends AppCompatActivity implements View.OnC
 
         ArtikelModel modelData = getIntent().getParcelableExtra(ARTIKEL_DATA);
         judul = modelData.getJudul_artikel();
+        kategori = modelData.getNama_kategori();
         isi = modelData.getIsi_artikel();
         gambar = modelData.getGambar_artikel();
         slug = modelData.getSlug();
@@ -42,15 +42,17 @@ public class DetailArtikelActivity extends AppCompatActivity implements View.OnC
         linkArtikel = getString(R.string.linkArtikel);
 
         tv_judulArtikelDeskripsi = findViewById(R.id.tv_judulArtikelDeskripsi);
+        tv_isiArtikelKategori = findViewById(R.id.tv_isiArtikelKategori);
         tv_isiArtikelDeskripsi = findViewById(R.id.tv_isiArtikelDeskripsi);
         img_gambarArtikelDeskripsi = findViewById(R.id.img_gambarArtikelDeskripsi);
 
         TextFuntion textFuntion = new TextFuntion();
         //data kategori
         textFuntion.setTextDanNullData(tv_judulArtikelDeskripsi, judul);
+        textFuntion.setTextDanNullData(tv_isiArtikelKategori, kategori);
 
         String imageUrl = linkGambar + "pengaturan/artikel/" + gambar;
-        Picasso.with(getApplicationContext()).load(imageUrl).fit().centerCrop().into(img_gambarArtikelDeskripsi);
+        Picasso.with(getApplicationContext()).load(imageUrl).into(img_gambarArtikelDeskripsi);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             tv_isiArtikelDeskripsi.setText(Html.fromHtml(isi, Html.FROM_HTML_MODE_COMPACT));
@@ -79,7 +81,7 @@ public class DetailArtikelActivity extends AppCompatActivity implements View.OnC
                 share.setType("text/plain");
                 share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
                 share.putExtra(Intent.EXTRA_SUBJECT, judul);
-                share.putExtra(Intent.EXTRA_TEXT,linkArtikel+ slug);
+                share.putExtra(Intent.EXTRA_TEXT, linkArtikel + slug);
                 startActivity(Intent.createChooser(share, "Share Artikel"));
                 break;
             default:

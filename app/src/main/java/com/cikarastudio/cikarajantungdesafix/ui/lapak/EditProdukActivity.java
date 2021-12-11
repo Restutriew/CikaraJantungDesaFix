@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.net.http.AndroidHttpClient;
 import android.os.Build;
@@ -39,7 +38,6 @@ import com.cikarastudio.cikarajantungdesafix.template.kima.deletereq.CustomHurlS
 import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
 import com.cikarastudio.cikarajantungdesafix.ui.loadingdialog.LoadingDialog;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -53,8 +51,8 @@ import java.util.Map;
 
 public class EditProdukActivity extends AppCompatActivity {
 
-    LoadingDialog loadingDialog;
     public static final String DATA_PRODUK = "extra_data";
+    LoadingDialog loadingDialog;
     String id, id_lapak, nama, keterangan, gambar,
             token, link, linkGambar;
     Integer harga, dilihat;

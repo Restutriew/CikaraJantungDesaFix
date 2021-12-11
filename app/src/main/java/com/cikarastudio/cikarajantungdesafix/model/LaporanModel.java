@@ -5,6 +5,17 @@ import android.os.Parcelable;
 
 public class LaporanModel implements Parcelable {
 
+    public static final Creator<LaporanModel> CREATOR = new Creator<LaporanModel>() {
+        @Override
+        public LaporanModel createFromParcel(Parcel in) {
+            return new LaporanModel(in);
+        }
+
+        @Override
+        public LaporanModel[] newArray(int size) {
+            return new LaporanModel[size];
+        }
+    };
     String id;
     String user_id;
     String isi;
@@ -22,9 +33,8 @@ public class LaporanModel implements Parcelable {
     String jumlahlike;
     String statusLike;
 
-
     public LaporanModel(String id, String user_id, String isi, String kategori, String status, String tanggapan, String identitas, String posting,
-                        String photo, String waktu, String tanggal, String profile_photo_path, String nama_penduduk, String datalike, String jumlahlike,String statusLike) {
+                        String photo, String waktu, String tanggal, String profile_photo_path, String nama_penduduk, String datalike, String jumlahlike, String statusLike) {
         this.id = id;
         this.user_id = user_id;
         this.isi = isi;
@@ -61,18 +71,6 @@ public class LaporanModel implements Parcelable {
         jumlahlike = in.readString();
         statusLike = in.readString();
     }
-
-    public static final Creator<LaporanModel> CREATOR = new Creator<LaporanModel>() {
-        @Override
-        public LaporanModel createFromParcel(Parcel in) {
-            return new LaporanModel(in);
-        }
-
-        @Override
-        public LaporanModel[] newArray(int size) {
-            return new LaporanModel[size];
-        }
-    };
 
     public String getId() {
         return id;

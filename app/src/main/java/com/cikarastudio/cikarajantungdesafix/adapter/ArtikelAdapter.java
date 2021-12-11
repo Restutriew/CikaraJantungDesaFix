@@ -2,15 +2,12 @@ package com.cikarastudio.cikarajantungdesafix.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Build;
 import android.text.Html;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,11 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cikarastudio.cikarajantungdesafix.R;
 import com.cikarastudio.cikarajantungdesafix.model.ArtikelModel;
-import com.cikarastudio.cikarajantungdesafix.model.KategoriModel;
 import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
-import com.cikarastudio.cikarajantungdesafix.ui.artikel.ListArtikelActivity;
-import com.cikarastudio.cikarajantungdesafix.ui.laporan.LaporanUserActivity;
-import com.cikarastudio.cikarajantungdesafix.ui.profil.ProfilActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -36,17 +29,13 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ArtikelV
 
     private ArtikelAdapter.OnItemClickCallback onItemClickCallback;
 
-    public void setOnItemClickCallback(ArtikelAdapter.OnItemClickCallback onItemClickCallback) {
-        this.onItemClickCallback = onItemClickCallback;
-    }
-
-    public interface OnItemClickCallback {
-        void onItemClicked(ArtikelModel data);
-    }
-
     public ArtikelAdapter(Context mContext, ArrayList<ArtikelModel> mArtikelList) {
         this.mContext = mContext;
         this.mArtikelList = mArtikelList;
+    }
+
+    public void setOnItemClickCallback(ArtikelAdapter.OnItemClickCallback onItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback;
     }
 
     @NonNull
@@ -74,7 +63,7 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ArtikelV
 
         String linkgambar = mContext.getString(R.string.linkGambar);
         String imageUrl = linkgambar + "pengaturan/artikel/" + imgArtikel;
-        Picasso.with(mContext.getApplicationContext()).load(imageUrl).fit().centerCrop().into(holder.img_gambarArtikel);
+        Picasso.with(mContext.getApplicationContext()).load(imageUrl).into(holder.img_gambarArtikel);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             holder.tv_isiArtikel.setText(Html.fromHtml(isiArtikel, Html.FROM_HTML_MODE_COMPACT));
@@ -101,12 +90,16 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ArtikelV
         return limit;
     }
 
+    public interface OnItemClickCallback {
+        void onItemClicked(ArtikelModel data);
+    }
+
     public class ArtikelViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView tv_judulArtikel;
         public TextView tv_isiArtikel;
         public TextView tv_namaKategoriArtikel;
         public ImageView img_gambarArtikel;
-        public LinearLayout line_buttonShare;
+        public ImageView line_buttonShare;
 
         ArtikelViewHolder(@NonNull View itemView) {
             super(itemView);

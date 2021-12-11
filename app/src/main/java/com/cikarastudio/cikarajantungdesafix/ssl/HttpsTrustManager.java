@@ -14,35 +14,8 @@ import javax.net.ssl.X509TrustManager;
 
 public class HttpsTrustManager implements X509TrustManager {
 
-    private static TrustManager[] trustManagers;
     private static final X509Certificate[] _AcceptedIssuers = new X509Certificate[]{};
-
-    @Override
-    public void checkClientTrusted(
-            java.security.cert.X509Certificate[] x509Certificates, String s)
-            throws java.security.cert.CertificateException {
-
-    }
-
-    @Override
-    public void checkServerTrusted(
-            java.security.cert.X509Certificate[] x509Certificates, String s)
-            throws java.security.cert.CertificateException {
-
-    }
-
-    public boolean isClientTrusted(X509Certificate[] chain) {
-        return true;
-    }
-
-    public boolean isServerTrusted(X509Certificate[] chain) {
-        return true;
-    }
-
-    @Override
-    public X509Certificate[] getAcceptedIssuers() {
-        return _AcceptedIssuers;
-    }
+    private static TrustManager[] trustManagers;
 
     public static void allowAllSSL() {
         HttpsURLConnection.setDefaultHostnameVerifier(new HostnameVerifier() {
@@ -70,6 +43,33 @@ public class HttpsTrustManager implements X509TrustManager {
 
         HttpsURLConnection.setDefaultSSLSocketFactory(context
                 .getSocketFactory());
+    }
+
+    @Override
+    public void checkClientTrusted(
+            java.security.cert.X509Certificate[] x509Certificates, String s)
+            throws java.security.cert.CertificateException {
+
+    }
+
+    @Override
+    public void checkServerTrusted(
+            java.security.cert.X509Certificate[] x509Certificates, String s)
+            throws java.security.cert.CertificateException {
+
+    }
+
+    public boolean isClientTrusted(X509Certificate[] chain) {
+        return true;
+    }
+
+    public boolean isServerTrusted(X509Certificate[] chain) {
+        return true;
+    }
+
+    @Override
+    public X509Certificate[] getAcceptedIssuers() {
+        return _AcceptedIssuers;
     }
 
 }

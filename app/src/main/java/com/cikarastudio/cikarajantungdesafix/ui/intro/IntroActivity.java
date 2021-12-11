@@ -1,10 +1,5 @@
 package com.cikarastudio.cikarajantungdesafix.ui.intro;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -13,22 +8,59 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.cikarastudio.cikarajantungdesafix.ui.main.MainActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
 import com.cikarastudio.cikarajantungdesafix.R;
 import com.cikarastudio.cikarajantungdesafix.adapter.IntroAdapter;
+import com.cikarastudio.cikarajantungdesafix.ui.main.MainActivity;
 
 public class IntroActivity extends AppCompatActivity {
+    TextView tv_selanjutnya;
     private ViewPager viewPager;
     private MyViewPagerAdapter myViewPagerAdapter;
     private LinearLayout dotsLayout;
     private TextView[] dots;
     private int[] layouts;
-    private CardView btnNext;
-    TextView tv_selanjutnya;
+    //  viewpager change listener
+    ViewPager.OnPageChangeListener viewPagerPageChangeListener = new ViewPager.OnPageChangeListener() {
+
+        @Override
+        public void onPageSelected(int position) {
+            addBottomDots(position);
+
+            // changing the next button text 'NEXT' / 'GOT IT'
+            if (position == layouts.length - 1) {
+                // last page. make button text to GOT IT
+//                SpannableString content = new SpannableString(getString(R.string.start));
+//                content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
+//                tv_selanjutnya.setText(content);
+                tv_selanjutnya.setText(R.string.start);
+                tv_selanjutnya.setBackgroundResource(R.drawable.bg_btn_intro);
+                tv_selanjutnya.setTextColor(getResources().getColor(R.color.white));
+            } else {
+                // still pages are left
+//                SpannableString content = new SpannableString(getString(R.string.next));
+//                content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
+//                tv_selanjutnya.setText(content);
+                tv_selanjutnya.setText(R.string.next);
+                tv_selanjutnya.setBackgroundColor(getResources().getColor(R.color.white));
+                tv_selanjutnya.setTextColor(getResources().getColor(R.color.biru2));
+            }
+        }
+
+        @Override
+        public void onPageScrolled(int arg0, float arg1, int arg2) {
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int arg0) {
+        }
+    };
     private IntroAdapter prefManager;
 
     @Override
@@ -52,8 +84,12 @@ public class IntroActivity extends AppCompatActivity {
 
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
-        btnNext = (CardView) findViewById(R.id.cr_btnNext);
         tv_selanjutnya = (TextView) findViewById(R.id.tv_selanjutnya);
+//        SpannableString content = new SpannableString(getString(R.string.next));
+//        content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
+//        tv_selanjutnya.setText(content);
+
+        tv_selanjutnya.setText(R.string.next);
 
         // layouts of all welcome sliders
         // add few more layouts if you want
@@ -70,7 +106,7 @@ public class IntroActivity extends AppCompatActivity {
         viewPager.setAdapter(myViewPagerAdapter);
         viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
 
-        btnNext.setOnClickListener(new View.OnClickListener() {
+        tv_selanjutnya.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // checking for last page
@@ -115,35 +151,10 @@ public class IntroActivity extends AppCompatActivity {
         finish();
     }
 
-    //  viewpager change listener
-    ViewPager.OnPageChangeListener viewPagerPageChangeListener = new ViewPager.OnPageChangeListener() {
-
-        @Override
-        public void onPageSelected(int position) {
-            addBottomDots(position);
-
-            // changing the next button text 'NEXT' / 'GOT IT'
-            if (position == layouts.length - 1) {
-                // last page. make button text to GOT IT
-                tv_selanjutnya.setText(getString(R.string.start));
-            } else {
-                // still pages are left
-                tv_selanjutnya.setText(getString(R.string.next));
-            }
-        }
-
-        @Override
-        public void onPageScrolled(int arg0, float arg1, int arg2) {
-        }
-
-        @Override
-        public void onPageScrollStateChanged(int arg0) {
-        }
-    };
-
     /**
      * Making notification bar transparent
      */
+
     /**
      * View pager adapter
      */

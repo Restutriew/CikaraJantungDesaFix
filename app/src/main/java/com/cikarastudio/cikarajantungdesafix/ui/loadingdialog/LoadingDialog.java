@@ -24,15 +24,6 @@ public class LoadingDialog {
 
         dialog = builder.create();
         dialog.show();
-
-        Handler handler = null;
-        handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            public void run() {
-                dialog.cancel();
-                dialog.dismiss();
-            }
-        }, 5000);
     }
 
     public void dissmissDialog() {

@@ -19,7 +19,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class PerangkatDesaAdapter extends RecyclerView.Adapter<PerangkatDesaAdapter.PerangkatDesaViewHolder>{
+public class PerangkatDesaAdapter extends RecyclerView.Adapter<PerangkatDesaAdapter.PerangkatDesaViewHolder> {
 
     private Context mContext;
     private ArrayList<PerangkatDesaModel> mPerangkatDesaList;

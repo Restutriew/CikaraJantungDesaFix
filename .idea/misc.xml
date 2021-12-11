@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/bg_atas_biru_muda.xml" value="0.2175925925925926" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/bg_bottomsheetdialog.xml" value="0.22552083333333334" />
+        <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/bg_btn_intro.xml" value="0.20925925925925926" />
+        <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/bg_chat.xml" value="0.2" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/bg_dialog_aduan.xml" value="0.22552083333333334" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/bg_input_laporan.xml" value="0.22552083333333334" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/bg_login.xml" value="0.22552083333333334" />
@@ -23,15 +25,22 @@
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_add_to_home_screen_24.xml" value="0.22552083333333334" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.2175925925925926" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_arrow_back_ios_24.xml" value="0.2175925925925926" />
+        <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_arrow_back_ios_black_24.xml" value="0.22552083333333334" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_arrow_forward_ios_24.xml" value="0.22205128205128205" />
+        <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_arrow_forward_ios_24black.xml" value="0.18703703703703703" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_arrow_forward_ios_red_24.xml" value="0.2212962962962963" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_assignment_24.xml" value="0.22552083333333334" />
+        <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_assignment_late_24_surat_keterangan.xml" value="0.18703703703703703" />
+        <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_assignment_late_24_surat_keterangan_white.xml" value="0.18703703703703703" />
+        <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_assignment_turned_in_24_surat_rekomendasi.xml" value="0.18703703703703703" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_camera_alt_24.xml" value="0.22552083333333334" />
+        <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_chat_bubble_24.xml" value="0.22552083333333334" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_chat_bubble_outline_24.xml" value="0.2175925925925926" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.22552083333333334" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_circle_24.xml" value="0.22552083333333334" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_content_copy_24.xml" value="0.22552083333333334" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_date_range_24.xml" value="0.2212962962962963" />
+        <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_edit_24_black.xml" value="0.18703703703703703" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_exit_to_app_24.xml" value="0.2212962962962963" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_family_restroom_24.xml" value="0.2212962962962963" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.2175925925925926" />
@@ -45,6 +54,7 @@
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.2175925925925926" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_person_biru_24.xml" value="0.22205128205128205" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_phone_24.xml" value="0.2175925925925926" />
+        <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_phone_24_black.xml" value="0.18703703703703703" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_remove_red_eye_24.xml" value="0.2175925925925926" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.2175925925925926" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.2212962962962963" />
@@ -53,14 +63,21 @@
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_baseline_work_24.xml" value="0.2212962962962963" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_mobile_marketing.xml" value="0.22205128205128205" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.2212962962962963" />
+        <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_notifications_blue_24dp.xml" value="0.20925925925925926" />
+        <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_notifications_white_24dp.xml" value="0.22552083333333334" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/ic_outline_favorite_border_24.xml" value="0.21666666666666667" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/item_laporan.xml" value="0.22205128205128205" />
+        <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/item_produk_v2.xml" value="0.18703703703703703" />
+        <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/drawable/tab_color.xml" value="0.22552083333333334" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/activity_chat_forum.xml" value="0.18" />
+        <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/activity_detail_artikel.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/activity_edit_data_diri.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/activity_edit_lapak.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/activity_edit_produk.xml" value="0.175" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/activity_intro.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/activity_laporan_user.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/activity_list_artikel.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/activity_list_kategori_surat.xml" value="0.19722222222222222" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/activity_list_tambah_surat.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/activity_login.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/activity_main.xml" value="0.209375" />
@@ -71,7 +88,7 @@
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/activity_tambah_forum.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/activity_tambah_lapak.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/activity_tambah_laporan.xml" value="0.209375" />
-        <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/activity_tambah_produk.xml" value="0.175" />
+        <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/activity_tambah_produk.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/activity_tambah_surat.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/dialog_aduan_data.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/dialog_aduan_data_penduduk.xml" value="0.209375" />
@@ -80,7 +97,7 @@
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/dialog_photo_profile.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/fragment_beranda.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/fragment_forum.xml" value="0.209375" />
-        <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/fragment_home.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/fragment_lapak.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/fragment_laporan.xml" value="0.25" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/fragment_setting.xml" value="0.209375" />
@@ -88,6 +105,7 @@
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/item_aduan_proses.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/item_aduan_selesai.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/item_artikel.xml" value="0.209375" />
+        <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/item_chat.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/item_dashboard_laporan_saya.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/item_forum.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/item_kategori.xml" value="0.209375" />
@@ -95,11 +113,16 @@
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/item_laporan_saya.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/item_perangkat_desa.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/item_produk.xml" value="0.175" />
+        <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/item_produk_v2.xml" value="0.209375" />
+        <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/item_surat_list.xml" value="0.17407407407407408" />
+        <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/item_surat_list_user.xml" value="0.17407407407407408" />
+        <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/layout_bottom_sheet.xml" value="0.19722222222222222" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/loading_dialog.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/slide_1.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/slide_2.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/slide_3.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/slide_4.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/layout/testing.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/menu/aduan_menu.xml" value="0.209375" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2" />
         <entry key="..\:/AndroidStudioHasil/Android Java/Normal/CikaraJantungDesaFix/app/src/main/res/menu/popup_menu.xml" value="0.209375" />

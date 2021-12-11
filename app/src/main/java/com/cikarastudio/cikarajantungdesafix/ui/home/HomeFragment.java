@@ -2,13 +2,6 @@ package com.cikarastudio.cikarajantungdesafix.ui.home;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,17 +10,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.android.volley.Cache;
 import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.NetworkResponse;
+import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.cikarastudio.cikarajantungdesafix.adapter.ArtikelAllAdapter;
-import com.cikarastudio.cikarajantungdesafix.ui.artikel.DetailArtikelActivity;
-import com.cikarastudio.cikarajantungdesafix.ui.artikel.ListArtikelActivity;
 import com.cikarastudio.cikarajantungdesafix.R;
 import com.cikarastudio.cikarajantungdesafix.adapter.ArtikelAdapter;
 import com.cikarastudio.cikarajantungdesafix.adapter.PerangkatDesaAdapter;
@@ -36,6 +36,8 @@ import com.cikarastudio.cikarajantungdesafix.model.PerangkatDesaModel;
 import com.cikarastudio.cikarajantungdesafix.session.SessionManager;
 import com.cikarastudio.cikarajantungdesafix.ssl.HttpsTrustManager;
 import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
+import com.cikarastudio.cikarajantungdesafix.ui.artikel.DetailArtikelActivity;
+import com.cikarastudio.cikarajantungdesafix.ui.artikel.ListArtikelActivity;
 import com.cikarastudio.cikarajantungdesafix.ui.laporan.LaporanUserActivity;
 import com.cikarastudio.cikarajantungdesafix.ui.loadingdialog.LoadingDialog;
 import com.cikarastudio.cikarajantungdesafix.ui.profil.ProfilActivity;
@@ -45,6 +47,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -55,15 +58,15 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     LoadingDialog loadingDialog;
     String id_user, link, linkGambar, token;
     ImageView img_photouser;
-    TextView tv_nama, tv_lihatSelengkapnyaArtikel;
+    TextView tv_nama, tv_lihatSelengkapnyaArtikel, tv_email;
     RecyclerView rv_artikel, rv_perangkatDesa;
+    TextView tv_dashboardLaporanDibuat, tv_dashboardForumDiikuti, tv_dashboardJumlahProduk, tv_dashboardSuratDibuat;
+    CardView cr_fotoProfil,
+            cr_dashboardLaporanDibuat, cr_dashboardForumDiikuti, cr_dashboardJumlahProduk, cr_dashboardSuratDibuat;
     private ArrayList<ArtikelModel> artikelList;
     private ArtikelAdapter artikelAdapter;
     private ArrayList<PerangkatDesaModel> perangkatDesaList;
     private PerangkatDesaAdapter perangkatDesaAdapter;
-    TextView tv_dashboardLaporanDibuat, tv_dashboardForumDiikuti, tv_dashboardJumlahProduk, tv_dashboardSuratDibuat;
-    CardView cr_fotoProfil,
-            cr_dashboardLaporanDibuat, cr_dashboardForumDiikuti, cr_dashboardJumlahProduk, cr_dashboardSuratDibuat;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -88,6 +91,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         img_photouser = root.findViewById(R.id.img_photouser);
         tv_nama = root.findViewById(R.id.tv_nama);
+        tv_email = root.findViewById(R.id.tv_email);
 
         artikelList = new ArrayList<>();
         rv_artikel = root.findViewById(R.id.rv_artikel);
@@ -138,7 +142,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onResume() {
         super.onResume();
-        loadingDialog.startLoading();
         loadDataDiri();
         loadPotoProfil();
         loadDashboarHome();
@@ -180,6 +183,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     }
 
     private void loadPotoProfil() {
+//        {{SERVER}}/user/{{USERID}}?token={{TOKEN}}
         String URL_READ = link + "user/" + id_user + "?token=" + token;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
                 new Response.Listener<String>() {
@@ -190,6 +194,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
                             //data dashboard laporan
                             String profile_photo_path = jsonObject.getString("profile_photo_path").trim();
+                            String email = jsonObject.getString("email").trim();
+
+                            tv_email.setText(email);
+
                             String resi_gambar = profile_photo_path.replace(" ", "%20");
 
                             Log.d("calpalnx", profile_photo_path);
@@ -197,22 +205,65 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                             String imageUrl = linkGambar + "user/" + resi_gambar;
                             Picasso.with(getActivity()).load(imageUrl).fit().centerCrop().into(img_photouser);
                             //hilangkan loading
-//                            loadingDialog.dissmissDialog();
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-//                            loadingDialog.dissmissDialog();
                         }
-
                     }
                 }
                 , new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-//                loadingDialog.dissmissDialog();
-                Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!" + error, Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!", Toast.LENGTH_LONG).show();
             }
         }) {
+            @Override
+            protected Response<String> parseNetworkResponse(NetworkResponse response) {
+                try {
+                    Cache.Entry cacheEntry = HttpHeaderParser.parseCacheHeaders(response);
+                    if (cacheEntry == null) {
+                        cacheEntry = new Cache.Entry();
+                    }
+                    final long cacheHitButRefreshed = 10 * 1000; // in 3 minutes cache will be hit, but also refreshed on background
+                    final long cacheExpired = 24 * 60 * 60 * 1000; // in 24 hours this cache entry expires completely
+                    long now = System.currentTimeMillis();
+                    final long softExpire = now + cacheHitButRefreshed;
+                    final long ttl = now + cacheExpired;
+                    cacheEntry.data = response.data;
+                    cacheEntry.softTtl = softExpire;
+                    cacheEntry.ttl = ttl;
+                    String headerValue;
+                    headerValue = response.headers.get("Date");
+                    if (headerValue != null) {
+                        cacheEntry.serverDate = HttpHeaderParser.parseDateAsEpoch(headerValue);
+                    }
+                    headerValue = response.headers.get("Last-Modified");
+                    if (headerValue != null) {
+                        cacheEntry.lastModified = HttpHeaderParser.parseDateAsEpoch(headerValue);
+                    }
+                    cacheEntry.responseHeaders = response.headers;
+                    final String jsonString = new String(response.data,
+                            HttpHeaderParser.parseCharset(response.headers));
+                    return Response.success(jsonString, cacheEntry);
+                } catch (UnsupportedEncodingException e) {
+                    return Response.error(new ParseError(e));
+                }
+            }
+
+            @Override
+            protected void deliverResponse(String response) {
+                super.deliverResponse(response);
+            }
+
+            @Override
+            public void deliverError(VolleyError error) {
+                super.deliverError(error);
+            }
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError) {
+                return super.parseNetworkError(volleyError);
+            }
         };
         int socketTimeout = 10000;
         RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
@@ -239,18 +290,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
                             TextFuntion textFuntion = new TextFuntion();
                             //data dashboard home
-
                             textFuntion.setTextDanNullData(tv_dashboardLaporanDibuat, res_laporan);
                             textFuntion.setTextDanNullData(tv_dashboardForumDiikuti, res_forum);
                             textFuntion.setTextDanNullData(tv_dashboardJumlahProduk, res_produk);
                             textFuntion.setTextDanNullData(tv_dashboardSuratDibuat, res_surat);
 
-                            //hilangkan loading
-//                            loadingDialog.dissmissDialog();
-
                         } catch (JSONException e) {
                             e.printStackTrace();
-//                            loadingDialog.dissmissDialog();
                             Toast.makeText(getActivity(), "Data Dashboard Tidak Ada!" + e.toString(), Toast.LENGTH_LONG).show();
                         }
 
@@ -259,10 +305,56 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 , new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-//                loadingDialog.dissmissDialog();
-                Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!" + error, Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!", Toast.LENGTH_LONG).show();
             }
         }) {
+            @Override
+            protected Response<String> parseNetworkResponse(NetworkResponse response) {
+                try {
+                    Cache.Entry cacheEntry = HttpHeaderParser.parseCacheHeaders(response);
+                    if (cacheEntry == null) {
+                        cacheEntry = new Cache.Entry();
+                    }
+                    final long cacheHitButRefreshed = 10 * 1000; // in 3 minutes cache will be hit, but also refreshed on background
+                    final long cacheExpired = 24 * 60 * 60 * 1000; // in 24 hours this cache entry expires completely
+                    long now = System.currentTimeMillis();
+                    final long softExpire = now + cacheHitButRefreshed;
+                    final long ttl = now + cacheExpired;
+                    cacheEntry.data = response.data;
+                    cacheEntry.softTtl = softExpire;
+                    cacheEntry.ttl = ttl;
+                    String headerValue;
+                    headerValue = response.headers.get("Date");
+                    if (headerValue != null) {
+                        cacheEntry.serverDate = HttpHeaderParser.parseDateAsEpoch(headerValue);
+                    }
+                    headerValue = response.headers.get("Last-Modified");
+                    if (headerValue != null) {
+                        cacheEntry.lastModified = HttpHeaderParser.parseDateAsEpoch(headerValue);
+                    }
+                    cacheEntry.responseHeaders = response.headers;
+                    final String jsonString = new String(response.data,
+                            HttpHeaderParser.parseCharset(response.headers));
+                    return Response.success(jsonString, cacheEntry);
+                } catch (UnsupportedEncodingException e) {
+                    return Response.error(new ParseError(e));
+                }
+            }
+
+            @Override
+            protected void deliverResponse(String response) {
+                super.deliverResponse(response);
+            }
+
+            @Override
+            public void deliverError(VolleyError error) {
+                super.deliverError(error);
+            }
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError) {
+                return super.parseNetworkError(volleyError);
+            }
         };
         int socketTimeout = 10000;
         RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
@@ -277,6 +369,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        if (artikelList.size() > 0) {
+                            artikelList.clear();
+                        }
                         try {
                             JSONArray jsonArray = new JSONArray(response);
                             if (jsonArray.length() > 0) {
@@ -310,29 +405,68 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                                             startActivity(transferArtikel);
                                         }
                                     });
-
-                                    //hilangkan loading
-//                                    loadingDialog.dissmissDialog();
                                 }
-                            } else {
-                                Toast.makeText(getActivity(), "Data Berita Tidak Ada!", Toast.LENGTH_SHORT).show();
-//                                loadingDialog.dissmissDialog();
                             }
+
                         } catch (JSONException e) {
                             e.printStackTrace();
-//                            loadingDialog.dissmissDialog();
                             Toast.makeText(getActivity(), "Data Berita Tidak Ada!", Toast.LENGTH_LONG).show();
                         }
-
                     }
                 }
                 , new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-//                loadingDialog.dissmissDialog();
-                Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!" + error, Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!", Toast.LENGTH_LONG).show();
             }
         }) {
+            @Override
+            protected Response<String> parseNetworkResponse(NetworkResponse response) {
+                try {
+                    Cache.Entry cacheEntry = HttpHeaderParser.parseCacheHeaders(response);
+                    if (cacheEntry == null) {
+                        cacheEntry = new Cache.Entry();
+                    }
+                    final long cacheHitButRefreshed = 10 * 1000; // in 3 minutes cache will be hit, but also refreshed on background
+                    final long cacheExpired = 24 * 60 * 60 * 1000; // in 24 hours this cache entry expires completely
+                    long now = System.currentTimeMillis();
+                    final long softExpire = now + cacheHitButRefreshed;
+                    final long ttl = now + cacheExpired;
+                    cacheEntry.data = response.data;
+                    cacheEntry.softTtl = softExpire;
+                    cacheEntry.ttl = ttl;
+                    String headerValue;
+                    headerValue = response.headers.get("Date");
+                    if (headerValue != null) {
+                        cacheEntry.serverDate = HttpHeaderParser.parseDateAsEpoch(headerValue);
+                    }
+                    headerValue = response.headers.get("Last-Modified");
+                    if (headerValue != null) {
+                        cacheEntry.lastModified = HttpHeaderParser.parseDateAsEpoch(headerValue);
+                    }
+                    cacheEntry.responseHeaders = response.headers;
+                    final String jsonString = new String(response.data,
+                            HttpHeaderParser.parseCharset(response.headers));
+                    return Response.success(jsonString, cacheEntry);
+                } catch (UnsupportedEncodingException e) {
+                    return Response.error(new ParseError(e));
+                }
+            }
+
+            @Override
+            protected void deliverResponse(String response) {
+                super.deliverResponse(response);
+            }
+
+            @Override
+            public void deliverError(VolleyError error) {
+                super.deliverError(error);
+            }
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError) {
+                return super.parseNetworkError(volleyError);
+            }
         };
         int socketTimeout = 10000;
         RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
@@ -342,7 +476,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     }
 
     private void loadDataDiri() {
-        String URL_READ = link + "penduduk/" + id_user;
+        String URL_READ = link + "penduduk/" + id_user + "?token=" + token;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
                 new Response.Listener<String>() {
                     @Override
@@ -359,17 +493,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                                     TextFuntion textFuntion = new TextFuntion();
                                     //data diri
                                     textFuntion.setTextDanNullData(tv_nama, res_nama);
-                                    //hilangkan loading
-//                                    loadingDialog.dissmissDialog();
                                 }
-                            } else {
-//                                Toast.makeText(getActivity(), "Data Akun Tidak Ada!", Toast.LENGTH_SHORT).show();
-//                                loadingDialog.dissmissDialog();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-//                            loadingDialog.dissmissDialog();
-//                            Toast.makeText(getActivity(), "Data Akun Tidak Ada!" + e.toString(), Toast.LENGTH_LONG).show();
                         }
 
                     }
@@ -377,10 +504,56 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 , new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-//                loadingDialog.dissmissDialog();
-                Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!" + error, Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!", Toast.LENGTH_LONG).show();
             }
         }) {
+            @Override
+            protected Response<String> parseNetworkResponse(NetworkResponse response) {
+                try {
+                    Cache.Entry cacheEntry = HttpHeaderParser.parseCacheHeaders(response);
+                    if (cacheEntry == null) {
+                        cacheEntry = new Cache.Entry();
+                    }
+                    final long cacheHitButRefreshed = 10 * 1000; // in 3 minutes cache will be hit, but also refreshed on background
+                    final long cacheExpired = 24 * 60 * 60 * 1000; // in 24 hours this cache entry expires completely
+                    long now = System.currentTimeMillis();
+                    final long softExpire = now + cacheHitButRefreshed;
+                    final long ttl = now + cacheExpired;
+                    cacheEntry.data = response.data;
+                    cacheEntry.softTtl = softExpire;
+                    cacheEntry.ttl = ttl;
+                    String headerValue;
+                    headerValue = response.headers.get("Date");
+                    if (headerValue != null) {
+                        cacheEntry.serverDate = HttpHeaderParser.parseDateAsEpoch(headerValue);
+                    }
+                    headerValue = response.headers.get("Last-Modified");
+                    if (headerValue != null) {
+                        cacheEntry.lastModified = HttpHeaderParser.parseDateAsEpoch(headerValue);
+                    }
+                    cacheEntry.responseHeaders = response.headers;
+                    final String jsonString = new String(response.data,
+                            HttpHeaderParser.parseCharset(response.headers));
+                    return Response.success(jsonString, cacheEntry);
+                } catch (UnsupportedEncodingException e) {
+                    return Response.error(new ParseError(e));
+                }
+            }
+
+            @Override
+            protected void deliverResponse(String response) {
+                super.deliverResponse(response);
+            }
+
+            @Override
+            public void deliverError(VolleyError error) {
+                super.deliverError(error);
+            }
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError) {
+                return super.parseNetworkError(volleyError);
+            }
         };
         int socketTimeout = 10000;
         RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
@@ -395,7 +568,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
+                        if (perangkatDesaList.size() > 0) {
+                            perangkatDesaList.clear();
+                        }
                         try {
                             JSONArray jsonArray = new JSONArray(response);
                             if (jsonArray.length() > 0) {
@@ -437,26 +612,18 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                                     perangkatDesaAdapter = new PerangkatDesaAdapter(getContext(), perangkatDesaList);
                                     rv_perangkatDesa.setAdapter(perangkatDesaAdapter);
 
-                                    //hilangkan loading
-//                                    loadingDialog.dissmissDialog();
                                 }
-                            } else {
-                                Toast.makeText(getActivity(), "Data Perangkat Desa Tidak Ada!", Toast.LENGTH_SHORT).show();
-//                                loadingDialog.dissmissDialog();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-//                            loadingDialog.dissmissDialog();
                             Toast.makeText(getActivity(), "Data Perangkat Desa Tidak Ada!", Toast.LENGTH_LONG).show();
                         }
-
                     }
                 }
                 , new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-//                loadingDialog.dissmissDialog();
-                Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!" + error, Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!", Toast.LENGTH_LONG).show();
             }
         }) {
         };

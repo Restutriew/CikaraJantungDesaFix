@@ -8,8 +8,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginTop="1dp"
         app:cardElevation="10dp">
 
         <LinearLayout
@@ -98,10 +97,11 @@
             <ImageView
                 android:id="@+id/img_gambarLaporan"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/kimimaroboy" />
+                android:adjustViewBounds="true"
+                android:scaleType="fitStart"
+                android:src="@drawable/seminar_anak" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -121,9 +121,9 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:src="@drawable/ic_baseline_share_24"
+                    android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:visibility="gone"
                     app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -150,7 +150,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/inter_regular"
                 android:text="Respon :"
                 android:textColor="@color/abu" />

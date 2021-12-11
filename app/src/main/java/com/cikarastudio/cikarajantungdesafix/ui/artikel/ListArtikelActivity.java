@@ -1,17 +1,17 @@
 package com.cikarastudio.cikarajantungdesafix.ui.artikel;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -22,18 +22,15 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.cikarastudio.cikarajantungdesafix.R;
-import com.cikarastudio.cikarajantungdesafix.adapter.ArtikelAdapter;
 import com.cikarastudio.cikarajantungdesafix.adapter.ArtikelAllAdapter;
 import com.cikarastudio.cikarajantungdesafix.adapter.KategoriAdapter;
 import com.cikarastudio.cikarajantungdesafix.adapter.KategoriArtikelAdapter;
 import com.cikarastudio.cikarajantungdesafix.model.ArtikelModel;
 import com.cikarastudio.cikarajantungdesafix.model.KategoriArtikelModel;
 import com.cikarastudio.cikarajantungdesafix.model.KategoriModel;
-import com.cikarastudio.cikarajantungdesafix.model.LaporanModel;
-import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
-import com.cikarastudio.cikarajantungdesafix.ui.laporan.LaporanUserActivity;
 import com.cikarastudio.cikarajantungdesafix.ui.loadingdialog.LoadingDialog;
-import com.cikarastudio.cikarajantungdesafix.ui.profil.ProfilActivity;
+import com.google.android.flexbox.FlexWrap;
+import com.google.android.flexbox.FlexboxLayoutManager;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import org.json.JSONArray;
@@ -45,14 +42,14 @@ import java.util.ArrayList;
 public class ListArtikelActivity extends AppCompatActivity implements View.OnClickListener {
 
     LoadingDialog loadingDialog;
-    private ArrayList<ArtikelModel> artikelList;
-    private ArtikelAllAdapter artikelAllAdapter;
-    private ArrayList<KategoriArtikelModel> kategoriArtikelList;
-    private KategoriArtikelAdapter kategoriArtikelAdapter;
     String link, linkGambar, token;
     RecyclerView rv_artikel, rv_kategoriListArtikel;
     ImageView img_back;
     LinearLayout line_filterKategoriListArtikel;
+    private ArrayList<ArtikelModel> artikelList;
+    private ArtikelAllAdapter artikelAllAdapter;
+    private ArrayList<KategoriArtikelModel> kategoriArtikelList;
+    private KategoriArtikelAdapter kategoriArtikelAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +64,9 @@ public class ListArtikelActivity extends AppCompatActivity implements View.OnCli
 
         loadingDialog = new LoadingDialog(ListArtikelActivity.this);
 
+        loadingDialog.startLoading();
+        loadKategoriArtikel();
+        loadArtikel();
 
         kategoriArtikelList = new ArrayList<>();
         rv_kategoriListArtikel = findViewById(R.id.rv_kategoriListArtikel);
@@ -96,9 +96,7 @@ public class ListArtikelActivity extends AppCompatActivity implements View.OnCli
     @Override
     protected void onResume() {
         super.onResume();
-        loadingDialog.startLoading();
-        loadKategoriArtikel();
-        loadArtikel();
+
     }
 
     @Override
@@ -110,14 +108,35 @@ public class ListArtikelActivity extends AppCompatActivity implements View.OnCli
                 break;
             case R.id.line_filterKategoriListArtikel:
                 // do your code
-                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
-                        ListArtikelActivity.this, R.style.BottomSheetDialogTheme
-                );
-                View bottomSheetView = LayoutInflater.from(ListArtikelActivity.this).inflate(
-                        R.layout.layout_bottom_sheet,
-                        (LinearLayout) findViewById(R.id.bottomSheetContainer));
-                bottomSheetDialog.setContentView(bottomSheetView);
-                bottomSheetDialog.show();
+                final BottomSheetDialog dialog = new BottomSheetDialog(ListArtikelActivity.this);
+                dialog.setContentView(R.layout.layout_bottom_sheet);
+                dialog.setCanceledOnTouchOutside(false);
+                RecyclerView rv_kategoriFilterPopUp = dialog.findViewById(R.id.rv_kategoriFilterPopUp);
+                FlexboxLayoutManager layoutManager = new FlexboxLayoutManager(getApplicationContext());
+                layoutManager.setFlexWrap(FlexWrap.WRAP);
+                rv_kategoriFilterPopUp.setAdapter(kategoriArtikelAdapter);
+                rv_kategoriFilterPopUp.setLayoutManager(layoutManager);
+                rv_kategoriFilterPopUp.setHasFixedSize(true);
+                kategoriArtikelAdapter.setOnItemClickCallback(new KategoriArtikelAdapter.OnItemClickCallback() {
+                    @Override
+                    public void onItemClicked(KategoriArtikelModel data) {
+                        Log.d("calpalnx", "onItemClicked: " + data.getNama_kategori());
+                        if (data.getNama_kategori().equals("semua")) {
+                            loadArtikel();
+                        } else {
+                            filterDashboard(data.getNama_kategori());
+                        }
+                    }
+                });
+
+                CardView cr_okFilterPopUp = dialog.findViewById(R.id.cr_okFilterPopUp);
+                cr_okFilterPopUp.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
                 break;
             default:
                 break;
@@ -125,21 +144,20 @@ public class ListArtikelActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void filterDashboard(String bahan) {
-        bahan = bahan.toLowerCase();
-        ArrayList<ArtikelModel> dataFilter = new ArrayList<>();
-        for (ArtikelModel data : artikelList) {
-            String namaKategori = data.getNama_kategori().toLowerCase();
-            if (namaKategori.contains(bahan)) {
-                dataFilter.add(data);
+        if (artikelList.size() > 0) {
+            bahan = bahan.toLowerCase();
+            ArrayList<ArtikelModel> dataFilter = new ArrayList<>();
+            for (ArtikelModel data : artikelList) {
+                String namaKategori = data.getNama_kategori().toLowerCase();
+                if (namaKategori.contains(bahan)) {
+                    dataFilter.add(data);
+                }
             }
+            artikelAllAdapter.setFilter(dataFilter);
         }
-        artikelAllAdapter.setFilter(dataFilter);
     }
 
     private void loadKategoriArtikel() {
-        if (kategoriArtikelList.size() > 0) {
-            kategoriArtikelList.clear();
-        }
         String URL_READ = link + "list/kategoriartikel?token=" + token;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
                 new Response.Listener<String>() {
@@ -155,9 +173,11 @@ public class ListArtikelActivity extends AppCompatActivity implements View.OnCli
                                     //data kategori
                                     String res_id = jsonObject.getString("id").trim();
                                     String res_namaKategori = jsonObject.getString("nama_kategori").trim();
-                                    String res_keteranganKategori = jsonObject.getString("keterangan").trim();
-                                    String res_createdAt = jsonObject.getString("created_at").trim();
-                                    String res_updatedAt = jsonObject.getString("updated_at").trim();
+//                                    String res_keteranganKategori = jsonObject.getString("keterangan").trim();
+                                    String res_keteranganKategori = "keterangan";
+//                                    String res_createdAt = jsonObject.getString("created_at").trim();
+                                    String res_createdAt = "created_at";
+                                    String res_updatedAt = "updated_at";
 
                                     kategoriArtikelList.add(new KategoriArtikelModel(res_id, res_namaKategori, res_keteranganKategori, res_createdAt, res_updatedAt));
                                     kategoriArtikelAdapter = new KategoriArtikelAdapter(getApplicationContext(), kategoriArtikelList);
@@ -172,7 +192,6 @@ public class ListArtikelActivity extends AppCompatActivity implements View.OnCli
                                             } else {
                                                 filterDashboard(data.getNama_kategori());
                                             }
-
                                         }
                                     });
                                     //hilangkan loading
@@ -182,10 +201,11 @@ public class ListArtikelActivity extends AppCompatActivity implements View.OnCli
                                 Toast.makeText(getApplicationContext(), "Data Kategori Tidak Ada!", Toast.LENGTH_SHORT).show();
                                 loadingDialog.dissmissDialog();
                             }
+                            Log.d("calpalnx", "onResponse: fucker kategori ");
                         } catch (JSONException e) {
                             e.printStackTrace();
                             loadingDialog.dissmissDialog();
-                            Toast.makeText(getApplicationContext(), "Data Kategori Tidak Ada!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Data Kategori Tidak Ada!" + e.toString(), Toast.LENGTH_LONG).show();
                         }
 
                     }
@@ -206,20 +226,19 @@ public class ListArtikelActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void loadArtikel() {
-        if (artikelList.size() > 0) {
-            artikelList.clear();
-        }
         String URL_READ = link + "list/artikel?token=" + token + "&kategori=semua";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        if (artikelList.size() > 0) {
+                            artikelList.clear();
+                        }
                         try {
                             JSONArray jsonArray = new JSONArray(response);
                             if (jsonArray.length() > 0) {
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject jsonObject = jsonArray.getJSONObject(i);
-
                                     //data artikel
                                     String res_id = jsonObject.getString("id").trim();
                                     String res_userId = jsonObject.getString("user_id").trim();
@@ -232,7 +251,6 @@ public class ListArtikelActivity extends AppCompatActivity implements View.OnCli
                                     String res_createdAt = jsonObject.getString("created_at").trim();
                                     String res_updatedAt = jsonObject.getString("updated_at").trim();
                                     String res_namaKategori = jsonObject.getString("nama_kategori").trim();
-
 
                                     String resi_gambarArtikel = res_gambarArtikel.replace(" ", "%20");
 
@@ -252,6 +270,7 @@ public class ListArtikelActivity extends AppCompatActivity implements View.OnCli
                                     //hilangkan loading
                                     loadingDialog.dissmissDialog();
                                 }
+                                Log.d("calpalnx", "onResponse: fucker ");
                             } else {
                                 Toast.makeText(getApplicationContext(), "Data Berita Tidak Ada!", Toast.LENGTH_SHORT).show();
                                 loadingDialog.dissmissDialog();

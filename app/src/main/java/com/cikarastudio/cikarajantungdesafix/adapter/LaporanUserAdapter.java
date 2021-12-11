@@ -3,9 +3,11 @@ package com.cikarastudio.cikarajantungdesafix.adapter;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,6 +25,9 @@ public class LaporanUserAdapter extends RecyclerView.Adapter<LaporanUserAdapter.
     private Context mContext;
     private ArrayList<LaporanUserModel> mLaporanUserList;
 
+    private LaporanUserAdapter.OnItemClickCallback onItemClickCallback;
+    private LaporanUserAdapter.OnDeleteClick onDeleteClick;
+
     public LaporanUserAdapter(Context mContext, ArrayList<LaporanUserModel> mLaporanUserList) {
         this.mContext = mContext;
         this.mLaporanUserList = mLaporanUserList;
@@ -33,6 +38,14 @@ public class LaporanUserAdapter extends RecyclerView.Adapter<LaporanUserAdapter.
         mLaporanUserList = new ArrayList<>();
         mLaporanUserList.addAll(dataFilter);
         notifyDataSetChanged();
+    }
+
+    public void setOnItemClickCallback(LaporanUserAdapter.OnItemClickCallback onItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback;
+    }
+
+    public void setOnDeleteClick(LaporanUserAdapter.OnDeleteClick onDeleteClick) {
+        this.onDeleteClick = onDeleteClick;
     }
 
 
@@ -66,12 +79,10 @@ public class LaporanUserAdapter extends RecyclerView.Adapter<LaporanUserAdapter.
         String tanggalLaporan = tanggal + "-" + bulan + "-" + tahun;
 
 
-
-
         Log.d("calpalnx", currentItem.getIsi());
 
         String imgLaporan = "https://puteran.cikarastudio.com/public/img/penduduk/lapor/" + gambarLaporan;
-        Picasso.with(mContext.getApplicationContext()).load(imgLaporan).fit().centerCrop().into(holder.img_gambarLaporan);
+        Picasso.with(mContext.getApplicationContext()).load(imgLaporan).into(holder.img_gambarLaporan);
 
         holder.tv_isiLaporan.setText(isiLaporan);
 
@@ -90,6 +101,14 @@ public class LaporanUserAdapter extends RecyclerView.Adapter<LaporanUserAdapter.
         textFuntion.setTextDanNullData(holder.tv_waktuLaporan, waktuLaporan);
         textFuntion.setTextDanNullData(holder.tv_tglLaporan, tanggalLaporan);
 
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onItemClickCallback.onItemClicked(mLaporanUserList.get(holder.getAdapterPosition()));
+            }
+        });
+
     }
 
     @Override
@@ -97,7 +116,15 @@ public class LaporanUserAdapter extends RecyclerView.Adapter<LaporanUserAdapter.
         return mLaporanUserList.size();
     }
 
-    public class LaporanUserViewHolder extends RecyclerView.ViewHolder {
+    public interface OnItemClickCallback {
+        void onItemClicked(LaporanUserModel data);
+    }
+
+    public interface OnDeleteClick {
+        void onItemClicked(LaporanUserModel data);
+    }
+
+    public class LaporanUserViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, PopupMenu.OnMenuItemClickListener {
         public ImageView img_gambarLaporan;
         public TextView tv_isiLaporan;
         public TextView tv_responlaporan;
@@ -107,6 +134,7 @@ public class LaporanUserAdapter extends RecyclerView.Adapter<LaporanUserAdapter.
         public TextView tv_waktuLaporan;
         public TextView tv_postingLaporan;
         public TextView tv_identitasLaporan;
+        public ImageView img_buttonDots;
 
 
         LaporanUserViewHolder(@NonNull View itemView) {
@@ -120,6 +148,45 @@ public class LaporanUserAdapter extends RecyclerView.Adapter<LaporanUserAdapter.
             tv_waktuLaporan = itemView.findViewById(R.id.tv_waktuLaporan);
             tv_postingLaporan = itemView.findViewById(R.id.tv_postingLaporan);
             tv_identitasLaporan = itemView.findViewById(R.id.tv_identitasLaporan);
+
+            img_buttonDots = itemView.findViewById(R.id.img_buttonDots);
+
+            img_buttonDots.setOnClickListener(this);
+
+        }
+
+        @Override
+        public void onClick(View view) {
+            Log.d("calpalnx", "onClick: " + getAdapterPosition());
+            showPopupMenu(view);
+        }
+
+        private void showPopupMenu(View view) {
+            PopupMenu popupMenu = new PopupMenu(view.getContext(), view);
+            popupMenu.inflate(R.menu.popup_menu);
+            popupMenu.setOnMenuItemClickListener(this);
+            popupMenu.show();
+        }
+
+        @Override
+        public boolean onMenuItemClick(MenuItem menuItem) {
+            switch (menuItem.getItemId()) {
+                case R.id.action_popup_edit:
+                    Log.d("calpalnx", "onMenuItemClick: edit" + getAdapterPosition());
+                    onItemClickCallback.onItemClicked(mLaporanUserList.get(getAdapterPosition()));
+                    return true;
+                case R.id.action_popup_delete:
+                    Log.d("calpalnx", "onMenuItemClick: delete" + getAdapterPosition());
+                    onDeleteClick.onItemClicked(mLaporanUserList.get(getAdapterPosition()));
+//                    ProdukModel currentItem = mProdukList.get(getAdapterPosition());
+//                    String id = currentItem.getId();
+//                    Log.d("calpalnx", "onMenuItemClick: delete" + getAdapterPosition());
+//                    LapakFragment lapakFragment = new LapakFragment();
+//                    lapakFragment.hapusData(id);
+                    return true;
+            }
+            return false;
         }
     }
+
 }

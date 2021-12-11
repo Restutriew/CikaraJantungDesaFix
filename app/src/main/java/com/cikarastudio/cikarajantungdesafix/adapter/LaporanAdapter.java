@@ -12,9 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cikarastudio.cikarajantungdesafix.R;
-import com.cikarastudio.cikarajantungdesafix.model.ArtikelModel;
 import com.cikarastudio.cikarajantungdesafix.model.LaporanModel;
-import com.cikarastudio.cikarajantungdesafix.model.ProdukModel;
 import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
 import com.squareup.picasso.Picasso;
 
@@ -24,20 +22,15 @@ public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanV
 
     private Context mContext;
     private ArrayList<LaporanModel> mLaporanList;
+    private LaporanAdapter.OnFavoriteClick onFavoriteClick;
 
     public LaporanAdapter(Context mContext, ArrayList<LaporanModel> mLaporanList) {
         this.mContext = mContext;
         this.mLaporanList = mLaporanList;
     }
 
-    private LaporanAdapter.OnFavoriteClick onFavoriteClick;
-
     public void setOnFavoriteClick(LaporanAdapter.OnFavoriteClick onFavoriteClick) {
         this.onFavoriteClick = onFavoriteClick;
-    }
-
-    public interface OnFavoriteClick {
-        void onItemClicked(LaporanModel data);
     }
 
     //setfilter
@@ -86,29 +79,35 @@ public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanV
 
         holder.tv_isiLaporan.setText(isiLaporan);
 
-        if (likeLaporan.equals("0")){
+        if (likeLaporan.equals("0")) {
             holder.img_loveLike.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     onFavoriteClick.onItemClicked(mLaporanList.get(holder.getAdapterPosition()));
                     holder.img_loveLike.setImageResource(R.drawable.ic_baseline_favorite_24);
+                    holder.img_loveLike.setEnabled(false);
                 }
             });
-        }else{
+        } else {
             holder.img_loveLike.setImageResource(R.drawable.ic_baseline_favorite_24);
+            holder.img_loveLike.setEnabled(false);
         }
 
         String imgUser = "https://puteran.cikarastudio.com/public/img/user/" + photoUser;
         Picasso.with(mContext.getApplicationContext()).load(imgUser).fit().centerCrop().into(holder.img_potouser);
 
         String imgLaporan = "https://puteran.cikarastudio.com/public/img/penduduk/lapor/" + gambarLaporan;
-        Picasso.with(mContext.getApplicationContext()).load(imgLaporan).fit().centerCrop().into(holder.img_gambarLaporan);
+        Picasso.with(mContext.getApplicationContext()).load(imgLaporan).into(holder.img_gambarLaporan);
 
     }
 
     @Override
     public int getItemCount() {
         return mLaporanList.size();
+    }
+
+    public interface OnFavoriteClick {
+        void onItemClicked(LaporanModel data);
     }
 
     public class LaporanViewHolder extends RecyclerView.ViewHolder {

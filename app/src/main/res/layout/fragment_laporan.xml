@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="60dp"
+    android:layout_marginBottom="55dp"
     android:orientation="vertical"
     tools:context=".ui.laporan.LaporanFragment">
 
@@ -24,10 +24,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:fontFamily="@font/inter_extrabold"
+                android:fontFamily="@font/inter_semibold"
                 android:text="Laporan"
                 android:textColor="@color/white"
-                android:textSize="30sp" />
+                android:textSize="22sp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -36,8 +36,8 @@
 
                 <ImageView
                     android:id="@+id/img_laporanSaya"
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:layout_margin="10dp"
                     android:src="@drawable/ic_baseline_forum_24"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -46,8 +46,8 @@
 
                 <ImageView
                     android:id="@+id/img_tambahLaporan"
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:layout_margin="10dp"
                     android:src="@drawable/ic_baseline_add_box_24"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -72,7 +72,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -111,158 +111,159 @@
             </LinearLayout>
 
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="5dp"
-                app:cardElevation="10dp">
+            <!--            <androidx.cardview.widget.CardView-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="5dp"-->
+            <!--                android:layout_marginBottom="5dp"-->
+            <!--                app:cardElevation="10dp">-->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="vertical">-->
 
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginTop="10dp"-->
-<!--                        android:orientation="horizontal">-->
+            <!--                    &lt;!&ndash;                    <LinearLayout&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:layout_width="match_parent"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:layout_marginTop="10dp"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:orientation="horizontal">&ndash;&gt;-->
 
-<!--                        <androidx.cardview.widget.CardView-->
-<!--                            android:layout_width="60dp"-->
-<!--                            android:layout_height="60dp"-->
-<!--                            android:layout_marginLeft="10dp"-->
-<!--                            app:cardCornerRadius="15dp">-->
+            <!--                    &lt;!&ndash;                        <androidx.cardview.widget.CardView&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                            android:layout_width="60dp"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                            android:layout_height="60dp"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                            android:layout_marginLeft="10dp"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                            app:cardCornerRadius="15dp">&ndash;&gt;-->
 
-<!--                            <ImageView-->
-<!--                                android:id="@+id/img_potouser"-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="match_parent"-->
-<!--                                android:scaleType="centerCrop"-->
-<!--                                android:src="@drawable/prs_dawala" />-->
-<!--                        </androidx.cardview.widget.CardView>-->
+            <!--                    &lt;!&ndash;                            <ImageView&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:id="@+id/img_potouser"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:layout_width="match_parent"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:layout_height="match_parent"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:scaleType="centerCrop"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:src="@drawable/prs_dawala" />&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        </androidx.cardview.widget.CardView>&ndash;&gt;-->
 
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="match_parent"-->
-<!--                            android:layout_marginLeft="10dp"-->
-<!--                            android:gravity="center_vertical"-->
-<!--                            android:orientation="vertical">-->
+            <!--                    &lt;!&ndash;                        <LinearLayout&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                            android:layout_width="match_parent"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                            android:layout_height="match_parent"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                            android:layout_marginLeft="10dp"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                            android:gravity="center_vertical"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                            android:orientation="vertical">&ndash;&gt;-->
 
-<!--                            <TextView-->
-<!--                                android:id="@+id/tv_namaUserLaporan"-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:fontFamily="@font/inter_extrabold"-->
-<!--                                android:text="Wahyu M Rizki"-->
-<!--                                android:textColor="@color/black"-->
-<!--                                android:textSize="18sp" />-->
+            <!--                    &lt;!&ndash;                            <TextView&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:id="@+id/tv_namaUserLaporan"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:layout_width="wrap_content"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:fontFamily="@font/inter_extrabold"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:text="Wahyu M Rizki"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:textColor="@color/black"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:textSize="18sp" />&ndash;&gt;-->
 
-<!--                            <TextView-->
-<!--                                android:id="@+id/tv_waktuLaporan"-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:ellipsize="end"-->
-<!--                                android:fontFamily="@font/inter_regular"-->
-<!--                                android:maxLines="1"-->
-<!--                                android:text="12:12"-->
-<!--                                android:textColor="@color/black" />-->
+            <!--                    &lt;!&ndash;                            <TextView&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:id="@+id/tv_waktuLaporan"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:layout_width="wrap_content"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:ellipsize="end"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:fontFamily="@font/inter_regular"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:maxLines="1"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:text="12:12"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:textColor="@color/black" />&ndash;&gt;-->
 
-<!--                            <TextView-->
-<!--                                android:id="@+id/tv_tglLaporan"-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:ellipsize="end"-->
-<!--                                android:fontFamily="@font/inter_regular"-->
-<!--                                android:maxLines="1"-->
-<!--                                android:text="01-11-2021"-->
-<!--                                android:textColor="@color/black" />-->
+            <!--                    &lt;!&ndash;                            <TextView&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:id="@+id/tv_tglLaporan"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:layout_width="wrap_content"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:ellipsize="end"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:fontFamily="@font/inter_regular"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:maxLines="1"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:text="01-11-2021"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                android:textColor="@color/black" />&ndash;&gt;-->
 
 
-<!--                        </LinearLayout>-->
+            <!--                    &lt;!&ndash;                        </LinearLayout>&ndash;&gt;-->
 
-<!--                    </LinearLayout>-->
+            <!--                    &lt;!&ndash;                    </LinearLayout>&ndash;&gt;-->
 
-<!--                    <com.synnapps.carouselview.CarouselView-->
-<!--                        android:id="@+id/carouselView"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="200dp"-->
-<!--                        android:layout_marginTop="15dp"-->
-<!--                        app:autoPlay="false"-->
-<!--                        app:fillColor="#FFFFFFFF"-->
-<!--                        app:pageColor="#00000000"-->
-<!--                        app:radius="6dp"-->
-<!--                        app:strokeColor="#FF777777"-->
-<!--                        app:strokeWidth="1dp" />-->
+            <!--                    &lt;!&ndash;                    <com.synnapps.carouselview.CarouselView&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:id="@+id/carouselView"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:layout_width="match_parent"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:layout_height="200dp"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:layout_marginTop="15dp"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        app:autoPlay="false"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        app:fillColor="#FFFFFFFF"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        app:pageColor="#00000000"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        app:radius="6dp"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        app:strokeColor="#FF777777"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        app:strokeWidth="1dp" />&ndash;&gt;-->
 
-<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:padding="5dp">-->
+            <!--                    &lt;!&ndash;                    <androidx.constraintlayout.widget.ConstraintLayout&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:layout_width="match_parent"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:padding="5dp">&ndash;&gt;-->
 
-<!--                        <ImageView-->
-<!--                            android:layout_width="25dp"-->
-<!--                            android:layout_height="25dp"-->
-<!--                            android:src="@drawable/ic_outline_favorite_border_24"-->
-<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                            app:layout_constraintStart_toStartOf="parent"-->
-<!--                            app:layout_constraintTop_toTopOf="parent" />-->
+            <!--                    &lt;!&ndash;                        <ImageView&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                            android:layout_width="25dp"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                            android:layout_height="25dp"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                            android:src="@drawable/ic_outline_favorite_border_24"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                            app:layout_constraintBottom_toBottomOf="parent"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                            app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                            app:layout_constraintTop_toTopOf="parent" />&ndash;&gt;-->
 
-<!--                        <ImageView-->
-<!--                            android:layout_width="25dp"-->
-<!--                            android:layout_height="25dp"-->
-<!--                            android:src="@drawable/ic_baseline_share_24"-->
-<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                            app:layout_constraintEnd_toEndOf="parent"-->
-<!--                            app:layout_constraintTop_toTopOf="parent" />-->
+            <!--                    &lt;!&ndash;                        <ImageView&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                            android:layout_width="25dp"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                            android:layout_height="25dp"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                            android:src="@drawable/ic_baseline_share_24"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                            app:layout_constraintBottom_toBottomOf="parent"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                            app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                            app:layout_constraintTop_toTopOf="parent" />&ndash;&gt;-->
 
-<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
+            <!--                    &lt;!&ndash;                    </androidx.constraintlayout.widget.ConstraintLayout>&ndash;&gt;-->
 
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginHorizontal="10dp"-->
-<!--                        android:fontFamily="@font/inter_regular"-->
-<!--                        android:text="1.234 suka"-->
-<!--                        android:textColor="@color/biru2" />-->
+            <!--                    &lt;!&ndash;                    <TextView&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:layout_width="match_parent"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:layout_marginHorizontal="10dp"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:fontFamily="@font/inter_regular"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:text="1.234 suka"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:textColor="@color/biru2" />&ndash;&gt;-->
 
-<!--                    <TextView-->
-<!--                        android:id="@+id/tv_isiLaporan"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginHorizontal="10dp"-->
-<!--                        android:fontFamily="@font/inter_regular"-->
-<!--                        android:text="Sampah menumpuk di TPS"-->
-<!--                        android:textColor="@color/black" />-->
+            <!--                    &lt;!&ndash;                    <TextView&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:id="@+id/tv_isiLaporan"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:layout_width="match_parent"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:layout_marginHorizontal="10dp"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:fontFamily="@font/inter_regular"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:text="Sampah menumpuk di TPS"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:textColor="@color/black" />&ndash;&gt;-->
 
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginHorizontal="10dp"-->
-<!--                        android:layout_marginTop="15dp"-->
-<!--                        android:fontFamily="@font/robotoslab_regular"-->
-<!--                        android:text="Respon :"-->
-<!--                        android:textColor="@color/abu" />-->
+            <!--                    &lt;!&ndash;                    <TextView&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:layout_width="match_parent"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:layout_marginHorizontal="10dp"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:layout_marginTop="15dp"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:fontFamily="@font/robotoslab_regular"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:text="Respon :"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:textColor="@color/abu" />&ndash;&gt;-->
 
-<!--                    <TextView-->
-<!--                        android:id="@+id/tv_responlaporan"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginHorizontal="10dp"-->
-<!--                        android:layout_marginBottom="20dp"-->
-<!--                        android:fontFamily="@font/inter_regular"-->
-<!--                        android:text="Belum Ada Tanggapan"-->
-<!--                        android:textColor="@color/abu" />-->
+            <!--                    &lt;!&ndash;                    <TextView&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:id="@+id/tv_responlaporan"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:layout_width="match_parent"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:layout_marginHorizontal="10dp"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:layout_marginBottom="20dp"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:fontFamily="@font/inter_regular"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:text="Belum Ada Tanggapan"&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        android:textColor="@color/abu" />&ndash;&gt;-->
 
-                </LinearLayout>
+            <!--                </LinearLayout>-->
 
-            </androidx.cardview.widget.CardView>
-
+            <!--            </androidx.cardview.widget.CardView>-->
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_laporanAll"

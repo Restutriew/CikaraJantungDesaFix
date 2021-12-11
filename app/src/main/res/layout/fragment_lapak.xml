@@ -5,7 +5,7 @@
     android:id="@+id/scroll_lapak"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="60dp"
+    android:layout_marginBottom="55dp"
     android:scrollbars="none"
     tools:context=".ui.lapak.LapakFragment">
 
@@ -61,7 +61,6 @@
             android:id="@+id/line_borderLapak"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_atas_biru_muda"
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
@@ -69,13 +68,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginVertical="20dp"
-                app:cardCornerRadius="15dp">
+                app:cardCornerRadius="15dp"
+                app:cardElevation="5dp">
 
                 <LinearLayout
                     android:id="@+id/line_editLapak"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/biru3"
+                    android:background="@color/birubg"
                     android:orientation="vertical"
                     android:padding="20dp">
 
@@ -113,14 +113,14 @@
                                     android:layout_weight="1"
                                     android:fontFamily="@font/inter_extrabold"
                                     android:text=""
-                                    android:textColor="@color/white"
-                                    android:textSize="25sp" />
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp" />
 
                                 <ImageView
                                     android:id="@+id/img_editLapak"
-                                    android:layout_width="30dp"
-                                    android:layout_height="30dp"
-                                    android:src="@drawable/ic_baseline_edit_24" />
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:src="@drawable/ic_baseline_edit_24_black" />
 
                             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -128,9 +128,29 @@
                                 android:id="@+id/tv_alamatLapak"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/inter_regular"
+                                android:maxLines="1"
+                                android:text=""
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:id="@+id/tv_alamatLapakFull"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:fontFamily="@font/inter_regular"
                                 android:text=""
-                                android:textColor="@color/white" />
+                                android:textColor="@color/black"
+                                android:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/tv_alamatLapakBtnLihat"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/inter_regular"
+                                android:text="Lihat Selengkapnya"
+                                android:textColor="@color/black"
+                                android:visibility="gone" />
 
                         </LinearLayout>
 
@@ -146,7 +166,7 @@
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:src="@drawable/ic_baseline_phone_24" />
+                            android:src="@drawable/ic_baseline_phone_24_black" />
 
                         <TextView
                             android:id="@+id/tv_telpLapak"
@@ -155,7 +175,7 @@
                             android:layout_marginLeft="5dp"
                             android:fontFamily="@font/inter_regular"
                             android:text=""
-                            android:textColor="@color/white" />
+                            android:textColor="@color/black" />
 
                     </LinearLayout>
 
@@ -164,9 +184,30 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/inter_regular"
+                        android:maxLines="3"
+                        android:text=""
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tv_tentangLapakFull"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:fontFamily="@font/inter_regular"
                         android:text=""
-                        android:textColor="@color/white" />
+                        android:textColor="@color/black"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tv_tentangLapakBtnLihat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="Lihat Selengkapnya"
+                        android:textColor="@color/black"
+                        android:visibility="gone" />
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cr_simpanProduk"
@@ -178,7 +219,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@color/biru4"
+                            android:background="@color/biru2"
                             android:gravity="center">
 
                             <TextView
@@ -194,6 +235,17 @@
 
                     </androidx.cardview.widget.CardView>
 
+                    <TextView
+                        android:id="@+id/tv_lapakMenunggu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/inter_regular"
+                        android:gravity="center"
+                        android:text="Status Lapak Menunggu\nTidak Dapat Menambahkan Produk Saat Ini"
+                        android:textColor="@color/black"
+                        android:visibility="gone" />
+
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -203,25 +255,26 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginHorizontal="10dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:fontFamily="@font/inter_extrabold"
+                android:fontFamily="@font/inter_semibold"
+                android:gravity="center_vertical"
                 android:text="Produk"
-                android:textColor="@color/biru2"
-                android:textSize="25sp" />
+                android:textColor="@color/black"
+                android:textSize="22sp" />
 
             <TextView
                 android:id="@+id/tv_tambahProduk"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="35dp"
                 android:background="@drawable/border_biru_muda"
                 android:fontFamily="@font/inter_semibold"
+                android:gravity="center"
                 android:padding="10dp"
                 android:text="Tambah Produk"
                 android:textColor="@color/white"
@@ -233,8 +286,8 @@
             android:id="@+id/et_produkSearch"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/border_putih_biru_inputan"
             android:iconifiedByDefault="false"
             android:queryHint="Cari Produk"
@@ -243,7 +296,7 @@
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
+            android:layout_marginHorizontal="10dp"
             android:layout_marginTop="10dp">
 
             <LinearLayout
@@ -295,7 +348,6 @@
                     android:text="Populer"
                     android:textColor="@color/biru2" />
 
-
             </LinearLayout>
 
         </HorizontalScrollView>
@@ -303,7 +355,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp">
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="60dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_listProduk"
@@ -312,17 +365,6 @@
                 android:overScrollMode="never" />
 
         </RelativeLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="40dp"
-            android:fontFamily="@font/robotoslab_extrabold"
-            android:gravity="center"
-            android:text=""
-            android:textColor="@color/warna_bg"
-            android:textSize="20sp" />
 
     </LinearLayout>
 

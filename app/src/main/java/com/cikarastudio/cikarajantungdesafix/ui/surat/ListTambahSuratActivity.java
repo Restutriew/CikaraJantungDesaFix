@@ -1,9 +1,5 @@
 package com.cikarastudio.cikarajantungdesafix.ui.surat;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +7,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -22,7 +22,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.cikarastudio.cikarajantungdesafix.R;
 import com.cikarastudio.cikarajantungdesafix.adapter.SuratListAdapter;
-import com.cikarastudio.cikarajantungdesafix.model.ProdukModel;
 import com.cikarastudio.cikarajantungdesafix.model.SuratListModel;
 import com.cikarastudio.cikarajantungdesafix.ui.loadingdialog.LoadingDialog;
 
@@ -36,11 +35,11 @@ public class ListTambahSuratActivity extends AppCompatActivity implements View.O
 
     LoadingDialog loadingDialog;
     ImageView img_back;
-    String kategori_surat, link;
-    private ArrayList<SuratListModel> suratList;
-    private SuratListAdapter suratListAdapter;
+    String kategori_surat, link, token;
     RecyclerView rv_suratList;
     SearchView et_suratListSearch;
+    private ArrayList<SuratListModel> suratList;
+    private SuratListAdapter suratListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +55,9 @@ public class ListTambahSuratActivity extends AppCompatActivity implements View.O
         //inisiasi link
         link = getString(R.string.link);
 
+        //inisiasi token
+        token = getString(R.string.token);
+
         suratList = new ArrayList<>();
         rv_suratList = findViewById(R.id.rv_suratList);
         LinearLayoutManager linearLayoutManageraaa = new LinearLayoutManager(getApplicationContext()) {
@@ -70,6 +72,7 @@ public class ListTambahSuratActivity extends AppCompatActivity implements View.O
         loadDataListSurat();
 
         et_suratListSearch = findViewById(R.id.et_suratListSearch);
+
         et_suratListSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @SuppressLint("SetTextI18n")
             @Override
@@ -80,15 +83,18 @@ public class ListTambahSuratActivity extends AppCompatActivity implements View.O
             @Override
             public boolean onQueryTextChange(String nextText) {
                 //Data akan berubah saat user menginputkan text/kata kunci pada SearchView
-                nextText = nextText.toLowerCase();
-                ArrayList<SuratListModel> dataFilter = new ArrayList<>();
-                for (SuratListModel data : suratList) {
-                    String nama = data.getNama_surat().toLowerCase();
-                    if (nama.contains(nextText)) {
-                        dataFilter.add(data);
+                if (suratList.size() > 0) {
+                    nextText = nextText.toLowerCase();
+                    ArrayList<SuratListModel> dataFilter = new ArrayList<>();
+                    for (SuratListModel data : suratList) {
+                        String nama = data.getNama_surat().toLowerCase();
+                        if (nama.contains(nextText)) {
+                            dataFilter.add(data);
+                        }
                     }
+                    suratListAdapter.setFilter(dataFilter);
                 }
-                suratListAdapter.setFilter(dataFilter);
+
                 return true;
             }
         });
@@ -106,23 +112,6 @@ public class ListTambahSuratActivity extends AppCompatActivity implements View.O
                 // do your code
                 finish();
                 break;
-//            case R.id.cr_suratKeterangan:
-//                // do your code
-//                Intent keEditLapak = new Intent(ListKategoriSuratActivity.this, ListTambahSuratActivity.class);
-//                keEditLapak.putExtra("kategori_surat", "surat keterangan");
-//                break;
-//            case R.id.cr_suratPengantar:
-//                // do your code
-//                finish();
-//                break;
-//            case R.id.cr_suratRekomendasi:
-//                // do your code
-//                finish();
-//                break;
-//            case R.id.cr_suratLainnya:
-//                // do your code
-//                finish();
-//                break;
             default:
                 break;
         }
@@ -130,12 +119,11 @@ public class ListTambahSuratActivity extends AppCompatActivity implements View.O
     }
 
     private void loadDataListSurat() {
-        String URL_READ = link + "listformatsurat?kategori=" + kategori_surat;
+        String URL_READ = link + "listformatsurat?token=" + token + "&kategori=" + kategori_surat;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
                         try {
                             JSONArray jsonArray = new JSONArray(response);
                             if (jsonArray.length() > 0) {
@@ -156,8 +144,8 @@ public class ListTambahSuratActivity extends AppCompatActivity implements View.O
                                     String res_updatedAt = jsonObject.getString("updated_at").trim();
 
                                     suratList.add(new SuratListModel(res_id, res_kode, res_klasifikasisuratId, res_namaSurat,
-                                            res_nilaiMasaBerlaku, res_statusMasaBerlaku, res_layananMandiri,res_fileSurat,
-                                            res_kategori,res_createdAt,res_updatedAt));
+                                            res_nilaiMasaBerlaku, res_statusMasaBerlaku, res_layananMandiri, res_fileSurat,
+                                            res_kategori, res_createdAt, res_updatedAt));
                                     rv_suratList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                                     suratListAdapter = new SuratListAdapter(getApplicationContext(), suratList);
                                     rv_suratList.setAdapter(suratListAdapter);

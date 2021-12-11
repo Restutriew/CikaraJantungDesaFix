@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="60dp"
+    android:layout_marginBottom="55dp"
     android:orientation="vertical"
     tools:context=".ui.home.HomeFragment">
 
@@ -45,9 +45,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/inter_semibold"
-                    android:text=""
                     android:textColor="@color/white"
                     android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_semibold"
+                    android:textColor="@color/white" />
 
             </LinearLayout>
 
@@ -59,7 +65,7 @@
                     android:layout_width="30dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:src="@drawable/ic_notifications_black_24dp"
+                    android:src="@drawable/ic_notifications_white_24dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -88,8 +94,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingVertical="15dp"
-                    android:paddingStart="15dp"
+                    android:paddingVertical="5dp"
+                    android:paddingStart="5dp"
                     tools:ignore="RtlSymmetry">
 
                     <androidx.cardview.widget.CardView
@@ -253,7 +259,7 @@
                             android:layout_marginStart="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_weight="1"
-                            android:fontFamily="@font/inter_extrabold"
+                            android:fontFamily="@font/inter_semibold"
                             android:text="Berita Desa"
                             android:textColor="@color/black"
                             android:textSize="18sp" />
@@ -267,37 +273,31 @@
                             android:layout_marginEnd="10dp"
                             android:fontFamily="@font/inter_regular"
                             android:text="@string/lihatSelengkapnya"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
 
                     </LinearLayout>
 
-                    <androidx.cardview.widget.CardView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp">
+                        android:layout_marginTop="10dp"
+                        android:background="@color/white"
+                        android:orientation="vertical">
 
-                        <LinearLayout
+                        <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@color/white"
-                            android:orientation="vertical">
+                            android:layout_height="wrap_content">
 
-                            <RelativeLayout
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/rv_artikel"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp">
+                                android:overScrollMode="never" />
 
-                                <androidx.recyclerview.widget.RecyclerView
-                                    android:id="@+id/rv_artikel"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:overScrollMode="never" />
+                        </RelativeLayout>
 
-                            </RelativeLayout>
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -306,7 +306,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="5dp"
                 app:cardElevation="10dp">
 
                 <LinearLayout
@@ -319,7 +319,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
-                        android:fontFamily="@font/inter_extrabold"
+                        android:fontFamily="@font/inter_semibold"
                         android:text="Perangkat Desa"
                         android:textColor="@color/black"
                         android:textSize="18sp" />

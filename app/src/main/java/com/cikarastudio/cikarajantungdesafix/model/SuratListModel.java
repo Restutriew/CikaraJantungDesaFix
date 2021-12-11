@@ -5,6 +5,17 @@ import android.os.Parcelable;
 
 public class SuratListModel implements Parcelable {
 
+    public static final Creator<SuratListModel> CREATOR = new Creator<SuratListModel>() {
+        @Override
+        public SuratListModel createFromParcel(Parcel in) {
+            return new SuratListModel(in);
+        }
+
+        @Override
+        public SuratListModel[] newArray(int size) {
+            return new SuratListModel[size];
+        }
+    };
     String id;
     String kode;
     String klasifikasisurat_id;
@@ -29,6 +40,24 @@ public class SuratListModel implements Parcelable {
         this.kategori = kategori;
         this.created_at = created_at;
         this.updated_at = updated_at;
+    }
+
+    protected SuratListModel(Parcel in) {
+        id = in.readString();
+        kode = in.readString();
+        klasifikasisurat_id = in.readString();
+        nama_surat = in.readString();
+        nilai_masaberlaku = in.readString();
+        status_masaberlaku = in.readString();
+        layanan_mandiri = in.readString();
+        file_surat = in.readString();
+        kategori = in.readString();
+        created_at = in.readString();
+        updated_at = in.readString();
+    }
+
+    public static Creator<SuratListModel> getCREATOR() {
+        return CREATOR;
     }
 
     public String getId() {
@@ -118,36 +147,6 @@ public class SuratListModel implements Parcelable {
     public void setUpdated_at(String updated_at) {
         this.updated_at = updated_at;
     }
-
-    public static Creator<SuratListModel> getCREATOR() {
-        return CREATOR;
-    }
-
-    protected SuratListModel(Parcel in) {
-        id = in.readString();
-        kode = in.readString();
-        klasifikasisurat_id = in.readString();
-        nama_surat = in.readString();
-        nilai_masaberlaku = in.readString();
-        status_masaberlaku = in.readString();
-        layanan_mandiri = in.readString();
-        file_surat = in.readString();
-        kategori = in.readString();
-        created_at = in.readString();
-        updated_at = in.readString();
-    }
-
-    public static final Creator<SuratListModel> CREATOR = new Creator<SuratListModel>() {
-        @Override
-        public SuratListModel createFromParcel(Parcel in) {
-            return new SuratListModel(in);
-        }
-
-        @Override
-        public SuratListModel[] newArray(int size) {
-            return new SuratListModel[size];
-        }
-    };
 
     @Override
     public int describeContents() {

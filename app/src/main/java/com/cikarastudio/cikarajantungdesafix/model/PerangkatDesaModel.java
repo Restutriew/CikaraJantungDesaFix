@@ -5,6 +5,17 @@ import android.os.Parcelable;
 
 public class PerangkatDesaModel implements Parcelable {
 
+    public static final Creator<PerangkatDesaModel> CREATOR = new Creator<PerangkatDesaModel>() {
+        @Override
+        public PerangkatDesaModel createFromParcel(Parcel in) {
+            return new PerangkatDesaModel(in);
+        }
+
+        @Override
+        public PerangkatDesaModel[] newArray(int size) {
+            return new PerangkatDesaModel[size];
+        }
+    };
     String id;
     String nama_pegawai;
     String nik;
@@ -49,6 +60,34 @@ public class PerangkatDesaModel implements Parcelable {
         this.created_at = created_at;
         this.updated_at = updated_at;
         this.photo = photo;
+    }
+
+    protected PerangkatDesaModel(Parcel in) {
+        id = in.readString();
+        nama_pegawai = in.readString();
+        nik = in.readString();
+        nipd = in.readString();
+        nip = in.readString();
+        tempat_lahir = in.readString();
+        tgl_lahir = in.readString();
+        jk = in.readString();
+        pendidikan = in.readString();
+        agama = in.readString();
+        golongan = in.readString();
+        nosk_pengangkatan = in.readString();
+        tglsk_pengangkatan = in.readString();
+        nosk_pemberhentian = in.readString();
+        tglsk_pemberhentian = in.readString();
+        masa_jabatan = in.readString();
+        jabatan = in.readString();
+        status_pegawai = in.readString();
+        created_at = in.readString();
+        updated_at = in.readString();
+        photo = in.readString();
+    }
+
+    public static Creator<PerangkatDesaModel> getCREATOR() {
+        return CREATOR;
     }
 
     public String getId() {
@@ -218,46 +257,6 @@ public class PerangkatDesaModel implements Parcelable {
     public void setPhoto(String photo) {
         this.photo = photo;
     }
-
-    public static Creator<PerangkatDesaModel> getCREATOR() {
-        return CREATOR;
-    }
-
-    protected PerangkatDesaModel(Parcel in) {
-        id = in.readString();
-        nama_pegawai = in.readString();
-        nik = in.readString();
-        nipd = in.readString();
-        nip = in.readString();
-        tempat_lahir = in.readString();
-        tgl_lahir = in.readString();
-        jk = in.readString();
-        pendidikan = in.readString();
-        agama = in.readString();
-        golongan = in.readString();
-        nosk_pengangkatan = in.readString();
-        tglsk_pengangkatan = in.readString();
-        nosk_pemberhentian = in.readString();
-        tglsk_pemberhentian = in.readString();
-        masa_jabatan = in.readString();
-        jabatan = in.readString();
-        status_pegawai = in.readString();
-        created_at = in.readString();
-        updated_at = in.readString();
-        photo = in.readString();
-    }
-
-    public static final Creator<PerangkatDesaModel> CREATOR = new Creator<PerangkatDesaModel>() {
-        @Override
-        public PerangkatDesaModel createFromParcel(Parcel in) {
-            return new PerangkatDesaModel(in);
-        }
-
-        @Override
-        public PerangkatDesaModel[] newArray(int size) {
-            return new PerangkatDesaModel[size];
-        }
-    };
 
     @Override
     public int describeContents() {

@@ -5,6 +5,17 @@ import android.os.Parcelable;
 
 public class ProdukModel implements Parcelable {
 
+    public static final Creator<ProdukModel> CREATOR = new Creator<ProdukModel>() {
+        @Override
+        public ProdukModel createFromParcel(Parcel in) {
+            return new ProdukModel(in);
+        }
+
+        @Override
+        public ProdukModel[] newArray(int size) {
+            return new ProdukModel[size];
+        }
+    };
     String id;
     String lapak_id;
     String nama;
@@ -21,6 +32,20 @@ public class ProdukModel implements Parcelable {
         this.gambar = gambar;
         this.harga = harga;
         this.dilihat = dilihat;
+    }
+
+    protected ProdukModel(Parcel in) {
+        id = in.readString();
+        lapak_id = in.readString();
+        nama = in.readString();
+        keterangan = in.readString();
+        gambar = in.readString();
+        harga = in.readInt();
+        dilihat = in.readInt();
+    }
+
+    public static Creator<ProdukModel> getCREATOR() {
+        return CREATOR;
     }
 
     public String getId() {
@@ -78,32 +103,6 @@ public class ProdukModel implements Parcelable {
     public void setDilihat(Integer dilihat) {
         this.dilihat = dilihat;
     }
-
-    public static Creator<ProdukModel> getCREATOR() {
-        return CREATOR;
-    }
-
-    protected ProdukModel(Parcel in) {
-        id = in.readString();
-        lapak_id = in.readString();
-        nama = in.readString();
-        keterangan = in.readString();
-        gambar = in.readString();
-        harga = in.readInt();
-        dilihat = in.readInt();
-    }
-
-    public static final Creator<ProdukModel> CREATOR = new Creator<ProdukModel>() {
-        @Override
-        public ProdukModel createFromParcel(Parcel in) {
-            return new ProdukModel(in);
-        }
-
-        @Override
-        public ProdukModel[] newArray(int size) {
-            return new ProdukModel[size];
-        }
-    };
 
     @Override
     public int describeContents() {

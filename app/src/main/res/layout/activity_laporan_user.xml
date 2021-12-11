@@ -12,14 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/biru2"
-        android:paddingVertical="20dp">
+        android:padding="8dp">
 
         <ImageView
             android:id="@+id/img_back"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_marginLeft="20dp"
-            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -27,11 +27,12 @@
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/inter_extrabold"
+            android:layout_height="50dp"
+            android:fontFamily="@font/inter_semibold"
+            android:gravity="center"
             android:text="Laporan Saya"
             android:textColor="@color/white"
-            android:textSize="30sp"
+            android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -64,8 +65,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:paddingVertical="15dp"
-                        android:paddingStart="15dp"
+                        android:paddingVertical="5dp"
+                        android:paddingStart="5dp"
                         tools:ignore="RtlSymmetry">
 
                         <androidx.cardview.widget.CardView

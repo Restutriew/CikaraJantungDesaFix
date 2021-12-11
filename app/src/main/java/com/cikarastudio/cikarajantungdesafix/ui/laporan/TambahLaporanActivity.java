@@ -1,8 +1,5 @@
 package com.cikarastudio.cikarajantungdesafix.ui.laporan;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -21,6 +18,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -31,7 +31,6 @@ import com.android.volley.toolbox.Volley;
 import com.cikarastudio.cikarajantungdesafix.R;
 import com.cikarastudio.cikarajantungdesafix.session.SessionManager;
 import com.cikarastudio.cikarajantungdesafix.ssl.HttpsTrustManager;
-import com.cikarastudio.cikarajantungdesafix.ui.lapak.TambahLapakActivity;
 import com.cikarastudio.cikarajantungdesafix.ui.loadingdialog.LoadingDialog;
 
 import org.json.JSONException;
@@ -201,11 +200,7 @@ public class TambahLaporanActivity extends AppCompatActivity {
         final String statusLaporan = "menunggu";
         final String identitasLaporan = sp_identitasLaporan.getSelectedItem().toString().toLowerCase();
         final String postingLaporan = sp_postingLaporan.getSelectedItem().toString().toLowerCase();
-        if (cr_fotoLaporan.isShown()) {
-            uploadBase64 = "data:image/png;base64," + getStringImage(bitmap);
-        } else {
-            uploadBase64 = "data:image/png;base64,";
-        }
+        uploadBase64 = "data:image/png;base64," + getStringImage(bitmap);
 
         Log.d("calpalnx", String.valueOf(id_user));
         Log.d("calpalnx", String.valueOf(isiLaporan));

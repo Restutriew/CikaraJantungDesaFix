@@ -5,6 +5,17 @@ import android.os.Parcelable;
 
 public class ArtikelModel implements Parcelable {
 
+    public static final Creator<ArtikelModel> CREATOR = new Creator<ArtikelModel>() {
+        @Override
+        public ArtikelModel createFromParcel(Parcel in) {
+            return new ArtikelModel(in);
+        }
+
+        @Override
+        public ArtikelModel[] newArray(int size) {
+            return new ArtikelModel[size];
+        }
+    };
     String id;
     String user_id;
     String kategoriartikel_id;
@@ -29,6 +40,24 @@ public class ArtikelModel implements Parcelable {
         this.created_at = created_at;
         this.updated_at = updated_at;
         this.nama_kategori = nama_kategori;
+    }
+
+    protected ArtikelModel(Parcel in) {
+        id = in.readString();
+        user_id = in.readString();
+        kategoriartikel_id = in.readString();
+        judul_artikel = in.readString();
+        slug = in.readString();
+        isi_artikel = in.readString();
+        view = in.readString();
+        gambar_artikel = in.readString();
+        created_at = in.readString();
+        updated_at = in.readString();
+        nama_kategori = in.readString();
+    }
+
+    public static Creator<ArtikelModel> getCREATOR() {
+        return CREATOR;
     }
 
     public String getId() {
@@ -118,36 +147,6 @@ public class ArtikelModel implements Parcelable {
     public void setNama_kategori(String nama_kategori) {
         this.nama_kategori = nama_kategori;
     }
-
-    public static Creator<ArtikelModel> getCREATOR() {
-        return CREATOR;
-    }
-
-    protected ArtikelModel(Parcel in) {
-        id = in.readString();
-        user_id = in.readString();
-        kategoriartikel_id = in.readString();
-        judul_artikel = in.readString();
-        slug = in.readString();
-        isi_artikel = in.readString();
-        view = in.readString();
-        gambar_artikel = in.readString();
-        created_at = in.readString();
-        updated_at = in.readString();
-        nama_kategori = in.readString();
-    }
-
-    public static final Creator<ArtikelModel> CREATOR = new Creator<ArtikelModel>() {
-        @Override
-        public ArtikelModel createFromParcel(Parcel in) {
-            return new ArtikelModel(in);
-        }
-
-        @Override
-        public ArtikelModel[] newArray(int size) {
-            return new ArtikelModel[size];
-        }
-    };
 
     @Override
     public int describeContents() {

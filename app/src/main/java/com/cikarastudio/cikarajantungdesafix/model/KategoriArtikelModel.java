@@ -5,6 +5,17 @@ import android.os.Parcelable;
 
 public class KategoriArtikelModel implements Parcelable {
 
+    public static final Creator<KategoriArtikelModel> CREATOR = new Creator<KategoriArtikelModel>() {
+        @Override
+        public KategoriArtikelModel createFromParcel(Parcel in) {
+            return new KategoriArtikelModel(in);
+        }
+
+        @Override
+        public KategoriArtikelModel[] newArray(int size) {
+            return new KategoriArtikelModel[size];
+        }
+    };
     String id;
     String nama_kategori;
     String keterangan;
@@ -17,6 +28,18 @@ public class KategoriArtikelModel implements Parcelable {
         this.keterangan = keterangan;
         this.created_at = created_at;
         this.updated_at = updated_at;
+    }
+
+    protected KategoriArtikelModel(Parcel in) {
+        id = in.readString();
+        nama_kategori = in.readString();
+        keterangan = in.readString();
+        created_at = in.readString();
+        updated_at = in.readString();
+    }
+
+    public static Creator<KategoriArtikelModel> getCREATOR() {
+        return CREATOR;
     }
 
     public String getId() {
@@ -58,30 +81,6 @@ public class KategoriArtikelModel implements Parcelable {
     public void setUpdated_at(String updated_at) {
         this.updated_at = updated_at;
     }
-
-    public static Creator<KategoriArtikelModel> getCREATOR() {
-        return CREATOR;
-    }
-
-    protected KategoriArtikelModel(Parcel in) {
-        id = in.readString();
-        nama_kategori = in.readString();
-        keterangan = in.readString();
-        created_at = in.readString();
-        updated_at = in.readString();
-    }
-
-    public static final Creator<KategoriArtikelModel> CREATOR = new Creator<KategoriArtikelModel>() {
-        @Override
-        public KategoriArtikelModel createFromParcel(Parcel in) {
-            return new KategoriArtikelModel(in);
-        }
-
-        @Override
-        public KategoriArtikelModel[] newArray(int size) {
-            return new KategoriArtikelModel[size];
-        }
-    };
 
     @Override
     public int describeContents() {

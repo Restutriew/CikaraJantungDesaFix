@@ -16,8 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.cikarastudio.cikarajantungdesafix.R;
 import com.cikarastudio.cikarajantungdesafix.model.ProdukModel;
 import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
-import com.cikarastudio.cikarajantungdesafix.ui.lapak.LapakFragment;
-import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -29,30 +27,20 @@ public class ProdukAdapter extends RecyclerView.Adapter<ProdukAdapter.ProdukView
 
     //metode Onclick
     private OnItemClickCallback onItemClickCallback;
-
-    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
-        this.onItemClickCallback = onItemClickCallback;
-    }
-
-    public interface OnItemClickCallback {
-        void onItemClicked(ProdukModel data);
-    }
-
     private OnDeleteClick onDeleteClick;
-
-    public void setOnDeleteClick(OnDeleteClick onDeleteClick) {
-        this.onDeleteClick = onDeleteClick;
-    }
-
-    public interface OnDeleteClick {
-        void onItemClicked(ProdukModel data);
-    }
 
     public ProdukAdapter(Context mContext, ArrayList<ProdukModel> mProdukList) {
         this.mContext = mContext;
         this.mProdukList = mProdukList;
     }
 
+    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback;
+    }
+
+    public void setOnDeleteClick(OnDeleteClick onDeleteClick) {
+        this.onDeleteClick = onDeleteClick;
+    }
 
     //setfilter
     public void setFilter(ArrayList<ProdukModel> dataFilter) {
@@ -64,7 +52,7 @@ public class ProdukAdapter extends RecyclerView.Adapter<ProdukAdapter.ProdukView
     @NonNull
     @Override
     public ProdukViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(mContext).inflate(R.layout.item_produk, parent, false);
+        View v = LayoutInflater.from(mContext).inflate(R.layout.item_produk_v2, parent, false);
         return new ProdukAdapter.ProdukViewHolder(v);
     }
 
@@ -103,6 +91,14 @@ public class ProdukAdapter extends RecyclerView.Adapter<ProdukAdapter.ProdukView
         return mProdukList.size();
     }
 
+    public interface OnItemClickCallback {
+        void onItemClicked(ProdukModel data);
+    }
+
+    public interface OnDeleteClick {
+        void onItemClicked(ProdukModel data);
+    }
+
     public class ProdukViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, PopupMenu.OnMenuItemClickListener {
         public TextView nama;
         public TextView harga;
@@ -129,8 +125,8 @@ public class ProdukAdapter extends RecyclerView.Adapter<ProdukAdapter.ProdukView
             showPopupMenu(view);
         }
 
-        private void showPopupMenu(View view){
-            PopupMenu popupMenu = new PopupMenu(view.getContext(),view);
+        private void showPopupMenu(View view) {
+            PopupMenu popupMenu = new PopupMenu(view.getContext(), view);
             popupMenu.inflate(R.menu.popup_menu);
             popupMenu.setOnMenuItemClickListener(this);
             popupMenu.show();
@@ -138,7 +134,7 @@ public class ProdukAdapter extends RecyclerView.Adapter<ProdukAdapter.ProdukView
 
         @Override
         public boolean onMenuItemClick(MenuItem menuItem) {
-            switch (menuItem.getItemId()){
+            switch (menuItem.getItemId()) {
                 case R.id.action_popup_edit:
                     Log.d("calpalnx", "onMenuItemClick: edit" + getAdapterPosition());
                     onItemClickCallback.onItemClicked(mProdukList.get(getAdapterPosition()));

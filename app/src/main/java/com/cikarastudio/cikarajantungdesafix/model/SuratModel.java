@@ -5,6 +5,17 @@ import android.os.Parcelable;
 
 public class SuratModel implements Parcelable {
 
+    public static final Creator<SuratModel> CREATOR = new Creator<SuratModel>() {
+        @Override
+        public SuratModel createFromParcel(Parcel in) {
+            return new SuratModel(in);
+        }
+
+        @Override
+        public SuratModel[] newArray(int size) {
+            return new SuratModel[size];
+        }
+    };
     String id;
     String user_id;
     String formatsurat_id;
@@ -191,6 +202,105 @@ public class SuratModel implements Parcelable {
         this.prov_saksi2 = prov_saksi2;
         this.created_at = created_at;
         this.updated_at = updated_at;
+    }
+
+    protected SuratModel(Parcel in) {
+        id = in.readString();
+        user_id = in.readString();
+        formatsurat_id = in.readString();
+        status = in.readString();
+        nomor_surat = in.readString();
+        keperluan = in.readString();
+        keterangan = in.readString();
+        tgl_awal = in.readString();
+        tgl_akhir = in.readString();
+        atas_nama = in.readString();
+        staf_pemerintahan = in.readString();
+        menjabat = in.readString();
+        tampilkan_poto = in.readString();
+        kepala_kk = in.readString();
+        no_kk = in.readString();
+        rt_tujuan = in.readString();
+        rw_tujuan = in.readString();
+        dusun_tujuan = in.readString();
+        desa_tujuan = in.readString();
+        kecamatan_tujuan = in.readString();
+        kabupaten_tujuan = in.readString();
+        alasan_pindah = in.readString();
+        tanggal_pindah = in.readString();
+        jumlah_pengikut = in.readString();
+        barang = in.readString();
+        jenis = in.readString();
+        nama = in.readString();
+        no_identitas = in.readString();
+        tempat_lahir = in.readString();
+        tgl_lahir = in.readString();
+        jk = in.readString();
+        agama = in.readString();
+        alamat = in.readString();
+        pekerjaan = in.readString();
+        ketua_adat = in.readString();
+        perbedaan = in.readString();
+        kartu_identitas = in.readString();
+        rincian = in.readString();
+        usaha = in.readString();
+        no_jamkesos = in.readString();
+        hari_lahir = in.readString();
+        waktu_lahir = in.readString();
+        kelahiran_ke = in.readString();
+        nama_ibu = in.readString();
+        nik_ibu = in.readString();
+        umur_ibu = in.readString();
+        pekerjaan_ibu = in.readString();
+        alamat_ibu = in.readString();
+        desa_ibu = in.readString();
+        kec_ibu = in.readString();
+        kab_ibu = in.readString();
+        nama_ayah = in.readString();
+        nik_ayah = in.readString();
+        umur_ayah = in.readString();
+        pekerjaan_ayah = in.readString();
+        alamat_ayah = in.readString();
+        desa_ayah = in.readString();
+        kec_ayah = in.readString();
+        kab_ayah = in.readString();
+        nama_pelapor = in.readString();
+        nik_pelapor = in.readString();
+        umur_pelapor = in.readString();
+        pekerjaan_pelapor = in.readString();
+        desa_pelapor = in.readString();
+        kec_pelapor = in.readString();
+        kab_pelapor = in.readString();
+        prov_pelapor = in.readString();
+        hub_pelapor = in.readString();
+        tempat_lahir_pelapor = in.readString();
+        tanggal_lahir_pelapor = in.readString();
+        nama_saksi1 = in.readString();
+        nik_saksi1 = in.readString();
+        tempat_lahir_saksi1 = in.readString();
+        tanggal_lahir_saksi1 = in.readString();
+        umur_saksi1 = in.readString();
+        pekerjaan_saksi1 = in.readString();
+        desa_saksi1 = in.readString();
+        kec_saksi1 = in.readString();
+        kab_saksi1 = in.readString();
+        prov_saksi1 = in.readString();
+        nama_saksi2 = in.readString();
+        nik_saksi2 = in.readString();
+        tempat_lahir_saksi2 = in.readString();
+        tanggal_lahir_saksi2 = in.readString();
+        umur_saksi2 = in.readString();
+        pekerjaan_saksi2 = in.readString();
+        desa_saksi2 = in.readString();
+        kec_saksi2 = in.readString();
+        kab_saksi2 = in.readString();
+        prov_saksi2 = in.readString();
+        created_at = in.readString();
+        updated_at = in.readString();
+    }
+
+    public static Creator<SuratModel> getCREATOR() {
+        return CREATOR;
     }
 
     public String getId() {
@@ -928,117 +1038,6 @@ public class SuratModel implements Parcelable {
     public void setUpdated_at(String updated_at) {
         this.updated_at = updated_at;
     }
-
-    public static Creator<SuratModel> getCREATOR() {
-        return CREATOR;
-    }
-
-    protected SuratModel(Parcel in) {
-        id = in.readString();
-        user_id = in.readString();
-        formatsurat_id = in.readString();
-        status = in.readString();
-        nomor_surat = in.readString();
-        keperluan = in.readString();
-        keterangan = in.readString();
-        tgl_awal = in.readString();
-        tgl_akhir = in.readString();
-        atas_nama = in.readString();
-        staf_pemerintahan = in.readString();
-        menjabat = in.readString();
-        tampilkan_poto = in.readString();
-        kepala_kk = in.readString();
-        no_kk = in.readString();
-        rt_tujuan = in.readString();
-        rw_tujuan = in.readString();
-        dusun_tujuan = in.readString();
-        desa_tujuan = in.readString();
-        kecamatan_tujuan = in.readString();
-        kabupaten_tujuan = in.readString();
-        alasan_pindah = in.readString();
-        tanggal_pindah = in.readString();
-        jumlah_pengikut = in.readString();
-        barang = in.readString();
-        jenis = in.readString();
-        nama = in.readString();
-        no_identitas = in.readString();
-        tempat_lahir = in.readString();
-        tgl_lahir = in.readString();
-        jk = in.readString();
-        agama = in.readString();
-        alamat = in.readString();
-        pekerjaan = in.readString();
-        ketua_adat = in.readString();
-        perbedaan = in.readString();
-        kartu_identitas = in.readString();
-        rincian = in.readString();
-        usaha = in.readString();
-        no_jamkesos = in.readString();
-        hari_lahir = in.readString();
-        waktu_lahir = in.readString();
-        kelahiran_ke = in.readString();
-        nama_ibu = in.readString();
-        nik_ibu = in.readString();
-        umur_ibu = in.readString();
-        pekerjaan_ibu = in.readString();
-        alamat_ibu = in.readString();
-        desa_ibu = in.readString();
-        kec_ibu = in.readString();
-        kab_ibu = in.readString();
-        nama_ayah = in.readString();
-        nik_ayah = in.readString();
-        umur_ayah = in.readString();
-        pekerjaan_ayah = in.readString();
-        alamat_ayah = in.readString();
-        desa_ayah = in.readString();
-        kec_ayah = in.readString();
-        kab_ayah = in.readString();
-        nama_pelapor = in.readString();
-        nik_pelapor = in.readString();
-        umur_pelapor = in.readString();
-        pekerjaan_pelapor = in.readString();
-        desa_pelapor = in.readString();
-        kec_pelapor = in.readString();
-        kab_pelapor = in.readString();
-        prov_pelapor = in.readString();
-        hub_pelapor = in.readString();
-        tempat_lahir_pelapor = in.readString();
-        tanggal_lahir_pelapor = in.readString();
-        nama_saksi1 = in.readString();
-        nik_saksi1 = in.readString();
-        tempat_lahir_saksi1 = in.readString();
-        tanggal_lahir_saksi1 = in.readString();
-        umur_saksi1 = in.readString();
-        pekerjaan_saksi1 = in.readString();
-        desa_saksi1 = in.readString();
-        kec_saksi1 = in.readString();
-        kab_saksi1 = in.readString();
-        prov_saksi1 = in.readString();
-        nama_saksi2 = in.readString();
-        nik_saksi2 = in.readString();
-        tempat_lahir_saksi2 = in.readString();
-        tanggal_lahir_saksi2 = in.readString();
-        umur_saksi2 = in.readString();
-        pekerjaan_saksi2 = in.readString();
-        desa_saksi2 = in.readString();
-        kec_saksi2 = in.readString();
-        kab_saksi2 = in.readString();
-        prov_saksi2 = in.readString();
-        created_at = in.readString();
-        updated_at = in.readString();
-    }
-
-    public static final Creator<SuratModel> CREATOR = new Creator<SuratModel>() {
-        @Override
-        public SuratModel createFromParcel(Parcel in) {
-            return new SuratModel(in);
-        }
-
-        @Override
-        public SuratModel[] newArray(int size) {
-            return new SuratModel[size];
-        }
-    };
 
     @Override
     public int describeContents() {

@@ -4,6 +4,17 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class LaporanUserModel implements Parcelable {
+    public static final Creator<LaporanUserModel> CREATOR = new Creator<LaporanUserModel>() {
+        @Override
+        public LaporanUserModel createFromParcel(Parcel in) {
+            return new LaporanUserModel(in);
+        }
+
+        @Override
+        public LaporanUserModel[] newArray(int size) {
+            return new LaporanUserModel[size];
+        }
+    };
     String id;
     String user_id;
     String isi;
@@ -28,6 +39,24 @@ public class LaporanUserModel implements Parcelable {
         this.photo = photo;
         this.created_at = created_at;
         this.updated_at = updated_at;
+    }
+
+    protected LaporanUserModel(Parcel in) {
+        id = in.readString();
+        user_id = in.readString();
+        isi = in.readString();
+        kategori = in.readString();
+        status = in.readString();
+        tanggapan = in.readString();
+        identitas = in.readString();
+        posting = in.readString();
+        photo = in.readString();
+        created_at = in.readString();
+        updated_at = in.readString();
+    }
+
+    public static Creator<LaporanUserModel> getCREATOR() {
+        return CREATOR;
     }
 
     public String getId() {
@@ -117,36 +146,6 @@ public class LaporanUserModel implements Parcelable {
     public void setUpdated_at(String updated_at) {
         this.updated_at = updated_at;
     }
-
-    public static Creator<LaporanUserModel> getCREATOR() {
-        return CREATOR;
-    }
-
-    protected LaporanUserModel(Parcel in) {
-        id = in.readString();
-        user_id = in.readString();
-        isi = in.readString();
-        kategori = in.readString();
-        status = in.readString();
-        tanggapan = in.readString();
-        identitas = in.readString();
-        posting = in.readString();
-        photo = in.readString();
-        created_at = in.readString();
-        updated_at = in.readString();
-    }
-
-    public static final Creator<LaporanUserModel> CREATOR = new Creator<LaporanUserModel>() {
-        @Override
-        public LaporanUserModel createFromParcel(Parcel in) {
-            return new LaporanUserModel(in);
-        }
-
-        @Override
-        public LaporanUserModel[] newArray(int size) {
-            return new LaporanUserModel[size];
-        }
-    };
 
     @Override
     public int describeContents() {

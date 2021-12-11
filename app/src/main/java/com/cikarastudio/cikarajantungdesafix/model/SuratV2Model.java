@@ -4,18 +4,32 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class SuratV2Model implements Parcelable {
-     String id;
-     String user_id;
-     String formatsurat_id;
-     String status;
-     String nomor_surat;
-     String tgl_awal;
-     String tgl_akhir;
-     String created_at;
-     String updated_at;
-     String nama_surat;
 
-    public SuratV2Model(String id, String user_id, String formatsurat_id, String status, String nomor_surat, String tgl_awal, String tgl_akhir, String created_at, String updated_at, String nama_surat) {
+    public static final Creator<SuratV2Model> CREATOR = new Creator<SuratV2Model>() {
+        @Override
+        public SuratV2Model createFromParcel(Parcel in) {
+            return new SuratV2Model(in);
+        }
+
+        @Override
+        public SuratV2Model[] newArray(int size) {
+            return new SuratV2Model[size];
+        }
+    };
+
+    String id;
+    String user_id;
+    String formatsurat_id;
+    String status;
+    String nomor_surat;
+    String tgl_awal;
+    String tgl_akhir;
+    String created_at;
+    String updated_at;
+    String nama_surat;
+    String kode;
+
+    public SuratV2Model(String id, String user_id, String formatsurat_id, String status, String nomor_surat, String tgl_awal, String tgl_akhir, String created_at, String updated_at, String nama_surat, String kode) {
         this.id = id;
         this.user_id = user_id;
         this.formatsurat_id = formatsurat_id;
@@ -26,6 +40,25 @@ public class SuratV2Model implements Parcelable {
         this.created_at = created_at;
         this.updated_at = updated_at;
         this.nama_surat = nama_surat;
+        this.kode = kode;
+    }
+
+    protected SuratV2Model(Parcel in) {
+        id = in.readString();
+        user_id = in.readString();
+        formatsurat_id = in.readString();
+        status = in.readString();
+        nomor_surat = in.readString();
+        tgl_awal = in.readString();
+        tgl_akhir = in.readString();
+        created_at = in.readString();
+        updated_at = in.readString();
+        nama_surat = in.readString();
+        kode = in.readString();
+    }
+
+    public static Creator<SuratV2Model> getCREATOR() {
+        return CREATOR;
     }
 
     public String getId() {
@@ -108,34 +141,13 @@ public class SuratV2Model implements Parcelable {
         this.nama_surat = nama_surat;
     }
 
-    public static Creator<SuratV2Model> getCREATOR() {
-        return CREATOR;
+    public String getKode() {
+        return kode;
     }
 
-    protected SuratV2Model(Parcel in) {
-        id = in.readString();
-        user_id = in.readString();
-        formatsurat_id = in.readString();
-        status = in.readString();
-        nomor_surat = in.readString();
-        tgl_awal = in.readString();
-        tgl_akhir = in.readString();
-        created_at = in.readString();
-        updated_at = in.readString();
-        nama_surat = in.readString();
+    public void setKode(String kode) {
+        this.kode = kode;
     }
-
-    public static final Creator<SuratV2Model> CREATOR = new Creator<SuratV2Model>() {
-        @Override
-        public SuratV2Model createFromParcel(Parcel in) {
-            return new SuratV2Model(in);
-        }
-
-        @Override
-        public SuratV2Model[] newArray(int size) {
-            return new SuratV2Model[size];
-        }
-    };
 
     @Override
     public int describeContents() {
@@ -154,5 +166,6 @@ public class SuratV2Model implements Parcelable {
         parcel.writeString(created_at);
         parcel.writeString(updated_at);
         parcel.writeString(nama_surat);
+        parcel.writeString(kode);
     }
 }

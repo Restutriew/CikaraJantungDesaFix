@@ -4,12 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.text.Html;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cikarastudio.cikarajantungdesafix.R;
 import com.cikarastudio.cikarajantungdesafix.model.ArtikelModel;
-import com.cikarastudio.cikarajantungdesafix.model.LaporanModel;
 import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
 import com.squareup.picasso.Picasso;
 
@@ -32,12 +29,13 @@ public class ArtikelAllAdapter extends RecyclerView.Adapter<ArtikelAllAdapter.Ar
 
     private ArtikelAllAdapter.OnItemClickCallback onItemClickCallback;
 
-    public void setOnItemClickCallback(ArtikelAllAdapter.OnItemClickCallback onItemClickCallback) {
-        this.onItemClickCallback = onItemClickCallback;
+    public ArtikelAllAdapter(Context mContext, ArrayList<ArtikelModel> mArtikelAllList) {
+        this.mContext = mContext;
+        this.mArtikelAllList = mArtikelAllList;
     }
 
-    public interface OnItemClickCallback {
-        void onItemClicked(ArtikelModel data);
+    public void setOnItemClickCallback(ArtikelAllAdapter.OnItemClickCallback onItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback;
     }
 
     //setfilter
@@ -45,11 +43,6 @@ public class ArtikelAllAdapter extends RecyclerView.Adapter<ArtikelAllAdapter.Ar
         mArtikelAllList = new ArrayList<>();
         mArtikelAllList.addAll(dataFilter);
         notifyDataSetChanged();
-    }
-
-    public ArtikelAllAdapter(Context mContext, ArrayList<ArtikelModel> mArtikelAllList) {
-        this.mContext = mContext;
-        this.mArtikelAllList = mArtikelAllList;
     }
 
     @NonNull
@@ -74,7 +67,7 @@ public class ArtikelAllAdapter extends RecyclerView.Adapter<ArtikelAllAdapter.Ar
 
         String linkgambar = mContext.getString(R.string.linkGambar);
         String imageUrl = linkgambar + "pengaturan/artikel/" + imgArtikel;
-        Picasso.with(mContext.getApplicationContext()).load(imageUrl).fit().centerCrop().into(holder.img_gambarArtikel);
+        Picasso.with(mContext.getApplicationContext()).load(imageUrl).into(holder.img_gambarArtikel);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             holder.tv_isiArtikel.setText(Html.fromHtml(isiArtikel, Html.FROM_HTML_MODE_COMPACT));
@@ -96,12 +89,16 @@ public class ArtikelAllAdapter extends RecyclerView.Adapter<ArtikelAllAdapter.Ar
         return mArtikelAllList.size();
     }
 
+    public interface OnItemClickCallback {
+        void onItemClicked(ArtikelModel data);
+    }
+
     public class ArtikelAllViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView tv_judulArtikel;
         public TextView tv_isiArtikel;
         public TextView tv_namaKategoriArtikel;
         public ImageView img_gambarArtikel;
-        public LinearLayout line_buttonShare;
+        public ImageView line_buttonShare;
 
         public ArtikelAllViewHolder(@NonNull View itemView) {
             super(itemView);

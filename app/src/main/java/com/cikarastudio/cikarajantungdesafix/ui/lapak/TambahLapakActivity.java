@@ -1,8 +1,5 @@
 package com.cikarastudio.cikarajantungdesafix.ui.lapak;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -16,6 +13,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -27,7 +27,6 @@ import com.cikarastudio.cikarajantungdesafix.R;
 import com.cikarastudio.cikarajantungdesafix.session.SessionManager;
 import com.cikarastudio.cikarajantungdesafix.ssl.HttpsTrustManager;
 import com.cikarastudio.cikarajantungdesafix.ui.loadingdialog.LoadingDialog;
-import com.cikarastudio.cikarajantungdesafix.ui.profil.ProfilActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -153,8 +152,7 @@ public class TambahLapakActivity extends AppCompatActivity {
 
     private void tambahLapak() {
         loadingDialog.startLoading();
-
-        String URL_TAMBAHLAPAK = link + "tambahlapak";
+        String URL_TAMBAHLAPAK = link + "lapak";
         final String namalapak = et_namaLapakTambah.getText().toString().trim();
         final String alamatLapak = et_alamatLapakTambah.getText().toString().trim();
         final String tentangLapak = et_tentangLapakTambah.getText().toString().trim();

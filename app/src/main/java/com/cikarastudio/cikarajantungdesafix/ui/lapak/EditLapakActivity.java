@@ -1,12 +1,8 @@
 package com.cikarastudio.cikarajantungdesafix.ui.lapak;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -16,6 +12,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -28,7 +27,6 @@ import com.cikarastudio.cikarajantungdesafix.R;
 import com.cikarastudio.cikarajantungdesafix.ssl.HttpsTrustManager;
 import com.cikarastudio.cikarajantungdesafix.ui.loadingdialog.LoadingDialog;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -113,7 +111,6 @@ public class EditLapakActivity extends AppCompatActivity {
     }
 
 
-
     private void chooseFile() {
         Intent intent = new Intent();
         intent.setType("image/*");
@@ -137,8 +134,8 @@ public class EditLapakActivity extends AppCompatActivity {
 
     public String getStringImage(Bitmap bitmap) {
 
-        if (bitmap == null){
-            bitmap = ((BitmapDrawable)img_editLapak.getDrawable()).getBitmap();
+        if (bitmap == null) {
+            bitmap = ((BitmapDrawable) img_editLapak.getDrawable()).getBitmap();
         }
 
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

@@ -4,6 +4,17 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class StatusAduanModel implements Parcelable {
+    public static final Creator<StatusAduanModel> CREATOR = new Creator<StatusAduanModel>() {
+        @Override
+        public StatusAduanModel createFromParcel(Parcel in) {
+            return new StatusAduanModel(in);
+        }
+
+        @Override
+        public StatusAduanModel[] newArray(int size) {
+            return new StatusAduanModel[size];
+        }
+    };
     String id;
     String user_id;
     String key;
@@ -22,6 +33,21 @@ public class StatusAduanModel implements Parcelable {
         this.notif = notif;
         this.created_at = created_at;
         this.updated_at = updated_at;
+    }
+
+    protected StatusAduanModel(Parcel in) {
+        id = in.readString();
+        user_id = in.readString();
+        key = in.readString();
+        isi = in.readString();
+        status = in.readString();
+        notif = in.readString();
+        created_at = in.readString();
+        updated_at = in.readString();
+    }
+
+    public static Creator<StatusAduanModel> getCREATOR() {
+        return CREATOR;
     }
 
     public String getId() {
@@ -87,33 +113,6 @@ public class StatusAduanModel implements Parcelable {
     public void setUpdated_at(String updated_at) {
         this.updated_at = updated_at;
     }
-
-    public static Creator<StatusAduanModel> getCREATOR() {
-        return CREATOR;
-    }
-
-    protected StatusAduanModel(Parcel in) {
-        id = in.readString();
-        user_id = in.readString();
-        key = in.readString();
-        isi = in.readString();
-        status = in.readString();
-        notif = in.readString();
-        created_at = in.readString();
-        updated_at = in.readString();
-    }
-
-    public static final Creator<StatusAduanModel> CREATOR = new Creator<StatusAduanModel>() {
-        @Override
-        public StatusAduanModel createFromParcel(Parcel in) {
-            return new StatusAduanModel(in);
-        }
-
-        @Override
-        public StatusAduanModel[] newArray(int size) {
-            return new StatusAduanModel[size];
-        }
-    };
 
     @Override
     public int describeContents() {

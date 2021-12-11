@@ -1,0 +1,301 @@
+package com.cikarastudio.cikarajantungdesafix.ui.laporan;
+
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Base64;
+import android.util.Log;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.cikarastudio.cikarajantungdesafix.R;
+import com.cikarastudio.cikarajantungdesafix.model.LaporanUserModel;
+import com.cikarastudio.cikarajantungdesafix.session.SessionManager;
+import com.cikarastudio.cikarajantungdesafix.ssl.HttpsTrustManager;
+import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
+import com.cikarastudio.cikarajantungdesafix.ui.loadingdialog.LoadingDialog;
+import com.squareup.picasso.Picasso;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+public class EditLaporanActivity extends AppCompatActivity {
+
+    public static final String DATA_LAPORAN_USER = "extra_data";
+    SessionManager sessionManager;
+    LoadingDialog loadingDialog;
+    String id_user, link, linkGambar, token, uploadBase64,
+            idLaporan, isiLaporan, kategoriLaporan, photoLaporan, postingLaporan, identitasLaporan;
+    Spinner sp_jenisLaporan, sp_identitasLaporan, sp_postingLaporan;
+    EditText et_isilaporan;
+    ImageView img_back, img_chooseTambahLaporan, img_frameTambahLaporan;
+    CardView cr_tambahLaporan, cr_fotoLaporan;
+    Bitmap bitmap;
+    TextView tv_itungCharLaporan,tv_judul;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_tambah_laporan);
+
+        LaporanUserModel modelData = getIntent().getParcelableExtra(DATA_LAPORAN_USER);
+        idLaporan = modelData.getId();
+        isiLaporan = modelData.getIsi();
+        kategoriLaporan = modelData.getKategori();
+        photoLaporan = modelData.getPhoto();
+        postingLaporan = modelData.getPosting();
+        identitasLaporan = modelData.getIdentitas();
+
+        sp_jenisLaporan = findViewById(R.id.sp_jenisLaporan);
+        sp_identitasLaporan = findViewById(R.id.sp_identitasLaporan);
+        sp_postingLaporan = findViewById(R.id.sp_postingLaporan);
+        et_isilaporan = findViewById(R.id.et_isilaporan);
+        cr_tambahLaporan = findViewById(R.id.cr_tambahLaporan);
+        img_chooseTambahLaporan = findViewById(R.id.img_chooseTambahLaporan);
+        cr_fotoLaporan = findViewById(R.id.cr_fotoLaporan);
+        img_frameTambahLaporan = findViewById(R.id.img_frameTambahLaporan);
+        tv_itungCharLaporan = findViewById(R.id.tv_itungCharLaporan);
+        tv_judul = findViewById(R.id.tv_judul);
+
+        tv_judul.setText("Edit Laporan");
+
+        cr_fotoLaporan.setVisibility(View.VISIBLE);
+
+        sessionManager = new SessionManager(EditLaporanActivity.this);
+        sessionManager.checkLogin();
+        HashMap<String, String> user = sessionManager.getUserDetail();
+        id_user = user.get(sessionManager.ID);
+
+        HttpsTrustManager.allowAllSSL();
+
+        //inisiasi link
+        link = getString(R.string.link);
+        linkGambar = getString(R.string.linkGambar);
+        token = getString(R.string.token);
+
+        loadingDialog = new LoadingDialog(EditLaporanActivity.this);
+
+        ArrayList<String> kategoriList = (ArrayList<String>) getIntent().getSerializableExtra("cateList");
+        kategoriList.set(0, "Pilih Kategori");
+
+        img_back = findViewById(R.id.img_back);
+        img_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        TextFuntion textFuntion = new TextFuntion();
+
+        Log.d("calpalnx", "onCreate: "+photoLaporan);
+        String imgLaporan = "https://puteran.cikarastudio.com/public/img/penduduk/lapor/" + photoLaporan;
+        Picasso.with(EditLaporanActivity.this).load(imgLaporan).fit().centerCrop().into(img_frameTambahLaporan);
+
+        ArrayAdapter<String> jenisLaporanAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, kategoriList);
+        sp_jenisLaporan.setAdapter(jenisLaporanAdapter);
+        if (kategoriLaporan != null) {
+            int spinnerKategori = jenisLaporanAdapter.getPosition(textFuntion.convertUpperCase(kategoriLaporan));
+            sp_jenisLaporan.setSelection(spinnerKategori);
+        }
+
+        ArrayAdapter<String> yaTidakAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.ya_tidak));
+        sp_postingLaporan.setAdapter(yaTidakAdapter);
+        if (postingLaporan != null) {
+            int spinnerPosting = yaTidakAdapter.getPosition(textFuntion.convertUpperCase(postingLaporan));
+            sp_postingLaporan.setSelection(spinnerPosting);
+        }
+
+        sp_identitasLaporan.setAdapter(yaTidakAdapter);
+        if (identitasLaporan != null) {
+            int spinnerIdentitas = yaTidakAdapter.getPosition(textFuntion.convertUpperCase(identitasLaporan));
+            sp_identitasLaporan.setSelection(spinnerIdentitas);
+        }
+
+        et_isilaporan.setText(isiLaporan);
+
+        cr_tambahLaporan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cekInputEdittext();
+            }
+        });
+
+        img_chooseTambahLaporan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                chooseFile();
+            }
+        });
+
+        et_isilaporan.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int aft) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // this will show characters remaining
+                tv_itungCharLaporan.setText(250 - s.toString().length() + "/250");
+            }
+        });
+    }
+
+    private void cekInputEdittext() {
+        if (sp_jenisLaporan.isShown() && sp_jenisLaporan.getSelectedItem().toString().equalsIgnoreCase("pilih kategori")) {
+            ((TextView) sp_jenisLaporan.getSelectedView()).setError("Pilih Kategori!");
+            sp_jenisLaporan.getSelectedView().requestFocus();
+            Toast.makeText(getApplicationContext(), "Data Belum Lengkap: Pilih Kategori Laporan!", Toast.LENGTH_SHORT).show();
+        } else if (et_isilaporan.isShown() && et_isilaporan.getText().toString().equals("")) {
+            et_isilaporan.setError("Form ini harus diisi!");
+            et_isilaporan.requestFocus();
+        } else if (sp_identitasLaporan.isShown() && sp_identitasLaporan.getSelectedItem().toString().equalsIgnoreCase("pilih")) {
+            ((TextView) sp_identitasLaporan.getSelectedView()).setError("Pilih Identitas Laporan!");
+            sp_identitasLaporan.getSelectedView().requestFocus();
+            Toast.makeText(getApplicationContext(), "Data Belum Lengkap: Pilih Identitas Laporan!", Toast.LENGTH_SHORT).show();
+        } else if (sp_postingLaporan.isShown() && sp_postingLaporan.getSelectedItem().toString().equalsIgnoreCase("pilih")) {
+            ((TextView) sp_postingLaporan.getSelectedView()).setError("Pilih Posting Laporan!");
+            sp_postingLaporan.getSelectedView().requestFocus();
+            Toast.makeText(getApplicationContext(), "Data Belum Lengkap: Pilih Posting Laporan!", Toast.LENGTH_SHORT).show();
+        } else {
+            tambahDataLaporan();
+        }
+    }
+
+    private void chooseFile() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Pilih Foto"), 1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            Uri filepath = data.getData();
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filepath);
+                img_frameTambahLaporan.setImageBitmap(bitmap);
+                cr_fotoLaporan.setVisibility(View.VISIBLE);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public String getStringImage(Bitmap bitmap) {
+
+        if (bitmap == null) {
+            bitmap = ((BitmapDrawable) img_frameTambahLaporan.getDrawable()).getBitmap();
+        }
+
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+        byte[] imageByteArray = byteArrayOutputStream.toByteArray();
+        String encodedImage = Base64.encodeToString(imageByteArray, Base64.DEFAULT);
+
+        return encodedImage;
+    }
+
+    private void tambahDataLaporan() {
+        loadingDialog.startLoading();
+        String URL_TAMBAH = link + "lapor/"+idLaporan;
+        final String isiLaporan = et_isilaporan.getText().toString().trim();
+        final String jenisLaporan = sp_jenisLaporan.getSelectedItem().toString().toLowerCase();
+        final String statusLaporan = "menunggu";
+        final String identitasLaporan = sp_identitasLaporan.getSelectedItem().toString().toLowerCase();
+        final String postingLaporan = sp_postingLaporan.getSelectedItem().toString().toLowerCase();
+        uploadBase64 = "data:image/png;base64," + getStringImage(bitmap);
+
+        Log.d("calpalnx", String.valueOf(id_user));
+        Log.d("calpalnx", String.valueOf(isiLaporan));
+        Log.d("calpalnx", String.valueOf(jenisLaporan));
+        Log.d("calpalnx", String.valueOf(statusLaporan));
+        Log.d("calpalnx", String.valueOf(token));
+        Log.d("calpalnx", String.valueOf(identitasLaporan));
+        Log.d("calpalnx", String.valueOf(postingLaporan));
+
+        StringRequest stringRequest = new StringRequest(Request.Method.PATCH, URL_TAMBAH,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String success = jsonObject.getString("success");
+
+                            if (success.equals("1")) {
+                                Toast.makeText(EditLaporanActivity.this, "Edit Laporan Sukses", Toast.LENGTH_LONG).show();
+                                loadingDialog.dissmissDialog();
+                                finish();
+                            } else {
+                                Toast.makeText(EditLaporanActivity.this, "Edit Laporan Gagal!", Toast.LENGTH_LONG).show();
+                                loadingDialog.dissmissDialog();
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(EditLaporanActivity.this, "Edit Laporan Gagal!", Toast.LENGTH_LONG).show();
+                            loadingDialog.dissmissDialog();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(EditLaporanActivity.this, "Edit Laporan Gagal! : Cek Koneksi Anda", Toast.LENGTH_LONG).show();
+                        loadingDialog.dissmissDialog();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("isi", isiLaporan);
+                params.put("kategori", jenisLaporan);
+                params.put("status", statusLaporan);
+                params.put("token", token);
+                params.put("image", uploadBase64);
+                params.put("identitas", identitasLaporan);
+                params.put("posting", postingLaporan);
+                return params;
+
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+
+}

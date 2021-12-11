@@ -1,12 +1,14 @@
 package com.cikarastudio.cikarajantungdesafix.ui.lapak;
 
+import static android.graphics.Color.parseColor;
+
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.http.AndroidHttpClient;
-import android.os.Build;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,18 +23,20 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.Cache;
 import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.NetworkResponse;
+import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.HttpClientStack;
-import com.android.volley.toolbox.HttpStack;
+import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.cikarastudio.cikarajantungdesafix.R;
@@ -40,7 +44,6 @@ import com.cikarastudio.cikarajantungdesafix.adapter.ProdukAdapter;
 import com.cikarastudio.cikarajantungdesafix.model.ProdukModel;
 import com.cikarastudio.cikarajantungdesafix.session.SessionManager;
 import com.cikarastudio.cikarajantungdesafix.ssl.HttpsTrustManager;
-import com.cikarastudio.cikarajantungdesafix.template.kima.deletereq.CustomHurlStack;
 import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
 import com.cikarastudio.cikarajantungdesafix.ui.loadingdialog.LoadingDialog;
 import com.squareup.picasso.Picasso;
@@ -49,6 +52,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -70,15 +74,18 @@ public class LapakFragment extends Fragment {
     //lapak
     tv_namaLapak, tv_alamatLapak, tv_telpLapak, tv_tentangLapak, tv_statusLapak,
     //atas
-    tv_namaLapakAtas;
+    tv_namaLapakAtas,
+    //expand collapse
+    tv_alamatLapakFull, tv_alamatLapakBtnLihat, tv_tentangLapakFull, tv_tentangLapakBtnLihat,
+    //lapak menunggu
+    tv_lapakMenunggu;
     ImageView img_lapak, img_lapakAtas, img_editLapak;
-    private ArrayList<ProdukModel> produkList;
-    private ProdukAdapter produkAdapter;
     SearchView et_produkSearch;
-
     ScrollView scroll_lapak;
     LinearLayout line_borderLapak;
     CardView cr_judulLapak;
+    private ArrayList<ProdukModel> produkList;
+    private ProdukAdapter produkAdapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -103,6 +110,7 @@ public class LapakFragment extends Fragment {
 
         line_editLapak = root.findViewById(R.id.line_editLapak);
         tv_tambahProduk = root.findViewById(R.id.tv_tambahProduk);
+        tv_lapakMenunggu = root.findViewById(R.id.tv_lapakMenunggu);
 
         //initiate lapak
         tv_namaLapak = root.findViewById(R.id.tv_namaLapak);
@@ -112,6 +120,19 @@ public class LapakFragment extends Fragment {
         tv_statusLapak = root.findViewById(R.id.tv_statusLapak);
         img_lapak = root.findViewById(R.id.img_lapak);
 
+        //initate expand collapse
+        tv_alamatLapakFull = root.findViewById(R.id.tv_alamatLapakFull);
+        tv_alamatLapakBtnLihat = root.findViewById(R.id.tv_alamatLapakBtnLihat);
+        SpannableString content = new SpannableString("Lihat Selengkapnya");
+        content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
+        tv_alamatLapakBtnLihat.setText(content);
+        tv_alamatLapakBtnLihat.setTextColor(parseColor("#1597E5"));
+
+        tv_tentangLapakFull = root.findViewById(R.id.tv_tentangLapakFull);
+        tv_tentangLapakBtnLihat = root.findViewById(R.id.tv_tentangLapakBtnLihat);
+        tv_tentangLapakBtnLihat.setText(content);
+        tv_tentangLapakBtnLihat.setTextColor(parseColor("#1597E5"));
+
         //initiate atas
         tv_namaLapakAtas = root.findViewById(R.id.tv_namaLapakAtas);
         img_lapakAtas = root.findViewById(R.id.img_lapakAtas);
@@ -119,13 +140,14 @@ public class LapakFragment extends Fragment {
         //list produk inisiasi
         produkList = new ArrayList<>();
         recyclerView = root.findViewById(R.id.rv_listProduk);
-        LinearLayoutManager linearLayoutManageraaa = new LinearLayoutManager(getContext()) {
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2) {
             @Override
             public boolean canScrollVertically() {
                 return false;
             }
         };
-        recyclerView.setLayoutManager(linearLayoutManageraaa);
+
+        recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setHasFixedSize(true);
 
 
@@ -235,12 +257,8 @@ public class LapakFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        loadingDialog.startLoading();
         loadLapak();
         loadProduct();
-        if (produkList.size() > 0) {
-            sortAlfabet();
-        }
 
         et_produkSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @SuppressLint("SetTextI18n")
@@ -252,30 +270,31 @@ public class LapakFragment extends Fragment {
             @Override
             public boolean onQueryTextChange(String nextText) {
                 //Data akan berubah saat user menginputkan text/kata kunci pada SearchView
-                nextText = nextText.toLowerCase();
-                ArrayList<ProdukModel> dataFilter = new ArrayList<>();
-                for (ProdukModel data : produkList) {
-                    String nama = data.getNama().toLowerCase();
-                    if (nama.contains(nextText)) {
-                        dataFilter.add(data);
+                if (produkList.size() > 0) {
+                    nextText = nextText.toLowerCase();
+                    ArrayList<ProdukModel> dataFilter = new ArrayList<>();
+                    for (ProdukModel data : produkList) {
+                        String nama = data.getNama().toLowerCase();
+                        if (nama.contains(nextText)) {
+                            dataFilter.add(data);
+                        }
                     }
+                    produkAdapter.setFilter(dataFilter);
                 }
-                produkAdapter.setFilter(dataFilter);
                 return true;
             }
         });
     }
 
+
     private void loadLapak() {
-        String URL_READ = link + "lapakuser/" + id_user;
+        String URL_READ = link + "lapakuser/" + id_user + "?token=" + token;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
                         try {
                             JSONObject jsonObject = new JSONObject(response);
-
                             //data lapak
                             String res_id = jsonObject.getString("id").trim();
                             String res_userID = jsonObject.getString("user_id").trim();
@@ -291,12 +310,14 @@ public class LapakFragment extends Fragment {
                             TextFuntion textFuntion = new TextFuntion();
                             //data diri
                             textFuntion.setTextDanNullData(tv_namaLapak, res_namaLapak);
-                            textFuntion.setTextDanNullData(tv_alamatLapak, res_alamat);
-                            textFuntion.setTextDanNullData(tv_telpLapak, res_telp);
-                            textFuntion.setTextDanNullData(tv_tentangLapak, res_tentang);
                             textFuntion.setTextDanNullData(tv_statusLapak, res_statusLapak);
-
+                            textFuntion.setTextDanNullData(tv_telpLapak, res_telp);
+                            textFuntion.setTextDanNullData(tv_alamatLapak, res_alamat);
+                            textFuntion.setTextDanNullData(tv_alamatLapakFull, res_alamat);
+                            textFuntion.setTextDanNullData(tv_tentangLapak, res_tentang);
+                            textFuntion.setTextDanNullData(tv_tentangLapakFull, res_tentang);
                             textFuntion.setTextDanNullData(tv_namaLapakAtas, res_namaLapak);
+
 
                             String resi_gambar = res_logo.replace(" ", "%20");
 
@@ -312,14 +333,72 @@ public class LapakFragment extends Fragment {
                             Picasso.with(getActivity()).load(imageUrl).fit().centerCrop().into(img_lapak);
                             Picasso.with(getActivity()).load(imageUrl).fit().centerCrop().into(img_lapakAtas);
 
-                            //hilangkan loading
-//                            loadingDialog.dissmissDialog();
+                            if (status_lapak.equals("menunggu")) {
+                                tv_tambahProduk.setVisibility(View.GONE);
+                                tv_lapakMenunggu.setVisibility(View.VISIBLE);
+                            } else {
+                                tv_tambahProduk.setVisibility(View.VISIBLE);
+                                tv_lapakMenunggu.setVisibility(View.GONE);
+                            }
+
+                            if (alamat_lapak.length() > 35) {
+                                tv_alamatLapakBtnLihat.setVisibility(View.VISIBLE);
+
+                                tv_alamatLapakBtnLihat.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        if (tv_alamatLapak.isShown()) {
+                                            tv_alamatLapak.setVisibility(View.GONE);
+                                            tv_alamatLapakFull.setVisibility(View.VISIBLE);
+                                            SpannableString content = new SpannableString("Lihat Lebih Sedikit");
+                                            content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
+                                            tv_alamatLapakBtnLihat.setText(content);
+                                            tv_alamatLapakBtnLihat.setTextColor(parseColor("#1597E5"));
+//                                        tv_alamatLapakBtnLihat.setText("Lihat Lebih Sedikit");
+                                        } else {
+                                            tv_alamatLapak.setVisibility(View.VISIBLE);
+                                            tv_alamatLapakFull.setVisibility(View.GONE);
+                                            SpannableString content = new SpannableString("Lihat Selengkapnya");
+                                            content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
+                                            tv_alamatLapakBtnLihat.setText(content);
+                                            tv_alamatLapakBtnLihat.setTextColor(parseColor("#1597E5"));
+//                                        tv_alamatLapakBtnLihat.setText("Lihat Selengkapnya");
+                                        }
+                                    }
+                                });
+                            }
+                            if (tentang_lapak.length() > 35) {
+                                tv_tentangLapakBtnLihat.setVisibility(View.VISIBLE);
+
+                                tv_tentangLapakBtnLihat.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        if (tv_tentangLapak.isShown()) {
+                                            tv_tentangLapak.setVisibility(View.GONE);
+                                            tv_tentangLapakFull.setVisibility(View.VISIBLE);
+                                            SpannableString content = new SpannableString("Lihat Lebih Sedikit");
+                                            content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
+                                            tv_tentangLapakBtnLihat.setText(content);
+                                            tv_tentangLapakBtnLihat.setTextColor(parseColor("#1597E5"));
+//                                        tv_alamatLapakBtnLihat.setText("Lihat Lebih Sedikit");
+                                        } else {
+                                            tv_tentangLapak.setVisibility(View.VISIBLE);
+                                            tv_tentangLapakFull.setVisibility(View.GONE);
+                                            SpannableString content = new SpannableString("Lihat Selengkapnya");
+                                            content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
+                                            tv_tentangLapakBtnLihat.setText(content);
+                                            tv_tentangLapakBtnLihat.setTextColor(parseColor("#1597E5"));
+//                                        tv_alamatLapakBtnLihat.setText("Lihat Selengkapnya");
+                                        }
+                                    }
+                                });
+                            }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-//                            loadingDialog.dissmissDialog();
-                            Toast.makeText(getActivity(), "Data Lapak Tidak Ada! Silahkan Daftarkan Lapak Anda!", Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getActivity(), "Data Lapak Tidak Ada! Silahkan Daftarkan Lapak Anda!", Toast.LENGTH_LONG).show();
                             Intent keTambahLapak = new Intent(getActivity(), TambahLapakActivity.class);
+                            keTambahLapak.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                             startActivity(keTambahLapak);
                         }
 
@@ -328,10 +407,60 @@ public class LapakFragment extends Fragment {
                 , new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-//                loadingDialog.dissmissDialog();
-                Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!" + error, Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!", Toast.LENGTH_LONG).show();
             }
         }) {
+            @Override
+            protected Response<String> parseNetworkResponse(NetworkResponse response) {
+                try {
+                    Cache.Entry cacheEntry = HttpHeaderParser.parseCacheHeaders(response);
+                    if (cacheEntry == null) {
+                        cacheEntry = new Cache.Entry();
+                    }
+                    final long cacheHitButRefreshed = 5 * 1000; // in 3 minutes cache will be hit, but also refreshed on background
+                    final long cacheExpired = 24 * 60 * 60 * 1000; // in 24 hours this cache entry expires completely
+                    long now = System.currentTimeMillis();
+                    final long softExpire = now + cacheHitButRefreshed;
+                    final long ttl = now + cacheExpired;
+                    cacheEntry.data = response.data;
+                    cacheEntry.softTtl = softExpire;
+                    cacheEntry.ttl = ttl;
+                    String headerValue;
+                    headerValue = response.headers.get("Date");
+                    if (headerValue != null) {
+                        cacheEntry.serverDate = HttpHeaderParser.parseDateAsEpoch(headerValue);
+                        Log.d("bangsat cache", "parseNetworkResponse: 1");
+                    }
+                    headerValue = response.headers.get("Last-Modified");
+                    if (headerValue != null) {
+                        cacheEntry.lastModified = HttpHeaderParser.parseDateAsEpoch(headerValue);
+                        Log.d("bangsat cache", "parseNetworkResponse: 2");
+                    }
+                    cacheEntry.responseHeaders = response.headers;
+                    final String jsonString = new String(response.data,
+                            HttpHeaderParser.parseCharset(response.headers));
+                    Log.d("bangsat cache", "parseNetworkResponse: 3");
+                    return Response.success(jsonString, cacheEntry);
+                } catch (UnsupportedEncodingException e) {
+                    Log.d("bangsat cache", "parseNetworkResponse: 4");
+                    return Response.error(new ParseError(e));
+                }
+            }
+
+            @Override
+            protected void deliverResponse(String response) {
+                super.deliverResponse(response);
+            }
+
+            @Override
+            public void deliverError(VolleyError error) {
+                super.deliverError(error);
+            }
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError) {
+                return super.parseNetworkError(volleyError);
+            }
         };
         int socketTimeout = 10000;
         RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
@@ -341,15 +470,14 @@ public class LapakFragment extends Fragment {
     }
 
     private void loadProduct() {
-        if (produkList.size() > 0) {
-            produkList.clear();
-        }
-        String URL_READ = link + "produklapak/" + id_user;
+        String URL_READ = link + "produklapak/" + id_user + "?token=" + token;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
+                        if (produkList.size() > 0) {
+                            produkList.clear();
+                        }
                         try {
                             JSONArray jsonArray = new JSONArray(response);
                             if (jsonArray.length() > 0) {
@@ -373,10 +501,6 @@ public class LapakFragment extends Fragment {
                                     produkList.add(new ProdukModel(res_id, res_lapakID, res_nama, res_keterangan, resi_gambar, res_harga, res_dilihat));
                                     produkAdapter = new ProdukAdapter(getContext(), produkList);
                                     recyclerView.setAdapter(produkAdapter);
-                                    //sort alfabet
-//                                    if (produkList.size() > 0) {
-//                                        sortAlfabet();
-//                                    }
                                     produkAdapter.setOnItemClickCallback(new ProdukAdapter.OnItemClickCallback() {
                                         @Override
                                         public void onItemClicked(ProdukModel data) {
@@ -392,28 +516,67 @@ public class LapakFragment extends Fragment {
                                             dialogDelete(data.getId());
                                         }
                                     });
-                                    //hilangkan loading
-//                                    loadingDialog.dissmissDialog();
                                 }
-                            } else {
-                                Toast.makeText(getActivity(), "Data Produk Tidak Ada!", Toast.LENGTH_SHORT).show();
-//                                loadingDialog.dissmissDialog();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-//                            loadingDialog.dissmissDialog();
-                            Toast.makeText(getActivity(), "Data Produk Tidak Ada! Silahkan Tambahkan Produk Anda!", Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getActivity(), "Data Produk Tidak Ada! Silahkan Tambahkan Produk Anda!", Toast.LENGTH_LONG).show();
                         }
-
                     }
                 }
                 , new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-//                loadingDialog.dissmissDialog();
-                Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!" + error, Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!", Toast.LENGTH_LONG).show();
             }
         }) {
+            @Override
+            protected Response<String> parseNetworkResponse(NetworkResponse response) {
+                try {
+                    Cache.Entry cacheEntry = HttpHeaderParser.parseCacheHeaders(response);
+                    if (cacheEntry == null) {
+                        cacheEntry = new Cache.Entry();
+                    }
+                    final long cacheHitButRefreshed = 10 * 1000; // in 3 minutes cache will be hit, but also refreshed on background
+                    final long cacheExpired = 24 * 60 * 60 * 1000; // in 24 hours this cache entry expires completely
+                    long now = System.currentTimeMillis();
+                    final long softExpire = now + cacheHitButRefreshed;
+                    final long ttl = now + cacheExpired;
+                    cacheEntry.data = response.data;
+                    cacheEntry.softTtl = softExpire;
+                    cacheEntry.ttl = ttl;
+                    String headerValue;
+                    headerValue = response.headers.get("Date");
+                    if (headerValue != null) {
+                        cacheEntry.serverDate = HttpHeaderParser.parseDateAsEpoch(headerValue);
+                    }
+                    headerValue = response.headers.get("Last-Modified");
+                    if (headerValue != null) {
+                        cacheEntry.lastModified = HttpHeaderParser.parseDateAsEpoch(headerValue);
+                    }
+                    cacheEntry.responseHeaders = response.headers;
+                    final String jsonString = new String(response.data,
+                            HttpHeaderParser.parseCharset(response.headers));
+                    return Response.success(jsonString, cacheEntry);
+                } catch (UnsupportedEncodingException e) {
+                    return Response.error(new ParseError(e));
+                }
+            }
+
+            @Override
+            protected void deliverResponse(String response) {
+                super.deliverResponse(response);
+            }
+
+            @Override
+            public void deliverError(VolleyError error) {
+                super.deliverError(error);
+            }
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError) {
+                return super.parseNetworkError(volleyError);
+            }
         };
         int socketTimeout = 10000;
         RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
@@ -455,18 +618,17 @@ public class LapakFragment extends Fragment {
                             String success = jsonObject.getString("success");
                             if (success.equals("1")) {
                                 Toast.makeText(getActivity(), "Hapus Produk Sukses", Toast.LENGTH_LONG).show();
-//                                loadingDialog.dissmissDialog();
+                                loadingDialog.dissmissDialog();
                                 onResume();
-//                                finish();
                             } else {
                                 Toast.makeText(getActivity(), "Hapus Produk Gagal!", Toast.LENGTH_LONG).show();
-//                                loadingDialog.dissmissDialog();
+                                loadingDialog.dissmissDialog();
                             }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
                             Toast.makeText(getActivity(), "Hapus Produk Gagal! : " + e.toString(), Toast.LENGTH_LONG).show();
-//                            loadingDialog.dissmissDialog();
+                            loadingDialog.dissmissDialog();
                         }
                     }
                 },
@@ -474,7 +636,7 @@ public class LapakFragment extends Fragment {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(getActivity(), "Hapus Produk Gagal! : Cek Koneksi Anda, " + error, Toast.LENGTH_LONG).show();
-//                        loadingDialog.dissmissDialog();
+                        loadingDialog.dissmissDialog();
                     }
                 }) {
             @Override

@@ -5,12 +5,28 @@ import android.os.Parcelable;
 
 public class KategoriModel implements Parcelable {
 
+    public static final Creator<KategoriModel> CREATOR = new Creator<KategoriModel>() {
+        @Override
+        public KategoriModel createFromParcel(Parcel in) {
+            return new KategoriModel(in);
+        }
+
+        @Override
+        public KategoriModel[] newArray(int size) {
+            return new KategoriModel[size];
+        }
+    };
     String id;
     String nama_kategori;
 
     public KategoriModel(String id, String nama_kategori) {
         this.id = id;
         this.nama_kategori = nama_kategori;
+    }
+
+    protected KategoriModel(Parcel in) {
+        id = in.readString();
+        nama_kategori = in.readString();
     }
 
     public String getId() {
@@ -28,23 +44,6 @@ public class KategoriModel implements Parcelable {
     public void setNama_kategori(String nama_kategori) {
         this.nama_kategori = nama_kategori;
     }
-
-    protected KategoriModel(Parcel in) {
-        id = in.readString();
-        nama_kategori = in.readString();
-    }
-
-    public static final Creator<KategoriModel> CREATOR = new Creator<KategoriModel>() {
-        @Override
-        public KategoriModel createFromParcel(Parcel in) {
-            return new KategoriModel(in);
-        }
-
-        @Override
-        public KategoriModel[] newArray(int size) {
-            return new KategoriModel[size];
-        }
-    };
 
     @Override
     public int describeContents() {

@@ -1,10 +1,5 @@
 package com.cikarastudio.cikarajantungdesafix.ui.profil;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -26,6 +21,11 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.akexorcist.roundcornerprogressbar.TextRoundCornerProgressBar;
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -36,6 +36,7 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.cikarastudio.cikarajantungdesafix.R;
 import com.cikarastudio.cikarajantungdesafix.adapter.StatusAduanAdapter;
 import com.cikarastudio.cikarajantungdesafix.adapter.StatusAduanSelesaiAdapter;
 import com.cikarastudio.cikarajantungdesafix.model.StatusAduanModel;
@@ -43,7 +44,6 @@ import com.cikarastudio.cikarajantungdesafix.session.SessionManager;
 import com.cikarastudio.cikarajantungdesafix.ssl.HttpsTrustManager;
 import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
 import com.cikarastudio.cikarajantungdesafix.ui.loadingdialog.LoadingDialog;
-import com.cikarastudio.cikarajantungdesafix.R;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -62,15 +62,9 @@ public class ProfilActivity extends AppCompatActivity implements View.OnClickLis
     LoadingDialog loadingDialog;
 
     RecyclerView rv_isiAduan, rv_aduanSelesai;
-    private ArrayList<StatusAduanModel> statusAduanList;
     StatusAduanAdapter statusAduanAdapter;
-    private ArrayList<StatusAduanModel> statusAduanSelesaiList;
     StatusAduanSelesaiAdapter statusAduanSelesaiAdapter;
-
     String id_user, link, linkGambar, linkGambarProfil, token;
-
-    private Bitmap bitmap;
-
     ImageView
             img_back, img_dataDiri, img_dataKelahiran,
             img_dataPendidikan, img_dataKewarganegaraan,
@@ -107,7 +101,6 @@ public class ProfilActivity extends AppCompatActivity implements View.OnClickLis
     //aduan kesehatan
     img_menuAduanGolonganDarah, img_menuAduanCacat, img_menuAduanSakitMenahun,
             img_menuAduanAkseptorKB, img_menuAduanAsuransi;
-
     CardView cr_dataDiri, cr_isiDataDiri,
             cr_dataKelahiran, cr_isiDataKelahiran,
             cr_dataPendidikan, cr_isiDataPendidikan,
@@ -117,7 +110,6 @@ public class ProfilActivity extends AppCompatActivity implements View.OnClickLis
             cr_dataKesehatan, cr_isiDataKesehatan,
             cr_dataStatusAduan, cr_isiDataStatusAduan,
             cr_logout, cr_fotoProfil;
-
     TextView
             et_nama1, et_desa,
             et_nik, et_nama, et_ktpEl, et_statusRekam, et_idCard, et_noKK, et_hubunganKeluarga,
@@ -142,9 +134,11 @@ public class ProfilActivity extends AppCompatActivity implements View.OnClickLis
 
     //data kesehatan
     et_golonganDarah, et_cacat, et_sakitMenahun, et_akseptorKB, et_asuransi;
-
     //persentase data
     TextRoundCornerProgressBar pb_presentaseKelengkapan;
+    private ArrayList<StatusAduanModel> statusAduanList;
+    private ArrayList<StatusAduanModel> statusAduanSelesaiList;
+    private Bitmap bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -815,7 +809,6 @@ public class ProfilActivity extends AppCompatActivity implements View.OnClickLis
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
-
 
 
     private void showPopupMenuAduan(View view, String key, String keyshow) {
@@ -1507,7 +1500,7 @@ public class ProfilActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void loadDataDiri() {
-        String URL_READ = link + "penduduk/" + id_user;
+        String URL_READ = link + "penduduk/" + id_user + "?token=" + token;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
                 new Response.Listener<String>() {
                     @Override

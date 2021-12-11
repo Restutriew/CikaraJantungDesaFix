@@ -1,7 +1,6 @@
 package com.cikarastudio.cikarajantungdesafix.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cikarastudio.cikarajantungdesafix.R;
 import com.cikarastudio.cikarajantungdesafix.model.ForumModel;
-import com.cikarastudio.cikarajantungdesafix.model.ProdukModel;
 import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
 import com.squareup.picasso.Picasso;
 
@@ -26,17 +24,13 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ForumViewHol
 
     private ForumAdapter.OnItemClickCallback onItemClickCallback;
 
-    public void setOnItemClickCallback(ForumAdapter.OnItemClickCallback onItemClickCallback) {
-        this.onItemClickCallback = onItemClickCallback;
-    }
-
-    public interface OnItemClickCallback {
-        void onItemClicked(ForumModel data);
-    }
-
     public ForumAdapter(Context mContext, ArrayList<ForumModel> mForumList) {
         this.mContext = mContext;
         this.mForumList = mForumList;
+    }
+
+    public void setOnItemClickCallback(ForumAdapter.OnItemClickCallback onItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback;
     }
 
     //setfilter
@@ -65,14 +59,24 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ForumViewHol
         textFuntion.setTextDanNullData(holder.tv_judulForum, namaForum);
         textFuntion.setTextDanNullData(holder.tv_keteranganForum, keteranganForum);
 
-
         String imageUrl = "https://puteran.cikarastudio.com/public/img/layanan/forum/" + gambarForum;
         Picasso.with(mContext.getApplicationContext()).load(imageUrl).fit().centerCrop().into(holder.img_gambarForum);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onItemClickCallback.onItemClicked(mForumList.get(holder.getAdapterPosition()));
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return mForumList.size();
+    }
+
+    public interface OnItemClickCallback {
+        void onItemClicked(ForumModel data);
     }
 
     public class ForumViewHolder extends RecyclerView.ViewHolder {

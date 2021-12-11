@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cikarastudio.cikarajantungdesafix.R;
-import com.cikarastudio.cikarajantungdesafix.model.ProdukModel;
 import com.cikarastudio.cikarajantungdesafix.model.SuratListModel;
 import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
 
@@ -24,17 +23,13 @@ public class SuratListAdapter extends RecyclerView.Adapter<SuratListAdapter.Sura
     //metode Onclick
     private SuratListAdapter.OnItemClickCallback onItemClickCallback;
 
-    public void setOnItemClickCallback(SuratListAdapter.OnItemClickCallback onItemClickCallback) {
-        this.onItemClickCallback = onItemClickCallback;
-    }
-
-    public interface OnItemClickCallback {
-        void onItemClicked(SuratListModel data);
-    }
-
     public SuratListAdapter(Context mContext, ArrayList<SuratListModel> mSuratList) {
         this.mContext = mContext;
         this.mSuratList = mSuratList;
+    }
+
+    public void setOnItemClickCallback(SuratListAdapter.OnItemClickCallback onItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback;
     }
 
     //setfilter
@@ -69,6 +64,10 @@ public class SuratListAdapter extends RecyclerView.Adapter<SuratListAdapter.Sura
     @Override
     public int getItemCount() {
         return mSuratList.size();
+    }
+
+    public interface OnItemClickCallback {
+        void onItemClicked(SuratListModel data);
     }
 
     public class SuratListViewHolder extends RecyclerView.ViewHolder {
