@@ -55,9 +55,10 @@ public class EditLaporanActivity extends AppCompatActivity {
     Spinner sp_jenisLaporan, sp_identitasLaporan, sp_postingLaporan;
     EditText et_isilaporan;
     ImageView img_back, img_chooseTambahLaporan, img_frameTambahLaporan;
-    CardView cr_tambahLaporan, cr_fotoLaporan;
+    ImageView img_noGambar;
+    CardView cr_tambahLaporan;
     Bitmap bitmap;
-    TextView tv_itungCharLaporan,tv_judul;
+    TextView tv_itungCharLaporan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,14 +79,11 @@ public class EditLaporanActivity extends AppCompatActivity {
         et_isilaporan = findViewById(R.id.et_isilaporan);
         cr_tambahLaporan = findViewById(R.id.cr_tambahLaporan);
         img_chooseTambahLaporan = findViewById(R.id.img_chooseTambahLaporan);
-        cr_fotoLaporan = findViewById(R.id.cr_fotoLaporan);
         img_frameTambahLaporan = findViewById(R.id.img_frameTambahLaporan);
         tv_itungCharLaporan = findViewById(R.id.tv_itungCharLaporan);
-        tv_judul = findViewById(R.id.tv_judul);
 
-        tv_judul.setText("Edit Laporan");
-
-        cr_fotoLaporan.setVisibility(View.VISIBLE);
+        img_noGambar = findViewById(R.id.img_noGambar);
+        img_noGambar.setVisibility(View.GONE);
 
         sessionManager = new SessionManager(EditLaporanActivity.this);
         sessionManager.checkLogin();
@@ -114,9 +112,9 @@ public class EditLaporanActivity extends AppCompatActivity {
 
         TextFuntion textFuntion = new TextFuntion();
 
-        Log.d("calpalnx", "onCreate: "+photoLaporan);
+        Log.d("calpalnx", "onCreate: " + photoLaporan);
         String imgLaporan = "https://puteran.cikarastudio.com/public/img/penduduk/lapor/" + photoLaporan;
-        Picasso.with(EditLaporanActivity.this).load(imgLaporan).fit().centerCrop().into(img_frameTambahLaporan);
+        Picasso.with(EditLaporanActivity.this).load(imgLaporan).into(img_frameTambahLaporan);
 
         ArrayAdapter<String> jenisLaporanAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, kategoriList);
@@ -209,7 +207,6 @@ public class EditLaporanActivity extends AppCompatActivity {
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filepath);
                 img_frameTambahLaporan.setImageBitmap(bitmap);
-                cr_fotoLaporan.setVisibility(View.VISIBLE);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -232,7 +229,7 @@ public class EditLaporanActivity extends AppCompatActivity {
 
     private void tambahDataLaporan() {
         loadingDialog.startLoading();
-        String URL_TAMBAH = link + "lapor/"+idLaporan;
+        String URL_TAMBAH = link + "lapor/" + idLaporan;
         final String isiLaporan = et_isilaporan.getText().toString().trim();
         final String jenisLaporan = sp_jenisLaporan.getSelectedItem().toString().toLowerCase();
         final String statusLaporan = "menunggu";
@@ -284,7 +281,6 @@ public class EditLaporanActivity extends AppCompatActivity {
                 Map<String, String> params = new HashMap<>();
                 params.put("isi", isiLaporan);
                 params.put("kategori", jenisLaporan);
-                params.put("status", statusLaporan);
                 params.put("token", token);
                 params.put("image", uploadBase64);
                 params.put("identitas", identitasLaporan);

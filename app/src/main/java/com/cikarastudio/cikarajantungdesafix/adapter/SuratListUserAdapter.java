@@ -64,6 +64,7 @@ public class SuratListUserAdapter extends RecyclerView.Adapter<SuratListUserAdap
         SuratV2Model currentItem = mSuratUserList.get(position);
         String namaSurat = currentItem.getNama_surat();
         String nomorSurat = currentItem.getNomor_surat();
+        String kategoriSurat = currentItem.getKategori();
         String statusSurat = currentItem.getStatus();
         String created_at = currentItem.getCreated_at();
 
@@ -94,8 +95,10 @@ public class SuratListUserAdapter extends RecyclerView.Adapter<SuratListUserAdap
         textFuntion.setTextDanNullData(holder.tv_nomorSuratListUser, nomorSurat);
         textFuntion.setTextDanNullData(holder.tv_statusSuratListUser, statusSurat);
         textFuntion.setTextDanNullData(holder.tv_tanggalPengajuanSuratListUser, tanggalfix);
+        textFuntion.setTextDanNullData(holder.tv_kategoriSuratListUser, kategoriSurat);
 
         if (statusSurat.equals("proses")) {
+            holder.view_statusSurat.setBackgroundColor(mContext.getResources().getColor(R.color.kuningproses));
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -104,7 +107,12 @@ public class SuratListUserAdapter extends RecyclerView.Adapter<SuratListUserAdap
             });
 
             holder.img_buttonDots.setVisibility(View.VISIBLE);
+
+        } else if (statusSurat.equals("selesai")) {
+            holder.view_statusSurat.setBackgroundColor(mContext.getResources().getColor(R.color.hijausukses));
+            holder.img_buttonDots.setVisibility(View.GONE);
         } else {
+            holder.view_statusSurat.setBackgroundColor(mContext.getResources().getColor(R.color.abu));
             holder.img_buttonDots.setVisibility(View.GONE);
         }
 
@@ -130,7 +138,9 @@ public class SuratListUserAdapter extends RecyclerView.Adapter<SuratListUserAdap
         public TextView tv_nomorSuratListUser;
         public TextView tv_statusSuratListUser;
         public TextView tv_keteranganSelesai;
+        public TextView tv_kategoriSuratListUser;
         public ImageView img_buttonDots;
+        public View view_statusSurat;
 
 
         public SuratListUserViewHolder(@NonNull View itemView) {
@@ -140,6 +150,9 @@ public class SuratListUserAdapter extends RecyclerView.Adapter<SuratListUserAdap
             tv_nomorSuratListUser = itemView.findViewById(R.id.tv_nomorSuratListUser);
             tv_statusSuratListUser = itemView.findViewById(R.id.tv_statusSuratListUser);
             tv_keteranganSelesai = itemView.findViewById(R.id.tv_keteranganSelesai);
+            tv_kategoriSuratListUser = itemView.findViewById(R.id.tv_kategoriSuratListUser);
+
+            view_statusSurat = itemView.findViewById(R.id.view_statusSurat);
 
             img_buttonDots = itemView.findViewById(R.id.img_buttonDots);
 

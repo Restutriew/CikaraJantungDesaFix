@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/birubgall"
     tools:context=".ui.splash.SplashActivity">
 
     <ImageView
@@ -22,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
-        android:fontFamily="@font/inter_extrabold"
+        android:fontFamily="@font/poppins_bold"
         android:gravity="center_horizontal"
         android:text="Aplikasi Jantung Desa"
         android:textAlignment="center"
@@ -39,7 +40,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/inter_regular"
+        android:fontFamily="@font/poppins_regular"
         android:text="Copyright @2020 Cikara Studio"
         android:textColor="@color/biru2"
         app:layout_constraintBottom_toBottomOf="parent"

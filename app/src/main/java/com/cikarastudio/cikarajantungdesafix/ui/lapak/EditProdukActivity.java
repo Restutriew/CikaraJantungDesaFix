@@ -58,13 +58,14 @@ public class EditProdukActivity extends AppCompatActivity {
     Integer harga, dilihat;
     EditText et_namaProduk, et_hargaProduk, et_keteranganProduk;
     ImageView img_back, img_editProduk, img_editPhotoProduk;
-    CardView cr_simpanProduk, cr_hapusProduk;
+    ImageView img_noGambar;
+    CardView cr_simpanProduk;
     private Bitmap bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_produk);
+        setContentView(R.layout.activity_tambah_produk);
 
         //allow ssl
         HttpsTrustManager.allowAllSSL();
@@ -92,7 +93,10 @@ public class EditProdukActivity extends AppCompatActivity {
         et_namaProduk = findViewById(R.id.et_namaProduk);
         et_hargaProduk = findViewById(R.id.et_hargaProduk);
         et_keteranganProduk = findViewById(R.id.et_keteranganProduk);
-        img_editProduk = findViewById(R.id.img_editProduk);
+        img_editProduk = findViewById(R.id.img_tambahProduk);
+
+        img_noGambar = findViewById(R.id.img_noGambar);
+        img_noGambar.setVisibility(View.GONE);
 
         et_namaProduk.setText(nama);
 //        et_hargaProduk.setText(String.valueOf(harga));
@@ -103,7 +107,7 @@ public class EditProdukActivity extends AppCompatActivity {
         String imageUrl = linkGambar + "penduduk/produk/" + gambar;
         Picasso.with(EditProdukActivity.this).load(imageUrl).fit().centerCrop().into(img_editProduk);
 
-        img_editPhotoProduk = findViewById(R.id.img_editPhotoProduk);
+        img_editPhotoProduk = findViewById(R.id.img_tambahPhotoProduk);
         img_editPhotoProduk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,23 +115,14 @@ public class EditProdukActivity extends AppCompatActivity {
             }
         });
 
-        cr_simpanProduk = findViewById(R.id.cr_simpanProduk);
+        cr_simpanProduk = findViewById(R.id.cr_tambahProduk);
         cr_simpanProduk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 cekInputanEditProduk();
-                simpanEditProduk();
             }
         });
 
-        cr_hapusProduk = findViewById(R.id.cr_hapusProduk);
-        cr_hapusProduk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loadingDialog.startLoading();
-                dialogDelete();
-            }
-        });
 
         img_back = findViewById(R.id.img_back);
         img_back.setOnClickListener(new View.OnClickListener() {
@@ -328,6 +323,7 @@ public class EditProdukActivity extends AppCompatActivity {
                             String success = jsonObject.getString("success");
 
                             if (success.equals("1")) {
+                                Log.d("calpalnx", "onResponse: edit produk sukses ");
                                 Toast.makeText(EditProdukActivity.this, "Edit Produk Sukses", Toast.LENGTH_LONG).show();
                                 loadingDialog.dissmissDialog();
                                 finish();
@@ -346,7 +342,7 @@ public class EditProdukActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(EditProdukActivity.this, "Tambah Produk Gagal! : Cek Koneksi Anda, " + error, Toast.LENGTH_LONG).show();
+                        Toast.makeText(EditProdukActivity.this, "Edit Produk Gagal! : Cek Koneksi Anda, " + error, Toast.LENGTH_LONG).show();
                         loadingDialog.dissmissDialog();
                     }
                 }) {
@@ -358,7 +354,6 @@ public class EditProdukActivity extends AppCompatActivity {
                 params.put("keterangan", inp_keteranganProduk);
                 params.put("image", inp_gambarProduk);
                 params.put("token", token);
-//                params.put("dilihat", dilihat);
                 return params;
             }
         };

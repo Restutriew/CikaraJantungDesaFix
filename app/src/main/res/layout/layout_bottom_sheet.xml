@@ -4,7 +4,7 @@
     android:id="@+id/bottomSheetContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_bottomsheetdialog"
+    android:background="@color/birubgall"
     android:orientation="vertical">
 
     <LinearLayout
@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:fontFamily="@font/inter_semibold"
+            android:fontFamily="@font/poppins_semibold"
             android:text="Filter Data"
             android:textColor="@color/biru_cikara"
             android:textSize="20sp" />
@@ -35,7 +35,7 @@
     <!--        android:layout_height="wrap_content"-->
     <!--        android:layout_marginStart="10dp"-->
     <!--        android:layout_marginTop="10dp"-->
-    <!--        android:fontFamily="@font/inter_bold"-->
+    <!--        android:fontFamily="@font/poppins_bold"-->
     <!--        android:text="Urutkan Berdasarkan"-->
     <!--        android:textColor="@color/biru_cikara"-->
     <!--        android:textSize="18sp" />-->
@@ -52,7 +52,7 @@
     <!--            android:layout_marginLeft="10dp"-->
     <!--            android:layout_marginRight="5dp"-->
     <!--            android:background="@drawable/border_biru_muda"-->
-    <!--            android:fontFamily="@font/inter_semibold"-->
+    <!--            android:fontFamily="@font/poppins_semibold"-->
     <!--            android:padding="5dp"-->
     <!--            android:text="Like"-->
     <!--            android:textColor="@color/white" />-->
@@ -62,7 +62,7 @@
     <!--            android:layout_height="wrap_content"-->
     <!--            android:layout_margin="5dp"-->
     <!--            android:background="@drawable/border_putih_biru_muda"-->
-    <!--            android:fontFamily="@font/inter_semibold"-->
+    <!--            android:fontFamily="@font/poppins_semibold"-->
     <!--            android:padding="5dp"-->
     <!--            android:text="Waktu"-->
     <!--            android:textColor="@color/biru2" />-->
@@ -80,7 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:fontFamily="@font/inter_semibold"
+        android:fontFamily="@font/poppins_semibold"
         android:text="Filter Berdasarkan"
         android:textColor="@color/biru_cikara" />
 
@@ -110,7 +110,7 @@
     <!--            android:layout_marginLeft="10dp"-->
     <!--            android:layout_marginRight="5dp"-->
     <!--            android:background="@drawable/border_putih_biru_muda"-->
-    <!--            android:fontFamily="@font/inter_semibold"-->
+    <!--            android:fontFamily="@font/poppins_semibold"-->
     <!--            android:padding="5dp"-->
     <!--            android:text="Keamanan"-->
     <!--            android:textColor="@color/biru2" />-->
@@ -120,7 +120,7 @@
     <!--            android:layout_height="wrap_content"-->
     <!--            android:layout_margin="5dp"-->
     <!--            android:background="@drawable/border_putih_biru_muda"-->
-    <!--            android:fontFamily="@font/inter_semibold"-->
+    <!--            android:fontFamily="@font/poppins_semibold"-->
     <!--            android:padding="5dp"-->
     <!--            android:text="Kesehatan"-->
     <!--            android:textColor="@color/biru2" />-->
@@ -130,7 +130,7 @@
     <!--            android:layout_height="wrap_content"-->
     <!--            android:layout_margin="5dp"-->
     <!--            android:background="@drawable/border_putih_biru_muda"-->
-    <!--            android:fontFamily="@font/inter_semibold"-->
+    <!--            android:fontFamily="@font/poppins_semibold"-->
     <!--            android:padding="5dp"-->
     <!--            android:text="Ekonomi"-->
     <!--            android:textColor="@color/biru2" />-->
@@ -140,7 +140,7 @@
     <!--            android:layout_height="wrap_content"-->
     <!--            android:layout_margin="5dp"-->
     <!--            android:background="@drawable/border_putih_biru_muda"-->
-    <!--            android:fontFamily="@font/inter_semibold"-->
+    <!--            android:fontFamily="@font/poppins_semibold"-->
     <!--            android:padding="5dp"-->
     <!--            android:text="Kebijakan"-->
     <!--            android:textColor="@color/biru2" />-->
@@ -159,7 +159,7 @@
     <!--            android:layout_marginLeft="10dp"-->
     <!--            android:layout_marginTop="5dp"-->
     <!--            android:background="@drawable/border_putih_biru_muda"-->
-    <!--            android:fontFamily="@font/inter_semibold"-->
+    <!--            android:fontFamily="@font/poppins_semibold"-->
     <!--            android:padding="5dp"-->
     <!--            android:text="Sosial"-->
     <!--            android:textColor="@color/biru2" />-->
@@ -169,7 +169,7 @@
     <!--            android:layout_height="wrap_content"-->
     <!--            android:layout_margin="5dp"-->
     <!--            android:background="@drawable/border_putih_biru_muda"-->
-    <!--            android:fontFamily="@font/inter_semibold"-->
+    <!--            android:fontFamily="@font/poppins_semibold"-->
     <!--            android:padding="5dp"-->
     <!--            android:text="Bantuan"-->
     <!--            android:textColor="@color/biru2" />-->
@@ -201,8 +201,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:fontFamily="@font/inter_semibold"
-                android:text="Simpan"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="OK"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 

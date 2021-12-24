@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:background="@color/birubgall"
     android:orientation="vertical">
 
     <ImageView
@@ -17,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/inter_extrabold"
+        android:fontFamily="@font/poppins_bold"
         android:gravity="center_horizontal"
         android:text="Daftarkan Diri Anda di Kantor Desa"
         android:textAlignment="center"
@@ -29,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/inter_regular"
+        android:fontFamily="@font/poppins_regular"
         android:gravity="center_horizontal"
         android:text="Silahkan Login Dengan Menggunakan Akun Yang Diberikan Desa Anda"
         android:textAlignment="center" />

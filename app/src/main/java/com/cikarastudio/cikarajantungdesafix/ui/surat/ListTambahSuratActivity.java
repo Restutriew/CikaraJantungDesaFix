@@ -60,7 +60,7 @@ public class ListTambahSuratActivity extends AppCompatActivity implements View.O
 
         suratList = new ArrayList<>();
         rv_suratList = findViewById(R.id.rv_suratList);
-        LinearLayoutManager linearLayoutManageraaa = new LinearLayoutManager(getApplicationContext()) {
+        LinearLayoutManager linearLayoutManageraaa = new LinearLayoutManager(ListTambahSuratActivity.this) {
             @Override
             public boolean canScrollVertically() {
                 return false;
@@ -146,7 +146,6 @@ public class ListTambahSuratActivity extends AppCompatActivity implements View.O
                                     suratList.add(new SuratListModel(res_id, res_kode, res_klasifikasisuratId, res_namaSurat,
                                             res_nilaiMasaBerlaku, res_statusMasaBerlaku, res_layananMandiri, res_fileSurat,
                                             res_kategori, res_createdAt, res_updatedAt));
-                                    rv_suratList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                                     suratListAdapter = new SuratListAdapter(getApplicationContext(), suratList);
                                     rv_suratList.setAdapter(suratListAdapter);
                                     //sort alfabet

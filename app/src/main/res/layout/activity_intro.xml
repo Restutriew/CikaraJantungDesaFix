@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/birubgall"
     tools:context=".ui.intro.IntroActivity">
 
     <androidx.viewpager.widget.ViewPager
@@ -36,7 +37,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:fontFamily="@font/inter_extrabold"
+            android:fontFamily="@font/poppins_semibold"
             android:gravity="center"
             android:text="Selanjutnya"
             android:textAlignment="center"
@@ -52,7 +53,7 @@
     <!--        android:layout_height="40dp"-->
     <!--        android:layout_marginHorizontal="60dp"-->
     <!--        android:background="@color/biru2"-->
-    <!--        android:fontFamily="@font/inter_extrabold"-->
+    <!--        android:fontFamily="@font/poppins_bold"-->
     <!--        android:gravity="center"-->
     <!--        android:text="Selanjutnya"-->
     <!--        android:textColor="@android:color/white"-->

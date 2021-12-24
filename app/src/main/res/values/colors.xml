@@ -31,6 +31,11 @@
 
     <color name="birubg">#D5FFFF</color>
 
+    <color name="birubgall">#E4F2F7</color>
+    <color name="blacktext">#040507</color>
+    <color name="abutext">#808080</color>
+    <color name="bgimage">#63000000</color>
+    <color name="bgbutton">#63FFFFFF</color>
 
     <color name="dot_inactive_screen1">@color/abu</color>
     <color name="dot_inactive_screen2">@color/abu</color>

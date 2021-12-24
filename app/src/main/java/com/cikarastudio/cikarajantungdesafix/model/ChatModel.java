@@ -4,20 +4,47 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class ChatModel implements Parcelable {
+    public static final Creator<ChatModel> CREATOR = new Creator<ChatModel>() {
+        @Override
+        public ChatModel createFromParcel(Parcel in) {
+            return new ChatModel(in);
+        }
+
+        @Override
+        public ChatModel[] newArray(int size) {
+            return new ChatModel[size];
+        }
+    };
     String id;
     String user_id;
     String forum_id;
     String isi;
     String created_at;
     String updated_at;
+    String nama_penduduk;
 
-    public ChatModel(String id, String user_id, String forum_id, String isi, String created_at, String updated_at) {
+    public ChatModel(String id, String user_id, String forum_id, String isi, String created_at, String updated_at, String nama_penduduk) {
         this.id = id;
         this.user_id = user_id;
         this.forum_id = forum_id;
         this.isi = isi;
         this.created_at = created_at;
         this.updated_at = updated_at;
+        this.nama_penduduk = nama_penduduk;
+    }
+
+    protected ChatModel(Parcel in) {
+        id = in.readString();
+        user_id = in.readString();
+        forum_id = in.readString();
+        isi = in.readString();
+        created_at = in.readString();
+        updated_at = in.readString();
+        nama_penduduk = in.readString();
+    }
+
+    public static Creator<ChatModel> getCREATOR() {
+        return CREATOR;
     }
 
     public String getId() {
@@ -68,30 +95,13 @@ public class ChatModel implements Parcelable {
         this.updated_at = updated_at;
     }
 
-    public static Creator<ChatModel> getCREATOR() {
-        return CREATOR;
+    public String getNama_penduduk() {
+        return nama_penduduk;
     }
 
-    protected ChatModel(Parcel in) {
-        id = in.readString();
-        user_id = in.readString();
-        forum_id = in.readString();
-        isi = in.readString();
-        created_at = in.readString();
-        updated_at = in.readString();
+    public void setNama_penduduk(String nama_penduduk) {
+        this.nama_penduduk = nama_penduduk;
     }
-
-    public static final Creator<ChatModel> CREATOR = new Creator<ChatModel>() {
-        @Override
-        public ChatModel createFromParcel(Parcel in) {
-            return new ChatModel(in);
-        }
-
-        @Override
-        public ChatModel[] newArray(int size) {
-            return new ChatModel[size];
-        }
-    };
 
     @Override
     public int describeContents() {
@@ -106,5 +116,6 @@ public class ChatModel implements Parcelable {
         dest.writeString(isi);
         dest.writeString(created_at);
         dest.writeString(updated_at);
+        dest.writeString(nama_penduduk);
     }
 }

@@ -23,7 +23,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
@@ -82,7 +82,8 @@ public class LapakFragment extends Fragment {
     ImageView img_lapak, img_lapakAtas, img_editLapak;
     SearchView et_produkSearch;
     ScrollView scroll_lapak;
-    LinearLayout line_borderLapak;
+    LinearLayout line_borderLapak, line_statusLapak;
+    LinearLayout line_tambahProduk;
     CardView cr_judulLapak;
     private ArrayList<ProdukModel> produkList;
     private ProdukAdapter produkAdapter;
@@ -111,6 +112,7 @@ public class LapakFragment extends Fragment {
         line_editLapak = root.findViewById(R.id.line_editLapak);
         tv_tambahProduk = root.findViewById(R.id.tv_tambahProduk);
         tv_lapakMenunggu = root.findViewById(R.id.tv_lapakMenunggu);
+        line_tambahProduk = root.findViewById(R.id.line_tambahProduk);
 
         //initiate lapak
         tv_namaLapak = root.findViewById(R.id.tv_namaLapak);
@@ -119,6 +121,7 @@ public class LapakFragment extends Fragment {
         tv_tentangLapak = root.findViewById(R.id.tv_tentangLapak);
         tv_statusLapak = root.findViewById(R.id.tv_statusLapak);
         img_lapak = root.findViewById(R.id.img_lapak);
+        line_statusLapak = root.findViewById(R.id.line_statusLapak);
 
         //initate expand collapse
         tv_alamatLapakFull = root.findViewById(R.id.tv_alamatLapakFull);
@@ -140,14 +143,19 @@ public class LapakFragment extends Fragment {
         //list produk inisiasi
         produkList = new ArrayList<>();
         recyclerView = root.findViewById(R.id.rv_listProduk);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2) {
+        LinearLayoutManager linearLayoutManageraaa = new LinearLayoutManager(getContext()) {
             @Override
             public boolean canScrollVertically() {
                 return false;
             }
         };
-
-        recyclerView.setLayoutManager(gridLayoutManager);
+//        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2) {
+//            @Override
+//            public boolean canScrollVertically() {
+//                return false;
+//            }
+//        };
+        recyclerView.setLayoutManager(linearLayoutManageraaa);
         recyclerView.setHasFixedSize(true);
 
 
@@ -175,7 +183,7 @@ public class LapakFragment extends Fragment {
             }
         });
 
-        tv_tambahProduk.setOnClickListener(new View.OnClickListener() {
+        line_tambahProduk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent keTambahProduk = new Intent(getActivity(), TambahProdukActivity.class);
@@ -310,14 +318,12 @@ public class LapakFragment extends Fragment {
                             TextFuntion textFuntion = new TextFuntion();
                             //data diri
                             textFuntion.setTextDanNullData(tv_namaLapak, res_namaLapak);
-                            textFuntion.setTextDanNullData(tv_statusLapak, res_statusLapak);
                             textFuntion.setTextDanNullData(tv_telpLapak, res_telp);
                             textFuntion.setTextDanNullData(tv_alamatLapak, res_alamat);
                             textFuntion.setTextDanNullData(tv_alamatLapakFull, res_alamat);
                             textFuntion.setTextDanNullData(tv_tentangLapak, res_tentang);
                             textFuntion.setTextDanNullData(tv_tentangLapakFull, res_tentang);
                             textFuntion.setTextDanNullData(tv_namaLapakAtas, res_namaLapak);
-
 
                             String resi_gambar = res_logo.replace(" ", "%20");
 
@@ -334,10 +340,13 @@ public class LapakFragment extends Fragment {
                             Picasso.with(getActivity()).load(imageUrl).fit().centerCrop().into(img_lapakAtas);
 
                             if (status_lapak.equals("menunggu")) {
-                                tv_tambahProduk.setVisibility(View.GONE);
+                                line_tambahProduk.setVisibility(View.GONE);
                                 tv_lapakMenunggu.setVisibility(View.VISIBLE);
+                                textFuntion.setTextDanNullData(tv_statusLapak, "Menunggu Konfirmasi");
+                                line_statusLapak.setBackgroundColor(getResources().getColor(R.color.abu));
                             } else {
-                                tv_tambahProduk.setVisibility(View.VISIBLE);
+                                textFuntion.setTextDanNullData(tv_statusLapak, "Lapak Sudah Dikonfirmasi");
+                                line_tambahProduk.setVisibility(View.VISIBLE);
                                 tv_lapakMenunggu.setVisibility(View.GONE);
                             }
 

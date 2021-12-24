@@ -2,22 +2,12 @@ package com.cikarastudio.cikarajantungdesafix.template.kima.text;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.ColorSpace;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.cikarastudio.cikarajantungdesafix.R;
-import com.cikarastudio.cikarajantungdesafix.model.ProdukModel;
 import com.google.android.material.textfield.TextInputLayout;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 public class TextFuntion {
 
@@ -53,7 +43,7 @@ public class TextFuntion {
 
     }
 
-    public void setHintData(TextInputLayout editText, String string){
+    public void setHintData(TextInputLayout editText, String string) {
         editText.setHint(convertUpperCase(string));
     }
 
@@ -77,7 +67,7 @@ public class TextFuntion {
         if (convertUpperCase(string).equals("Null")) {
             textView.setText("Tidak Ada Data");
         } else {
-            textView.setText("Rp. "+convertharga(string));
+            textView.setText("Rp. " + convertharga(string));
         }
     }
 

@@ -1,38 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginBottom="55dp"
+    android:background="@color/birubgall"
     android:orientation="vertical"
     android:scrollbars="none"
     tools:context=".ui.forum.ForumFragment">
 
-    <androidx.cardview.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/birubgall"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingVertical="8dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/biru2"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingVertical="8dp">
+            android:layout_marginHorizontal="20dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Forum"
+            android:textColor="@color/blacktext"
+            android:textSize="24sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginHorizontal="20dp"
-                android:fontFamily="@font/inter_semibold"
-                android:gravity="center"
-                android:text="Forum"
-                android:textColor="@color/white"
-                android:textSize="22sp" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginEnd="10dp">
 
-        </LinearLayout>
+            <ImageView
+                android:id="@+id/img_laporanSaya"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_baseline_content_copy_24"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -42,16 +55,18 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
             android:orientation="vertical">
 
             <SearchView
                 android:id="@+id/et_forumSearch"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:background="@drawable/border_putih_biru_inputan"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/border_putih_inputan"
                 android:iconifiedByDefault="false"
-                android:queryHint="Cari Forum"
+                android:queryBackground="@android:color/transparent"
+                android:queryHint="Cari Surat"
                 android:searchIcon="@drawable/ic_baseline_search_24" />
 
             <RelativeLayout

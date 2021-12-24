@@ -1,37 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:animateLayoutChanges="true"
+    android:background="@color/abu"
     tools:context=".ui.forum.ChatForumActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/biru2"
-        android:padding="8dp">
+        android:background="@color/birubgall"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/img_back"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_marginLeft="20dp"
-            android:src="@drawable/ic_baseline_arrow_back_ios_24"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/icon_back_black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tv_namaForum"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:fontFamily="@font/inter_semibold"
+            android:fontFamily="@font/poppins_bold"
             android:gravity="center"
-            android:text="Diskusi Sampah Desa"
-            android:textColor="@color/white"
-            android:textSize="22sp"
+            android:text="Berita Desa"
+            android:textColor="@color/blacktext"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -43,40 +48,38 @@
         android:id="@+id/rv_listChat"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        app:layout_constraintBottom_toTopOf="@+id/et_isiChat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/et_isiChat"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/biru2"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/border_biru_bg_inputan"
+        android:fontFamily="@font/poppins_regular"
+        android:hint="Pesan"
+        android:maxLines="3"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintEnd_toStartOf="@+id/img_kirimChat"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/border_putih_biru_inputan"
-            android:fontFamily="@font/inter_regular"
-            android:hint="Pesan"
-            android:padding="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+    <ImageView
+        android:id="@+id/img_kirimChat"
+        android:layout_width="50sp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/border_biru_muda"
+        android:padding="10dp"
+        android:src="@drawable/ic_baseline_send_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <ImageView
-            android:layout_width="30sp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_baseline_send_24" />
-
-    </LinearLayout>
-
-
-    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

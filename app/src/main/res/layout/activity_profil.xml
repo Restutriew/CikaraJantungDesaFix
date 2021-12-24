@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     tools:context=".ui.profil.ProfilActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/birubgall">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -35,7 +35,7 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:fontFamily="@font/inter_extrabold"
+                android:fontFamily="@font/poppins_semibold"
                 android:gravity="center"
                 android:text="Profil"
                 android:textColor="@color/white"
@@ -88,14 +88,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="10dp"
-                android:fontFamily="@font/inter_medium"
+                android:fontFamily="@font/poppins_medium"
                 android:textColor="@color/white"
                 android:textSize="25sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_light"
+                android:fontFamily="@font/poppins_regular"
                 android:text="Kelengkapan Data"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
@@ -167,7 +167,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
-                        android:fontFamily="@font/inter_semibold"
+                        android:fontFamily="@font/poppins_semibold"
                         android:gravity="center_vertical"
                         android:text="Status Aduan"
                         android:textColor="@android:color/white"
@@ -223,7 +223,7 @@
                 app:cardCornerRadius="10dp">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="385dp"
                     android:layout_height="match_parent"
                     android:background="@color/biru2"
                     android:gravity="center_vertical"
@@ -242,7 +242,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
-                        android:fontFamily="@font/inter_semibold"
+                        android:fontFamily="@font/poppins_semibold"
                         android:gravity="center_vertical"
                         android:text="Data Diri"
                         android:textColor="@android:color/white"
@@ -264,7 +264,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="-5dp"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:cardCornerRadius="10dp">
 
                 <LinearLayout
@@ -289,7 +289,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="NIK"
                                 android:textColor="@android:color/black"
@@ -300,7 +300,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="3278012991600001"
                                 android:textColor="@android:color/black"
@@ -314,7 +314,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -337,7 +337,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Nama Lengkap"
                                 android:textColor="@android:color/black"
@@ -348,7 +348,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="Kimimaro Kaguya"
                                 android:textColor="@android:color/black"
@@ -362,7 +362,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -382,7 +382,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="KTP Elektronik"
                                 android:textColor="@android:color/black"
@@ -393,7 +393,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="KTP-EL"
                                 android:textColor="@android:color/black"
@@ -407,7 +407,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -430,7 +430,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Status Rekam"
                                 android:textColor="@android:color/black"
@@ -441,7 +441,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="BELUM REKAM"
                                 android:textColor="@android:color/black"
@@ -455,7 +455,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -475,7 +475,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Tag ID Card"
                                 android:textColor="@android:color/black"
@@ -486,7 +486,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="Tidak Ada Data"
                                 android:textColor="@android:color/black"
@@ -500,7 +500,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -523,7 +523,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Nomor KK Sebelumnya"
                                 android:textColor="@android:color/black"
@@ -534,7 +534,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="3278012991600005"
                                 android:textColor="@android:color/black"
@@ -548,7 +548,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -568,7 +568,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Hubungan Dalam Keluarga"
                                 android:textColor="@android:color/black"
@@ -579,7 +579,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="Anak"
                                 android:textColor="@android:color/black"
@@ -593,7 +593,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -616,7 +616,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Jenis Kelamin"
                                 android:textColor="@android:color/black"
@@ -627,7 +627,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="LAKI-LAKI"
                                 android:textColor="@android:color/black"
@@ -641,7 +641,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -661,7 +661,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Agama"
                                 android:textColor="@android:color/black"
@@ -672,7 +672,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="KHONGHUCU"
                                 android:textColor="@android:color/black"
@@ -686,7 +686,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -709,7 +709,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Status Penduduk"
                                 android:textColor="@android:color/black"
@@ -720,7 +720,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="PENDATANG"
                                 android:textColor="@android:color/black"
@@ -734,7 +734,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -754,7 +754,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Nomor Telepon/HP"
                                 android:textColor="@android:color/black"
@@ -765,7 +765,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="085222838181"
                                 android:textColor="@android:color/black"
@@ -779,7 +779,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -802,7 +802,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Alamat Email"
                                 android:textColor="@android:color/black"
@@ -813,7 +813,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="Kimimarokaguya@gmail.com"
                                 android:textColor="@android:color/black"
@@ -827,7 +827,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -847,7 +847,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Alamat Sebelumnya"
                                 android:textColor="@android:color/black"
@@ -858,7 +858,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="Tidak Ada Data"
                                 android:textColor="@android:color/black"
@@ -872,7 +872,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -895,7 +895,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Alamat Sekarang"
                                 android:textColor="@android:color/black"
@@ -906,7 +906,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="Jl. K.H. Tubagus Abdullah No.90"
                                 android:textColor="@android:color/black"
@@ -920,7 +920,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -940,7 +940,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="RT"
                                 android:textColor="@android:color/black"
@@ -951,7 +951,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="010000"
                                 android:textColor="@android:color/black"
@@ -965,7 +965,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -1001,7 +1001,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
-                        android:fontFamily="@font/inter_semibold"
+                        android:fontFamily="@font/poppins_semibold"
                         android:gravity="center_vertical"
                         android:text="Data Kelahiran"
                         android:textColor="@android:color/white"
@@ -1048,7 +1048,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Nomor Akta Kelahiran"
                                 android:textColor="@android:color/black"
@@ -1059,7 +1059,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="3278012991600005"
                                 android:textColor="@android:color/black"
@@ -1073,7 +1073,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -1096,7 +1096,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Tempat Lahir"
                                 android:textColor="@android:color/black"
@@ -1107,7 +1107,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="Tasikmalaya"
                                 android:textColor="@android:color/black"
@@ -1121,7 +1121,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -1141,7 +1141,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Tanggal Lahir"
                                 android:textColor="@android:color/black"
@@ -1152,7 +1152,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="Tidak Ada Data"
                                 android:textColor="@android:color/black"
@@ -1166,7 +1166,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -1189,7 +1189,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Waktu Kelahiran"
                                 android:textColor="@android:color/black"
@@ -1200,7 +1200,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="Tidak Ada Data"
                                 android:textColor="@android:color/black"
@@ -1214,7 +1214,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -1234,7 +1234,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Tempat Dilahirkan"
                                 android:textColor="@android:color/black"
@@ -1245,7 +1245,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="Rumah"
                                 android:textColor="@android:color/black"
@@ -1259,7 +1259,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -1282,7 +1282,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Jenis Kelahiran"
                                 android:textColor="@android:color/black"
@@ -1293,7 +1293,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="Tunggal"
                                 android:textColor="@android:color/black"
@@ -1308,7 +1308,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -1328,7 +1328,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Anak Ke"
                                 android:textColor="@android:color/black"
@@ -1339,7 +1339,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="3"
                                 android:textColor="@android:color/black"
@@ -1353,7 +1353,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -1376,7 +1376,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Penolong Kelahiran"
                                 android:textColor="@android:color/black"
@@ -1387,7 +1387,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="DUKUN"
                                 android:textColor="@android:color/black"
@@ -1401,7 +1401,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -1421,7 +1421,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Berat Lahir (gram)"
                                 android:textColor="@android:color/black"
@@ -1432,7 +1432,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="500"
                                 android:textColor="@android:color/black"
@@ -1446,7 +1446,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -1469,7 +1469,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Panjang Lahir (cm)"
                                 android:textColor="@android:color/black"
@@ -1480,7 +1480,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="400"
                                 android:textColor="@android:color/black"
@@ -1494,7 +1494,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -1530,7 +1530,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
-                        android:fontFamily="@font/inter_semibold"
+                        android:fontFamily="@font/poppins_semibold"
                         android:gravity="center_vertical"
                         android:text="Pendidikan &amp; Pekerjaan"
                         android:textColor="@android:color/white"
@@ -1577,7 +1577,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Pendidikan Dalam KK"
                                 android:textColor="@android:color/black"
@@ -1588,7 +1588,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="Mahasiswa"
                                 android:textColor="@android:color/black"
@@ -1602,7 +1602,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -1625,7 +1625,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Pendidikan Sedang Ditempuh"
                                 android:textColor="@android:color/black"
@@ -1636,7 +1636,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="Mahasiswa"
                                 android:textColor="@android:color/black"
@@ -1650,7 +1650,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -1670,7 +1670,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Pekerjaan"
                                 android:textColor="@android:color/black"
@@ -1681,7 +1681,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="Awak Kapal Tongkang"
                                 android:textColor="@android:color/black"
@@ -1695,7 +1695,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -1731,7 +1731,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
-                        android:fontFamily="@font/inter_semibold"
+                        android:fontFamily="@font/poppins_semibold"
                         android:gravity="center_vertical"
                         android:text="Data Kewarganegaraan"
                         android:textColor="@android:color/white"
@@ -1778,7 +1778,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Status Warga Negara"
                                 android:textColor="@android:color/black"
@@ -1789,7 +1789,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="WNI"
                                 android:textColor="@android:color/black"
@@ -1803,7 +1803,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -1826,7 +1826,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Nomor Paspor"
                                 android:textColor="@android:color/black"
@@ -1837,7 +1837,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="00129102931381238"
                                 android:textColor="@android:color/black"
@@ -1851,7 +1851,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -1871,7 +1871,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Tgl Berakhir Paspor"
                                 android:textColor="@android:color/black"
@@ -1882,7 +1882,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="20-01-2030"
                                 android:textColor="@android:color/black"
@@ -1896,7 +1896,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -1932,7 +1932,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
-                        android:fontFamily="@font/inter_semibold"
+                        android:fontFamily="@font/poppins_semibold"
                         android:gravity="center_vertical"
                         android:text="Data Keluarga"
                         android:textColor="@android:color/white"
@@ -1979,7 +1979,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="NIK Ayah"
                                 android:textColor="@android:color/black"
@@ -1990,7 +1990,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="3218293010000001"
                                 android:textColor="@android:color/black"
@@ -2004,7 +2004,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -2027,7 +2027,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Nama Ayah"
                                 android:textColor="@android:color/black"
@@ -2038,7 +2038,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="Ahmad Slardar"
                                 android:textColor="@android:color/black"
@@ -2052,7 +2052,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -2072,7 +2072,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="NIK Ibu"
                                 android:textColor="@android:color/black"
@@ -2083,7 +2083,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="23126371832300001"
                                 android:textColor="@android:color/black"
@@ -2097,7 +2097,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -2120,7 +2120,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Nama Ibu"
                                 android:textColor="@android:color/black"
@@ -2131,7 +2131,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="Juminten Ranger"
                                 android:textColor="@android:color/black"
@@ -2145,7 +2145,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -2181,7 +2181,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
-                        android:fontFamily="@font/inter_semibold"
+                        android:fontFamily="@font/poppins_semibold"
                         android:gravity="center_vertical"
                         android:text="Status Perkawinan"
                         android:textColor="@android:color/white"
@@ -2228,7 +2228,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Status Perkawinan"
                                 android:textColor="@android:color/black"
@@ -2239,7 +2239,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="KAWIN"
                                 android:textColor="@android:color/black"
@@ -2253,7 +2253,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -2276,7 +2276,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="No. Akta Nikah (Buku Nikah)"
                                 android:textColor="@android:color/black"
@@ -2287,7 +2287,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="123013941701511409409180891"
                                 android:textColor="@android:color/black"
@@ -2301,7 +2301,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -2321,7 +2321,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Tanggal Perkawinan"
                                 android:textColor="@android:color/black"
@@ -2332,7 +2332,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="10-10-2022"
                                 android:textColor="@android:color/black"
@@ -2346,7 +2346,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -2369,7 +2369,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Akta Perceraian"
                                 android:textColor="@android:color/black"
@@ -2380,7 +2380,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="Tidak Ada Data"
                                 android:textColor="@android:color/black"
@@ -2394,7 +2394,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -2414,7 +2414,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Tanggal Perceraian"
                                 android:textColor="@android:color/black"
@@ -2425,7 +2425,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="00-00-0000"
                                 android:textColor="@android:color/black"
@@ -2439,7 +2439,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -2475,7 +2475,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
-                        android:fontFamily="@font/inter_semibold"
+                        android:fontFamily="@font/poppins_semibold"
                         android:gravity="center_vertical"
                         android:text="Data Kesehatan"
                         android:textColor="@android:color/white"
@@ -2522,7 +2522,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Golongan Darah"
                                 android:textColor="@android:color/black"
@@ -2533,7 +2533,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="O"
                                 android:textColor="@android:color/black"
@@ -2547,7 +2547,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -2570,7 +2570,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Cacat"
                                 android:textColor="@android:color/black"
@@ -2581,7 +2581,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="TIDAK CACAT"
                                 android:textColor="@android:color/black"
@@ -2595,7 +2595,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -2615,7 +2615,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Sakit Menahun"
                                 android:textColor="@android:color/black"
@@ -2626,7 +2626,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="TIDAK ADA / TIDAK SAKIT"
                                 android:textColor="@android:color/black"
@@ -2640,7 +2640,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -2663,7 +2663,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Akseptor KB"
                                 android:textColor="@android:color/black"
@@ -2674,7 +2674,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="LAINNYA"
                                 android:textColor="@android:color/black"
@@ -2688,7 +2688,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -2708,7 +2708,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_extrabold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="center_vertical"
                                 android:text="Asuransi"
                                 android:textColor="@android:color/black"
@@ -2719,7 +2719,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:fontFamily="@font/inter_regular"
+                                android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="TIDAK/BELUM PUNYA"
                                 android:textColor="@android:color/black"
@@ -2733,7 +2733,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_baseline_more_vert_24_black" />
+                            android:src="@drawable/icon_titik_tiga" />
 
                     </LinearLayout>
 
@@ -2746,7 +2746,7 @@
             <!--                android:layout_height="wrap_content"-->
             <!--                android:layout_marginLeft="20dp"-->
             <!--                android:layout_marginTop="20dp"-->
-            <!--                android:fontFamily="@font/robotoslab_extrabold"-->
+            <!--                android:fontFamily="@font/poppins_bold"-->
             <!--                android:text="Pengaturan"-->
             <!--                android:textColor="@color/biru2"-->
             <!--                android:textSize="20sp" />-->
@@ -2778,7 +2778,7 @@
             <!--                        android:layout_height="match_parent"-->
             <!--                        android:layout_marginStart="10dp"-->
             <!--                        android:layout_weight="1"-->
-            <!--                        android:fontFamily="@font/robotoslab_semibold"-->
+            <!--                        android:fontFamily="@font/poppins_semibold"-->
             <!--                        android:gravity="center_vertical"-->
             <!--                        android:text="Pengaturan"-->
             <!--                        android:textColor="@android:color/white"-->
@@ -2822,7 +2822,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
-                        android:fontFamily="@font/robotoslab_semibold"
+                        android:fontFamily="@font/poppins_semibold"
                         android:gravity="center_vertical"
                         android:text="Logout"
                         android:textColor="@android:color/white"

@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/birubgall"
     android:orientation="vertical"
     tools:context=".ui.surat.TambahSuratActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/biru2"
+        android:background="@color/birubgall"
         android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,8 +21,8 @@
             android:id="@+id/img_back"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_marginLeft="20dp"
-            android:src="@drawable/ic_baseline_arrow_back_ios_24"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/icon_back_black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -30,11 +31,11 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:fontFamily="@font/inter_semibold"
+            android:fontFamily="@font/poppins_bold"
             android:gravity="center"
             android:text="Ajukan Surat"
-            android:textColor="@color/white"
-            android:textSize="22sp"
+            android:textColor="@color/blacktext"
+            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,10 +57,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/inter_semibold"
+                android:fontFamily="@font/poppins_semibold"
                 android:gravity="center"
                 android:text="Nama Surat"
-                android:textColor="@color/biru2"
+                android:textColor="@color/blacktext"
                 android:textSize="18sp" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -68,17 +69,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_keperluanSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Keperluan"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -88,17 +93,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_keteranganSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Keterangan"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -108,17 +117,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_kepalaKKSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Kepala KK"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -128,19 +141,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_noKKSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Nomor KK"
                     android:inputType="number"
                     android:maxLength="16"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -150,18 +167,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_rtTujuanSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="RT Tujuan"
                     android:inputType="number"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -171,18 +192,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_rwTujuanSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="RW Tujuan"
                     android:inputType="number"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -192,17 +217,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_dusunTujuanSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Dusun Tujuan"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -212,17 +241,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_desaTujuanSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Desa Tujuan"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -232,17 +265,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_kecamatanTujuanSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Kecamatan Tujuan"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -252,17 +289,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_kabupatenTujuanSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Kabupaten Tujuan"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -272,17 +313,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_alasanPindahSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Alasan Pindah"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -292,18 +337,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_tanggalPindahSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Tanggal Pindah"
                     android:inputType="number"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -313,18 +362,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_jumlahPengikutSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Jumlah Pengikut"
                     android:inputType="number"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -334,17 +387,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_barangSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Barang"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -354,17 +411,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_jenisSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Jenis"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -374,17 +435,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_namaSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Nama"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -394,17 +459,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_namaBayiSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Nama"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -414,17 +483,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_noIdentitasSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Nomor Identitas"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -434,17 +507,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_tempatLahirSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Tempat Lahir"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -454,18 +531,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_tglLahirSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Tanggal Lahir"
                     android:inputType="number"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -474,21 +555,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter_semibold"
+                    android:fontFamily="@font/poppins_semibold"
                     android:text="Pilih Jenis Kelamin"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext" />
 
                 <Spinner
                     android:id="@+id/sp_jenisKelaminSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:background="@drawable/border_putih_biru_inputan"
+                    android:background="@drawable/border_putih_inputan"
+                    android:textSize="12sp"
                     android:theme="@style/SpinnerTheme" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -499,17 +584,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_usahaSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Usaha"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -519,17 +608,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_alamatSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Alamat"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -538,21 +631,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter_semibold"
+                    android:fontFamily="@font/poppins_semibold"
                     android:text="Pilih Pekerjaan"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
                 <Spinner
                     android:id="@+id/sp_pekerjaanSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:background="@drawable/border_putih_biru_inputan"
+                    android:background="@drawable/border_putih_inputan"
                     android:theme="@style/SpinnerTheme" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -563,17 +660,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_ketuaAdatSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Ketua Adat"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -582,21 +683,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter_semibold"
+                    android:fontFamily="@font/poppins_semibold"
                     android:text="Pilih Agama"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext" />
 
                 <Spinner
                     android:id="@+id/sp_agamaSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:background="@drawable/border_putih_biru_inputan"
+                    android:background="@drawable/border_putih_inputan"
+                    android:textSize="12sp"
                     android:theme="@style/SpinnerTheme" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -607,17 +712,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_perbedaanSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Perbedaan"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -627,17 +736,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_kartuIdentitasSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Kartu Identitas"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -647,17 +760,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_rincianSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Rincian"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -668,18 +785,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_noJamkesosSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Nomor Jamkesos"
                     android:inputType="number"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -689,17 +810,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_hariLahirSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Hari Lahir"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -709,18 +834,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_waktuLahirSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Waktu Lahir"
                     android:inputType="number"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -730,18 +859,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_kelahiranKeSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Kelahiran Ke"
                     android:inputType="number"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -751,17 +884,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_namaIbuSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Nama Ibu"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -771,19 +908,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_nikIbuSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="NIK Ibu"
                     android:inputType="number"
                     android:maxLength="16"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -793,18 +934,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_umurIbuSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Umur Ibu"
                     android:inputType="number"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -813,21 +958,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter_semibold"
+                    android:fontFamily="@font/poppins_semibold"
                     android:text="Pilih Pekerjan Ibu"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext" />
 
                 <Spinner
                     android:id="@+id/sp_pekerjaanIbuSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:background="@drawable/border_putih_biru_inputan"
+                    android:background="@drawable/border_putih_inputan"
+                    android:textSize="12sp"
                     android:theme="@style/SpinnerTheme" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -838,17 +987,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_alamatIbuSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Alamat Ibu"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -858,17 +1011,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_desaIbuSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Desa Ibu"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -878,17 +1035,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_kecamatanIbuSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Kecamatan Ibu"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -898,17 +1059,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_kabupatenIbuSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Kabupaten Ibu"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -918,17 +1083,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_namaAyahSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Nama Ayah"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -938,19 +1107,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_nikAyahSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="NIK Ayah"
                     android:inputType="number"
                     android:maxLength="16"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -960,18 +1133,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_umurAyahSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Umur Ayah"
                     android:inputType="number"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -980,21 +1157,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter_semibold"
+                    android:fontFamily="@font/poppins_semibold"
                     android:text="Pilih Pekerjaan Ayah"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext" />
 
                 <Spinner
                     android:id="@+id/sp_pekerjaanAyahSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:background="@drawable/border_putih_biru_inputan"
+                    android:background="@drawable/border_putih_inputan"
+                    android:textSize="12sp"
                     android:theme="@style/SpinnerTheme" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -1005,17 +1186,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_alamatAyahSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Alamat Ayah"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1025,17 +1210,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_desaAyahSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Desa Ayah"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1045,17 +1234,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_kecamatanAyahSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Kecamatan Ayah"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1065,17 +1258,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_kabupatenAyahSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Kabupaten Ayah"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1085,17 +1282,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_namaPelaporSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Nama Pelapor"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1105,19 +1306,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_nikPelaporSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="NIK Pelapor"
                     android:inputType="number"
                     android:maxLength="16"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1127,18 +1332,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_umurPelaporSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Umur Pelapor"
                     android:inputType="number"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1147,21 +1356,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter_semibold"
+                    android:fontFamily="@font/poppins_semibold"
                     android:text="Pilih Pekerjaan Pelapor"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext" />
 
                 <Spinner
                     android:id="@+id/sp_pekerjaanPelaporSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:background="@drawable/border_putih_biru_inputan"
+                    android:background="@drawable/border_putih_inputan"
+                    android:textSize="12sp"
                     android:theme="@style/SpinnerTheme" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -1172,17 +1385,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_desaPelaporSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Desa Pelapor"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1192,17 +1409,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_kecamatanPelaporSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Kecamatan Pelapor"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1212,17 +1433,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_kabupatenPelaporSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Kabupaten Pelapor"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1232,17 +1457,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_provinsiPelaporSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Provinsi Pelapor"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1252,17 +1481,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_hubPelaporSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Hubungan Pelapor"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1272,17 +1505,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_tempatLahirPelaporSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Tempat Lahir Pelapor"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1292,18 +1529,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_tanggalLahirPelaporSurat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Tanggal Lahir Pelapor"
                     android:inputType="number"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1313,17 +1554,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_namaSaksi1Surat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Nama Saksi Pertama"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1333,19 +1578,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_nikSaksi1Surat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="NIK Saksi Pertama"
                     android:inputType="number"
                     android:maxLength="16"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1355,17 +1604,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_tempatLahirSaksi1Surat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Tempat Lahir Saksi Pertama"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1375,18 +1628,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_tanggalLahirSaksi1Surat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Tanggal Lahir Saksi Pertama"
                     android:inputType="number"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1396,18 +1653,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_umurSaksi1Surat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Umur Saksi Pertama"
                     android:inputType="number"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1416,21 +1677,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter_semibold"
+                    android:fontFamily="@font/poppins_semibold"
                     android:text="Pilih Pekerjaan Saksi 1"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext" />
 
                 <Spinner
                     android:id="@+id/sp_pekerjaanSaksi1Surat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:background="@drawable/border_putih_biru_inputan"
+                    android:background="@drawable/border_putih_inputan"
+                    android:textSize="12sp"
                     android:theme="@style/SpinnerTheme" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -1441,17 +1706,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_desaSaksi1Surat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Desa Saksi Pertama"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1461,17 +1730,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_kecamatanSaksi1Surat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Kecamatan Saksi Pertama"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1481,17 +1754,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_kabupatenSaksi1Surat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Kabupaten Saksi Pertama"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1501,17 +1778,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_provinsiSaksi1Surat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Provinsi Saksi Pertama"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1521,17 +1802,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_namaSaksi2Surat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Nama Saksi Kedua"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1541,19 +1826,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_nikSaksi2Surat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="NIK Saksi Kedua"
                     android:inputType="number"
                     android:maxLength="16"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1563,17 +1852,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_tempatLahirSaksi2Surat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Tempat Lahir Saksi Kedua"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1583,18 +1876,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_tanggalLahirSaksi2Surat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Tanggal Lahir Saksi Kedua"
                     android:inputType="number"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1604,18 +1901,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_umurSaksi2Surat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Umur Saksi Kedua"
                     android:inputType="number"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1624,21 +1925,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter_semibold"
+                    android:fontFamily="@font/poppins_semibold"
                     android:text="Pilih Pekerjaan Saksi 2"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext" />
 
                 <Spinner
                     android:id="@+id/sp_pekerjaanSaksi2Surat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:background="@drawable/border_putih_biru_inputan"
+                    android:background="@drawable/border_putih_inputan"
+                    android:textSize="12sp"
                     android:theme="@style/SpinnerTheme" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -1649,17 +1954,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_desaSaksi2Surat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Desa Saksi Kedua"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1669,17 +1978,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_kecamatanSaksi2Surat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Kecamatan Saksi Kedua"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1689,17 +2002,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_kabupatenSaksi2Surat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Kabupaten Saksi Kedua"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1709,17 +2026,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp">
 
                 <EditText
                     android:id="@+id/et_provinsiSaksi2Surat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_putih_biru_inputan"
-                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/border_putih_inputan"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="start"
                     android:hint="Provinsi Saksi Kedua"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -1740,8 +2061,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:fontFamily="@font/inter_semibold"
+                        android:layout_margin="5dp"
+                        android:fontFamily="@font/poppins_semibold"
                         android:text="Kirim"
                         android:textColor="@color/white"
                         android:textSize="20sp" />

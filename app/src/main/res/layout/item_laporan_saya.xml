@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="2dp"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
@@ -27,8 +28,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:gravity="center_vertical"
+                android:orientation="horizontal"
                 android:padding="10dp">
 
                 <LinearLayout
@@ -40,18 +41,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/inter_semibold"
+                        android:fontFamily="@font/poppins_semibold"
                         android:text="Isi Laporan:"
-                        android:textColor="@color/black"
+                        android:textColor="@color/blacktext"
                         android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/tv_isiLaporan"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/inter_regular"
+                        android:fontFamily="@font/poppins_regular"
                         android:text="Ada Orang Melamun Di Pinggir Jalan Tidak Memiliki Rumah Atapun Tempat Untuk Berteduh"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/blacktext" />
 
                 </LinearLayout>
 
@@ -60,7 +61,7 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_baseline_more_vert_24_black" />
+                    android:src="@drawable/icon_titik_tiga" />
 
             </LinearLayout>
 
@@ -75,18 +76,18 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter_semibold"
+                    android:fontFamily="@font/poppins_semibold"
                     android:text="Respon :"
-                    android:textColor="@color/black"
+                    android:textColor="@color/blacktext"
                     android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/tv_responlaporan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter_regular"
+                    android:fontFamily="@font/poppins_regular"
                     android:text="testing"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/blacktext" />
 
             </LinearLayout>
 
@@ -99,9 +100,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter_semibold"
+                    android:fontFamily="@font/poppins_semibold"
                     android:text="Waktu :"
-                    android:textColor="@color/black"
+                    android:textColor="@color/blacktext"
                     android:textSize="16sp" />
 
                 <LinearLayout
@@ -113,9 +114,9 @@
                         android:id="@+id/tv_tglLaporan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/inter_regular"
+                        android:fontFamily="@font/poppins_regular"
                         android:text="123456"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/blacktext" />
 
                     <ImageView
                         android:layout_width="3dp"
@@ -128,9 +129,9 @@
                         android:id="@+id/tv_waktuLaporan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/inter_regular"
+                        android:fontFamily="@font/poppins_regular"
                         android:text="200196"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/blacktext" />
 
                 </LinearLayout>
 
@@ -152,18 +153,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/inter_semibold"
+                        android:fontFamily="@font/poppins_semibold"
                         android:text="Status :"
-                        android:textColor="@color/black"
+                        android:textColor="@color/blacktext"
                         android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/tv_statuslaporan"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/inter_regular"
+                        android:fontFamily="@font/poppins_regular"
                         android:text="testing"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/blacktext" />
 
                 </LinearLayout>
 
@@ -176,18 +177,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/inter_semibold"
+                        android:fontFamily="@font/poppins_semibold"
                         android:text="Kategori :"
-                        android:textColor="@color/black"
+                        android:textColor="@color/blacktext"
                         android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/tv_kategoriLaporan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/inter_regular"
+                        android:fontFamily="@font/poppins_regular"
                         android:text="Kesehatan"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/blacktext" />
 
                 </LinearLayout>
 
@@ -209,18 +210,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/inter_semibold"
+                        android:fontFamily="@font/poppins_semibold"
                         android:text="Posting :"
-                        android:textColor="@color/black"
+                        android:textColor="@color/blacktext"
                         android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/tv_postingLaporan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/inter_regular"
+                        android:fontFamily="@font/poppins_regular"
                         android:text="Ya"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/blacktext" />
 
                 </LinearLayout>
 
@@ -233,18 +234,18 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/inter_semibold"
+                        android:fontFamily="@font/poppins_semibold"
                         android:text="Identitas :"
-                        android:textColor="@color/black"
+                        android:textColor="@color/blacktext"
                         android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/tv_identitasLaporan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/inter_regular"
+                        android:fontFamily="@font/poppins_regular"
                         android:text="Ya"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/blacktext" />
 
                 </LinearLayout>
 

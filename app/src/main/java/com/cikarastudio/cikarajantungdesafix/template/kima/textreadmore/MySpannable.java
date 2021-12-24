@@ -2,7 +2,6 @@ package com.cikarastudio.cikarajantungdesafix.template.kima.textreadmore;
 
 import static android.graphics.Color.parseColor;
 
-import android.graphics.Color;
 import android.text.TextPaint;
 import android.text.style.ClickableSpan;
 import android.view.View;

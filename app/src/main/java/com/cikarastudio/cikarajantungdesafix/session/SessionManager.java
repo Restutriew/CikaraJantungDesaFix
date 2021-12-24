@@ -6,21 +6,18 @@ import android.content.SharedPreferences;
 
 import com.cikarastudio.cikarajantungdesafix.ui.login.LoginActivity;
 import com.cikarastudio.cikarajantungdesafix.ui.main.MainActivity;
-import com.cikarastudio.cikarajantungdesafix.ui.profil.ProfilActivity;
 
 import java.util.HashMap;
 
 public class SessionManager {
 
-    SharedPreferences sharedPreferences;
-    public SharedPreferences.Editor editor;
-    public Context context;
-    int PRIVATE_MODE = 0;
-
+    public static final String ID = "ID";
     private static final String PREF_NAME = "LOGIN";
     private static final String LOGIN = "IS_LOGIN";
-    public static final String ID = "ID";
-//    public static final String PROFILE_PHOTO_PATH = "PROFILE_PHOTO_PATH";
+    public SharedPreferences.Editor editor;
+    public Context context;
+    SharedPreferences sharedPreferences;
+    int PRIVATE_MODE = 0;
 
     public SessionManager(Context context) {
         this.context = context;
@@ -32,7 +29,6 @@ public class SessionManager {
 
         editor.putBoolean(LOGIN, true);
         editor.putString(ID, id);
-//        editor.putString(PROFILE_PHOTO_PATH, profile_photo_path);
         editor.apply();
     }
 
@@ -50,7 +46,6 @@ public class SessionManager {
 
     public HashMap<String, String> getUserDetail() {
         HashMap<String, String> user = new HashMap<>();
-//        user.put(PROFILE_PHOTO_PATH, sharedPreferences.getString(PROFILE_PHOTO_PATH, null));
         user.put(ID, sharedPreferences.getString(ID, null));
         return user;
     }

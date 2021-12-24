@@ -1,7 +1,6 @@
 package com.cikarastudio.cikarajantungdesafix.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cikarastudio.cikarajantungdesafix.R;
 import com.cikarastudio.cikarajantungdesafix.model.KategoriArtikelModel;
-import com.cikarastudio.cikarajantungdesafix.model.KategoriModel;
 import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
 
 import java.util.ArrayList;
@@ -26,17 +24,13 @@ public class KategoriArtikelAdapter extends RecyclerView.Adapter<KategoriArtikel
 
     private KategoriArtikelAdapter.OnItemClickCallback onItemClickCallback;
 
-    public void setOnItemClickCallback(KategoriArtikelAdapter.OnItemClickCallback onItemClickCallback) {
-        this.onItemClickCallback = onItemClickCallback;
-    }
-
-    public interface OnItemClickCallback {
-        void onItemClicked(KategoriArtikelModel data);
-    }
-
     public KategoriArtikelAdapter(Context mContext, ArrayList<KategoriArtikelModel> mKategoriArtikelList) {
         this.mContext = mContext;
         this.mKategoriArtikelList = mKategoriArtikelList;
+    }
+
+    public void setOnItemClickCallback(KategoriArtikelAdapter.OnItemClickCallback onItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback;
     }
 
     @NonNull
@@ -77,6 +71,10 @@ public class KategoriArtikelAdapter extends RecyclerView.Adapter<KategoriArtikel
     @Override
     public int getItemCount() {
         return mKategoriArtikelList.size();
+    }
+
+    public interface OnItemClickCallback {
+        void onItemClicked(KategoriArtikelModel data);
     }
 
     public class KategoriArtikelViewHolder extends RecyclerView.ViewHolder {

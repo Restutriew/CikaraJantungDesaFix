@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginHorizontal="20dp"
     android:layout_marginBottom="10dp"
     android:orientation="vertical">
 
@@ -9,18 +10,25 @@
         android:id="@+id/line_itemSuratList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/border_biru_muda"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:background="@drawable/border_putih_inputan"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/tv_namaSuratList"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/inter_bold"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins_regular"
             android:text="Surat Keterangan Pengantar"
-            android:textColor="@color/white"
+            android:textColor="@color/blacktext"
             android:textSize="18sp" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/icon_panah_depan" />
 
     </LinearLayout>
 

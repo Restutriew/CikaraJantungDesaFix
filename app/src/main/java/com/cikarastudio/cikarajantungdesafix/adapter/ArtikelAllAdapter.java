@@ -48,7 +48,7 @@ public class ArtikelAllAdapter extends RecyclerView.Adapter<ArtikelAllAdapter.Ar
     @NonNull
     @Override
     public ArtikelAllViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(mContext).inflate(R.layout.item_artikel, parent, false);
+        View v = LayoutInflater.from(mContext).inflate(R.layout.item_artikel_home, parent, false);
         return new ArtikelAllAdapter.ArtikelAllViewHolder(v);
     }
 

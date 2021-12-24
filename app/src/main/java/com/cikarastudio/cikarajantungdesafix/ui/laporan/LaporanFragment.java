@@ -119,12 +119,6 @@ public class LaporanFragment extends Fragment {
         rv_laporanAll.setLayoutManager(linearLayoutManageraaa);
         rv_laporanAll.setHasFixedSize(true);
 
-//        rv_laporanAll.setLayoutManager(new LinearLayoutManager(getContext()));
-//        LinearLayoutManager lm = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false); // last argument (true) is flag for reverse layout
-//        rv_laporanAll.setLayoutManager(lm);
-//        rv_laporanAll.setNestedScrollingEnabled(false);
-
-
         Log.d("calpalnx", String.valueOf(cateList));
 
         img_tambahLaporan = root.findViewById(R.id.img_tambahLaporan);

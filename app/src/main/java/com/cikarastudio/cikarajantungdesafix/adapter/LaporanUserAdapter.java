@@ -101,13 +101,18 @@ public class LaporanUserAdapter extends RecyclerView.Adapter<LaporanUserAdapter.
         textFuntion.setTextDanNullData(holder.tv_waktuLaporan, waktuLaporan);
         textFuntion.setTextDanNullData(holder.tv_tglLaporan, tanggalLaporan);
 
+        if (statusLaporan.equals("menunggu")) {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onItemClickCallback.onItemClicked(mLaporanUserList.get(holder.getAdapterPosition()));
+                }
+            });
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onItemClickCallback.onItemClicked(mLaporanUserList.get(holder.getAdapterPosition()));
-            }
-        });
+            holder.img_buttonDots.setVisibility(View.VISIBLE);
+        } else {
+            holder.img_buttonDots.setVisibility(View.GONE);
+        }
 
     }
 

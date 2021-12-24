@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,17 +40,19 @@ import java.util.Map;
 public class EditLapakActivity extends AppCompatActivity {
 
     ImageView img_back, img_editLapak, img_editPhotoLapak;
+    ImageView img_noGambar;
     LoadingDialog loadingDialog;
     CardView cr_simpanEditLapak;
     EditText et_namaLapakEdit, et_alamatLapakEdit, et_tentangLapakEdit, et_telpLapakEdit;
     String id_lapak, nama_lapak, alamat_lapak, tentang_lapak, telp_lapak, logo_lapak, status_lapak,
             token, link, linkGambar;
+    TextView tv_dataLapakTidakAda;
     private Bitmap bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_lapak);
+        setContentView(R.layout.activity_tambah_lapak);
 
         loadingDialog = new LoadingDialog(EditLapakActivity.this);
 
@@ -70,11 +73,17 @@ public class EditLapakActivity extends AppCompatActivity {
         logo_lapak = intent.getStringExtra("logo_lapak");
         status_lapak = intent.getStringExtra("status_lapak");
 
-        et_namaLapakEdit = findViewById(R.id.et_namaLapakEdit);
-        et_alamatLapakEdit = findViewById(R.id.et_alamatLapakEdit);
-        et_tentangLapakEdit = findViewById(R.id.et_tentangLapakEdit);
-        et_telpLapakEdit = findViewById(R.id.et_telpLapakEdit);
-        img_editLapak = findViewById(R.id.img_editLapak);
+        et_namaLapakEdit = findViewById(R.id.et_namaLapakTambah);
+        et_alamatLapakEdit = findViewById(R.id.et_alamatLapakTambah);
+        et_tentangLapakEdit = findViewById(R.id.et_tentangLapakTambah);
+        et_telpLapakEdit = findViewById(R.id.et_telpLapakTambah);
+        img_editLapak = findViewById(R.id.img_tambahLapak);
+
+        tv_dataLapakTidakAda = findViewById(R.id.tv_dataLapakTidakAda);
+        tv_dataLapakTidakAda.setVisibility(View.GONE);
+
+        img_noGambar = findViewById(R.id.img_noGambar);
+        img_noGambar.setVisibility(View.GONE);
 
         et_namaLapakEdit.setText(nama_lapak);
         et_alamatLapakEdit.setText(alamat_lapak);
@@ -84,7 +93,7 @@ public class EditLapakActivity extends AppCompatActivity {
         String imageUrl = linkGambar + "penduduk/lapak/" + logo_lapak;
         Picasso.with(EditLapakActivity.this).load(imageUrl).fit().centerCrop().into(img_editLapak);
 
-        cr_simpanEditLapak = findViewById(R.id.cr_simpanEditLapak);
+        cr_simpanEditLapak = findViewById(R.id.cr_simpanTambahLapak);
         cr_simpanEditLapak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,7 +101,7 @@ public class EditLapakActivity extends AppCompatActivity {
             }
         });
 
-        img_editPhotoLapak = findViewById(R.id.img_editPhotoLapak);
+        img_editPhotoLapak = findViewById(R.id.img_tambahPhotoLapak);
         img_editPhotoLapak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,14 +36,13 @@ import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.cikarastudio.cikarajantungdesafix.R;
-import com.cikarastudio.cikarajantungdesafix.adapter.ProdukAdapter;
 import com.cikarastudio.cikarajantungdesafix.adapter.SuratListUserAdapter;
-import com.cikarastudio.cikarajantungdesafix.model.ProdukModel;
 import com.cikarastudio.cikarajantungdesafix.model.SuratV2Model;
 import com.cikarastudio.cikarajantungdesafix.session.SessionManager;
 import com.cikarastudio.cikarajantungdesafix.ssl.HttpsTrustManager;
 import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
 import com.cikarastudio.cikarajantungdesafix.ui.loadingdialog.LoadingDialog;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -59,6 +59,12 @@ public class SuratFragment extends Fragment implements View.OnClickListener {
     LoadingDialog loadingDialog;
     String id_user, link, token;
     TextView tv_dashboardTotalPengajuanSurat, tv_dashboardSuratSelesaiSurat, tv_dashboardSuratDiprosesSurat, tv_dashboardSuratMenungguSurat;
+    TextView tv_sortSuratSemua, tv_sortSuratKeterangan, tv_sortSuratPengantar, tv_sortSuratRekomendasi, tv_sortSuratLainnya,
+            tv_sortSuratSelesai, tv_sortSuratDiproses, tv_sortSuratMenunggu;
+    TextView tv_filterPopupSemua, tv_filterPopupSuratKeterangan, tv_filterPopupSuratPengantar, tv_filterPopupSuratRekomendasi, tv_filterPopupSuratLainnya,
+            tv_filterPopupSuratSelesai, tv_filterPopupSuratProses, tv_filterPopupSuratMenunggu;
+    BottomSheetDialog dialog;
+    LinearLayout line_filterKategoriListSurat;
     RecyclerView rv_listSuratUser;
     SuratListUserAdapter suratListUserAdapter;
     ImageView img_tambahSurat;
@@ -90,7 +96,7 @@ public class SuratFragment extends Fragment implements View.OnClickListener {
 
         suratUserlist = new ArrayList<>();
         rv_listSuratUser = root.findViewById(R.id.rv_listSuratUser);
-        LinearLayoutManager linearLayoutManageraaa = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, true) {
+        LinearLayoutManager linearLayoutManageraaa = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false) {
             @Override
             public boolean canScrollVertically() {
                 return false;
@@ -104,6 +110,33 @@ public class SuratFragment extends Fragment implements View.OnClickListener {
         tv_dashboardSuratDiprosesSurat = root.findViewById(R.id.tv_dashboardSuratDiprosesSurat);
         tv_dashboardSuratMenungguSurat = root.findViewById(R.id.tv_dashboardSuratMenungguSurat);
         et_suratSearch = root.findViewById(R.id.et_suratSearch);
+
+        line_filterKategoriListSurat = root.findViewById(R.id.line_filterKategoriListSurat);
+        line_filterKategoriListSurat.setOnClickListener(this);
+
+        tv_sortSuratSemua = root.findViewById(R.id.tv_sortSuratSemua);
+        tv_sortSuratSemua.setOnClickListener(this);
+
+        tv_sortSuratKeterangan = root.findViewById(R.id.tv_sortSuratKeterangan);
+        tv_sortSuratKeterangan.setOnClickListener(this);
+
+        tv_sortSuratPengantar = root.findViewById(R.id.tv_sortSuratPengantar);
+        tv_sortSuratPengantar.setOnClickListener(this);
+
+        tv_sortSuratRekomendasi = root.findViewById(R.id.tv_sortSuratRekomendasi);
+        tv_sortSuratRekomendasi.setOnClickListener(this);
+
+        tv_sortSuratLainnya = root.findViewById(R.id.tv_sortSuratLainnya);
+        tv_sortSuratLainnya.setOnClickListener(this);
+
+        tv_sortSuratSelesai = root.findViewById(R.id.tv_sortSuratSelesai);
+        tv_sortSuratSelesai.setOnClickListener(this);
+
+        tv_sortSuratDiproses = root.findViewById(R.id.tv_sortSuratDiproses);
+        tv_sortSuratDiproses.setOnClickListener(this);
+
+        tv_sortSuratMenunggu = root.findViewById(R.id.tv_sortSuratMenunggu);
+        tv_sortSuratMenunggu.setOnClickListener(this);
 
         cr_dashboardTotalSurat = root.findViewById(R.id.cr_dashboardTotalSurat);
         cr_dashboardTotalSurat.setOnClickListener(this);
@@ -119,6 +152,108 @@ public class SuratFragment extends Fragment implements View.OnClickListener {
 
         img_tambahSurat = root.findViewById(R.id.img_tambahSurat);
         img_tambahSurat.setOnClickListener(this);
+
+        dialog = new BottomSheetDialog(getActivity());
+        dialog.setContentView(R.layout.layout_bottom_sheet_filter_surat);
+        dialog.setCanceledOnTouchOutside(false);
+        tv_filterPopupSemua = dialog.findViewById(R.id.tv_filterPopupSemua);
+        tv_filterPopupSuratKeterangan = dialog.findViewById(R.id.tv_filterPopupSuratKeterangan);
+        tv_filterPopupSuratPengantar = dialog.findViewById(R.id.tv_filterPopupSuratPengantar);
+        tv_filterPopupSuratRekomendasi = dialog.findViewById(R.id.tv_filterPopupSuratRekomendasi);
+        tv_filterPopupSuratLainnya = dialog.findViewById(R.id.tv_filterPopupSuratLainnya);
+        tv_filterPopupSuratSelesai = dialog.findViewById(R.id.tv_filterPopupSuratSelesai);
+        tv_filterPopupSuratProses = dialog.findViewById(R.id.tv_filterPopupSuratProses);
+        tv_filterPopupSuratMenunggu = dialog.findViewById(R.id.tv_filterPopupSuratMenunggu);
+
+        tv_filterPopupSemua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadSuratUser();
+                gantiWarnaFilter(tv_sortSuratSemua, tv_sortSuratKeterangan, tv_sortSuratPengantar, tv_sortSuratRekomendasi, tv_sortSuratLainnya,
+                        tv_sortSuratSelesai, tv_sortSuratDiproses, tv_sortSuratMenunggu);
+                gantiWarnaFilter(tv_filterPopupSemua, tv_filterPopupSuratKeterangan, tv_filterPopupSuratPengantar, tv_filterPopupSuratRekomendasi, tv_filterPopupSuratLainnya,
+                        tv_filterPopupSuratSelesai, tv_filterPopupSuratProses, tv_filterPopupSuratMenunggu);
+            }
+        });
+        tv_filterPopupSuratKeterangan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filterKategoriSurat("surat keterangan");
+                gantiWarnaFilter(tv_sortSuratKeterangan, tv_sortSuratSemua, tv_sortSuratPengantar, tv_sortSuratRekomendasi, tv_sortSuratLainnya,
+                        tv_sortSuratSelesai, tv_sortSuratDiproses, tv_sortSuratMenunggu);
+                gantiWarnaFilter(tv_filterPopupSuratKeterangan, tv_filterPopupSemua, tv_filterPopupSuratPengantar, tv_filterPopupSuratRekomendasi, tv_filterPopupSuratLainnya,
+                        tv_filterPopupSuratSelesai, tv_filterPopupSuratProses, tv_filterPopupSuratMenunggu);
+            }
+        });
+        tv_filterPopupSuratPengantar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filterKategoriSurat("surat pengantar");
+                gantiWarnaFilter(tv_sortSuratPengantar, tv_sortSuratKeterangan, tv_sortSuratSemua, tv_sortSuratRekomendasi, tv_sortSuratLainnya,
+                        tv_sortSuratSelesai, tv_sortSuratDiproses, tv_sortSuratMenunggu);
+                gantiWarnaFilter(tv_filterPopupSuratPengantar, tv_filterPopupSuratKeterangan, tv_filterPopupSemua, tv_filterPopupSuratRekomendasi, tv_filterPopupSuratLainnya,
+                        tv_filterPopupSuratSelesai, tv_filterPopupSuratProses, tv_filterPopupSuratMenunggu);
+            }
+        });
+        tv_filterPopupSuratRekomendasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filterKategoriSurat("surat rekomendasi");
+                gantiWarnaFilter(tv_sortSuratRekomendasi, tv_sortSuratPengantar, tv_sortSuratKeterangan, tv_sortSuratSemua, tv_sortSuratLainnya,
+                        tv_sortSuratSelesai, tv_sortSuratDiproses, tv_sortSuratMenunggu);
+                gantiWarnaFilter(tv_filterPopupSuratRekomendasi, tv_filterPopupSuratPengantar, tv_filterPopupSuratKeterangan, tv_filterPopupSemua, tv_filterPopupSuratLainnya,
+                        tv_filterPopupSuratSelesai, tv_filterPopupSuratProses, tv_filterPopupSuratMenunggu);
+            }
+        });
+        tv_filterPopupSuratLainnya.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filterKategoriSurat("surat lainnya");
+                gantiWarnaFilter(tv_sortSuratLainnya, tv_sortSuratRekomendasi, tv_sortSuratPengantar, tv_sortSuratKeterangan, tv_sortSuratSemua,
+                        tv_sortSuratSelesai, tv_sortSuratDiproses, tv_sortSuratMenunggu);
+                gantiWarnaFilter(tv_filterPopupSuratLainnya, tv_filterPopupSuratRekomendasi, tv_filterPopupSuratPengantar, tv_filterPopupSuratKeterangan, tv_filterPopupSemua,
+                        tv_filterPopupSuratSelesai, tv_filterPopupSuratProses, tv_filterPopupSuratMenunggu);
+            }
+        });
+        tv_filterPopupSuratSelesai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filterDashboard("selesai");
+                gantiWarnaFilter(tv_sortSuratSelesai, tv_sortSuratDiproses, tv_sortSuratMenunggu,
+                        tv_sortSuratLainnya, tv_sortSuratRekomendasi, tv_sortSuratPengantar, tv_sortSuratKeterangan, tv_sortSuratSemua);
+                gantiWarnaFilter(tv_filterPopupSuratSelesai, tv_filterPopupSuratProses, tv_filterPopupSuratMenunggu,
+                        tv_filterPopupSuratLainnya, tv_filterPopupSuratRekomendasi, tv_filterPopupSuratPengantar, tv_filterPopupSuratKeterangan, tv_filterPopupSemua);
+            }
+        });
+        tv_filterPopupSuratProses.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filterDashboard("proses");
+                gantiWarnaFilter(tv_sortSuratDiproses, tv_sortSuratSelesai, tv_sortSuratMenunggu,
+                        tv_sortSuratLainnya, tv_sortSuratRekomendasi, tv_sortSuratPengantar, tv_sortSuratKeterangan, tv_sortSuratSemua);
+                gantiWarnaFilter(tv_filterPopupSuratProses, tv_filterPopupSuratSelesai, tv_filterPopupSuratMenunggu,
+                        tv_filterPopupSuratLainnya, tv_filterPopupSuratRekomendasi, tv_filterPopupSuratPengantar, tv_filterPopupSuratKeterangan, tv_filterPopupSemua);
+            }
+        });
+        tv_filterPopupSuratMenunggu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filterDashboard("menunggu");
+                gantiWarnaFilter(tv_sortSuratMenunggu, tv_sortSuratDiproses, tv_sortSuratSelesai,
+                        tv_sortSuratLainnya, tv_sortSuratRekomendasi, tv_sortSuratPengantar, tv_sortSuratKeterangan, tv_sortSuratSemua);
+                gantiWarnaFilter(tv_filterPopupSuratMenunggu, tv_filterPopupSuratProses, tv_filterPopupSuratSelesai,
+                        tv_filterPopupSuratLainnya, tv_filterPopupSuratRekomendasi, tv_filterPopupSuratPengantar, tv_filterPopupSuratKeterangan, tv_filterPopupSemua);
+            }
+        });
+
+
+        CardView cr_okFilterPopUp = dialog.findViewById(R.id.cr_okFilterPopUp);
+        cr_okFilterPopUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
 
         return root;
     }
@@ -179,6 +314,74 @@ public class SuratFragment extends Fragment implements View.OnClickListener {
                 // do your code
                 filterDashboard("menunggu");
                 break;
+            case R.id.tv_sortSuratSemua:
+                // do your code
+                loadSuratUser();
+                gantiWarnaFilter(tv_sortSuratSemua, tv_sortSuratKeterangan, tv_sortSuratPengantar, tv_sortSuratRekomendasi, tv_sortSuratLainnya,
+                        tv_sortSuratSelesai, tv_sortSuratDiproses, tv_sortSuratMenunggu);
+                gantiWarnaFilter(tv_filterPopupSemua, tv_filterPopupSuratKeterangan, tv_filterPopupSuratPengantar, tv_filterPopupSuratRekomendasi, tv_filterPopupSuratLainnya,
+                        tv_filterPopupSuratSelesai, tv_filterPopupSuratProses, tv_filterPopupSuratMenunggu);
+                break;
+            case R.id.tv_sortSuratKeterangan:
+                // do your code
+                filterKategoriSurat("surat keterangan");
+                gantiWarnaFilter(tv_sortSuratKeterangan, tv_sortSuratSemua, tv_sortSuratPengantar, tv_sortSuratRekomendasi, tv_sortSuratLainnya,
+                        tv_sortSuratSelesai, tv_sortSuratDiproses, tv_sortSuratMenunggu);
+                gantiWarnaFilter(tv_filterPopupSuratKeterangan, tv_filterPopupSemua, tv_filterPopupSuratPengantar, tv_filterPopupSuratRekomendasi, tv_filterPopupSuratLainnya,
+                        tv_filterPopupSuratSelesai, tv_filterPopupSuratProses, tv_filterPopupSuratMenunggu);
+                break;
+            case R.id.tv_sortSuratPengantar:
+                // do your code
+                filterKategoriSurat("surat pengantar");
+                gantiWarnaFilter(tv_sortSuratPengantar, tv_sortSuratKeterangan, tv_sortSuratSemua, tv_sortSuratRekomendasi, tv_sortSuratLainnya,
+                        tv_sortSuratSelesai, tv_sortSuratDiproses, tv_sortSuratMenunggu);
+                gantiWarnaFilter(tv_filterPopupSuratPengantar, tv_filterPopupSuratKeterangan, tv_filterPopupSemua, tv_filterPopupSuratRekomendasi, tv_filterPopupSuratLainnya,
+                        tv_filterPopupSuratSelesai, tv_filterPopupSuratProses, tv_filterPopupSuratMenunggu);
+                break;
+            case R.id.tv_sortSuratRekomendasi:
+                // do your code
+                filterKategoriSurat("surat rekomendasi");
+                gantiWarnaFilter(tv_sortSuratRekomendasi, tv_sortSuratPengantar, tv_sortSuratKeterangan, tv_sortSuratSemua, tv_sortSuratLainnya,
+                        tv_sortSuratSelesai, tv_sortSuratDiproses, tv_sortSuratMenunggu);
+                gantiWarnaFilter(tv_filterPopupSuratRekomendasi, tv_filterPopupSuratPengantar, tv_filterPopupSuratKeterangan, tv_filterPopupSemua, tv_filterPopupSuratLainnya,
+                        tv_filterPopupSuratSelesai, tv_filterPopupSuratProses, tv_filterPopupSuratMenunggu);
+                break;
+            case R.id.tv_sortSuratLainnya:
+                // do your code
+                filterKategoriSurat("surat lainnya");
+                gantiWarnaFilter(tv_sortSuratLainnya, tv_sortSuratRekomendasi, tv_sortSuratPengantar, tv_sortSuratKeterangan, tv_sortSuratSemua,
+                        tv_sortSuratSelesai, tv_sortSuratDiproses, tv_sortSuratMenunggu);
+                gantiWarnaFilter(tv_filterPopupSuratLainnya, tv_filterPopupSuratRekomendasi, tv_filterPopupSuratPengantar, tv_filterPopupSuratKeterangan, tv_filterPopupSemua,
+                        tv_filterPopupSuratSelesai, tv_filterPopupSuratProses, tv_filterPopupSuratMenunggu);
+                break;
+            case R.id.tv_sortSuratSelesai:
+                // do your code
+                filterDashboard("selesai");
+                gantiWarnaFilter(tv_sortSuratSelesai, tv_sortSuratDiproses, tv_sortSuratMenunggu,
+                        tv_sortSuratLainnya, tv_sortSuratRekomendasi, tv_sortSuratPengantar, tv_sortSuratKeterangan, tv_sortSuratSemua);
+                gantiWarnaFilter(tv_filterPopupSuratSelesai, tv_filterPopupSuratProses, tv_filterPopupSuratMenunggu,
+                        tv_filterPopupSuratLainnya, tv_filterPopupSuratRekomendasi, tv_filterPopupSuratPengantar, tv_filterPopupSuratKeterangan, tv_filterPopupSemua);
+                break;
+            case R.id.tv_sortSuratDiproses:
+                // do your code
+                filterDashboard("proses");
+                gantiWarnaFilter(tv_sortSuratDiproses, tv_sortSuratSelesai, tv_sortSuratMenunggu,
+                        tv_sortSuratLainnya, tv_sortSuratRekomendasi, tv_sortSuratPengantar, tv_sortSuratKeterangan, tv_sortSuratSemua);
+                gantiWarnaFilter(tv_filterPopupSuratProses, tv_filterPopupSuratSelesai, tv_filterPopupSuratMenunggu,
+                        tv_filterPopupSuratLainnya, tv_filterPopupSuratRekomendasi, tv_filterPopupSuratPengantar, tv_filterPopupSuratKeterangan, tv_filterPopupSemua);
+                break;
+            case R.id.tv_sortSuratMenunggu:
+                // do your code
+                filterDashboard("menunggu");
+                gantiWarnaFilter(tv_sortSuratMenunggu, tv_sortSuratDiproses, tv_sortSuratSelesai,
+                        tv_sortSuratLainnya, tv_sortSuratRekomendasi, tv_sortSuratPengantar, tv_sortSuratKeterangan, tv_sortSuratSemua);
+                gantiWarnaFilter(tv_filterPopupSuratMenunggu, tv_filterPopupSuratProses, tv_filterPopupSuratSelesai,
+                        tv_filterPopupSuratLainnya, tv_filterPopupSuratRekomendasi, tv_filterPopupSuratPengantar, tv_filterPopupSuratKeterangan, tv_filterPopupSemua);
+                break;
+            case R.id.line_filterKategoriListSurat:
+                // do your code
+                dialog.show();
+                break;
             default:
                 break;
         }
@@ -196,6 +399,40 @@ public class SuratFragment extends Fragment implements View.OnClickListener {
             }
             suratListUserAdapter.setFilter(dataFilter);
         }
+    }
+
+    private void filterKategoriSurat(String bahan) {
+        if (suratUserlist.size() > 0) {
+            bahan = bahan.toLowerCase();
+            ArrayList<SuratV2Model> dataFilter = new ArrayList<>();
+            for (SuratV2Model data : suratUserlist) {
+                String status = data.getKategori().toLowerCase();
+                if (status.contains(bahan)) {
+                    dataFilter.add(data);
+                }
+            }
+            suratListUserAdapter.setFilter(dataFilter);
+        }
+    }
+
+    private void gantiWarnaFilter(TextView tv1, TextView tv2, TextView tv3, TextView tv4, TextView tv5, TextView tv6, TextView tv7, TextView tv8) {
+        tv1.setBackgroundResource(R.drawable.border_biru_muda);
+        tv2.setBackgroundResource(R.drawable.border_putih_biru_muda);
+        tv3.setBackgroundResource(R.drawable.border_putih_biru_muda);
+        tv4.setBackgroundResource(R.drawable.border_putih_biru_muda);
+        tv5.setBackgroundResource(R.drawable.border_putih_biru_muda);
+        tv6.setBackgroundResource(R.drawable.border_putih_biru_muda);
+        tv7.setBackgroundResource(R.drawable.border_putih_biru_muda);
+        tv8.setBackgroundResource(R.drawable.border_putih_biru_muda);
+
+        tv1.setTextColor(getResources().getColor(R.color.white));
+        tv2.setTextColor(getResources().getColor(R.color.biru2));
+        tv3.setTextColor(getResources().getColor(R.color.biru2));
+        tv4.setTextColor(getResources().getColor(R.color.biru2));
+        tv5.setTextColor(getResources().getColor(R.color.biru2));
+        tv6.setTextColor(getResources().getColor(R.color.biru2));
+        tv7.setTextColor(getResources().getColor(R.color.biru2));
+        tv8.setTextColor(getResources().getColor(R.color.biru2));
     }
 
     private void loadDashboardSurat() {
@@ -290,7 +527,7 @@ public class SuratFragment extends Fragment implements View.OnClickListener {
     }
 
     private void loadSuratUser() {
-        String URL_READ = link + "listsuratbyuser/" + id_user + "?token=" + token;
+        String URL_READ = link + "listsuratbyuser/" + id_user + "?token=" + token + "&sortby=DESC";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
                 new Response.Listener<String>() {
                     @Override
@@ -316,10 +553,13 @@ public class SuratFragment extends Fragment implements View.OnClickListener {
                                     String res_updatedAtSurat = jsonObject.getString("created_at").trim();
                                     String res_namaSuratSurat = jsonObject.getString("nama_surat").trim();
                                     String res_kodeSurat = jsonObject.getString("kode").trim();
+                                    String res_kategoriSurat = jsonObject.getString("kategori").trim();
+
+                                    Log.d("calpalnx", "onResponse: " + res_kategoriSurat);
 
                                     suratUserlist.add(new SuratV2Model(res_id, res_userId, res_formatsuratIdSurat, res_statusSurat,
-                                            res_nomorSurat, res_tglAwalSurat, res_tglAkhirSurat, res_createdAtSurat, res_updatedAtSurat, res_namaSuratSurat,
-                                            res_kodeSurat));
+                                            res_nomorSurat, res_tglAwalSurat, res_tglAkhirSurat, res_createdAtSurat, res_updatedAtSurat,
+                                            res_namaSuratSurat, res_kodeSurat, res_kategoriSurat));
                                     suratListUserAdapter = new SuratListUserAdapter(getContext(), suratUserlist);
                                     rv_listSuratUser.setAdapter(suratListUserAdapter);
 

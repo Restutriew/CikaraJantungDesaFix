@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:orientation="vertical"
+    android:background="@color/birubgall"
     android:padding="40dp">
 
     <LinearLayout
@@ -18,10 +19,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="@font/inter_extrabold"
+            android:fontFamily="@font/poppins_bold"
             android:gravity="center"
             android:text=""
-            android:textColor="@color/black"
+            android:textColor="@color/blacktext"
             android:textSize="20sp" />
 
     </LinearLayout>
@@ -29,20 +30,24 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        app:boxStrokeColor="@color/white"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp">
 
         <EditText
             android:id="@+id/et_dialogAduanIsi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/border_putih_biru_inputan"
+            android:background="@drawable/border_putih_inputan"
+            android:textSize="12sp"
             android:focusable="true"
-            android:fontFamily="@font/inter_regular"
+            android:fontFamily="@font/poppins_regular"
             android:gravity="start"
             android:hint="Isi Aduan"
             android:lines="3"
             android:maxLength="50"
-            android:textColor="@color/black" />
+            android:textColor="@color/blacktext" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -51,10 +56,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:fontFamily="@font/inter_regular"
+        android:fontFamily="@font/poppins_regular"
         android:gravity="end"
         android:text=""
-        android:textColor="@color/black" />
+        android:textColor="@color/blacktext" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cr_dialogAduanKirim"
@@ -72,8 +77,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:fontFamily="@font/inter_extrabold"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/poppins_bold"
                 android:text="Kirim Aduan"
                 android:textColor="@color/white"
                 android:textSize="20sp" />

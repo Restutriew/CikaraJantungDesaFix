@@ -28,7 +28,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Pengaturan"
-                    android:textColor="@color/black"
+                    android:textColor="@color/blacktext"
                     android:textSize="40sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="Logout"
-                android:textColor="@color/black"
+                android:textColor="@color/blacktext"
                 android:textSize="25sp" />
 
         </LinearLayout>

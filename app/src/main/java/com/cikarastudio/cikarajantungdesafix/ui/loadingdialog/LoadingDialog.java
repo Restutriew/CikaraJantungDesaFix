@@ -2,7 +2,6 @@ package com.cikarastudio.cikarajantungdesafix.ui.loadingdialog;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.os.Handler;
 import android.view.LayoutInflater;
 
 import com.cikarastudio.cikarajantungdesafix.R;

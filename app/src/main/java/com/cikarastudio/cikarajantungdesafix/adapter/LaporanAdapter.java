@@ -16,7 +16,11 @@ import com.cikarastudio.cikarajantungdesafix.model.LaporanModel;
 import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
 import com.squareup.picasso.Picasso;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanViewHolder> {
 
@@ -61,13 +65,23 @@ public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanV
         String gambarLaporan = currentItem.getPhoto();
         String likeLaporan = currentItem.getStatusLike();
 
+        DateFormat inputFormat = new SimpleDateFormat("dd-MM-yyyy");
+        DateFormat outputFormat = new SimpleDateFormat("dd MMM yyyy");
+        Date date = null;
+        try {
+            date = inputFormat.parse(tglLaporan);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        String tanggalfix = outputFormat.format(date);
+
         Log.d("calpalnx", currentItem.getIsi());
 
         TextFuntion textFuntion = new TextFuntion();
         //data laporan
         textFuntion.setTextDanNullData(holder.tv_namaUserLaporan, namaUser);
         textFuntion.setTextDanNullData(holder.tv_waktuLaporan, waktuLaporan);
-        textFuntion.setTextDanNullData(holder.tv_tglLaporan, tglLaporan);
+        textFuntion.setTextDanNullData(holder.tv_tglLaporan, tanggalfix);
         textFuntion.setTextDanNullData(holder.tv_kategoriLaporan, kategoriLaporan);
         textFuntion.setTextDanNullData(holder.tv_jumlahLikeLaporan, jumlahLikeLaporan + " suka");
 

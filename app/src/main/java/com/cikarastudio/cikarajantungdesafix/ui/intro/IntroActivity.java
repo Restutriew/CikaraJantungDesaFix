@@ -48,7 +48,7 @@ public class IntroActivity extends AppCompatActivity {
 //                content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
 //                tv_selanjutnya.setText(content);
                 tv_selanjutnya.setText(R.string.next);
-                tv_selanjutnya.setBackgroundColor(getResources().getColor(R.color.white));
+                tv_selanjutnya.setBackgroundColor(getResources().getColor(R.color.birubgall));
                 tv_selanjutnya.setTextColor(getResources().getColor(R.color.biru2));
             }
         }

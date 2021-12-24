@@ -1,8 +1,5 @@
 package com.cikarastudio.cikarajantungdesafix.ui.surat;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -15,6 +12,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -25,7 +25,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.cikarastudio.cikarajantungdesafix.R;
-import com.cikarastudio.cikarajantungdesafix.model.SuratListModel;
 import com.cikarastudio.cikarajantungdesafix.model.SuratV2Model;
 import com.cikarastudio.cikarajantungdesafix.session.SessionManager;
 import com.cikarastudio.cikarajantungdesafix.ssl.HttpsTrustManager;
@@ -48,7 +47,7 @@ public class EditSuratActivity extends AppCompatActivity implements View.OnClick
     LoadingDialog loadingDialog;
     TextFuntion textFuntion;
     ImageView img_back;
-    String link, id_user, status, idSurat, namaSurat, kodeSurat,token;
+    String link, id_user, status, idSurat, namaSurat, kodeSurat, token;
     TextView tv_namaSurat;
     EditText et_keperluanSurat, et_keteranganSurat, et_kepalaKKSurat, et_noKKSurat, et_rtTujuanSurat,
             et_rwTujuanSurat, et_dusunTujuanSurat, et_desaTujuanSurat, et_kecamatanTujuanSurat,

@@ -47,7 +47,7 @@ public class TambahSuratActivity extends AppCompatActivity implements View.OnCli
     LoadingDialog loadingDialog;
     TextFuntion textFuntion;
     ImageView img_back;
-    String link, id_user, status, idSurat, namaSurat, kodeSurat,token;
+    String link, id_user, status, idSurat, namaSurat, kodeSurat, token;
     TextView tv_namaSurat;
     EditText et_keperluanSurat, et_keteranganSurat, et_kepalaKKSurat, et_noKKSurat, et_rtTujuanSurat,
             et_rwTujuanSurat, et_dusunTujuanSurat, et_desaTujuanSurat, et_kecamatanTujuanSurat,

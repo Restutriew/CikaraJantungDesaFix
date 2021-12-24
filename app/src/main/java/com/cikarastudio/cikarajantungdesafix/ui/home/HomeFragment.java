@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,13 +50,15 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
     SessionManager sessionManager;
     LoadingDialog loadingDialog;
     String id_user, link, linkGambar, token;
-    ImageView img_photouser;
+    CircleImageView img_photouser;
     TextView tv_nama, tv_lihatSelengkapnyaArtikel, tv_email;
     RecyclerView rv_artikel, rv_perangkatDesa;
     TextView tv_dashboardLaporanDibuat, tv_dashboardForumDiikuti, tv_dashboardJumlahProduk, tv_dashboardSuratDibuat;
@@ -89,7 +90,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         loadingDialog = new LoadingDialog(getActivity());
 
-        img_photouser = root.findViewById(R.id.img_photouser);
         tv_nama = root.findViewById(R.id.tv_nama);
         tv_email = root.findViewById(R.id.tv_email);
 
@@ -136,6 +136,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         cr_fotoProfil = root.findViewById(R.id.cr_fotoProfil);
         cr_fotoProfil.setOnClickListener(this);
 
+        img_photouser = root.findViewById(R.id.img_photouser);
+        img_photouser.setOnClickListener(this);
+
+
         return root;
     }
 
@@ -172,10 +176,15 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 // do your code
                 Navigation.findNavController(v).navigate(R.id.navigation_surat);
                 break;
-            case R.id.cr_fotoProfil:
+//            case R.id.cr_fotoProfil:
+//                // do your code
+//                Intent keProfil = new Intent(getActivity(), ProfilActivity.class);
+//                startActivity(keProfil);
+//                break;
+            case R.id.img_photouser:
                 // do your code
-                Intent keProfil = new Intent(getActivity(), ProfilActivity.class);
-                startActivity(keProfil);
+                Intent keProfilA = new Intent(getActivity(), ProfilActivity.class);
+                startActivity(keProfilA);
                 break;
             default:
                 break;

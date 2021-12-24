@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:ellipsize="end"
-                android:fontFamily="@font/inter_regular"
+                android:fontFamily="@font/poppins_regular"
                 android:lines="2"
                 android:maxLines="2"
                 android:text="nama"
@@ -50,7 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/robotoslab_regular"
+                android:fontFamily="@font/poppins_regular"
                 android:text="keterangan"
                 android:textColor="@color/white"
                 android:visibility="gone" />
@@ -59,7 +59,7 @@
                 android:id="@+id/tv_hargaItemProduk"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_regular"
+                android:fontFamily="@font/poppins_regular"
                 android:text="harga"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
@@ -74,14 +74,14 @@
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/ic_baseline_remove_red_eye_24" />
+                    android:src="@drawable/icon_mata" />
 
                 <TextView
                     android:id="@+id/tv_kaliDilihatItemProduk"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
-                    android:fontFamily="@font/inter_regular"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="center"
                     android:text="0"
                     android:textColor="@color/white" />
@@ -90,7 +90,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
-                    android:fontFamily="@font/inter_regular"
+                    android:fontFamily="@font/poppins_regular"
                     android:gravity="center"
                     android:text="kali dilihat"
                     android:textColor="@color/white" />

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/birubgall"
     tools:context=".ui.splash.SplashKabupatenActivity">
 
     <ImageView
@@ -22,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
-        android:fontFamily="@font/inter_extrabold"
+        android:fontFamily="@font/poppins_bold"
         android:gravity="center_horizontal"
         android:text="Desa Puteran"
         android:textAlignment="center"

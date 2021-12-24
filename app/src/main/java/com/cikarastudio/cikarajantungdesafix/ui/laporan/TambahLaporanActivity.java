@@ -50,7 +50,7 @@ public class TambahLaporanActivity extends AppCompatActivity {
     Spinner sp_jenisLaporan, sp_identitasLaporan, sp_postingLaporan;
     EditText et_isilaporan;
     ImageView img_back, img_chooseTambahLaporan, img_frameTambahLaporan;
-    CardView cr_tambahLaporan, cr_fotoLaporan;
+    CardView cr_tambahLaporan;
     Bitmap bitmap;
     TextView tv_itungCharLaporan;
 
@@ -65,7 +65,6 @@ public class TambahLaporanActivity extends AppCompatActivity {
         et_isilaporan = findViewById(R.id.et_isilaporan);
         cr_tambahLaporan = findViewById(R.id.cr_tambahLaporan);
         img_chooseTambahLaporan = findViewById(R.id.img_chooseTambahLaporan);
-        cr_fotoLaporan = findViewById(R.id.cr_fotoLaporan);
         img_frameTambahLaporan = findViewById(R.id.img_frameTambahLaporan);
         tv_itungCharLaporan = findViewById(R.id.tv_itungCharLaporan);
 
@@ -171,7 +170,6 @@ public class TambahLaporanActivity extends AppCompatActivity {
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filepath);
                 img_frameTambahLaporan.setImageBitmap(bitmap);
-                cr_fotoLaporan.setVisibility(View.VISIBLE);
             } catch (IOException e) {
                 e.printStackTrace();
             }

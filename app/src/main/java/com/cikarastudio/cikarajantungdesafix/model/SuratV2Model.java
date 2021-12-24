@@ -28,8 +28,10 @@ public class SuratV2Model implements Parcelable {
     String updated_at;
     String nama_surat;
     String kode;
+    String kategori;
 
-    public SuratV2Model(String id, String user_id, String formatsurat_id, String status, String nomor_surat, String tgl_awal, String tgl_akhir, String created_at, String updated_at, String nama_surat, String kode) {
+    public SuratV2Model(String id, String user_id, String formatsurat_id, String status, String nomor_surat, String tgl_awal, String tgl_akhir,
+                        String created_at, String updated_at, String nama_surat, String kode, String kategori) {
         this.id = id;
         this.user_id = user_id;
         this.formatsurat_id = formatsurat_id;
@@ -41,6 +43,7 @@ public class SuratV2Model implements Parcelable {
         this.updated_at = updated_at;
         this.nama_surat = nama_surat;
         this.kode = kode;
+        this.kategori = kategori;
     }
 
     protected SuratV2Model(Parcel in) {
@@ -55,6 +58,7 @@ public class SuratV2Model implements Parcelable {
         updated_at = in.readString();
         nama_surat = in.readString();
         kode = in.readString();
+        kategori = in.readString();
     }
 
     public static Creator<SuratV2Model> getCREATOR() {
@@ -149,6 +153,14 @@ public class SuratV2Model implements Parcelable {
         this.kode = kode;
     }
 
+    public String getKategori() {
+        return kategori;
+    }
+
+    public void setKategori(String kategori) {
+        this.kategori = kategori;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -167,5 +179,6 @@ public class SuratV2Model implements Parcelable {
         parcel.writeString(updated_at);
         parcel.writeString(nama_surat);
         parcel.writeString(kode);
+        parcel.writeString(kategori);
     }
 }

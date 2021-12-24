@@ -9,6 +9,7 @@
     android:focusableInTouchMode="true"
     android:gravity="center"
     android:orientation="vertical"
+    android:background="@color/birubgall"
     tools:context=".ui.login.LoginActivity">
 
     <!--    <ImageView-->
@@ -20,18 +21,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:fontFamily="@font/inter_bold"
+        android:fontFamily="@font/poppins_bold"
         android:text="Selamat Datang"
-        android:textColor="@color/black"
+        android:textColor="@color/blacktext"
         android:textSize="35sp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:fontFamily="@font/inter_bold"
+        android:fontFamily="@font/poppins_bold"
         android:text="Login dengan akun anda"
-        android:textColor="@color/black" />
+        android:textColor="@color/blacktext" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,14 +43,18 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/white"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp">
 
             <EditText
                 android:id="@+id/et_loginEmail"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="@drawable/border_putih_biru_inputan"
-                android:fontFamily="@font/inter_regular"
+                android:background="@drawable/border_putih_inputan"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="12sp"
                 android:hint="Email"
                 android:inputType="textEmailAddress" />
 
@@ -58,15 +63,19 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:passwordToggleEnabled="true">
+            app:passwordToggleEnabled="true"
+            app:boxStrokeColor="@color/white"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp">
 
             <EditText
                 android:id="@+id/et_loginPassword"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/border_putih_biru_inputan"
-                android:fontFamily="@font/inter_regular"
+                android:textSize="12sp"
+                android:background="@drawable/border_putih_inputan"
+                android:fontFamily="@font/poppins_regular"
                 android:hint="Password"
                 android:inputType="textPassword" />
 
@@ -84,14 +93,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/biru2"
-                android:gravity="center"
-                android:padding="10dp">
+                android:gravity="center">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter_semibold"
-                    android:text="LOGIN"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:layout_margin="5dp"
+                    android:text="Login"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
 
@@ -110,9 +119,9 @@
                 android:id="@+id/tv_lupaPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_bold"
+                android:fontFamily="@font/poppins_bold"
                 android:text="Lupa Password? Klik Disini"
-                android:textColor="@color/abu" />
+                android:textColor="@color/abutext" />
 
         </LinearLayout>
 

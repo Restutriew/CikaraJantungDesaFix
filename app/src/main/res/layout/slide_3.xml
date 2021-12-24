@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:background="@color/birubgall"
     android:orientation="vertical">
 
     <ImageView
@@ -17,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/inter_extrabold"
+        android:fontFamily="@font/poppins_bold"
         android:gravity="center_horizontal"
         android:text="Lapor, Bergabung Degan Forum, Belanja dan Ajukan Surat-Surat Penting"
         android:textAlignment="center"
@@ -29,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/inter_regular"
+        android:fontFamily="@font/poppins_regular"
         android:gravity="center_horizontal"
         android:text="Dapat Melakukan Pelaporan, Pengajuan Forum, Pengauan lapak dan Pengauan Surat Secara Langsung Ke Desa Yang Kita Tempati"
         android:textAlignment="center" />
