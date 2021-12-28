@@ -1,8 +1,8 @@
 package com.cikarastudio.cikarajantungdesafix.ui.home;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,8 +30,10 @@ import com.android.volley.toolbox.Volley;
 import com.cikarastudio.cikarajantungdesafix.R;
 import com.cikarastudio.cikarajantungdesafix.adapter.ArtikelAdapter;
 import com.cikarastudio.cikarajantungdesafix.adapter.PerangkatDesaAdapter;
+import com.cikarastudio.cikarajantungdesafix.adapter.ProdukSemuaAdapter;
 import com.cikarastudio.cikarajantungdesafix.model.ArtikelModel;
 import com.cikarastudio.cikarajantungdesafix.model.PerangkatDesaModel;
+import com.cikarastudio.cikarajantungdesafix.model.ProdukSemuaModel;
 import com.cikarastudio.cikarajantungdesafix.session.SessionManager;
 import com.cikarastudio.cikarajantungdesafix.ssl.HttpsTrustManager;
 import com.cikarastudio.cikarajantungdesafix.template.kima.text.TextFuntion;
@@ -39,6 +41,7 @@ import com.cikarastudio.cikarajantungdesafix.ui.artikel.DetailArtikelActivity;
 import com.cikarastudio.cikarajantungdesafix.ui.artikel.ListArtikelActivity;
 import com.cikarastudio.cikarajantungdesafix.ui.laporan.LaporanUserActivity;
 import com.cikarastudio.cikarajantungdesafix.ui.loadingdialog.LoadingDialog;
+import com.cikarastudio.cikarajantungdesafix.ui.produk.ListProdukActivity;
 import com.cikarastudio.cikarajantungdesafix.ui.profil.ProfilActivity;
 import com.squareup.picasso.Picasso;
 
@@ -59,8 +62,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     LoadingDialog loadingDialog;
     String id_user, link, linkGambar, token;
     CircleImageView img_photouser;
-    TextView tv_nama, tv_lihatSelengkapnyaArtikel, tv_email;
-    RecyclerView rv_artikel, rv_perangkatDesa;
+    TextView tv_nama, tv_lihatSelengkapnyaArtikel, tv_email, tv_lihatSelengkapnyaProduk;
+    RecyclerView rv_artikel, rv_perangkatDesa, rv_produkSemua;
     TextView tv_dashboardLaporanDibuat, tv_dashboardForumDiikuti, tv_dashboardJumlahProduk, tv_dashboardSuratDibuat;
     CardView cr_fotoProfil,
             cr_dashboardLaporanDibuat, cr_dashboardForumDiikuti, cr_dashboardJumlahProduk, cr_dashboardSuratDibuat;
@@ -68,6 +71,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private ArtikelAdapter artikelAdapter;
     private ArrayList<PerangkatDesaModel> perangkatDesaList;
     private PerangkatDesaAdapter perangkatDesaAdapter;
+    private ArrayList<ProdukSemuaModel> produkSemuaList;
+    private ProdukSemuaAdapter produkSemuaAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -104,6 +109,17 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         rv_artikel.setLayoutManager(linearLayoutManageraaa);
         rv_artikel.setHasFixedSize(true);
 
+        produkSemuaList = new ArrayList<>();
+        rv_produkSemua = root.findViewById(R.id.rv_produkSemua);
+        LinearLayoutManager linearLayoutManageraaabbb = new LinearLayoutManager(getContext()) {
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        };
+        rv_produkSemua.setLayoutManager(linearLayoutManageraaabbb);
+        rv_produkSemua.setHasFixedSize(true);
+
         perangkatDesaList = new ArrayList<>();
         rv_perangkatDesa = root.findViewById(R.id.rv_perangkatDesa);
         LinearLayoutManager rvKategoriAdapter = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
@@ -112,6 +128,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         loadArtikel();
         loadPerangkatDesa();
+        loadSemuaProduk();
 
         tv_dashboardLaporanDibuat = root.findViewById(R.id.tv_dashboardLaporanDibuat);
         tv_dashboardForumDiikuti = root.findViewById(R.id.tv_dashboardForumDiikuti);
@@ -120,6 +137,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         tv_lihatSelengkapnyaArtikel = root.findViewById(R.id.tv_lihatSelengkapnyaArtikel);
         tv_lihatSelengkapnyaArtikel.setOnClickListener(this);
+
+        tv_lihatSelengkapnyaProduk = root.findViewById(R.id.tv_lihatSelengkapnyaProduk);
+        tv_lihatSelengkapnyaProduk.setOnClickListener(this);
 
         cr_dashboardLaporanDibuat = root.findViewById(R.id.cr_dashboardLaporanDibuat);
         cr_dashboardLaporanDibuat.setOnClickListener(this);
@@ -139,9 +159,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         img_photouser = root.findViewById(R.id.img_photouser);
         img_photouser.setOnClickListener(this);
 
-
         return root;
     }
+
 
     @Override
     public void onResume() {
@@ -158,6 +178,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 // do your code
                 Intent keListArtikel = new Intent(getActivity(), ListArtikelActivity.class);
                 startActivity(keListArtikel);
+                break;
+                case R.id.tv_lihatSelengkapnyaProduk:
+                // do your code
+                Intent keListProduk = new Intent(getActivity(), ListProdukActivity.class);
+                startActivity(keListProduk);
                 break;
             case R.id.cr_dashboardLaporanDibuat:
                 // do your code
@@ -209,7 +234,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
                             String resi_gambar = profile_photo_path.replace(" ", "%20");
 
-                            Log.d("calpalnx", profile_photo_path);
 
                             String imageUrl = linkGambar + "user/" + resi_gambar;
                             Picasso.with(getActivity()).load(imageUrl).fit().centerCrop().into(img_photouser);
@@ -635,6 +659,141 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!", Toast.LENGTH_LONG).show();
             }
         }) {
+            @Override
+            protected Response<String> parseNetworkResponse(NetworkResponse response) {
+                try {
+                    Cache.Entry cacheEntry = HttpHeaderParser.parseCacheHeaders(response);
+                    if (cacheEntry == null) {
+                        cacheEntry = new Cache.Entry();
+                    }
+                    final long cacheHitButRefreshed = 10 * 1000; // in 3 minutes cache will be hit, but also refreshed on background
+                    final long cacheExpired = 24 * 60 * 60 * 1000; // in 24 hours this cache entry expires completely
+                    long now = System.currentTimeMillis();
+                    final long softExpire = now + cacheHitButRefreshed;
+                    final long ttl = now + cacheExpired;
+                    cacheEntry.data = response.data;
+                    cacheEntry.softTtl = softExpire;
+                    cacheEntry.ttl = ttl;
+                    String headerValue;
+                    headerValue = response.headers.get("Date");
+                    if (headerValue != null) {
+                        cacheEntry.serverDate = HttpHeaderParser.parseDateAsEpoch(headerValue);
+                    }
+                    headerValue = response.headers.get("Last-Modified");
+                    if (headerValue != null) {
+                        cacheEntry.lastModified = HttpHeaderParser.parseDateAsEpoch(headerValue);
+                    }
+                    cacheEntry.responseHeaders = response.headers;
+                    final String jsonString = new String(response.data,
+                            HttpHeaderParser.parseCharset(response.headers));
+                    return Response.success(jsonString, cacheEntry);
+                } catch (UnsupportedEncodingException e) {
+                    return Response.error(new ParseError(e));
+                }
+            }
+
+        };
+        int socketTimeout = 10000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(policy);
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+        requestQueue.add(stringRequest);
+    }
+
+    private void loadSemuaProduk() {
+        String URL_READ = link + "produk?token=" + token;
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_READ,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        if (produkSemuaList.size() > 0) {
+                            produkSemuaList.clear();
+                        }
+                        try {
+                            JSONArray jsonArray = new JSONArray(response);
+                            if (jsonArray.length() > 0) {
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                                    //data perangkat desa
+                                    String res_link = jsonObject.getString("link").trim();
+
+                                    JSONObject dataJsonObject = jsonObject.getJSONObject("data");
+                                    String res_id = dataJsonObject.getString("id").trim();
+                                    String res_lapakIdProduk = dataJsonObject.getString("lapak_id").trim();
+                                    String res_namaProduk = dataJsonObject.getString("nama").trim();
+                                    String res_keteranganProduk = dataJsonObject.getString("keterangan").trim();
+                                    String res_gambarProduk = dataJsonObject.getString("gambar").trim();
+
+                                    Integer res_hargaProduk = Integer.parseInt(dataJsonObject.getString("harga"));
+                                    Integer res_dilihatProduk = Integer.parseInt(dataJsonObject.getString("dilihat"));
+                                    String res_createdAtProduk = dataJsonObject.getString("created_at").trim();
+                                    String res_updatedAtProduk = dataJsonObject.getString("updated_at").trim();
+
+                                    String resi_photoProduk = res_gambarProduk.replace(" ", "%20");
+
+                                    produkSemuaList.add(new ProdukSemuaModel(res_id, res_lapakIdProduk, res_namaProduk, res_keteranganProduk,
+                                            resi_photoProduk, res_hargaProduk, res_dilihatProduk, res_createdAtProduk,
+                                            res_updatedAtProduk, res_link));
+
+                                    produkSemuaAdapter = new ProdukSemuaAdapter(getContext(), produkSemuaList);
+                                    rv_produkSemua.setAdapter(produkSemuaAdapter);
+
+                                    produkSemuaAdapter.setOnItemClickCallback(new ProdukSemuaAdapter.OnItemClickCallback() {
+                                        @Override
+                                        public void onItemClicked(ProdukSemuaModel data) {
+                                            String linkProdukJadi = "https://puteran.cikarastudio.com/" + data.getLink();
+                                            Intent keLinkProduk = new Intent(Intent.ACTION_VIEW, Uri.parse(linkProdukJadi));
+                                            startActivity(keLinkProduk);
+                                        }
+                                    });
+                                }
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(getActivity(), "Data Produk Tidak Ada!", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }
+                , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getActivity(), "Tidak Ada Koneksi Internet!", Toast.LENGTH_LONG).show();
+            }
+        }) {
+            @Override
+            protected Response<String> parseNetworkResponse(NetworkResponse response) {
+                try {
+                    Cache.Entry cacheEntry = HttpHeaderParser.parseCacheHeaders(response);
+                    if (cacheEntry == null) {
+                        cacheEntry = new Cache.Entry();
+                    }
+                    final long cacheHitButRefreshed = 10 * 1000; // in 3 minutes cache will be hit, but also refreshed on background
+                    final long cacheExpired = 24 * 60 * 60 * 1000; // in 24 hours this cache entry expires completely
+                    long now = System.currentTimeMillis();
+                    final long softExpire = now + cacheHitButRefreshed;
+                    final long ttl = now + cacheExpired;
+                    cacheEntry.data = response.data;
+                    cacheEntry.softTtl = softExpire;
+                    cacheEntry.ttl = ttl;
+                    String headerValue;
+                    headerValue = response.headers.get("Date");
+                    if (headerValue != null) {
+                        cacheEntry.serverDate = HttpHeaderParser.parseDateAsEpoch(headerValue);
+                    }
+                    headerValue = response.headers.get("Last-Modified");
+                    if (headerValue != null) {
+                        cacheEntry.lastModified = HttpHeaderParser.parseDateAsEpoch(headerValue);
+                    }
+                    cacheEntry.responseHeaders = response.headers;
+                    final String jsonString = new String(response.data,
+                            HttpHeaderParser.parseCharset(response.headers));
+                    return Response.success(jsonString, cacheEntry);
+                } catch (UnsupportedEncodingException e) {
+                    return Response.error(new ParseError(e));
+                }
+            }
+
         };
         int socketTimeout = 10000;
         RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);

@@ -103,7 +103,7 @@
                                     android:gravity="center_vertical"
                                     android:text="Surat\nKeterangan"
                                     android:textColor="@color/blacktext"
-                                    android:textSize="18sp" />
+                                    android:textSize="16sp" />
 
                                 <TextView
                                     android:id="@+id/tv_jumlahKeterangan"
@@ -174,7 +174,7 @@
                                     android:gravity="center_vertical"
                                     android:text="Surat\nPengantar"
                                     android:textColor="@color/blacktext"
-                                    android:textSize="18sp" />
+                                    android:textSize="16sp" />
 
                                 <TextView
                                     android:id="@+id/tv_jumlahPengantar"
@@ -253,7 +253,7 @@
                                     android:gravity="center_vertical"
                                     android:text="Surat\nRekomendasi"
                                     android:textColor="@color/blacktext"
-                                    android:textSize="18sp" />
+                                    android:textSize="16sp" />
 
                                 <TextView
                                     android:id="@+id/tv_jumlahRekomendasi"
@@ -324,7 +324,7 @@
                                     android:gravity="center_vertical"
                                     android:text="Surat\nLainnya"
                                     android:textColor="@color/blacktext"
-                                    android:textSize="18sp" />
+                                    android:textSize="16sp" />
 
                                 <TextView
                                     android:id="@+id/tv_jumlahLainnya"

@@ -72,8 +72,6 @@ public class ProdukAdapter extends RecyclerView.Adapter<ProdukAdapter.ProdukView
         textFuntion.setTextDanNullData(holder.keterangan, keteranganProduk);
         textFuntion.setAngka(holder.kaliDilihat, dilihatProduk);
 
-        Log.d("calpalnx", gambarProduk);
-
         String imageUrl = "https://puteran.cikarastudio.com/public/img/penduduk/produk/" + gambarProduk;
         Picasso.with(mContext.getApplicationContext()).load(imageUrl).fit().centerCrop().into(holder.gambar);
 
